@@ -3,25 +3,37 @@
   <h2 class="fc-h">{{ section.settings.heading }}</h2>
   <p class="fc-p">{{ section.settings.text }}</p>
   <div class="fc-cta">
-    <a href="{{ section.settings.button_url }}" class="btn btn-t btn-full">{{ section.settings.button_text }}</a>
+    <a href="{{ section.settings.button_url }}" class="btn btn-t btn-full fc-btn">{{ section.settings.button_text }}</a>
+    <div class="fc-trust">
+      <span>{{ section.settings.trust_1 }}</span>
+      <span>{{ section.settings.trust_2 }}</span>
+    </div>
   </div>
 </section>
 <style>
   /* ── FINAL CTA ───────────────────────────────────── */
   .final-cta{background:var(--surface);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
   .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(0,191,168,.07) 0%,transparent 55%);pointer-events:none}
-  
-  
+  .fc-eyebrow{display:block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:16px;position:relative;z-index:1}
+  .fc-h{font-family:var(--f-dis);font-size:clamp(32px,6vw,52px);font-weight:800;letter-spacing:-.025em;line-height:1;margin-bottom:16px;position:relative;z-index:1}
+  .fc-h em{color:var(--coral);font-style:normal}
+  .fc-p{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7;max-width:500px;margin:0 auto 28px;position:relative;z-index:1}
+  .fc-cta{display:flex;flex-direction:column;align-items:center;gap:12px;position:relative;z-index:1}
+  .fc-btn{max-width:360px}
+  .fc-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+  .fc-trust span{font-size:12px;color:var(--muted)}
 </style>
 {% schema %}
 {
   "name": "Phasis Electro Final CTA",
   "settings": [
     { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Start Hydrating Right" },
-    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Your Water Isn't<br><em>Working Hard Enough.</em>" },
-    { "type": "textarea", "id": "text", "label": "Text", "default": "50+ trace minerals. Zero sugar. Liquid drops - works in any drink." },
+    { "type": "html", "id": "heading", "label": "Heading (HTML)", "default": "Your Water Isn't<br><em>Working Hard Enough.</em>" },
+    { "type": "html", "id": "text", "label": "Text (HTML)", "default": "50+ trace minerals. Zero sugar. Liquid drops - works in any drink. <strong>70%</strong> less per serving than leading powders. Backed by a 30-day guarantee." },
     { "type": "text", "id": "button_text", "label": "Button text", "default": "GET ELECTRO+ — FROM $25" },
-    { "type": "url", "id": "button_url", "label": "Button URL" }
+    { "type": "url", "id": "button_url", "label": "Button URL" },
+    { "type": "text", "id": "trust_1", "label": "Trust text 1", "default": "30-day money-back guarantee" },
+    { "type": "text", "id": "trust_2", "label": "Trust text 2", "default": "Free shipping $75+" }
   ],
   "presets": [{ "name": "Phasis Electro Final CTA" }]
 }
