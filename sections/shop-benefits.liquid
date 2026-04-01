@@ -1,0 +1,74 @@
+<!-- ============================================ -->
+<!-- BENEFITS SECTION                             -->
+<!-- ============================================ -->
+{% comment %}
+  Benefits Section
+  - Grid of benefit cards with icon, title, and description.
+{% endcomment %}
+
+<section class="benefits-sec section">
+    <div class="benefits-grid">
+      {% for block in section.blocks %}
+        {% if block.type == 'benefit' %}
+          <div class="benefit-card">
+            <div class="bc-icon">{{ block.settings.icon }}</div>
+            <div class="bc-title">{{ block.settings.title }}</div>
+            <div class="bc-desc">{{ block.settings.description }}</div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </section>
+  <style>
+        /* ── BENEFITS ────────────────────────────────────── */
+        .benefits-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+        .benefits-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+        @media(min-width:768px){.benefits-grid{grid-template-columns:repeat(4,1fr)}}
+        .benefit-card{padding:16px 14px;border:1px solid var(--border);border-radius:6px;background:var(--surface)}
+        .bc-icon{font-size:24px;margin-bottom:10px}
+        .bc-title{font-family:var(--f-dis);font-size:12px;font-weight:700;margin-bottom:6px}
+        .bc-desc{font-size:11px;color:var(--muted);line-height:1.6}
+  </style>
+  {% schema %}
+  {
+    "name": "Benefits",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "benefit",
+        "name": "Benefit Card",
+        "settings": [
+          {
+            "type": "text",
+            "id": "icon",
+            "label": "Icon (emoji or HTML)",
+            "default": "🔬"
+          },
+          {
+            "type": "text",
+            "id": "title",
+            "label": "Title",
+            "default": "Clinically Informed"
+          },
+          {
+            "type": "textarea",
+            "id": "description",
+            "label": "Description",
+            "default": "Every formula is built around peer-reviewed research. We cite the studies."
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Benefits",
+        "blocks": [
+          { "type": "benefit" },
+          { "type": "benefit" },
+          { "type": "benefit" },
+          { "type": "benefit" }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

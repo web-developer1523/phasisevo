@@ -1,0 +1,234 @@
+<!-- ============================================ -->
+<!-- STACK SECTION                                -->
+<!-- ============================================ -->
+{% comment %}
+  Stack Section
+  - Displays the product bundle or system stack.
+  - Includes items, total savings, and visual representation.
+{% endcomment %}
+
+<section class="stack-sec section" id="stack">
+    <div class="stack-inner">
+      <div>
+        <div class="stack-eyebrow-row"><span>{{ section.settings.eyebrow }}</span></div>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="stack-p mt-4">{{ section.settings.description }}</p>
+        <div class="stack-items">
+          {% for block in section.blocks %}
+            {% if block.type == 'stack_item' %}
+              <div class="si">
+                <div class="si-emoji">{{ block.settings.emoji }}</div>
+                <div class="si-body">
+                  <div class="si-name">{{ block.settings.name }}</div>
+                  <div class="si-desc">{{ block.settings.description }}</div>
+                </div>
+                <div class="si-price">{{ block.settings.price }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="stack-total">
+          <div class="st-label">{{ section.settings.total_label }}</div>
+          <div>
+            <div class="st-original">{{ section.settings.original_price_text }}</div>
+            <div class="st-sale">{{ section.settings.sale_price }} <span class="st-save">{{ section.settings.save_text }}</span></div>
+          </div>
+        </div>
+        <a href="{{ section.settings.button_link }}" class="btn btn-p btn-full">{{ section.settings.button_text }}</a>
+      </div>
+      <div class="stack-visual">
+        <span class="sv-emojis">{{ section.settings.visual_emojis }}</span>
+        <div class="sv-title">{{ section.settings.visual_title }}</div>
+        <div class="sv-sub">{{ section.settings.visual_subtitle }}</div>
+        <div class="sv-stats">
+          {% for block in section.blocks %}
+            {% if block.type == 'stat' %}
+              <div class="sv-stat">
+                <span class="sv-stat-val">{{ block.settings.value }}</span>
+                <span class="sv-stat-lbl">{{ block.settings.label }}</span>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </section>
+  <style>
+    /* ── STACK SECTION ───────────────────────────────── */
+    .stack-sec{background:var(--surface);border-top:1px solid var(--border)}
+    .stack-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .stack-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+    .stack-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+    .stack-sec h2{margin-bottom:14px}
+    .stack-p{font-size:14px;font-weight:300;color:var(--muted-l);line-height:1.75;margin-bottom:20px}
+    
+    .stack-items{display:flex;flex-direction:column;gap:8px;margin-bottom:16px}
+    .si{display:flex;align-items:center;gap:12px;padding:12px 14px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px}
+    .si-emoji{font-size:20px;flex-shrink:0}
+    .si-body{flex:1}
+    .si-name{font-family:var(--f-dis);font-size:13px;font-weight:700}
+    .si-desc{font-size:11px;color:var(--muted)}
+    .si-price{font-family:var(--f-dis);font-size:14px;font-weight:700;flex-shrink:0}
+    
+    .stack-total{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;background:rgba(232,72,42,.07);border:1px solid rgba(232,72,42,.2);border-radius:6px;margin-bottom:16px}
+    .st-label{font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+    .st-original{font-size:12px;color:var(--muted);text-decoration:line-through}
+    .st-sale{font-family:var(--f-dis);font-size:22px;font-weight:800;color:var(--coral)}
+    .st-save{font-size:11px;color:var(--coral);font-weight:600}
+    
+    /* Stack visual — desktop only */
+    .stack-visual{display:none}
+    @media(min-width:1024px){
+      .stack-inner{display:grid;grid-template-columns:1fr 1.1fr;gap:64px;align-items:center}
+      .stack-visual{display:block;background:var(--surface2);border:1px solid var(--border);border-radius:10px;padding:48px 32px;text-align:center;position:relative;overflow:hidden}
+      .stack-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(232,72,42,.06) 0%,transparent 65%);pointer-events:none}
+      .sv-emojis{font-size:52px;letter-spacing:16px;margin-bottom:20px;display:block;position:relative;z-index:1}
+      .sv-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:8px;position:relative;z-index:1}
+      .sv-sub{font-size:12px;color:var(--muted);margin-bottom:24px;position:relative;z-index:1}
+      .sv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}
+      .sv-stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:12px}
+      .sv-stat-val{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--coral);display:block;margin-bottom:3px}
+      .sv-stat-lbl{font-size:10px;color:var(--muted)}
+    }
+  </style>
+  {% schema %}
+  {
+    "name": "The Stack",
+    "settings": [
+      {
+        "type": "text",
+        "id": "eyebrow",
+        "label": "Eyebrow text",
+        "default": "The PHASIS System"
+      },
+      {
+        "type": "html",
+        "id": "heading",
+        "label": "Heading",
+        "default": "Everything your body needs.<br><em>Nothing it doesn't.</em>"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Max Relief for recovery, aches, and soreness. Electro+ to replenish what you sweat out and keep you going. Perform+ to build lean muscle and elevate performance — without the hormones. One system. Built to help you feel and perform better."
+      },
+      {
+        "type": "text",
+        "id": "total_label",
+        "label": "Total label",
+        "default": "The PHASIS Stack"
+      },
+      {
+        "type": "text",
+        "id": "original_price_text",
+        "label": "Original price text",
+        "default": "$190 separately"
+      },
+      {
+        "type": "text",
+        "id": "sale_price",
+        "label": "Sale price",
+        "default": "$162"
+      },
+      {
+        "type": "text",
+        "id": "save_text",
+        "label": "Save text",
+        "default": "— Save $28"
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "BUILD MY STACK"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link"
+      },
+      {
+        "type": "text",
+        "id": "visual_emojis",
+        "label": "Visual emojis",
+        "default": "🧴 💧 💊"
+      },
+      {
+        "type": "text",
+        "id": "visual_title",
+        "label": "Visual title",
+        "default": "The Complete Recovery System"
+      },
+      {
+        "type": "text",
+        "id": "visual_subtitle",
+        "label": "Visual subtitle",
+        "default": "Recovery & soreness · Mineral hydration · Muscle performance"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "stack_item",
+        "name": "Stack Item",
+        "settings": [
+          {
+            "type": "text",
+            "id": "emoji",
+            "label": "Emoji",
+            "default": "🧴"
+          },
+          {
+            "type": "text",
+            "id": "name",
+            "label": "Name",
+            "default": "Max Relief Balm"
+          },
+          {
+            "type": "text",
+            "id": "description",
+            "label": "Description",
+            "default": "4-pathway recovery formula · Jar 60ml"
+          },
+          {
+            "type": "text",
+            "id": "price",
+            "label": "Price",
+            "default": "$60"
+          }
+        ]
+      },
+      {
+        "type": "stat",
+        "name": "Visual Stat",
+        "settings": [
+          {
+            "type": "text",
+            "id": "value",
+            "label": "Value",
+            "default": "4.9★"
+          },
+          {
+            "type": "text",
+            "id": "label",
+            "label": "Label",
+            "default": "Average rating"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "The Stack",
+        "blocks": [
+          { "type": "stack_item" },
+          { "type": "stack_item" },
+          { "type": "stack_item" },
+          { "type": "stat" },
+          { "type": "stat" },
+          { "type": "stat" }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

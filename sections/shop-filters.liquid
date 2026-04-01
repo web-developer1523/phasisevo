@@ -1,0 +1,98 @@
+<!-- ============================================ -->
+<!-- FILTER BAR SECTION                           -->
+<!-- ============================================ -->
+{% comment %}
+  Filter Bar Section
+  - Provides filter tabs and sort dropdown.
+  - Tab texts and counts are dynamic.
+{% endcomment %}
+
+<div class="filter-bar">
+    <div class="filter-tabs">
+      {% for block in section.blocks %}
+        {% if block.type == 'tab' %}
+          <button class="filter-tab {% if forloop.first %}active{% endif %}" data-filter="{{ block.settings.filter_key }}">
+            {{ block.settings.tab_text }}
+            {% if block.settings.show_count %}
+              <span class="filter-count">{{ block.settings.count_value }}</span>
+            {% endif %}
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+    <select class="sort-select">
+      {% for option in section.settings.sort_options %}
+        <option>{{ option }}</option>
+      {% endfor %}
+    </select>
+  </div>
+  <style>
+     /* ── FILTER BAR ──────────────────────────────────── */
+     .filter-bar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 var(--pad);height:48px;gap:16px}
+     .filter-bar::-webkit-scrollbar{display:none}
+     .filter-tabs{display:flex;gap:0;flex-shrink:0}
+     .filter-tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:0 14px;height:48px;cursor:pointer;transition:all .15s;white-space:nowrap;min-height:48px}
+     .filter-tab.active{color:var(--coral);border-bottom-color:var(--coral)}
+     .filter-count{display:inline-flex;align-items:center;justify-content:center;background:rgba(232,72,42,.15);color:var(--coral);font-size:9px;font-weight:700;width:15px;height:15px;border-radius:50%;margin-left:4px}
+     .sort-select{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;color:var(--off-white);font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.04em;padding:6px 10px;cursor:pointer;outline:none;flex-shrink:0;min-height:36px}
+     .sort-select option{background:var(--surface)}
+     @media(min-width:768px){.filter-bar{padding:0 var(--pad-md)}}
+     @media(min-width:1024px){.filter-bar{padding:0 var(--pad-lg)}}
+  </style>
+  {% schema %}
+  {
+    "name": "Filter Bar",
+    "settings": [
+      {
+        "type": "textarea",
+        "id": "sort_options",
+        "label": "Sort options (one per line)",
+        "default": "Featured\nPrice: Low to High\nBest Reviewed"
+      }
+    ],
+    "blocks": [
+      {
+        "type": "tab",
+        "name": "Filter Tab",
+        "settings": [
+          {
+            "type": "text",
+            "id": "tab_text",
+            "label": "Tab Text",
+            "default": "All"
+          },
+          {
+            "type": "text",
+            "id": "filter_key",
+            "label": "Filter Key (data attribute)",
+            "default": "all"
+          },
+          {
+            "type": "checkbox",
+            "id": "show_count",
+            "label": "Show count",
+            "default": true
+          },
+          {
+            "type": "text",
+            "id": "count_value",
+            "label": "Count number",
+            "default": "3"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Filter Bar",
+        "blocks": [
+          { "type": "tab", "settings": { "tab_text": "All", "filter_key": "all" } },
+          { "type": "tab", "settings": { "tab_text": "Recovery", "filter_key": "recovery", "show_count": false } },
+          { "type": "tab", "settings": { "tab_text": "Hydration", "filter_key": "hydration", "show_count": false } },
+          { "type": "tab", "settings": { "tab_text": "Performance", "filter_key": "performance", "show_count": false } },
+          { "type": "tab", "settings": { "tab_text": "The Stack", "filter_key": "stack", "show_count": false } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

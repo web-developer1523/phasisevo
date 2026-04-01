@@ -1,0 +1,63 @@
+<!-- ============================================ -->
+<!-- TRUST BAR SECTION                            -->
+<!-- ============================================ -->
+{% comment %}
+  Trust Bar Section
+  - Dynamic list of trust badges with icons and text.
+  - Icons are rendered as SVG code for consistency.
+{% endcomment %}
+
+<div class="trust-bar">
+    {% for block in section.blocks %}
+      <div class="tb">
+        {{ block.settings.icon_svg }}
+        {{ block.settings.text }}
+      </div>
+    {% endfor %}
+  </div>
+  <style>
+     /* ── TRUST BAR ───────────────────────────────────── */
+     .trust-bar{background:var(--page-bg);border-bottom:1px solid var(--border);display:flex;align-items:center;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+     .trust-bar::-webkit-scrollbar{display:none}
+     .tb{display:flex;align-items:center;gap:6px;font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-l);padding:12px 18px;border-right:1px solid var(--border);flex-shrink:0;white-space:nowrap}
+     .tb:last-child{border-right:none}
+     .tb svg{color:var(--coral);width:12px;height:12px;flex-shrink:0}
+  </style>
+  {% schema %}
+  {
+    "name": "Shop Trust Bar",
+    "settings": [],
+    "blocks": [
+      {
+        "type": "item",
+        "name": "Trust Item",
+        "settings": [
+          {
+            "type": "html",
+            "id": "icon_svg",
+            "label": "Icon (SVG code)",
+            "default": "<svg viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"/></svg>"
+          },
+          {
+            "type": "text",
+            "id": "text",
+            "label": "Text",
+            "default": "3RD PARTY TESTED"
+          }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "Shop Trust Bar",
+        "blocks": [
+          { "type": "item" },
+          { "type": "item" },
+          { "type": "item" },
+          { "type": "item" },
+          { "type": "item" }
+        ]
+      }
+    ]
+  }
+  {% endschema %}

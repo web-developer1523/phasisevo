@@ -1,0 +1,80 @@
+<!-- ============================================ -->
+<!-- QUIZ BANNER SECTION                          -->
+<!-- ============================================ -->
+{% comment %}
+  Quiz Banner Section
+  - Promotional banner with heading, text, and CTA link.
+  - Background and text colors customizable.
+{% endcomment %}
+
+<div style="background:{{ section.settings.bg_color }};border-bottom:1px solid var(--border);padding:14px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px">
+    <div style="display:flex;align-items:center;gap:12px;flex:1;min-width:0">
+      <span style="font-size:20px;flex-shrink:0">{{ section.settings.icon }}</span>
+      <div>
+        <div style="font-family:'Sora',sans-serif;font-size:12px;font-weight:700;margin-bottom:2px">{{ section.settings.title }}</div>
+        <div style="font-size:11px;color:var(--muted)">{{ section.settings.description }}</div>
+      </div>
+    </div>
+    <a href="{{ section.settings.button_link }}" style="flex-shrink:0;display:flex;align-items:center;gap:5px;background:{{ section.settings.button_bg_color }};color:{{ section.settings.button_text_color }};font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;border-radius:5px;text-decoration:none;white-space:nowrap;min-height:44px">{{ section.settings.button_text }}</a>
+  </div>
+  
+  {% schema %}
+  {
+    "name": "Quiz Banner",
+    "settings": [
+      {
+        "type": "color",
+        "id": "bg_color",
+        "label": "Background color",
+        "default": "#18191C"
+      },
+      {
+        "type": "text",
+        "id": "icon",
+        "label": "Icon (emoji or HTML)",
+        "default": "🧬"
+      },
+      {
+        "type": "text",
+        "id": "title",
+        "label": "Title",
+        "default": "Want to improve your health but not sure where to begin?"
+      },
+      {
+        "type": "textarea",
+        "id": "description",
+        "label": "Description",
+        "default": "Most people want to feel better. They just don't know where to begin. The PHASIS Protocol Scan identifies your starting point in 3 minutes — holistic-first, product recommendations second."
+      },
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "Button text",
+        "default": "● FIND YOUR PROTOCOL"
+      },
+      {
+        "type": "url",
+        "id": "button_link",
+        "label": "Button link",
+        "default": "/"
+      },
+      {
+        "type": "color",
+        "id": "button_bg_color",
+        "label": "Button background color",
+        "default": "#E8482A"
+      },
+      {
+        "type": "color",
+        "id": "button_text_color",
+        "label": "Button text color",
+        "default": "#FFFFFF"
+      }
+    ],
+    "presets": [
+      {
+        "name": "Quiz Banner"
+      }
+    ]
+  }
+  {% endschema %}
