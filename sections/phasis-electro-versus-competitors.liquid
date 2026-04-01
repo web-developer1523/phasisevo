@@ -1,0 +1,124 @@
+<section class="vs-sec section">
+  <div class="vs-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="vs-sub mt-4">{{ section.settings.subheading }}</p>
+  </div>
+  <div class="vs-scroll">
+    <div class="vs-table">
+      <div class="vs-head">
+        <div class="vh">{{ section.settings.col_feature }}</div>
+        <div class="vh highlight">{{ section.settings.col_1 }}</div>
+        <div class="vh">{{ section.settings.col_2 }}</div>
+        <div class="vh">{{ section.settings.col_3 }}</div>
+      </div>
+      {% for block in section.blocks %}
+        <div class="vs-row" {{ block.shopify_attributes }}>
+          <div class="vc feature">{{ block.settings.feature }}</div>
+          <div class="vc {{ block.settings.col_1_state }} hl">{{ block.settings.col_1_text }}</div>
+          <div class="vc {{ block.settings.col_2_state }}">{{ block.settings.col_2_text }}</div>
+          <div class="vc {{ block.settings.col_3_state }}">{{ block.settings.col_3_text }}</div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style>
+  /* ── VS COMPETITION ──────────────────────────────── */
+  .vs-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+  .vs-top{text-align:center;margin-bottom:28px}
+  .vs-top h2{margin-bottom:12px}
+  .vs-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7}
+  
+  .vs-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--pad))}
+  @media(min-width:768px){.vs-scroll{overflow-x:visible;margin:0}}
+  
+  .vs-table{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;min-width:580px}
+  @media(min-width:768px){.vs-table{min-width:0}}
+  
+  .vs-head{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
+  .vh{padding:10px 14px;font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+  .vh.highlight{color:var(--teal);background:rgba(0,191,168,.05)}
+  .vs-row{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;border-bottom:1px solid var(--border);align-items:center}
+  .vs-row:last-child{border-bottom:none}
+  .vc{padding:10px 14px;font-size:12px}
+  .vc.feature{color:var(--off-white);font-weight:500}
+  .vc.yes{color:var(--teal);font-weight:600;text-align:center}.vc.yes::after{content:' ✓'}
+  .vc.no{color:var(--muted);text-align:center;font-size:11px}.vc.no::after{content:' ✗';color:#c04040}
+  .vc.partial{color:var(--muted-l);text-align:center;font-size:11px}
+  .vc.hl{background:rgba(0,191,168,.04)}
+</style>
+{% schema %}
+{
+  "name": "Phasis Electro Versus",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "How It Compares" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Why <em>Mineral-First</em><br>Changes Everything" },
+    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Most electrolyte products are sugar delivery systems. Electro+ flips the formula entirely." },
+    { "type": "text", "id": "col_feature", "label": "Header column 1", "default": "Feature" },
+    { "type": "text", "id": "col_1", "label": "Header column 2", "default": "Electro+" },
+    { "type": "text", "id": "col_2", "label": "Header column 3", "default": "LMNT" },
+    { "type": "text", "id": "col_3", "label": "Header column 4", "default": "Sports Drinks" }
+  ],
+  "blocks": [
+    {
+      "type": "row",
+      "name": "Comparison row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Cost per serving" },
+        { "type": "text", "id": "col_1_text", "label": "Electro+ text", "default": "From $0.38" },
+        {
+          "type": "select",
+          "id": "col_1_state",
+          "label": "Electro+ style",
+          "default": "yes",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" },
+            { "value": "partial", "label": "Partial" }
+          ]
+        },
+        { "type": "text", "id": "col_2_text", "label": "LMNT text", "default": "~$1.50" },
+        {
+          "type": "select",
+          "id": "col_2_state",
+          "label": "LMNT style",
+          "default": "no",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" },
+            { "value": "partial", "label": "Partial" }
+          ]
+        },
+        { "type": "text", "id": "col_3_text", "label": "Sports Drinks text", "default": "$0.50-$2.00" },
+        {
+          "type": "select",
+          "id": "col_3_state",
+          "label": "Sports Drinks style",
+          "default": "no",
+          "options": [
+            { "value": "yes", "label": "Yes" },
+            { "value": "no", "label": "No" },
+            { "value": "partial", "label": "Partial" }
+          ]
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Phasis Electro Versus",
+      "blocks": [
+        { "type": "row", "settings": { "feature": "Cost per serving", "col_1_text": "From $0.38", "col_1_state": "yes", "col_2_text": "~$1.50", "col_2_state": "no", "col_3_text": "$0.50-$2.00", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "Format", "col_1_text": "Liquid drops", "col_1_state": "yes", "col_2_text": "Powder packets", "col_2_state": "no", "col_3_text": "Pre-mixed", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "Sugar content", "col_1_text": "0g - none ever", "col_1_state": "yes", "col_2_text": "0g (stevia)", "col_2_state": "partial", "col_3_text": "21-34g", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "Sweeteners", "col_1_text": "None", "col_1_state": "yes", "col_2_text": "Stevia", "col_2_state": "no", "col_3_text": "Multiple", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "Mineral spectrum", "col_1_text": "50+ minerals", "col_1_state": "yes", "col_2_text": "4 minerals", "col_2_state": "no", "col_3_text": "2-3 minerals", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "Works in any drink", "col_1_text": "Yes - no taste change", "col_1_state": "yes", "col_2_text": "No - strong flavor", "col_2_state": "no", "col_3_text": "Standalone only", "col_3_state": "no" } },
+        { "type": "row", "settings": { "feature": "3rd party tested", "col_1_text": "Every batch", "col_1_state": "yes", "col_2_text": "Varies", "col_2_state": "partial", "col_3_text": "Rarely", "col_3_state": "no" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

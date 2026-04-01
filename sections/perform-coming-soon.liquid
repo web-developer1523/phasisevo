@@ -1,0 +1,258 @@
+<section class="perf-sec {{ section.settings.custom_css_class }}">
+  <div class="perf-inner">
+    <div class="perf-l">
+      <div class="perf-eyebrow"><span>{{ section.settings.eyebrow }}</span></div>
+      <h2 class="perf-h">
+        {{ section.settings.heading_line1 }}<br>
+        {{ section.settings.heading_line2 }}<br>
+        <em>{{ section.settings.heading_highlight }}</em>
+      </h2>
+      <p class="perf-p">
+        {{ section.settings.description | replace: "β-Ecdysterone", "<span class='highlight'>β-Ecdysterone</span>" | raw  }}
+      </p>
+
+      <div class="perf-pills">
+        {% for block in section.blocks %}
+          {% if block.type == 'pill' %}
+            <div class="pp">{{ block.settings.text }}</div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <span class="perf-form-label">{{ section.settings.form_label }}</span>
+
+      <!-- SHOPIFY NEWSLETTER FORM -->
+      {% form 'customer' %}
+        <div class="perf-form">
+          <input
+            class="perf-input"
+            type="email"
+            name="contact[email]"
+            placeholder="{{ section.settings.placeholder }}"
+            required
+          >
+
+          <input type="hidden" name="contact[tags]" value="newsletter">
+
+          <button class="btn btn-a" type="submit">
+            {% if section.settings.show_dot %}• {% endif -%}
+            {{ section.settings.button_text }}
+          </button>
+        </div>
+
+        {% if form.posted_successfully? %}
+          <p class="perf-note">Thanks! You're on the list.</p>
+        {% endif %}
+
+        {% if form.errors %}
+          <p class="perf-note">{{ form.errors | default_errors }}</p>
+        {% endif %}
+      {% endform %}
+
+      <p class="perf-note">{{ section.settings.note }}</p>
+    </div>
+
+    <div>
+      <div class="perf-card">
+        <div class="perf-status">
+          <div class="perf-dot"></div>
+          <span class="perf-status-txt">{{ section.settings.status_text }}</span>
+        </div>
+        <div class="perf-pname">{{ section.settings.product_name }}</div>
+        <div class="perf-psub">{{ section.settings.product_sub }}</div>
+
+        <div class="perf-stats">
+          {% for block in section.blocks %}
+            {% if block.type == 'stat' %}
+              <div class="pstat">
+                <div class="pstat-v">{{ block.settings.value }}</div>
+                <div class="pstat-l">{{ block.settings.label }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <div class="perf-div"></div>
+
+        <div class="perf-launch">
+          <div>
+            <div class="pl-lbl">{{ section.settings.launch_label }}</div>
+            <div class="pl-val">{{ section.settings.launch_value }}</div>
+          </div>
+          <div style="text-align:right">
+            <div class="pl-lbl">{{ section.settings.perk_label }}</div>
+            <div class="pl-val amber">{{ section.settings.perk_value }}</div>
+          </div>
+        </div>
+
+        <div class="countdown">
+          <div class="cdc"><span class="cdc-n" id="cd-d">--</span><span class="cdc-l">Days</span></div>
+          <div class="cdc"><span class="cdc-n" id="cd-h">--</span><span class="cdc-l">Hours</span></div>
+          <div class="cdc"><span class="cdc-n" id="cd-m">--</span><span class="cdc-l">Mins</span></div>
+          <div class="cdc"><span class="cdc-n" id="cd-s">--</span><span class="cdc-l">Secs</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Perform Coming Soon",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom Css Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Coming Soon · Endurance & Strength"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Nature's Most"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Powerful Anabolic."
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlighted Text",
+      "default": "Perform+"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Built around β-Ecdysterone — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk."
+    },
+    {
+      "type": "text",
+      "id": "form_label",
+      "label": "Form Label",
+      "default": "Get early access + launch-day pricing"
+    },
+    {
+      "type": "text",
+      "id": "placeholder",
+      "label": "Input Placeholder",
+      "default": "your@email.com"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "NOTIFY ME"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_dot",
+      "label": "Show Dot Before Button Text",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "note",
+      "label": "Bottom Note",
+      "default": "No spam. First access + exclusive pricing for subscribers."
+    },
+    {
+      "type": "text",
+      "id": "status_text",
+      "label": "Status Text",
+      "default": "Launching Soon"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Product Name",
+      "default": "Perform+"
+    },
+    {
+      "type": "text",
+      "id": "product_sub",
+      "label": "Product Subtitle",
+      "default": "β-Ecdysterone · Muscle & Endurance Formula"
+    },
+    {
+      "type": "text",
+      "id": "launch_label",
+      "label": "Launch Label",
+      "default": "Est. Launch"
+    },
+    {
+      "type": "text",
+      "id": "launch_value",
+      "label": "Launch Value",
+      "default": "Spring 2026"
+    },
+    {
+      "type": "text",
+      "id": "perk_label",
+      "label": "Perk Label",
+      "default": "Waitlist Perk"
+    },
+    {
+      "type": "text",
+      "id": "perk_value",
+      "label": "Perk Value",
+      "default": "Early Access Pricing"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pill",
+      "name": "Feature Pill",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "stat",
+      "name": "Stat Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Perform Coming Soon",
+      "blocks": [
+        { "type": "pill" },
+        { "type": "pill" },
+        { "type": "pill" },
+        { "type": "pill" },
+        { "type": "pill" },
+        { "type": "pill" },
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}

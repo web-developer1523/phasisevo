@@ -1,0 +1,330 @@
+<div class="hero {{ section.settings.custom_css_class }}">
+  <div class="hero-l">
+
+    {% if section.settings.eyebrow != blank %}
+      <div class="hero-eyebrow">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+    {% endif %}
+
+    <h1 class="hero-h1">
+      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line2 }}<br>
+      <em>{{ section.settings.heading_emphasis }}</em>
+    </h1>
+
+    <p class="hero-hook">
+      {{ section.settings.hook_text }}
+    </p>
+
+    <!-- PROOF ROW -->
+    <div class="proof-row">
+      <div class="stars">★★★★★</div>
+
+      {% assign proof_blocks = section.blocks | where: "type", "proof" %}
+      {% for block in proof_blocks %}
+        <span class="proof-item">
+          <b>{{ block.settings.bold_text }}</b> {{ block.settings.normal_text }}
+        </span>
+
+        {% unless forloop.last %}
+          <span class="proof-sep">·</span>
+        {% endunless %}
+      {% endfor %}
+    </div>
+
+    <!-- CTA -->
+    <div class="hero-cta">
+      <a href="{{ section.settings.cta_link }}" class="btn btn-p btn-lg">
+        {{ section.settings.cta_text }}
+      </a>
+
+      <div class="hero-cta-sub">
+        {% for block in section.blocks %}
+          {% if block.type == 'cta_point' %}
+            <span class="cta-sub-item">
+              {{ block.settings.text }}
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% if section.settings.quiz_text != blank %}
+        <a href="{{ section.settings.quiz_link }}" class="hero-quiz-link">
+          {{ section.settings.quiz_text }}
+        </a>
+      {% endif %}
+    </div>
+
+    <!-- STACK -->
+    {% if section.settings.show_stack %}
+      <a href="{{ section.settings.stack_link }}" class="stack-nudge">
+        <div class="stack-nudge-icon">
+          {{ section.settings.stack_icon }}
+        </div>
+
+        <div class="stack-nudge-text">
+          <div class="stack-nudge-label">
+            {{ section.settings.stack_label }}
+          </div>
+          <div class="stack-nudge-desc">
+            {{ section.settings.stack_desc }}
+          </div>
+        </div>
+
+        <div class="stack-nudge-arrow">→</div>
+      </a>
+    {% endif %}
+
+  </div>
+
+  <!-- RIGHT SIDE -->
+  <div class="hero-r">
+
+    <div class="hero-bg-text">
+      {{ section.settings.bg_text }}
+    </div>
+
+    <!-- PRODUCT IMAGE / EMOJI -->
+    <div class="hero-product-wrap">
+      {% if section.settings.product_image != blank %}
+        <img 
+          src="{{ section.settings.product_image | image_url: width: 800 }}"
+          alt="Product Image"
+          class="hero-product-img"
+          loading="lazy"
+        >
+      {% else %}
+        <div class="hero-product-emo">
+          {{ section.settings.product_emoji }}
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- TESTIMONIAL -->
+    {% for block in section.blocks %}
+      {% if block.type == 'testimonial' %}
+        <div class="hero-rev">
+          <div class="stars">★★★★★</div>
+          <blockquote>{{ block.settings.quote }}</blockquote>
+          <cite>
+            {{ block.settings.name }}
+            <span>{{ block.settings.meta }}</span>
+          </cite>
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+</div>
+
+<style>
+.hero-product-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.hero-product-img {
+  max-width: 320px;
+  width: 100%;
+  object-fit: contain;
+
+  /* FLOATING ANIMATION */
+  animation: floatProduct 4s ease-in-out infinite;
+  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.4));
+}
+
+@keyframes floatProduct {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+.hero-product-emo {
+  font-size: 80px;
+}
+</style>
+
+{% schema %}
+{
+  "name": "Hero - Max Relief",
+  "settings": [
+    {
+  
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Real Relief · Made to Evolve"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Nothing Has"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Worked."
+    },
+    {
+      "type": "text",
+      "id": "heading_emphasis",
+      "label": "Heading Emphasis",
+      "default": "Until Now."
+    },
+    {
+      "type": "textarea",
+      "id": "hook_text",
+      "label": "Hook Text",
+      "default": "Most recovery products treat the surface..."
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "CTA Text",
+      "default": "GET MAX RELIEF"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA Link"
+    },
+    {
+      "type": "text",
+      "id": "quiz_text",
+      "label": "Quiz Text",
+      "default": "🧬 Find Your Protocol →"
+    },
+    {
+      "type": "url",
+      "id": "quiz_link",
+      "label": "Quiz Link"
+    },
+    {
+      "type": "text",
+      "id": "bg_text",
+      "label": "Background Text",
+      "default": "RELIEF"
+    },
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Product Image"
+    },
+    {
+      "type": "text",
+      "id": "product_emoji",
+      "label": "Fallback Emoji",
+      "default": "🧴"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_stack",
+      "label": "Show Stack Nudge",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "stack_icon",
+      "label": "Stack Icon",
+      "default": "💧"
+    },
+    {
+      "type": "text",
+      "id": "stack_label",
+      "label": "Stack Label",
+      "default": "Stack & Save · Electro+"
+    },
+    {
+      "type": "text",
+      "id": "stack_desc",
+      "label": "Stack Description",
+      "default": "Add mineral-first hydration to your recovery protocol"
+    },
+    {
+      "type": "url",
+      "id": "stack_link",
+      "label": "Stack Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "proof",
+      "name": "Proof Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "bold_text",
+          "default": "4.9",
+          "label": "Bold Text"
+        },
+        {
+          "type": "text",
+          "id": "normal_text",
+          "default": "verified reviews",
+          "label": "Normal Text"
+        }
+      ]
+    },
+    {
+      "type": "cta_point",
+      "name": "CTA Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "default": "Free shipping over $75",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "quote",
+          "default": "This is the only thing that actually works.",
+          "label": "Quote"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "default": "Megan T.",
+          "label": "Name"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "default": "Max Relief · Verified Buyer",
+          "label": "Meta"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero - Max Relief",
+      "blocks": [
+        { "type": "proof" },
+        { "type": "proof" },
+        { "type": "proof" },
+        { "type": "cta_point" },
+        { "type": "cta_point" },
+        { "type": "cta_point" },
+        { "type": "testimonial" }
+      ]
+    }
+  ]
+}
+{% endschema %}

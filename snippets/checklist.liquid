@@ -1,0 +1,12 @@
+{% if icon != blank or content != blank %}
+    <div class="checklist_wrap">
+        {% for item in product.metafields.custom.checklist.value %}
+            <div class="checklist_item">
+              {% if icon != blank %}
+                <img class="checklist_icon" src="{{ icon | image_url: width: 100 }}" alt="{{ icon.alt }}" />
+              {% endif %}
+              <span class="checklist_content">{{ item }}</span>
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

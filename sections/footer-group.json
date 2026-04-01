@@ -1,0 +1,87 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "type": "footer",
+  "name": "t:sections.footer.settings.footer-group.label",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "blocks": {
+        "footer-0": {
+          "type": "logo_info",
+          "settings": {
+            "logo": "shopify://shop_images/footer-logo_1.png",
+            "logo_width": 100,
+            "description": "<em>Recovery & Replenishment · Made to Evolve</em>Clinically-driven, plant-powered products built for real relief and real recovery."
+          }
+        },
+        "footer-1": {
+          "type": "link_list",
+          "disabled": true,
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer-menu-1",
+            "default_open": false
+          }
+        },
+        "link_list_knBYMN": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Quick Links",
+            "menu": "footer-menu-3",
+            "default_open": false
+          }
+        },
+        "footer-2": {
+          "type": "link_list",
+          "settings": {
+            "heading": "Policies",
+            "menu": "footer-menu-2",
+            "default_open": false
+          }
+        },
+        "contacts_KYPCki": {
+          "type": "contacts",
+          "settings": {
+            "address": "",
+            "phone": "",
+            "email": "Admin@naturalperformance.co",
+            "working_hours": ""
+          }
+        }
+      },
+      "block_order": [
+        "footer-0",
+        "footer-1",
+        "link_list_knBYMN",
+        "footer-2",
+        "contacts_KYPCki"
+      ],
+      "custom_css": [
+        "@media screen and (min-width: 990px) {.footer-block--menu {flex: 1; max-width: unset; }}"
+      ],
+      "settings": {
+        "color_scheme": "background-2",
+        "icon_style": "secondary",
+        "show_social": true,
+        "enable_country_selector": false,
+        "enable_language_selector": false,
+        "payment_enable": true,
+        "show_policy": false,
+        "enable_copyright_date": true,
+        "enable_copyright_shopname": true,
+        "enable_follow_on_shop": false
+      }
+    }
+  },
+  "order": [
+    "footer"
+  ]
+}

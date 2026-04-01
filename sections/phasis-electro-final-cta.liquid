@@ -1,0 +1,28 @@
+<section class="final-cta section">
+  <span class="fc-eyebrow">{{ section.settings.eyebrow }}</span>
+  <h2 class="fc-h">{{ section.settings.heading }}</h2>
+  <p class="fc-p">{{ section.settings.text }}</p>
+  <div class="fc-cta">
+    <a href="{{ section.settings.button_url }}" class="btn btn-t btn-full">{{ section.settings.button_text }}</a>
+  </div>
+</section>
+<style>
+  /* ── FINAL CTA ───────────────────────────────────── */
+  .final-cta{background:var(--surface);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(0,191,168,.07) 0%,transparent 55%);pointer-events:none}
+  
+  
+</style>
+{% schema %}
+{
+  "name": "Phasis Electro Final CTA",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Start Hydrating Right" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Your Water Isn't<br><em>Working Hard Enough.</em>" },
+    { "type": "textarea", "id": "text", "label": "Text", "default": "50+ trace minerals. Zero sugar. Liquid drops - works in any drink." },
+    { "type": "text", "id": "button_text", "label": "Button text", "default": "GET ELECTRO+ — FROM $25" },
+    { "type": "url", "id": "button_url", "label": "Button URL" }
+  ],
+  "presets": [{ "name": "Phasis Electro Final CTA" }]
+}
+{% endschema %}

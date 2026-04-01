@@ -1,0 +1,484 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_n6bL6d": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_mBXdnr": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/wholesale_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Partner With Purpose",
+            "text": "<p>Premium Products. Transparent Process. Trusted Partnership.</p>",
+            "text_width": "large",
+            "button_label": "Apply for Partnership",
+            "button_link": "#wholesale-form",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0.5,
+            "overlay_opacity_mobile": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_mBXdnr"
+      ],
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "image_with_text_jmVXRY": {
+      "type": "image-with-text",
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".image-with-text__content {background: transparent;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "image_position": "image_left",
+        "content_alignment": "left",
+        "image": "shopify://shop_images/why_partner.jpg",
+        "image_size": "adapt",
+        "subheading": "",
+        "dot": false,
+        "heading": "Why Partner With PHASIS",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "<p>PHASIS is built on quality, transparency, and trust. With years of experience in sourcing, formulation, and manufacturing, we create premium, science-backed products from start to finish. Every ingredient is carefully vetted, every batch is third-party tested, and every partner receives consistent communication and support. Partnering with Phasis means aligning with a team committed to integrity, innovation, and lasting success.</p>",
+        "button_label": "",
+        "button_link": "",
+        "add_product_to_cart": false,
+        "product_to_add_to_cart": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_dBn8jN": {
+      "type": "rich-text",
+      "custom_css": [
+        "{text-align: center;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Our Proven Process",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "#",
+        "button_style": "secondary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_CEetXt": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_3w6cr8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/proven_1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Sourcing",
+            "text": "Farmers (raw ingredients) / Manufacturers (extracts)",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_rE69Th": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/proven_2.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Formulation",
+            "text": "In-house formulation and packaging",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_qMP6Ey": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/proven_3.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Testing",
+            "text": "3rd-party testing to verify purity and potency",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_HY3qWb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/proven_4.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Distribution",
+            "text": "Partners (Retailers, Wholesalers, Affiliates, Medical professionals)",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_BQNBrA": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/proven_5.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Consumer",
+            "text": "Individuals and communities who use Phasis products to support their wellness journey",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_3w6cr8",
+        "column_rE69Th",
+        "column_qMP6Ey",
+        "column_HY3qWb",
+        "column_BQNBrA"
+      ],
+      "custom_css": [
+        "@media (min-width: 990px) {.multicolumn-list__item:nth-child(4):before {display: block; left: auto; right: -0.8rem; } .multicolumn-list__item:last-child {grid-column: 3; }}"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 3,
+        "content_alignment": "center",
+        "swipe_on_mobile": true,
+        "card_heading_tag": "h5",
+        "card_heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_xnVjRE": {
+      "type": "rich-text",
+      "custom_css": [
+        "{background: #e9e9e9b2; text-align: center;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Wholesale Benefits",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "#",
+        "button_style": "secondary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_UiyYCb": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_PmBc3g": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/reliable.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Reliable Supply Chain",
+            "text": "Full transparency from cultivation to delivery.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_m8CzjV": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/third-party.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Third-Party Tested Products",
+            "text": "All batches verified for purity and consistency.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_7qfkh6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/premium.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Premium Formulations",
+            "text": "Clean, science-based ingredients designed for results.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_YtrrJy": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/fast.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Fast Fulfillment",
+            "text": "Efficient in-house logistics and packaging.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_aMitVz": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/dedicated.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Dedicated Support",
+            "text": "Marketing materials, education, and partner resources included.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_PmBc3g",
+        "column_m8CzjV",
+        "column_7qfkh6",
+        "column_YtrrJy",
+        "column_aMitVz"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".background {background: transparent;}",
+        "@media (min-width: 990px) {.multicolumn-list__item:nth-child(4):before {display: block; left: auto; right: -0.8rem; } .multicolumn-list__item:last-child {grid-column: 3; }}"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 3,
+        "content_alignment": "center",
+        "swipe_on_mobile": true,
+        "card_heading_tag": "h5",
+        "card_heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "wholesale_form_bmN98q": {
+      "type": "wholesale-form",
+      "custom_css": [
+        "{background: #e9e9e9b2;}"
+      ],
+      "name": "Wholesale Form",
+      "settings": {
+        "content_align": "center",
+        "heading": "",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "",
+        "additional_text": "",
+        "image_ratio": "16/9",
+        "button_style": "secondary",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_4TzWNm": {
+      "type": "rich-text",
+      "disabled": true,
+      "custom_css": [
+        "{background: #e9e9e9b2; text-align: center;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "Apply for Wholesale Access",
+        "button_link": "#",
+        "button_style": "secondary",
+        "button_dot": true,
+        "margin_top": "s",
+        "margin_bottom": "m",
+        "section_id": ""
+      }
+    },
+    "slideshow_phetXr": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_kPCrQP": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/join.jpg",
+            "color_scheme": "background-2",
+            "heading": "Join the Movement",
+            "text": "",
+            "text_width": "large",
+            "button_label": "Apply for Wholesale Access",
+            "button_link": "#wholesale-form",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0.5,
+            "overlay_opacity_mobile": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_kPCrQP"
+      ],
+      "custom_css": [
+        ".container {align-self: center;}",
+        "@media (max-width: 767px) {.slideshow-slide__text {width: 100%; }}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "center",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h2",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_n6bL6d",
+    "image_with_text_jmVXRY",
+    "rich_text_dBn8jN",
+    "multicolumn_CEetXt",
+    "rich_text_xnVjRE",
+    "multicolumn_UiyYCb",
+    "wholesale_form_bmN98q",
+    "rich_text_4TzWNm",
+    "slideshow_phetXr"
+  ]
+}

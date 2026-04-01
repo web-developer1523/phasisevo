@@ -1,0 +1,28 @@
+{
+  "sections": {
+    "hero": { "type": "phasis-electro-hero", "settings": {} },
+    "trust": { "type": "phasis-electro-trust", "settings": {} },
+    "problem": { "type": "phasis-electro-problem", "settings": {} },
+    "what_it_is": { "type": "phasis-electro-what-it-is", "settings": {} },
+    "versus_competitors": { "type": "phasis-electro-versus-competitors", "settings": {} },
+    "science": { "type": "phasis-electro-science", "settings": {} },
+    "social_proof": { "type": "phasis-electro-reviews", "settings": {} },
+    "purchase": { "type": "phasis-electro-purchase", "settings": {} },
+    "faq": { "type": "phasis-electro-faq", "settings": {} },
+    "final_cta": { "type": "phasis-electro-final-cta", "settings": {} },
+    "footer": { "type": "phasis-electro-footer", "settings": {} }
+  },
+  "order": [
+    "hero",
+    "trust",
+    "problem",
+    "what_it_is",
+    "versus_competitors",
+    "science",
+    "social_proof",
+    "purchase",
+    "faq",
+    "final_cta",
+    "footer"
+  ]
+}

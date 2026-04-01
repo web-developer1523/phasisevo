@@ -1,0 +1,149 @@
+<section class="problem-sec section {{ section.settings.custom_css_class }}">
+
+  <div class="ps-eyebrow-row">
+    <span>{{ section.settings.eyebrow }}</span>
+  </div>
+
+  <h2>
+    {{ section.settings.heading_line1 }}<br>
+    <em>{{ section.settings.heading_em }}</em>
+  </h2>
+
+  <p class="ps-intro mt-4">
+    {{ section.settings.intro }}
+  </p>
+
+  <div class="problems-list">
+    {% for block in section.blocks %}
+      <div class="prob-item">
+        <div class="pi-icon">{{ block.settings.icon }}</div>
+        <div>
+          <div class="pi-title">{{ block.settings.title }}</div>
+          <div class="pi-desc">{{ block.settings.desc }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="resolution">
+    <span class="res-label">{{ section.settings.res_label }}</span>
+    <div class="res-text">
+      {{ section.settings.res_text }}
+    </div>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Problem Section",
+  "settings": [
+   {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why PHASIS Exists"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "The Industry Has"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading Emphasis",
+      "default": "Four Serious Problems."
+    },
+    {
+      "type": "richtext",
+      "id": "intro",
+      "label": "Intro Text",
+      "default": "<p>The supplement industry is worth over $150 billion globally. Most of it is <strong>underdosed, mislabeled, or built around ingredients that have no clinical support.</strong> We built PHASIS to be the exception to each of these.</p>"
+    },
+    {
+      "type": "text",
+      "id": "res_label",
+      "label": "Resolution Label",
+      "default": "The PHASIS Response"
+    },
+    {
+      "type": "richtext",
+      "id": "res_text",
+      "label": "Resolution Text",
+      "default": "<p>Every product we make is <em>third-party tested, clinically informed, transparently labeled, and fairly priced.</em> That's the baseline. Not a differentiator — the minimum standard.</p>"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "problem",
+      "name": "Problem Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "⚗️"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Underdosing"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Independent testing found many supplements contain far less than claimed on the label."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Problem Section",
+      "blocks": [
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "⚗️",
+            "title": "Underdosing",
+            "desc": "Independent testing found many ecdysterone supplements contain less than 0.1% of the dose claimed on the label. This isn't rare — it's the norm across most supplement categories."
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "🧪",
+            "title": "No Third-Party Testing",
+            "desc": "Most brands test nothing. They trust their supplier's certificate and print whatever the COA says on the label. We test every batch independently — with results available to every customer."
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "📊",
+            "title": "Junk Science",
+            "desc": "Ingredients go viral on social media. Brands rush to put them in products before the research is established. We only formulate around peer-reviewed, human clinical research — not trends."
+          }
+        },
+        {
+          "type": "problem",
+          "settings": {
+            "icon": "💰",
+            "title": "Price Gouging",
+            "desc": "Brands overcharge for basic formulations. Quality doesn't have to mean expensive — it means honest."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

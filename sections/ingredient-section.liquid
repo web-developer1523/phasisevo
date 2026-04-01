@@ -1,0 +1,77 @@
+<section class="ingr-sec {{ section.settings.custom_css_class }}">
+  <div class="ingr-hdr">
+    <div>
+      <span class="eyebrow">{{ section.settings.eyebrow_text }}</span>
+      <h2 class="sec-title">{{ section.settings.heading }}<br><em>{{ section.settings.subheading }}</em></h2>
+    </div>
+    <p>{{ section.settings.description }}</p>
+  </div>
+
+  <div class="ingr-grid">
+    {% for block in section.blocks %}
+      <div class="ic">
+        <div class="ii">{{ block.settings.emoji }}</div>
+        <div class="it {{ block.settings.type_class }}">{{ block.settings.type_label }}</div>
+        <h4>{{ block.settings.title }}</h4>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient Section",
+  "settings": [
+      {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "Ingredient Breakdown"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Everything In It."
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Nothing You Don't Need."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Every ingredient in Max Relief is there for a specific reason."
+    }
+  ],
+  "blocks": [
+  {
+    "type": "ingredient",
+    "name": "Ingredient",
+    "settings": [
+      {"type": "text", "id": "emoji", "label": "Emoji", "default": "⚡"},
+      {"type": "text", "id": "type_label", "label": "Type Label", "default": "Pharmaceutical"},
+      {"type": "text", "id": "type_class", "label": "Type Class", "default": "tp2"},
+      {"type": "text", "id": "title", "label": "Title", "default": "Lidocaine HCL"},
+      {"type": "textarea", "id": "description", "label": "Description", "default": "Blocks sodium channels to stop pain signal transmission at the source. Immediate, targeted numbing."}
+    ]
+  }
+],
+  "max_blocks": 20,
+  "presets": [
+    {
+      "name": "Ingredient Section New",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

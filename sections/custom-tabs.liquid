@@ -1,0 +1,334 @@
+{{ 'custom-tabs.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+    {% render 'section-margin' %}
+    {% render 'section-header' %}
+{%- endstyle -%}
+
+{% capture product_details_table %}
+    {% assign product_details = product.metafields.custom.product_details %}
+    <div class="product_details_table_wrap">
+        <table class="product_details_table">
+        {% for item in product_details.value %}
+            <tr>
+                <td class="product_details_title">{{ item.title }}</td>
+                <td class="product_details_value">{{ item.value }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div>
+{% endcapture %}
+
+<div class="custom_tabs">
+    <div class="container">
+        {% if section.settings.heading != blank or section.settings.content != blank %}
+        <div class="custom_tabs__heading">
+            <{{ section.settings.section_heading_tag }} class="custom_tabs__heading_title {{ section.settings.heading_size }} {% if section.settings.subheading == blank %}margin-none{% endif %}">
+                {{ section.settings.heading }}
+            </{{ section.settings.section_heading_tag }}>
+            <div class="custom_tabs__content">
+                {{ section.settings.content }}
+            </div>
+        </div>
+        {% endif %}
+
+        {% if section.blocks.size > 0 %}
+        <div class="custom_tabs__tabs">
+            <div class="custom_tabs__title_list">
+                {% for block in section.blocks %}
+                    <div class="custom_tabs__title_item">
+                        {{ block.settings.tab_title }}
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="custom_tabs__content_list">
+                {% for block in section.blocks %}
+                    <div class="custom_tabs__content_accordion">
+                        <div class="custom_tabs__title_accordion">
+                            {{ block.settings.tab_title }}
+                            <i class="open">-</i>
+                            <i class="close">+</i>
+                        </div>
+                        {% liquid
+                            assign tab_content = block.settings.tab_content
+
+                            if tab_content contains '[product_details]'
+                                assign tab_content = tab_content | replace: '[product_details]', product_details_table | remove: '<p>' | remove: '</p>'
+                            endif
+                        %}
+
+
+                        <div class="custom_tabs__content_item">
+                            <div class="custom_tabs__content_item_inner">
+                                {{ tab_content }}
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<script>
+  class CustomTabs {
+    constructor(container) {
+      this.container = container;
+      this.tabTitles = container.querySelectorAll('.custom_tabs__title_item');
+      this.tabContents = container.querySelectorAll('.custom_tabs__content_item');
+      this.accordionTitles = container.querySelectorAll('.custom_tabs__title_accordion');
+      this.accordionWrappers = container.querySelectorAll('.custom_tabs__content_accordion');
+      this.init();
+    }
+
+    init() {
+      this.initTabs();
+      this.initAccordion();
+      this.handleResize();
+      window.addEventListener('resize', () => this.handleResize());
+    }
+
+    handleResize() {
+      if (window.innerWidth >= 768) {
+        this.showTab(0);
+      } else {
+        this.closeAllAccordions();
+      }
+    }
+
+    initTabs() {
+      if (this.tabTitles.length === 0 || this.tabContents.length === 0) return;
+      
+      if (window.innerWidth >= 768) {
+        this.showTab(0);
+      }
+
+      this.tabTitles.forEach((title, index) => {
+        title.addEventListener('click', () => {
+          if (window.innerWidth >= 768) {
+            this.showTab(index);
+          }
+        });
+      });
+    }
+
+    initAccordion() {
+      if (this.accordionTitles.length === 0) return;
+
+      this.accordionTitles.forEach((title, index) => {
+        title.addEventListener('click', () => {
+          if (window.innerWidth < 768) {
+            this.toggleAccordion(index);
+          }
+        });
+      });
+    }
+
+    showTab(index) {
+      this.tabTitles.forEach((title, i) => {
+        title.classList.toggle('active', i === index);
+      });
+
+      this.tabContents.forEach((content, i) => {
+        content.classList.toggle('active', i === index);
+      });
+    }
+
+    toggleAccordion(index) {
+      const wrapper = this.accordionWrappers[index];
+      const isActive = wrapper.classList.contains('active');
+      
+      wrapper.classList.toggle('active', !isActive);
+    }
+
+    closeAllAccordions() {
+      this.accordionWrappers.forEach(wrapper => {
+        wrapper.classList.remove('active');
+      });
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.custom_tabs').forEach(container => {
+      new CustomTabs(container);
+    });
+  });
+</script>
+
+{% schema %}
+{
+    "name": "Custom Tabs",
+    "settings": [
+        {
+            "type": "text",
+            "id": "heading",
+            "label": "Heading"
+        },
+        {
+			"type": "select",
+			"id": "section_heading_tag",
+			"label": "t:sections.all.heading.tag",
+			"options": [
+				{
+					"value": "h1",
+					"label": "H1"
+				},
+				{
+					"value": "h2",
+					"label": "H2"
+				},
+				{
+					"value": "h3",
+					"label": "H3"
+				},
+				{
+					"value": "h4",
+					"label": "H4"
+				},
+				{
+					"value": "h5",
+					"label": "H5"
+				},
+				{
+					"value": "h6",
+					"label": "H6"
+				},
+				{
+					"value": "div",
+					"label": "div"
+				},
+				{
+					"value": "p",
+					"label": "p"
+				},
+				{
+					"value": "span",
+					"label": "span"
+				}
+			],
+			"default": "h2"
+		},
+        {
+            "type": "select",
+            "id": "heading_size",
+            "options": [
+                {
+                    "value": "h4",
+                    "label": "t:sections.all.heading_size.options__4.label"
+                },
+                {
+                    "value": "h3",
+                    "label": "t:sections.all.heading_size.options__1.label"
+                },
+                {
+                    "value": "h2",
+                    "label": "t:sections.all.heading_size.options__2.label"
+                },
+                {
+                    "value": "h1",
+                    "label": "t:sections.all.heading_size.options__3.label"
+                }
+            ],
+                "default": "h2",
+                "label": "t:sections.all.heading_size.label"
+            },
+            {
+                "type": "richtext",
+                "id": "content",
+                "label": "Content"
+            },
+            {
+            "type": "header",
+            "content": "t:sections.all.section-margin.header.content"
+        },
+        {
+            "type": "select",
+            "id": "margin_top",
+            "options": [
+                {
+                "value": "no-indent",
+                "label": "t:sections.all.section-margin.options__1.label"
+                },
+                {
+                "value": "xs",
+                "label": "t:sections.all.section-margin.options__2.label"
+                },
+                {
+                "value": "s",
+                "label": "t:sections.all.section-margin.options__3.label"
+                },
+                {
+                "value": "m",
+                "label": "t:sections.all.section-margin.options__4.label"
+                },
+                {
+                "value": "l",
+                "label": "t:sections.all.section-margin.options__5.label"
+                },
+                {
+                "value": "xl",
+                "label": "t:sections.all.section-margin.options__6.label"
+                }
+            ],
+            "default": "s",
+            "label": "t:sections.all.section-margin.margin_top.label"
+        },
+        {
+            "type": "select",
+            "id": "margin_bottom",
+            "options": [
+                {
+                "value": "no-indent",
+                "label": "t:sections.all.section-margin.options__1.label"
+                },
+                {
+                "value": "xs",
+                "label": "t:sections.all.section-margin.options__2.label"
+                },
+                {
+                "value": "s",
+                "label": "t:sections.all.section-margin.options__3.label"
+                },
+                {
+                "value": "m",
+                "label": "t:sections.all.section-margin.options__4.label"
+                },
+                {
+                "value": "l",
+                "label": "t:sections.all.section-margin.options__5.label"
+                },
+                {
+                "value": "xl",
+                "label": "t:sections.all.section-margin.options__6.label"
+                }
+            ],
+            "default": "s",
+            "label": "t:sections.all.section-margin.margin_bottom.label"
+        } 
+    ],
+    "blocks": [
+        {
+            "type": "tab",
+            "name": "Tab",
+            "settings": [
+                {
+                    "type": "text",
+                    "id": "tab_title",
+                    "label": "Tab Title"
+                },
+                {
+                    "type": "richtext",
+                    "id": "tab_content",
+                    "label": "Tab Content"
+                }
+            ]
+        }
+    ],
+    "presets": [
+        {
+            "name": "Custom Tabs"
+        }
+    ]
+}
+{% endschema %}

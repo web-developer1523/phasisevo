@@ -1,0 +1,97 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK"
+  ]
+}

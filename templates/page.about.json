@@ -1,0 +1,754 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "slideshow_e6rRN9": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_mHCXkH": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/about_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Born from Experience. Built for Evolution.",
+            "text": "<p>What began as a moment of recovery on the mats became the start of something bigger.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_mHCXkH"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 800px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "about_hero_j4CGjp": {
+      "type": "about-hero",
+      "name": "About Hero",
+      "settings": {
+        "custom_css_class": "cst-about-sec",
+        "eyebrow": "Our Story · Our Standards · Our Products",
+        "heading_line1": "PHASIS is a simple",
+        "heading_line2": "truth built into",
+        "heading_em": "three products.",
+        "subtext": "Humans are <strong>made to evolve.</strong> The supplements industry mostly makes products for people who want shortcuts. We built PHASIS for people who don't need shortcuts — they need better tools.",
+        "tagline": "MADE TO EVOLVE.",
+        "tagline_sub": "PHASIS brand mantra · est. 2025"
+      }
+    },
+    "manifesto_section_FNHcfh": {
+      "type": "manifesto-section",
+      "blocks": {
+        "paragraph_wxfFQQ": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>Most supplement brands start with a margin target and work backwards to the formula. They find the cheapest version of an ingredient that lets them print a claim on the label. They dress it up in aggressive branding. They spend more on the ad than the product inside the bottle.</p>"
+          }
+        },
+        "paragraph_MYEXUP": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>That's why Max Relief has <strong>pharmaceutical-grade Lidocaine HCl</strong> — not just menthol. That's why Electro+ has <strong>50+ trace minerals with zero sugar</strong> — not a powder packet with 34g of sugar and three electrolytes. That's why Perform+ delivers <strong>250mg of verified ecdysterone</strong> per capsule — 25% above the dose used in the WADA-funded study that made researchers recommend banning it.</p>"
+          }
+        },
+        "paragraph_jPeKLM": {
+          "type": "paragraph",
+          "settings": {
+            "text": "<p>We don't make products for everyone. We make them for people who train hard, think critically about what goes in their body, and are <em><strong>done being sold things that don't actually work.</strong></em></p>"
+          }
+        }
+      },
+      "block_order": [
+        "paragraph_wxfFQQ",
+        "paragraph_MYEXUP",
+        "paragraph_jPeKLM"
+      ],
+      "name": "Manifesto Section",
+      "settings": {
+        "custom_css_class": "cst-manifest-sec",
+        "eyebrow": "The PHASIS Manifesto",
+        "heading_line1": "We Refuse to Make",
+        "heading_em": "Products That Underperform.",
+        "pull_quote": "PHASIS starts with the <em>science</em> — the peer-reviewed research, the mechanism, the dose that actually produced results. Then we build backwards to a product that delivers it."
+      }
+    },
+    "problem_section_TCh9CU": {
+      "type": "problem-section",
+      "blocks": {
+        "problem_LGtYCA": {
+          "type": "problem",
+          "settings": {
+            "icon": "⚗️",
+            "title": "Underdosing",
+            "desc": "Independent testing found many ecdysterone supplements contain less than 0.1% of the dose claimed on the label. This isn't rare — it's the norm across most supplement categories."
+          }
+        },
+        "problem_QLprwU": {
+          "type": "problem",
+          "settings": {
+            "icon": "🧪",
+            "title": "No Third-Party Testing",
+            "desc": "Most brands test nothing. They trust their supplier's certificate and print whatever the COA says on the label. We test every batch independently — with results available to every customer."
+          }
+        },
+        "problem_rXgzHQ": {
+          "type": "problem",
+          "settings": {
+            "icon": "📊",
+            "title": "Junk Science",
+            "desc": "Ingredients go viral on social media. Brands rush to put them in products before the research is established. We only formulate around peer-reviewed, human clinical research — not trends."
+          }
+        },
+        "problem_6XpbRT": {
+          "type": "problem",
+          "settings": {
+            "icon": "💰",
+            "title": "Price Gouging",
+            "desc": "Brands overcharge for basic formulations. Quality doesn't have to mean expensive — it means honest."
+          }
+        }
+      },
+      "block_order": [
+        "problem_LGtYCA",
+        "problem_QLprwU",
+        "problem_rXgzHQ",
+        "problem_6XpbRT"
+      ],
+      "name": "Problem Section",
+      "settings": {
+        "custom_css_class": "cst-prob-sec",
+        "eyebrow": "Why PHASIS Exists",
+        "heading_line1": "The Industry Has",
+        "heading_em": "Four Serious Problems.",
+        "intro": "<p>The supplement industry is worth over $150 billion globally. Most of it is <strong>underdosed, mislabeled, or built around ingredients that have no clinical support.</strong> We built PHASIS to be the exception to each of these.</p>",
+        "res_label": "The PHASIS Response",
+        "res_text": "<p>Every product we make is <em><strong>third-party tested, clinically informed, transparently labeled, and fairly priced</strong></em><em>.</em> That's the baseline. Not a differentiator — the minimum standard.</p>"
+      }
+    },
+    "image_with_text_JFF7tT": {
+      "type": "image-with-text",
+      "disabled": true,
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".image-with-text__content {background: transparent;}",
+        ".section-header,.image-with-text__text {max-width: 100%;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "image_position": "image_right",
+        "content_alignment": "left",
+        "image": "shopify://shop_images/spark-1.jpg",
+        "image_size": "adapt",
+        "subheading": "",
+        "dot": false,
+        "heading": "The Spark",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "<p>FASE began on the mats. During a jiu-jitsu tournament, Jonathan fought through intense headlocks until severe neck cramping set in. On the verge of quitting, he remembered a CBD balm a friend had given him and kept in his bag. He applied the simple beeswax and CBD balm; the cramping eased almost instantly, and he returned to the mats. </p><p>That moment shifted his perspective. He saw how undervalued the topical was and how powerful natural ingredients could be when used with intention. The initial goal was straightforward: create a more complex balm than the one he had used and make an overall better product. He spent weeks experimenting and refining the formula until it met his standard.  </p><p>Once he perfected it, the vision expanded. He began to see the potential for a brand built not only on products, but on a way of living—one focused on evolving both physically and mentally. From that realization, FASE took shape.</p>",
+        "button_label": "",
+        "button_link": "",
+        "add_product_to_cart": false,
+        "product_to_add_to_cart": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "image_with_text_RyrqtR": {
+      "type": "image-with-text",
+      "disabled": true,
+      "custom_css": [
+        ".image-with-text__content {background: transparent;}",
+        ".section-header,.image-with-text__text {max-width: 100%;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "image_position": "image_left",
+        "content_alignment": "left",
+        "image": "shopify://shop_images/philosophy.jpg",
+        "image_size": "adapt",
+        "subheading": "",
+        "dot": false,
+        "heading": "The FASE Philosophy",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "<p>At FASE, we fuel continuous growth. Wellness is more than what you take; it is what you learn, practice, and evolve through. Our formulas feed the physical and our content grows the mind, working together to drive continuous evolution, phase by phase.</p>",
+        "button_label": "",
+        "button_link": "",
+        "add_product_to_cart": false,
+        "product_to_add_to_cart": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_8UJ9tt": {
+      "type": "rich-text",
+      "blocks": {
+        "guarantee_eVPVp6": {
+          "type": "guarantee",
+          "settings": {
+            "text": "30-day guarantee"
+          }
+        },
+        "guarantee_UyTc8t": {
+          "type": "guarantee",
+          "settings": {
+            "text": "Free shipping $75+"
+          }
+        },
+        "guarantee_8bXRgz": {
+          "type": "guarantee",
+          "settings": {
+            "text": "No subscription"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee_eVPVp6",
+        "guarantee_UyTc8t",
+        "guarantee_8bXRgz"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-prot-sec",
+        "section_layout": "column",
+        "subheading": "🧬 Want to improve your health but not sure where to start?",
+        "heading": "Find Your Starting Point",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": true,
+        "text": "<p>23 questions. A clear picture of where to focus. A path forward that starts with you, not a product.</p>",
+        "button_label": "FIND YOUR PROTOCOL",
+        "button_link": "#",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_dot_2": true,
+        "margin_top": "s",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "standards_section_QiKcjf": {
+      "type": "standards-section",
+      "blocks": {
+        "standard_HcApyn": {
+          "type": "standard",
+          "settings": {
+            "title": "Clinical Dose or Above",
+            "desc": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. <strong>Perform+ delivers 25% above the WADA study dose.</strong>"
+          }
+        },
+        "standard_c9QiVc": {
+          "type": "standard",
+          "settings": {
+            "title": "Third-Party Tested",
+            "desc": "Every batch of every product is independently tested for purity, potency, and label accuracy before it ships."
+          }
+        },
+        "standard_yFjqP8": {
+          "type": "standard",
+          "settings": {
+            "title": "Transparent Labels",
+            "desc": "No proprietary blends. Every ingredient, every dose, visible on the label."
+          }
+        },
+        "standard_7imKVt": {
+          "type": "standard",
+          "settings": {
+            "title": "Peer-Reviewed Foundations",
+            "desc": "Every formula is built around human clinical research — not trends."
+          }
+        },
+        "standard_qEfjHK": {
+          "type": "standard",
+          "settings": {
+            "title": "No Banned Substances",
+            "desc": "Every product is safe for competitive athletes and tested for contamination."
+          }
+        },
+        "standard_bwfyLk": {
+          "type": "standard",
+          "settings": {
+            "title": "Fair Pricing",
+            "desc": "Premium ingredients don't require premium gouging."
+          }
+        }
+      },
+      "block_order": [
+        "standard_HcApyn",
+        "standard_c9QiVc",
+        "standard_yFjqP8",
+        "standard_7imKVt",
+        "standard_qEfjHK",
+        "standard_bwfyLk"
+      ],
+      "name": "Standards Section",
+      "settings": {
+        "custom_css_class": "cst-standard-sec",
+        "eyebrow": "How We Build Products",
+        "heading_line1": "The PHASIS Standard.",
+        "heading_em": "Every Formula. Every Batch.",
+        "subtext": "There are six things we commit to for every product we make. Non-negotiable."
+      }
+    },
+    "rich_text_azbzfG": {
+      "type": "rich-text",
+      "disabled": true,
+      "custom_css": [
+        "{background: #e9e9e9b2; text-align: center;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "From Source to Performance",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_dot_2": true,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_w7yQBR": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_wwbVGb": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/performance-1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Sourcing with purpose",
+            "text": "We select ingredients for purity, consistency, and real-world effect.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_Jj6wVi": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/performance-2.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Thoughtful formulation",
+            "text": "We combine compounds to create complementary, synergistic profiles.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_rek737": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/performance-3.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Clarity and transparency",
+            "text": "Labels are clear so you know exactly what you are using and why.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_cgpiC9": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/performance-4.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Refine and improve",
+            "text": "We learn from feedback and data to keep evolving our formulas.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_wwbVGb",
+        "column_Jj6wVi",
+        "column_rek737",
+        "column_cgpiC9"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".background {background: transparent;}"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h2",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 4,
+        "content_alignment": "center",
+        "swipe_on_mobile": true,
+        "card_heading_tag": "h5",
+        "card_heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_echwjT": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_GpW8CX": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/Placeholder_Image_31e02ec1-d768-41ea-af28-f78a00ff1105.jpg",
+            "color_scheme": "",
+            "heading": "",
+            "text": "",
+            "text_width": "small",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_GpW8CX"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "",
+        "light_logo": true,
+        "section_layout": "container",
+        "text_position": "left",
+        "pagination_position": "bottom",
+        "image_size": "adapt",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": true,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_jPgryB": {
+      "type": "rich-text",
+      "custom_css": [
+        "{background: #e9e9e9b2; text-align: center;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Why we can do this",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "secondary",
+        "button_dot_2": true,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_VRgqAb": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_eJY8t6": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/checked.svg",
+            "image_width": "icon",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Sourcing with purpose",
+            "text": "We build for real use, not theory.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_VpEYAp": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/checked.svg",
+            "image_width": "icon",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Manufacturing and operations experience",
+            "text": "We turn concepts into reliable production.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_9bTzdG": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/checked.svg",
+            "image_width": "icon",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Ingredient sourcing and quality assurance",
+            "text": "We select for purity, consistency, and effect.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_G9MwHW": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/checked.svg",
+            "image_width": "icon",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Education and community focus",
+            "text": "We turn science into clear, actionable content.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_eJY8t6",
+        "column_VpEYAp",
+        "column_9bTzdG",
+        "column_G9MwHW"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".background {background: transparent;}"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 4,
+        "content_alignment": "left",
+        "swipe_on_mobile": true,
+        "card_heading_tag": "h4",
+        "card_heading_size": "h4",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "image_with_text_Nktw4T": {
+      "type": "image-with-text",
+      "custom_css": [
+        ".image-with-text__content {background: transparent;}",
+        ".section-header,.image-with-text__text {max-width: 100%;}"
+      ],
+      "name": "t:sections.image-with-text.presets.name",
+      "settings": {
+        "color_scheme": "background-1",
+        "image_position": "image_left",
+        "content_alignment": "left",
+        "image": "shopify://shop_images/founder.jpg",
+        "image_size": "adapt",
+        "subheading": "",
+        "dot": false,
+        "heading": "Meet the Founder",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "<h4> Jonathan Ross-Turcios</h4><p>Founder & CEO</p><p>Founder & CEO with a decade of experience in product development, branding, and manufacturing in the cannabis and wellness industry.</p>",
+        "button_label": "",
+        "button_link": "",
+        "add_product_to_cart": false,
+        "product_to_add_to_cart": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_YxHHEY": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_HhJ8Y8": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/about_cta.jpg",
+            "color_scheme": "background-2",
+            "heading": "Join the Movement",
+            "text": "<p>FASE is more than a brand — it’s a community of athletes, creators, and optimizers redefining recovery and personal evolution. Our mission is to set a new standard for wellness, performance, and growth — one phase at a time.</p>",
+            "text_width": "large",
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/all",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0.5,
+            "overlay_opacity_mobile": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_HhJ8Y8"
+      ],
+      "custom_css": [
+        ".container {align-self: center;}",
+        ".slideshow-slide__text {max-width: 800px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "center",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h2",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_e6rRN9",
+    "about_hero_j4CGjp",
+    "manifesto_section_FNHcfh",
+    "problem_section_TCh9CU",
+    "image_with_text_JFF7tT",
+    "image_with_text_RyrqtR",
+    "rich_text_8UJ9tt",
+    "standards_section_QiKcjf",
+    "rich_text_azbzfG",
+    "multicolumn_w7yQBR",
+    "slideshow_echwjT",
+    "rich_text_jPgryB",
+    "multicolumn_VRgqAb",
+    "image_with_text_Nktw4T",
+    "slideshow_YxHHEY"
+  ]
+}

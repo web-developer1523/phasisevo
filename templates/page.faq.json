@@ -1,0 +1,224 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "rich_text_kg6fW4": {
+      "type": "rich-text",
+      "custom_css": [
+        "{text-align: center;}",
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Frequently Asked Questions",
+        "section_heading_tag": "h1",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "l",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "rich_text_xigebH": {
+      "type": "rich-text",
+      "custom_css": [
+        "{margin-top: 10px; padding-bottom: 50px; text-align: center;}",
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {max-width: unset;}",
+        "h3 {font-size: 2rem;}",
+        "@media (max-width: 750px) {{padding-bottom: 30px; } h3 {font-size: 1.6rem; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Last Updated: November 19, 2025",
+        "section_heading_tag": "h3",
+        "heading_size": "h4",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "no-indent",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "rich_text_dmNQTK": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {row-gap: 0;}",
+        ".rich-text__wrapper * {max-width: unset; padding-top: 0;}",
+        "p {margin-bottom: 0;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p><strong>Are your products safe to use daily?<br/></strong>Yes. All products are designed for daily use when used as directed. Consult your healthcare provider if you have medical conditions or take medications.<br/><br/><strong>What makes PHASIS different?<br/></strong>Phasis goes beyond standard wellness formulas. We thoroughly vet every ingredient and every supplier we partner with, ensuring purity, potency, and transparency at every stage. Our formulas use advanced delivery systems such as liposomal and oil-soluble technologies to maximize absorption and real-world results. For all CBD-based products, we use only USDA organic hemp sourced from trusted U.S. farms. Every product is intentionally crafted to support a specific phase of health and performance.<br/><br/><strong>Where are your products made?<br/></strong>All products are formulated and manufactured in the United States in GMP-certified and FDA-registered facilities.<br/><br/><strong>Are your products third-party tested?<br/></strong>Yes. Every batch is tested for purity, potency, and safety.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "rich_text_iGhDgy": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {row-gap: 0;}",
+        ".rich-text__wrapper * {max-width: unset; padding-top: 0;}",
+        "p {margin-bottom: 0;}",
+        "@media (max-width: 749px) {.rich-text__wrapper {padding-top: 32px; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p><strong>Where do you ship?<br/></strong>We currently ship within the United States. International shipping is coming soon.<br/><br/><strong>Do you offer free shipping?<br/></strong>Yes. Free standard shipping is available on orders over 75 dollars.<br/><br/><strong>How long does shipping take?<br/></strong>Orders process in 1 to 2 business days. Delivery usually takes 3 to 5 business days depending on your location.<br/><br/><strong>Can I track my order?<br/></strong>Yes. You will receive a tracking number once your order ships.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "rich_text_AEN34j": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {row-gap: 0;}",
+        ".rich-text__wrapper * {max-width: unset; padding-top: 0;}",
+        "p {margin-bottom: 0;}",
+        "a {opacity: 1; text-decoration: underline;}",
+        "@media (max-width: 749px) {.rich-text__wrapper {padding-top: 32px; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p><strong>Can I return or exchange my order?<br/></strong>Yes. We offer a 30-day satisfaction guarantee. If you are not fully satisfied, contact us within 30 days of purchase.<br/><br/><strong>What if my product arrived damaged or incorrect?<br/></strong>Email <a href=\"mailto:Admin@naturalperformance.co\" title=\"mailto:Admin@naturalperformance.co\">Admin@naturalperformance.co</a></p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "rich_text_xAydaB": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {row-gap: 0;}",
+        ".rich-text__wrapper * {max-width: unset; padding-top: 0;}",
+        "p {margin-bottom: 0;}",
+        "a {opacity: 1; text-decoration: underline;}",
+        "@media (max-width: 749px) {.rich-text__wrapper {padding-top: 32px; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p><strong>What’s the difference between Max Relief and Relief?</strong><br/>Both topicals offer similar strength, but they serve different needs. Max Relief is best for targeted relief and deeper discomfort because it includes a natural hot-and-cooling sensation that activates quickly and supports pain relief. Relief contains no hot or cooling ingredients, making it ideal for use near sensitive areas. Relief is also great for full-body massage, daily muscle tension, and overall comfort.<br/><br/><strong>Will the topicals get me high?</strong><br/>No. Our topicals do not produce intoxicating or psychoactive effects. They work locally on the area where they are applied.<br/><br/><br/><strong>Will I fail a drug test if I use your topicals?</strong><br/>Our topicals contain less than 0.3 percent THC per milligram, which is the legal limit for hemp products and is extremely unlikely to affect a drug test. Because topicals work locally on the skin and do not enter the bloodstream the same way ingestible products do, they are not expected to trigger a positive result. However, testing standards and individual physiology vary, so we cannot guarantee outcomes for every person or testing method. If you undergo strict drug testing, consult your organization before use.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "rich_text_hDd4nr": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text {max-width: 1000px;}",
+        ".rich-text__wrapper {row-gap: 0;}",
+        ".rich-text__wrapper * {max-width: unset; padding-top: 0;}",
+        "p {margin-bottom: 0;}",
+        "a {opacity: 1; text-decoration: underline;}",
+        "@media (max-width: 749px) {.rich-text__wrapper {padding-top: 32px; }}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p><strong>How should I store my products?</strong><br/>Keep products in a cool, dry place away from direct sunlight.<br/><br/><strong>Can I use multiple PHASIS products together?</strong><br/>Yes. Our formulas are designed to work together based on your goals.<br/><br/><strong>Do I need an account to place an order?</strong><br/>No, but creating an account allows for faster checkout, order tracking, and subscription management.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "m",
+        "section_id": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "rich_text_kg6fW4",
+    "rich_text_xigebH",
+    "rich_text_dmNQTK",
+    "rich_text_iGhDgy",
+    "rich_text_AEN34j",
+    "rich_text_xAydaB",
+    "rich_text_hDd4nr"
+  ]
+}

@@ -1,0 +1,25 @@
+<footer class="site-footer">
+  <div class="site-footer-grid">
+    <div class="sf-brand">
+      <span class="nav-wm">{{ section.settings.brand_text }}</span>
+      <span class="sf-tagline">{{ section.settings.tagline }}</span>
+      <p>{{ section.settings.description }}</p>
+    </div>
+  </div>
+  <div class="sf-bot">
+    <span class="sf-legal">{{ section.settings.legal }}</span>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Phasis Electro Footer",
+  "settings": [
+    { "type": "text", "id": "brand_text", "label": "Brand text", "default": "PHASIS" },
+    { "type": "text", "id": "tagline", "label": "Tagline", "default": "Recovery & Replenishment · Made to Evolve" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "Clinically-driven, plant-powered products built for real relief and real recovery." },
+    { "type": "text", "id": "legal", "label": "Legal text", "default": "© 2025 Natural Performance LLC. All rights reserved." }
+  ],
+  "presets": [{ "name": "Phasis Electro Footer" }]
+}
+{% endschema %}

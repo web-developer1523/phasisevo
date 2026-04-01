@@ -1,0 +1,188 @@
+<section class="hero" id="hero-top">
+  <div class="hero-content">
+    <div class="hero-eyebrow-row"><span>{{ section.settings.eyebrow }}</span></div>
+    <h1>{{ section.settings.title }}</h1>
+    <p class="hero-hook">{{ section.settings.hook }}</p>
+    <div class="diff-pills">
+      <div class="dp">{{ section.settings.pill_1 }}</div>
+      <div class="dp">{{ section.settings.pill_2 }}</div>
+      <div class="dp">{{ section.settings.pill_3 }}</div>
+      <div class="dp">{{ section.settings.pill_4 }}</div>
+      <div class="dp">{{ section.settings.pill_5 }}</div>
+      <div class="no dp">{{ section.settings.pill_no_1 }}</div>
+      <div class="no dp">{{ section.settings.pill_no_2 }}</div>
+    </div>
+    <div class="trust-row">
+      <div class="stars">★★★★★</div>
+      <span class="trust-pill"><b>{{ section.settings.trust_1_bold }}</b> {{ section.settings.trust_1_text }}</span>
+      <span class="trust-sep">·</span>
+      <span class="trust-pill"><b>{{ section.settings.trust_2_bold }}</b> {{ section.settings.trust_2_text }}</span>
+      <span class="trust-sep">·</span>
+      <span class="trust-pill"><b>{{ section.settings.trust_3_bold }}</b> {{ section.settings.trust_3_text }}</span>
+    </div>
+    <div class="hero-cta">
+      <a href="{{ section.settings.cta_url }}" class="btn btn-t">{{ section.settings.cta_text }}</a>
+      <div class="cta-micro">
+        <span class="cta-micro-item">{{ section.settings.micro_1 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro_2 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro_3 }}</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-bg-word">{{ section.settings.bg_word }}</div>
+    <div class="hero-emo">{{ section.settings.emoji }}</div>
+  </div>
+  <div class="hero-rev">
+    <div class="stars">★★★★★</div>
+    <blockquote>{{ section.settings.review_quote }}</blockquote>
+    <cite>{{ section.settings.review_name }}<span>{{ section.settings.review_meta }}</span></cite>
+  </div>
+</section>
+<style>
+    /* ═══════════════════════════════════════════════
+       MOBILE FIRST — Base at 390px, scale up
+       ═══════════════════════════════════════════════ */
+       :root {
+        --teal:#00BFA8; --teal-h:#00d4bb; --teal-dim:rgba(0,191,168,.1);
+        --coral:#E8482A;
+        --page-bg:#080808;
+        --surface:#18191C; --surface2:#1e1f23; --surface3:#252629;
+        --border:#2a2b2f; --border2:#383a3e;
+        --off-white:#F4F3F0; --muted:#68717A; --muted-l:#9aa0a8;
+        --pad:16px; --pad-md:32px; --pad-lg:80px;
+        --f-dis:'Sora',sans-serif;
+        --f-mark:'Conthrax',sans-serif; --f-body:'DM Sans',sans-serif;
+      }
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+      body{background:var(--page-bg);color:var(--off-white);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+      a{text-decoration:none;color:inherit}
+      ul{list-style:none}
+      
+      /* ── TYPOGRAPHY ─────────────────────────────────── */
+      .eyebrow{display:inline-block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:16px}
+      h1{font-family:var(--f-dis);font-weight:800;font-size:40px;letter-spacing:-0.025em;line-height:.92}
+      h2{font-family:var(--f-dis);font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1.05}
+      h1 em,h2 em{color:var(--teal);font-style:normal}
+      @media(min-width:768px){h1{font-size:54px}h2{font-size:36px}}
+      @media(min-width:1024px){h1{font-size:68px}h2{font-size:44px}}
+      /* ── BUTTONS ─────────────────────────────────────── */
+      .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-dis);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:15px 24px;min-height:52px;border-radius:6px;border:none;cursor:pointer;transition:all .18s;white-space:nowrap;width:100%}
+      .btn::before{content:'●';font-size:7px;flex-shrink:0}
+      .btn-t{background:var(--teal);color:#000;box-shadow:0 4px 20px rgba(0,191,168,.2)}
+      .btn-t:hover{background:var(--teal-h)}
+      .btn-t:active{transform:scale(.98)}
+      .btn-s{background:transparent;color:var(--off-white);border:1px solid var(--border2)}
+      .btn-s:hover{border-color:#666;background:rgba(255,255,255,.04)}
+      .btn-p{background:var(--coral);color:#fff}
+      .btn-p:hover{background:#f05236}
+      @media(min-width:768px){.btn{width:auto}.btn-full{width:100%}}
+      
+      .globe-line{height:3px;background:linear-gradient(90deg,#FF5577,#FF9999,#FF9140,#FFE899,#8AC88A,#8AF2D3,#1CA8D8,#5271FF,#8C52FF)}
+      /* ── SECTION PADDING ─────────────────────────────── */
+      .section{padding:48px var(--pad)}
+      @media(min-width:768px){.section{padding:64px var(--pad-md)}}
+      @media(min-width:1024px){.section{padding:80px var(--pad-lg)}}
+   /* ── HERO ─────────────────────────────────────────── */
+   .hero{display:flex;flex-direction:column}
+   .hero-content{padding:32px var(--pad) 24px;display:flex;flex-direction:column}
+   .hero-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+   .hero-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--teal);flex-shrink:0}
+   .hero-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+   .hero h1{margin-bottom:16px}
+   .hero-hook{font-size:16px;font-weight:300;color:var(--muted-l);line-height:1.65;border-left:3px solid rgba(0,191,168,.3);padding-left:14px;margin-bottom:20px}
+   .hero-hook strong{color:var(--off-white);font-weight:600}
+   
+   /* Differentiator pills — scroll on mobile */
+   .diff-pills{display:flex;gap:8px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+   .diff-pills::-webkit-scrollbar{display:none}
+   .dp{display:flex;align-items:center;gap:5px;background:var(--teal-dim);border:1px solid rgba(0,191,168,.22);color:var(--teal);font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:5px 10px;border-radius:20px;white-space:nowrap;flex-shrink:0}
+   .dp::before{content:'✓';margin-right:1px}
+   .dp.no{background:rgba(255,255,255,.04);border-color:var(--border2);color:var(--muted-l)}
+   .dp.no::before{content:'✗';color:#c04040}
+   
+   .trust-row{display:flex;align-items:center;gap:16px;margin-bottom:20px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+   .trust-row::-webkit-scrollbar{display:none}
+   .stars{color:var(--teal);font-size:14px;letter-spacing:1px;flex-shrink:0}
+   .trust-pill{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--muted);flex-shrink:0}
+   .trust-pill b{color:var(--off-white);font-weight:500}
+   .trust-sep{color:var(--border2);flex-shrink:0}
+   
+   .hero-cta{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+   .hero-cta .btn-t{font-size:15px;padding:17px 24px}
+   .cta-micro{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+   .cta-micro-item{display:flex;align-items:center;gap:4px;font-size:11px;color:var(--muted)}
+   .cta-micro-item::before{content:'✓';color:var(--teal);font-weight:700;font-size:10px;font-family:var(--f-dis)}
+   
+   /* Max Relief cross-nudge */
+   .stack-nudge{display:flex;align-items:center;gap:12px;background:rgba(232,72,42,.05);border:1px solid rgba(232,72,42,.18);border-radius:6px;padding:12px 14px;cursor:pointer;transition:all .15s}
+   .sn-icon{font-size:18px;flex-shrink:0}
+   .sn-label{font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);margin-bottom:2px}
+   .sn-desc{font-size:11px;color:var(--muted-l)}
+   .sn-arrow{color:var(--coral);margin-left:auto;flex-shrink:0}
+   
+   /* Hero visual */
+   .hero-visual{height:260px;background:linear-gradient(160deg,#080e0c,var(--surface));position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center}
+   .hero-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 60% at 50% 35%,rgba(0,191,168,.09) 0%,transparent 65%)}
+   .hero-bg-word{position:absolute;bottom:-15px;right:-8px;font-family:var(--f-dis);font-size:120px;font-weight:800;color:rgba(0,191,168,.03);letter-spacing:-0.05em;line-height:1;pointer-events:none;user-select:none}
+   .hero-emo{font-size:100px;filter:drop-shadow(0 20px 50px rgba(0,191,168,.2));animation:fl 5s ease-in-out infinite;position:relative;z-index:1}
+   @keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+   
+   /* Stats overlay */
+   .hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin:0 var(--pad) 0;padding:16px 0 0}
+   .hstat{background:rgba(8,8,8,.92);border:1px solid rgba(0,191,168,.15);border-radius:8px;padding:14px 12px}
+   .hstat-val{font-family:var(--f-dis);font-size:20px;font-weight:800;color:var(--teal);line-height:1;margin-bottom:4px}
+   .hstat-lbl{font-size:11px;color:var(--muted-l);line-height:1.4}
+   
+   .hero-rev{background:rgba(8,8,8,.95);border:1px solid var(--border);border-radius:8px;padding:14px 16px;margin:12px var(--pad) 0}
+   .hero-rev .stars{font-size:12px;margin-bottom:8px}
+   .hero-rev blockquote{font-size:13px;font-style:italic;color:var(--muted-l);line-height:1.6;margin-bottom:10px}
+   .hero-rev cite{font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+   .hero-rev cite span{display:block;font-size:10px;font-weight:400;color:var(--muted);text-transform:none;margin-top:2px}
+   
+   @media(min-width:768px){
+     .hero{flex-direction:row;min-height:calc(100vh - 93px)}
+     .hero-content{flex:1;padding:64px var(--pad-md);justify-content:center}
+     .hero-visual{flex:1;height:auto}
+     .hero-stats{position:absolute;top:24px;left:16px;right:16px;padding:0;margin:0}
+     .hero-rev{position:absolute;bottom:24px;left:16px;right:16px;margin:0}
+   }
+   @media(min-width:1024px){
+     .hero-content{padding:80px var(--pad-lg) 80px calc(var(--pad-lg) - 20px);max-width:52%}
+   }
+</style>
+{% schema %}
+{
+  "name": "Phasis Electro Hero",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Mineral-First · No Sugar · No Powder · No Mess" },
+    { "type": "textarea", "id": "title", "label": "Title (HTML allowed)", "default": "Water Isn't<br>Enough.<br><em>Better Minerals.<br>Half the Price.</em>" },
+    { "type": "textarea", "id": "hook", "label": "Hook text (HTML allowed)", "default": "Every workout, your body loses minerals water can't replace. <strong>Electro+ is a liquid concentrate</strong> — 20 drops into any drink. No powder. No packets. No mess. 50+ trace minerals. Zero sugar. From $0.38 per serving." },
+    { "type": "text", "id": "pill_1", "label": "Pill 1", "default": "Liquid drops" },
+    { "type": "text", "id": "pill_2", "label": "Pill 2", "default": "Any beverage" },
+    { "type": "text", "id": "pill_3", "label": "Pill 3", "default": "~75% less vs LMNT" },
+    { "type": "text", "id": "pill_4", "label": "Pill 4", "default": "Utah Mineral Source" },
+    { "type": "text", "id": "pill_5", "label": "Pill 5", "default": "50+ minerals" },
+    { "type": "text", "id": "pill_no_1", "label": "Negative pill 1", "default": "No powder" },
+    { "type": "text", "id": "pill_no_2", "label": "Negative pill 2", "default": "No sugar" },
+    { "type": "text", "id": "trust_1_bold", "label": "Trust 1 bold", "default": "4.9" },
+    { "type": "text", "id": "trust_1_text", "label": "Trust 1 text", "default": "reviews" },
+    { "type": "text", "id": "trust_2_bold", "label": "Trust 2 bold", "default": "Made" },
+    { "type": "text", "id": "trust_2_text", "label": "Trust 2 text", "default": "in USA" },
+    { "type": "text", "id": "trust_3_bold", "label": "Trust 3 bold", "default": "3rd Party" },
+    { "type": "text", "id": "trust_3_text", "label": "Trust 3 text", "default": "Tested" },
+    { "type": "text", "id": "cta_text", "label": "CTA text", "default": "GET ELECTRO+ — FROM $25" },
+    { "type": "url", "id": "cta_url", "label": "CTA URL" },
+    { "type": "text", "id": "micro_1", "label": "Micro text 1", "default": "Free shipping $75+" },
+    { "type": "text", "id": "micro_2", "label": "Micro text 2", "default": "30-day guarantee" },
+    { "type": "text", "id": "micro_3", "label": "Micro text 3", "default": "No subscription" },
+    { "type": "text", "id": "bg_word", "label": "Background word", "default": "MINERALS" },
+    { "type": "text", "id": "emoji", "label": "Visual emoji", "default": "💧" },
+    { "type": "textarea", "id": "review_quote", "label": "Review quote", "default": "\"No taste, works in my coffee. I've tried LMNT and Liquid IV — Electro+ is cleaner and way cheaper. Using it daily now.\"" },
+    { "type": "text", "id": "review_name", "label": "Review name", "default": "Alex T." },
+    { "type": "text", "id": "review_meta", "label": "Review meta", "default": "CrossFit Athlete · Verified Buyer" }
+  ],
+  "presets": [{ "name": "Phasis Electro Hero" }]
+}
+{% endschema %}

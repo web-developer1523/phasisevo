@@ -1,0 +1,351 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_n6bL6d": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_mBXdnr": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/affiliate_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Join the PHASIS team",
+            "text": "<p>Earn, inspire, and grow with a movement built on health, recovery, and performance.</p>",
+            "text_width": "large",
+            "button_label": "Join the Movement",
+            "button_link": "https://af.uppromote.com/btcsyr-rw/register",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0.5,
+            "overlay_opacity_mobile": 0.5
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_mBXdnr"
+      ],
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_mqcC8U": {
+      "type": "rich-text",
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {text-align: center;}",
+        ".rich-text__wrapper .rich-text__heading {max-width: unset;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "Why Join PHASIS?",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>Partner with PHASIS to grow your brand, earn commissions, and be part of a trusted network shaping the future of wellness.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": false,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_Vn8PT4": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_ryWFKR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/currency-circle-dollar_1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Earn Commissions",
+            "text": "Get paid with every sale you generate.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_b6Ab87": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/shooting-star_1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Exclusive Perks & Discounts",
+            "text": "Enjoy early access to new product drops and community -only promos.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_iwFEAR": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/user-circle-gear_1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Track Your Growth",
+            "text": "Monitor your performance, sales, and impact through your personalized dashboard.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_76N7ac": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/users-three_1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Be Part of the Movement",
+            "text": "Help others recover, perform, and evolve through mind-body wellness.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_ryWFKR",
+        "column_b6Ab87",
+        "column_iwFEAR",
+        "column_76N7ac"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".background {background: transparent;}"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 4,
+        "content_alignment": "left",
+        "swipe_on_mobile": false,
+        "card_heading_tag": "h5",
+        "card_heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_btgmNG": {
+      "type": "rich-text",
+      "custom_css": [
+        "{background: #e9e9e9b2;}",
+        ".rich-text__wrapper {align-items: center;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": true,
+        "text": "",
+        "button_label": "Become a Partner",
+        "button_link": "https://af.uppromote.com/btcsyr-rw/register",
+        "button_style": "secondary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "m",
+        "section_id": ""
+      }
+    },
+    "rich_text_nGQPQt": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text__wrapper {align-items: center;}",
+        ".rich-text__wrapper * {text-align: center;}",
+        ".rich-text__wrapper .rich-text__heading,.rich-text__wrapper .rich-text__subheading {max-width: unset;}",
+        ".rich-text__wrapper .rich-text__subheading {display: block;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "Our process",
+        "heading": "How It Works",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": false,
+        "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "multicolumn_cCE8eQ": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_yDVXaE": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/number-1.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Apply & Get Approved",
+            "text": "Join the Phasis affiliate community.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_AVUnfr": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/number-2.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Share Your unique Link",
+            "text": "Promote Phasis products and drive sales through your audience.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        },
+        "column_8bArzC": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/number-3.svg",
+            "image_width": "full",
+            "image_size": "adapt",
+            "icon": "none",
+            "heading": "Earn Commissions",
+            "text": "Get paid for every sale you drive. Monthly payouts, transparent tracking.",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "full_link": false
+          }
+        }
+      },
+      "block_order": [
+        "column_yDVXaE",
+        "column_AVUnfr",
+        "column_8bArzC"
+      ],
+      "name": "t:sections.multicolumn.name",
+      "settings": {
+        "section_heading": "",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h1",
+        "subheading": "",
+        "dot": false,
+        "columns_per_row": 3,
+        "content_alignment": "center",
+        "swipe_on_mobile": false,
+        "card_heading_tag": "h5",
+        "card_heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "rich_text_ERBexe": {
+      "type": "rich-text",
+      "custom_css": [
+        ".rich-text__wrapper {align-items: center;}"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": true,
+        "text": "",
+        "button_label": "Start Earning",
+        "button_link": "https://af.uppromote.com/btcsyr-rw/register",
+        "button_style": "secondary",
+        "button_dot": true,
+        "margin_top": "xs",
+        "margin_bottom": "m",
+        "section_id": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_n6bL6d",
+    "rich_text_mqcC8U",
+    "multicolumn_Vn8PT4",
+    "rich_text_btgmNG",
+    "rich_text_nGQPQt",
+    "multicolumn_cCE8eQ",
+    "rich_text_ERBexe"
+  ]
+}

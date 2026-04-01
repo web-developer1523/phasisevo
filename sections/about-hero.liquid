@@ -1,0 +1,84 @@
+<div class="about-hero {{section.settings.custom_css_class }}">
+  <div class="ah-eyebrow-row">
+    <span>{{ section.settings.eyebrow }}</span>
+  </div>
+
+  <h1>
+    {{ section.settings.heading_line1 }}<br>
+    {{ section.settings.heading_line2 }}<br>
+    <em>{{ section.settings.heading_em }}</em>
+  </h1>
+
+  <p class="ah-sub mt-4">
+    {{ section.settings.subtext }}
+  </p>
+
+  <div class="tagline-block">
+    <div class="tagline-text">
+      {{ section.settings.tagline }}
+    </div>
+    <div class="tagline-sub">
+      {{ section.settings.tagline_sub }}
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Hero",
+  "settings": [
+     {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Top Eyebrow Text",
+      "default": "Our Story · Our Standards · Our Products"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "PHASIS is a simple"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "truth built into"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading Emphasis",
+      "default": "three products."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Humans are <strong>made to evolve.</strong> The supplements industry mostly makes products for people who want shortcuts. We built PHASIS for people who don't need shortcuts — they need better tools."
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "MADE TO EVOLVE."
+    },
+    {
+      "type": "text",
+      "id": "tagline_sub",
+      "label": "Tagline Subtext",
+      "default": "PHASIS brand mantra · est. 2025"
+    }
+  ],
+  "presets": [
+    {
+      "name": "About Hero"
+    }
+  ]
+}
+{% endschema %}

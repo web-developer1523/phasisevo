@@ -1,0 +1,298 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main-product": {
+      "type": "main-product",
+      "blocks": {
+        "share": {
+          "type": "share",
+          "settings": {
+            "show_share_facebook": false,
+            "show_share_twitter": false,
+            "show_share_telegram": false,
+            "show_share_reddit": false,
+            "show_share_copy": true
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+            "product_heading_tag": "h1",
+            "heading_size": "h2"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+            "show_tax_info": false,
+            "show_shipping": false
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+            "description": ""
+          }
+        },
+        "checklist_y9pczG": {
+          "type": "checklist",
+          "settings": {
+            "icon_checklist": "shopify://shop_images/blue_check.svg"
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": true,
+            "show_quantity": true,
+            "show_gift_card_recipient": false
+          }
+        },
+        "goodapi_sprout_badge_cDQJby": {
+          "type": "shopify://apps/goodapi-sprout/blocks/badge/7db5ee24-2195-4099-b98e-1547c600e4aa",
+          "settings": {
+            "custom_classes": "",
+            "top_spacing": 0,
+            "bottom_spacing": 0
+          }
+        },
+        "list_payment_4kjrVn": {
+          "type": "list_payment",
+          "settings": {}
+        }
+      },
+      "block_order": [
+        "share",
+        "title",
+        "price",
+        "description",
+        "checklist_y9pczG",
+        "variant_picker",
+        "buy_buttons",
+        "goodapi_sprout_badge_cDQJby",
+        "list_payment_4kjrVn"
+      ],
+      "settings": {
+        "color_scheme": "",
+        "header_overlay": false,
+        "show_navigation": false,
+        "section_layout": "container",
+        "section_aspect_ratio": "100%",
+        "desktop_alignment": "left",
+        "mobile_alignment": "before",
+        "gallery_type": "slideshow",
+        "image_fit": "contain",
+        "image_fit_modal": "contain",
+        "is_autoplay": false,
+        "is_hover_stop_autoplay": false,
+        "show_arrows": false,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "margin_top": "no-indent",
+        "margin_bottom": "s"
+      }
+    },
+    "custom_tabs_ExcEcy": {
+      "type": "custom-tabs",
+      "blocks": {
+        "tab_eCEPNF": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Product Details",
+            "tab_content": "<p>[product_details]</p>"
+          }
+        },
+        "tab_GJkMDk": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Ingredients",
+            "tab_content": "{{ product.metafields.custom.ingredients | metafield_tag }}"
+          }
+        },
+        "tab_BVHfkm": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Usage Directions",
+            "tab_content": "{{ product.metafields.custom.usage_directions | metafield_tag }}"
+          }
+        }
+      },
+      "block_order": [
+        "tab_eCEPNF",
+        "tab_GJkMDk",
+        "tab_BVHfkm"
+      ],
+      "name": "Custom Tabs",
+      "settings": {
+        "heading": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "content": "",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "17622339975f51b702": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_Yc3CLU": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "review_data": "sample_data",
+            "max_width": 1200,
+            "show_shop_reviews": false,
+            "empty_state": "empty_widget"
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_Yc3CLU"
+      ],
+      "custom_css": [
+        "{background: #e9e9e9b2; padding: 7rem 0;}"
+      ],
+      "settings": {
+        "include_margins": true,
+        "custom_class": ""
+      }
+    },
+    "rich_text_GYVhzN": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "section_layout": "column",
+        "subheading": "",
+        "heading": "You May Also Like",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>Clean, science-backed products designed for recovery now and every phase to come.</p>",
+        "button_label": "",
+        "button_link": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "margin_top": "m",
+        "margin_bottom": "no-indent",
+        "section_id": ""
+      }
+    },
+    "product_slider_ipfLAb": {
+      "type": "product-slider",
+      "name": "t:sections.product-slider.presets.name",
+      "settings": {
+        "columns_per_row": 3,
+        "slides_per_view_mobile": "1",
+        "section_heading": "",
+        "heading_tag": "h2",
+        "section_heading_size": "h2",
+        "subheading": "",
+        "dot": true,
+        "line": true,
+        "collection": "",
+        "product_list": [
+          "max-relief",
+          "recovery",
+          "relief"
+        ],
+        "autoplay": false,
+        "mobile_autoplay": false,
+        "stop_autoplay": true,
+        "show_arrows": true,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "button_style": "tertiary",
+        "product_heading_tag": "h3",
+        "image_ratio": "square",
+        "image_fit": "contain",
+        "show_collection_name": false,
+        "show_secondary_image": true,
+        "show_sku": false,
+        "show_vendor": false,
+        "show_desc": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "product-complementary": {
+      "type": "product-complementary",
+      "disabled": true,
+      "settings": {
+        "columns_per_row": 4,
+        "products_limit": 4,
+        "autoplay": false,
+        "stop_autoplay": true,
+        "show_arrows": true,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "section_heading": "Complementary Products",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h3",
+        "subheading": "Intro to this section",
+        "dot": true,
+        "line": true,
+        "image_ratio": "3/4",
+        "image_fit": "cover",
+        "show_collection_name": false,
+        "show_secondary_image": true,
+        "show_sku": false,
+        "show_vendor": true,
+        "show_desc": false,
+        "margin_top": "m",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "disabled": true,
+      "settings": {
+        "columns_per_row": 3,
+        "slides_per_view_mobile": "1",
+        "products_limit": 4,
+        "autoplay": false,
+        "mobile_autoplay": false,
+        "stop_autoplay": true,
+        "show_arrows": true,
+        "slideshow_speed": 1.1,
+        "slideshow_delay": 3,
+        "section_heading": "Recommended for You",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h2",
+        "subheading": "",
+        "dot": true,
+        "line": true,
+        "image_ratio": "square",
+        "image_fit": "cover",
+        "show_collection_name": false,
+        "show_secondary_image": true,
+        "show_sku": false,
+        "show_vendor": true,
+        "show_desc": false,
+        "margin_top": "xl",
+        "margin_bottom": "xl"
+      }
+    }
+  },
+  "order": [
+    "main-product",
+    "custom_tabs_ExcEcy",
+    "17622339975f51b702",
+    "rich_text_GYVhzN",
+    "product_slider_ipfLAb",
+    "product-complementary",
+    "product-recommendations"
+  ]
+}

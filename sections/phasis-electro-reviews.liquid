@@ -1,0 +1,103 @@
+<section class="proof-sec section">
+  <div class="proof-top">
+    <div>
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+    <a href="{{ section.settings.all_reviews_url }}" class="btn btn-s">{{ section.settings.all_reviews_text }}</a>
+  </div>
+  <div class="rating-block">
+    <div>
+      <div class="score-big">{{ section.settings.score }}</div>
+      <div class="score-stars">★★★★★</div>
+      <div class="score-count">{{ section.settings.score_label }}</div>
+    </div>
+    <div class="bars">
+      <div class="br"><span>5★</span><div class="bt"><div class="bf" style="width:{{ section.settings.bar_5 }}%"></div></div></div>
+      <div class="br"><span>4★</span><div class="bt"><div class="bf" style="width:{{ section.settings.bar_4 }}%"></div></div></div>
+      <div class="br"><span>3★</span><div class="bt"><div class="bf" style="width:{{ section.settings.bar_3 }}%"></div></div></div>
+      <div class="br"><span>2★</span><div class="bt"><div class="bf" style="width:{{ section.settings.bar_2 }}%"></div></div></div>
+      <div class="br"><span>1★</span><div class="bt"><div class="bf" style="width:{{ section.settings.bar_1 }}%"></div></div></div>
+    </div>
+  </div>
+  <div class="reviews-grid">
+    {% for block in section.blocks %}
+      <div class="rev-card{% if block.settings.featured %} featured{% endif %}" {{ block.shopify_attributes }}>
+        <div class="rq">❝</div>
+        <div class="rev-stars">★★★★★</div>
+        <blockquote>{{ block.settings.quote }}</blockquote>
+        <div class="rev-name">{{ block.settings.name }}</div>
+        <div class="rev-meta">{{ block.settings.meta }}</div>
+        <div class="rev-tag">{{ block.settings.tag }}</div>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+      /* ── SOCIAL PROOF ────────────────────────────────── */
+      .proof-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+      .proof-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+      .rating-block{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px 16px;display:flex;gap:20px;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap}
+      .score-big{font-family:var(--f-dis);font-size:48px;font-weight:800;line-height:1;margin-bottom:6px}
+      .score-stars{color:var(--teal);font-size:15px;letter-spacing:2px;margin-bottom:4px}
+      .score-count{font-size:12px;color:var(--muted)}
+      .bars{flex:1;min-width:160px;display:flex;flex-direction:column;gap:5px}
+      .br{display:flex;align-items:center;gap:10px}
+      .br span{font-size:10px;color:var(--muted);width:18px;flex-shrink:0}
+      .bt{flex:1;height:4px;background:var(--surface3);border-radius:2px;overflow:hidden}
+      .bf{height:100%;background:var(--teal);border-radius:2px}
+      .reviews-grid{display:grid;grid-template-columns:1fr;gap:12px}
+      @media(min-width:600px){.reviews-grid{grid-template-columns:1fr 1fr}}
+      @media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+      .rev-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px}
+      .rev-card.featured{border-color:rgba(0,191,168,.3);background:rgba(0,191,168,.04)}
+      .rq{font-size:22px;color:var(--teal);opacity:.4;line-height:1;margin-bottom:10px}
+      .rev-stars{color:var(--teal);font-size:12px;margin-bottom:10px}
+      .rev-card blockquote{font-size:13px;font-style:italic;color:var(--muted-l);line-height:1.7;margin-bottom:14px}
+      .rev-name{font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+      .rev-meta{font-size:10px;color:var(--muted);margin-top:2px}
+      .rev-tag{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--teal);margin-top:8px}
+      .rev-tag::before{content:'✓';font-family:var(--f-dis)}
+</style>
+{% schema %}
+{
+  "name": "Electro Reviews",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Verified Reviews" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Real Athletes.<br><em>Real Results.</em>" },
+    { "type": "text", "id": "all_reviews_text", "label": "All reviews button text", "default": "ALL REVIEWS" },
+    { "type": "url", "id": "all_reviews_url", "label": "All reviews button URL" },
+    { "type": "text", "id": "score", "label": "Score", "default": "4.9" },
+    { "type": "text", "id": "score_label", "label": "Score label", "default": "Verified reviews" },
+    { "type": "range", "id": "bar_5", "label": "5-star bar (%)", "min": 0, "max": 100, "step": 1, "default": 90 },
+    { "type": "range", "id": "bar_4", "label": "4-star bar (%)", "min": 0, "max": 100, "step": 1, "default": 10 },
+    { "type": "range", "id": "bar_3", "label": "3-star bar (%)", "min": 0, "max": 100, "step": 1, "default": 0 },
+    { "type": "range", "id": "bar_2", "label": "2-star bar (%)", "min": 0, "max": 100, "step": 1, "default": 0 },
+    { "type": "range", "id": "bar_1", "label": "1-star bar (%)", "min": 0, "max": 100, "step": 1, "default": 0 }
+  ],
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review card",
+      "settings": [
+        { "type": "checkbox", "id": "featured", "label": "Featured card", "default": false },
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "\"Less cramping, better endurance, and I actually wake up feeling recovered.\"" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Jordan R." },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Electro+ · Endurance Runner" },
+        { "type": "text", "id": "tag", "label": "Tag", "default": "Verified purchase" }
+      ]
+    }
+  ],
+  "max_blocks": 6,
+  "presets": [
+    {
+      "name": "Electro Reviews",
+      "blocks": [
+        { "type": "review", "settings": { "featured": true, "quote": "\"Less cramping, better endurance, and I actually wake up feeling recovered. The no-sugar thing is a game changer for my diet.\"", "name": "Jordan R.", "meta": "Electro+ · Endurance Runner", "tag": "Verified purchase" } },
+        { "type": "review", "settings": { "featured": false, "quote": "\"Tried LMNT and Liquid IV. Both taste too sweet. Electro+ has no taste, works in my coffee, and I don't feel that sugar crash anymore.\"", "name": "Alex T.", "meta": "Electro+ · CrossFit Athlete", "tag": "Verified purchase" } },
+        { "type": "review", "settings": { "featured": false, "quote": "\"Sleep quality went up noticeably after two weeks. I tracked it - HRV improved, resting heart rate dropped. Credit the magnesium more than anything.\"", "name": "David K.", "meta": "Electro+ · BJJ Black Belt", "tag": "Verified purchase" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

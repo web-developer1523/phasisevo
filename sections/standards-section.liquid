@@ -1,0 +1,142 @@
+<section class="standards-sec section {{ section.settings.custom_css_class}}">
+
+  <div class="standards-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_em }}</em>
+    </h2>
+
+    <p class="standards-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="standards-grid">
+    {% for block in section.blocks %}
+      <div class="std-card">
+
+        <div class="std-num">
+          {{ forloop.index | prepend: '0' | slice: -2, 2 }}
+        </div>
+
+        <div class="std-title">
+          {{ block.settings.title }}
+        </div>
+
+        <div class="std-desc">
+          {{ block.settings.desc }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "Standards Section",
+  "settings": [
+     {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How We Build Products"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "The PHASIS Standard."
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading Emphasis",
+      "default": "Every Formula. Every Batch."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "There are six things we commit to for every product we make. Non-negotiable."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "standard",
+      "name": "Standard Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Clinical Dose or Above"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Standards Section",
+      "blocks": [
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Clinical Dose or Above",
+            "desc": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. <strong>Perform+ delivers 25% above the WADA study dose.</strong>"
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Third-Party Tested",
+            "desc": "Every batch of every product is independently tested for purity, potency, and label accuracy before it ships."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Transparent Labels",
+            "desc": "No proprietary blends. Every ingredient, every dose, visible on the label."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Peer-Reviewed Foundations",
+            "desc": "Every formula is built around human clinical research — not trends."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "No Banned Substances",
+            "desc": "Every product is safe for competitive athletes and tested for contamination."
+          }
+        },
+        {
+          "type": "standard",
+          "settings": {
+            "title": "Fair Pricing",
+            "desc": "Premium ingredients don't require premium gouging."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

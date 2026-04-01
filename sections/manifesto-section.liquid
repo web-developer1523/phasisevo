@@ -1,0 +1,107 @@
+<section class="manifesto-sec section {{ section.settings.custom_css_class }}">
+  <div class="manifesto-inner">
+
+    <div class="manifesto-eyebrow-row">
+      <span>{{ section.settings.eyebrow }}</span>
+    </div>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_em }}</em>
+    </h2>
+
+    <div class="manifesto-body mt-4">
+
+      {% for block in section.blocks %}
+        {% if block.type == 'paragraph' %}
+          <p class="mb-p">
+            {{ block.settings.text }}
+          </p>
+        {% endif %}
+      {% endfor %}
+
+      <div class="pull-quote">
+        <div class="pq-text">
+          {{ section.settings.pull_quote }}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Manifesto Section",
+  "settings": [
+     {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "The PHASIS Manifesto"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "We Refuse to Make"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading Emphasis",
+      "default": "Products That Underperform."
+    },
+    {
+      "type": "textarea",
+      "id": "pull_quote",
+      "label": "Pull Quote",
+      "default": "PHASIS starts with the <em>science</em> — the peer-reviewed research, the mechanism, the dose that actually produced results. Then we build backwards to a product that delivers it."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "paragraph",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Paragraph Text"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Manifesto Section",
+     "blocks": [
+  {
+    "type": "paragraph",
+    "settings": {
+      "text": "<p>Most supplement brands start with a margin target and work backwards to the formula. They find the cheapest version of an ingredient that lets them print a claim on the label. They dress it up in aggressive branding. They spend more on the ad than the product inside the bottle.</p>"
+    }
+  },
+  {
+    "type": "paragraph",
+    "settings": {
+      "text": "<p>That's why Max Relief has <strong>pharmaceutical-grade Lidocaine HCl</strong> — not just menthol. That's why Electro+ has <strong>50+ trace minerals with zero sugar</strong> — not a powder packet with 34g of sugar and three electrolytes. That's why Perform+ delivers <strong>250mg of verified ecdysterone</strong> per capsule — 25% above the dose used in the WADA-funded study that made researchers recommend banning it.</p>"
+    }
+  },
+  {
+    "type": "paragraph",
+    "settings": {
+      "text": "<p>We don't make products for everyone. We make them for people who train hard, think critically about what goes in their body, and are <em>done being sold things that don't actually work.</em></p>"
+    }
+  }
+]
+    }
+  ]
+}
+{% endschema %}

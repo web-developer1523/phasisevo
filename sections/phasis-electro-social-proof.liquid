@@ -1,0 +1,42 @@
+<section class="proof-sec section">
+  <div class="proof-top">
+    <div>
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>{{ section.settings.heading }}</h2>
+    </div>
+  </div>
+  <div class="rating-block">
+    <div><div class="score-big">{{ section.settings.score }}</div><div class="score-stars">★★★★★</div><div class="score-count">{{ section.settings.score_label }}</div></div>
+  </div>
+  <div class="reviews-grid">
+    <div class="rev-card featured">
+      <div class="rq">❝</div>
+      <div class="rev-stars">★★★★★</div>
+      <blockquote>{{ section.settings.review_1 }}</blockquote>
+      <div class="rev-name">{{ section.settings.review_1_name }}</div>
+    </div>
+    <div class="rev-card">
+      <div class="rq">❝</div>
+      <div class="rev-stars">★★★★★</div>
+      <blockquote>{{ section.settings.review_2 }}</blockquote>
+      <div class="rev-name">{{ section.settings.review_2_name }}</div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Phasis Electro Reviews",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Verified Reviews" },
+    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Real Athletes.<br><em>Real Results.</em>" },
+    { "type": "text", "id": "score", "label": "Score", "default": "4.9" },
+    { "type": "text", "id": "score_label", "label": "Score label", "default": "Verified reviews" },
+    { "type": "textarea", "id": "review_1", "label": "Review 1", "default": "\"Less cramping, better endurance, and I actually wake up feeling recovered.\"" },
+    { "type": "text", "id": "review_1_name", "label": "Review 1 name", "default": "Jordan R." },
+    { "type": "textarea", "id": "review_2", "label": "Review 2", "default": "\"Electro+ has no taste, works in my coffee, and I don't feel sugar crashes anymore.\"" },
+    { "type": "text", "id": "review_2_name", "label": "Review 2 name", "default": "Alex T." }
+  ],
+  "presets": [{ "name": "Phasis Electro Reviews" }]
+}
+{% endschema %}

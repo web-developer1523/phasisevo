@@ -1,0 +1,264 @@
+<section class="stack-sec {{ section.settings.custm_css_class }}" id="stack">
+  <div class="stack-inner">
+    <!-- LEFT -->
+    <div class="stack-left">
+      <div class="stack-eyebrow">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <h2 class="stack-h">
+        {{ section.settings.heading_line1 -}}
+        <br>
+        {{ section.settings.heading_line2 -}}
+        <br>
+        <span>{{ section.settings.heading_highlight }}</span>
+      </h2>
+
+      <p class="stack-p">
+        {{ section.settings.description }}
+      </p>
+
+      <div class="stack-why">
+        {% for block in section.blocks %}
+          {% if block.type == 'why' %}
+            <div class="sw-item">
+              <div class="sw-dot"></div>
+              <div class="sw-text">
+                {{ block.settings.text | rich_text }}
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <a href="{{ section.settings.left_btn_link }}" class="btn btn-t">
+        {{ section.settings.left_btn_text }}
+      </a>
+    </div>
+
+    <!-- RIGHT -->
+    <div class="stack-right">
+      {% assign product = section.settings.product %}
+
+      {% if product != blank %}
+        <div class="electro-card">
+          <!-- IMAGE OR EMOJI -->
+          <div class="electro-card-img">
+            {% if section.settings.card_image != blank %}
+              <img
+                src="{{ section.settings.card_image | image_url: width: 600 }}"
+                alt="Card Image"
+                loading="lazy"
+              >
+
+            {% elsif section.settings.card_emoji != blank %}
+              <span class="card-emoji">
+                {{ section.settings.card_emoji }}
+              </span>
+
+            {% elsif product.featured_image %}
+              <img
+                src="{{ product.featured_image | image_url: width: 600 }}"
+                alt="{{ product.title }}"
+                loading="lazy"
+              >
+            {% endif %}
+          </div>
+
+          <div class="electro-card-body">
+            <span class="ctag">
+              {{ section.settings.card_tag }}
+            </span>
+
+            <h3>{{ product.title }}</h3>
+
+            <p class="edesc">
+              {{ section.settings.card_desc }}
+            </p>
+
+            <!-- FACTS -->
+            <div class="electro-facts">
+              {% for block in section.blocks %}
+                {% if block.type == 'fact' %}
+                  <div class="ef">
+                    <div class="ef-val">{{ block.settings.value }}</div>
+                    <div class="ef-lbl">{{ block.settings.label }}</div>
+                  </div>
+                {% endif %}
+              {% endfor %}
+            </div>
+
+            {% comment %} <div class="electro-footer">
+              <div class="electro-price">
+                {{ product.price | money }}
+                {% if product.compare_at_price > product.price %}
+                  <span style="text-decoration:line-through;">
+                    {{ product.compare_at_price | money }}
+                    
+                  </span>
+                {% endif %}
+              </div>  {% endcomment %}
+              <div class="electro-footer">
+  <div class="electro-price">
+    From {{ product.price | money }} <span class="unit-text">1 oz or 4 oz</span>
+
+    {% if product.compare_at_price > product.price %}
+      <span style="text-decoration:line-through;">
+        {{ product.compare_at_price | money }}
+      </span>
+    {% endif %}
+  </div> 
+
+              <a
+                href="{% if section.settings.card_btn_link != blank %}{{ section.settings.card_btn_link }}{% else %}{{ product.url }}{% endif %}"
+                class="btn btn-t"
+              >
+                {{ section.settings.card_btn_text }}
+              </a>
+            </div>
+          </div>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Stack Section (Product)",
+  "settings": [
+       {
+      "type": "text",
+      "id": "custm_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Complete the Stack"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Recovery needs"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "more than relief."
+    },
+    {
+      "type": "text",
+      "id": "heading_highlight",
+      "label": "Highlighted Text",
+      "default": "Replenish too."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description"
+    },
+    {
+      "type": "text",
+      "id": "left_btn_text",
+      "label": "Left Button Text",
+      "default": "SHOP ELECTRO+"
+    },
+    {
+      "type": "url",
+      "id": "left_btn_link",
+      "label": "Left Button Link"
+    },
+
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    },
+
+    {
+      "type": "image_picker",
+      "id": "card_image",
+      "label": "Card Image"
+    },
+    {
+      "type": "text",
+      "id": "card_emoji",
+      "label": "Card Emoji",
+      "default": "💧"
+    },
+
+    {
+      "type": "text",
+      "id": "card_tag",
+      "label": "Card Tag",
+      "default": "Mineral-First Electrolytes"
+    },
+    {
+      "type": "textarea",
+      "id": "card_desc",
+      "label": "Card Description"
+    },
+    {
+      "type": "text",
+      "id": "card_btn_text",
+      "label": "Card Button Text",
+      "default": "SHOP NOW"
+    },
+    {
+      "type": "url",
+      "id": "card_btn_link",
+      "label": "Card Button Link"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "why",
+      "name": "Why Item",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "text",
+          "label": "Text"
+        }
+      ]
+    },
+    {
+      "type": "fact",
+      "name": "Card Fact",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Stack Section",
+      "blocks": [
+        { "type": "why" },
+        { "type": "why" },
+        { "type": "why" },
+        { "type": "why" },
+        { "type": "fact" },
+        { "type": "fact" },
+        { "type": "fact" },
+        { "type": "fact" }
+      ]
+    }
+  ]
+}
+{% endschema %}

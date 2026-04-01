@@ -1,0 +1,42 @@
+{% comment %} {% assign enabled_payment_types = shop.enabled_payment_types %}
+{%- if enabled_payment_types.size > 0 -%}
+    <div class='product_payment' {{ block.shopify_attributes }}>
+        <span class="payment_title">Pay With:</span>
+        <ul class='list list-payment' role='list'>
+            {%- for type in shop.enabled_payment_types -%}
+                <li class='list-payment__item'>
+                    {{
+                        type
+                        | payment_type_svg_tag:
+                            class: 'icon icon--full-color'
+                    }}
+                </li>
+            {%- endfor -%}
+        </ul>
+    </div>
+{%- endif -%} {% endcomment %}
+
+<div class='product_payment' {{ block.shopify_attributes }}>
+    <span class="payment_title">Pay With:</span>
+    <ul class='list list-payment' role='list'>
+        <li class='list-payment__item'>
+            {{ 'paypal' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+        <li class='list-payment__item'>
+            {{ 'venmo' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+        <li class='list-payment__item'>
+            {% comment %} {{ 'cash_app' | payment_type_svg_tag: class: 'icon icon--full-color' }} {% endcomment %}
+            <svg xmlns="http://www.w3.org/2000/svg" width="35" height="24" viewBox="0 0 35 24" fill="none">
+                <rect x="0.5" y="0.5" width="34" height="23" rx="3.5" fill="#00D632" stroke="#D9D9D9"/>
+                <path d="M21.2945 9.01094C21.4774 9.19332 21.7786 9.19332 21.9504 9.01094L22.8612 8.06586C23.0552 7.88348 23.0441 7.5574 22.839 7.36028C22.124 6.73944 21.2908 6.26413 20.3911 5.96569L20.6793 4.58584C20.7422 4.28371 20.5149 4 20.2138 4H18.4495C18.2222 4.00184 18.0282 4.16212 17.9839 4.38503L17.729 5.61382C15.3827 5.73356 13.393 6.92182 13.393 9.35544C13.393 11.7891 15.0372 12.3675 16.7738 12.9884C18.4181 13.6129 19.2882 13.845 19.2882 14.7256C19.2882 15.6062 18.4218 16.1607 17.1378 16.1607C15.8538 16.1607 14.7472 15.772 13.7994 14.8233C13.6147 14.639 13.3154 14.639 13.1288 14.8233L12.1441 15.8052C11.952 15.9986 11.952 16.31 12.1441 16.5034C12.9089 17.255 13.8789 17.8003 14.9836 18.1025L14.7139 19.3994C14.6511 19.7016 14.8746 19.9816 15.1758 19.9853L16.9438 20C17.1729 20 17.3724 19.8397 17.4167 19.615L17.6717 18.3825C20.4946 18.1927 22.2146 16.6416 22.2146 14.3793C22.2146 12.117 20.502 11.4151 18.4254 10.6984C17.2375 10.2581 16.2103 9.95786 16.2103 9.05331C16.2103 8.14876 17.1692 7.82453 18.1299 7.82453C19.0905 7.82453 20.5315 8.3293 21.3001 9.02015L21.2927 9.01278L21.2945 9.01094Z" fill="white"/>
+            </svg>
+        </li>
+        <li class='list-payment__item'>
+            {{ 'apple_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+        <li class='list-payment__item'>
+            {{ 'google_pay' | payment_type_svg_tag: class: 'icon icon--full-color' }}
+        </li>
+    </ul>
+</div>

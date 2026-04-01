@@ -1,0 +1,151 @@
+<div class="trust-bar {{ section.settings.custom_css_Class }}">
+  {% for block in section.blocks %}
+    {% if block.type == 'trust_item' %}
+      
+      <div class="tb">
+
+        {% if block.settings.icon_svg != blank %}
+          <span class="tb-icon">
+            {{ block.settings.icon_svg }}
+          </span>
+        {% endif %}
+
+        <span class="tb-text">
+          {{ block.settings.text }}
+        </span>
+
+      </div>
+
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% comment %} <style>
+.trust-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0f1115;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.tb {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 28px;
+  color: #cfd6df;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* vertical divider lines */
+.tb:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  top: 20%;
+  height: 60%;
+  width: 1px;
+  background: rgba(255,255,255,0.08);
+}
+
+.tb-icon svg {
+  width: 14px;
+  height: 14px;
+  stroke: #ff4d2d; /* orange/red accent */
+}
+
+/* MOBILE FIX */
+@media (max-width: 768px) {
+  .trust-bar {
+    flex-wrap: wrap;
+  }
+
+  .tb {
+    width: 50%;
+    justify-content: center;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+
+  .tb::after {
+    display: none;
+  }
+}
+</style> {% endcomment %}
+
+{% schema %}
+{
+  "name": "Trust Bar",
+  "settings": [{
+  "type": "text",
+  "id": "custom_css_Class",
+  "label": "Custom Css Class"
+  }],
+  "blocks": [
+    {
+      "type": "trust_item",
+      "name": "Trust Item",
+      "settings": [
+        {
+          "type": "textarea",
+          "id": "icon_svg",
+          "label": "SVG Icon"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "TRUST ITEM"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Bar",
+      "blocks": [
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "3RD PARTY LAB TESTED",
+            "icon_svg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/></svg>"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "ORGANIC HEMP",
+            "icon_svg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><path d='M12 2a9 9 0 0 0-9 9c0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11a9 9 0 0 0-9-9z'/></svg>"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "MADE IN USA",
+            "icon_svg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><rect x='3' y='3' width='18' height='18' rx='2'/><path d='M3 9h18M9 21V9'/></svg>"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "30-DAY GUARANTEE",
+            "icon_svg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><circle cx='12' cy='12' r='10'/><polyline points='12 6 12 12 16 14'/></svg>"
+          }
+        },
+        {
+          "type": "trust_item",
+          "settings": {
+            "text": "FREE SHIPPING $75+",
+            "icon_svg": "<svg viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2.5'><line x1='22' y1='2' x2='11' y2='13'/><polygon points='22 2 15 22 11 13 2 9 22 2'/></svg>"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

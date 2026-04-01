@@ -1,0 +1,485 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-article-card-big.css' | asset_url | stylesheet_tag }}
+
+{% if section.settings.margin_bottom == 'no-indent' %}
+    {% assign margin_bottom_desktop = 0 %}
+{% elsif section.settings.margin_bottom == 'xl' %}
+    {% assign margin_bottom_desktop = '15rem' %}
+{% elsif section.settings.margin_bottom == 'l' %}
+    {% assign margin_bottom_desktop = '10rem' %}
+{% elsif section.settings.margin_bottom == 'm' %}
+    {% assign margin_bottom_desktop = '7rem' %}
+{% elsif section.settings.margin_bottom == 's' %}
+    {% assign margin_bottom_desktop = '4.8rem' %}
+{% else %}
+    {% assign margin_bottom_desktop = '4rem' %}
+{% endif %}
+
+{% if section.settings.margin_bottom == 'no-indent' %}
+	{% assign margin_bottom_laptop = 0 %}
+{% elsif section.settings.margin_bottom == 'xl' %}
+	{% assign margin_bottom_laptop = '13.5rem' %}
+{% elsif section.settings.margin_bottom == 'l' %}
+	{% assign margin_bottom_laptop = '9.25rem' %}
+{% elsif section.settings.margin_bottom == 'm' %}
+	{% assign margin_bottom_laptop = '6.85rem' %}
+{% elsif section.settings.margin_bottom == 's' %}
+	{% assign margin_bottom_laptop = '4.6rem' %}
+{% else %}
+	{% assign margin_bottom_laptop = '3.8rem' %}
+{% endif %}
+
+{% if section.settings.margin_bottom == 'no-indent' %}
+	{% assign margin_bottom_tablet = 0 %}
+{% elsif section.settings.margin_bottom == 'xl' %}
+	{% assign margin_bottom_tablet = '12rem' %}
+{% elsif section.settings.margin_bottom == 'l' %}
+	{% assign margin_bottom_tablet = '8.5rem' %}
+{% elsif section.settings.margin_bottom == 'm' %}
+	{% assign margin_bottom_tablet = '6.7rem' %}
+{% elsif section.settings.margin_bottom == 's' %}
+	{% assign margin_bottom_tablet = '4.4rem' %}
+{% else %}
+	{% assign margin_bottom_tablet = '3.6rem' %}
+{% endif %}
+
+{% if section.settings.margin_bottom == 'no-indent' %}
+	{% assign margin_bottom_mobile = 0 %}
+{% elsif section.settings.margin_bottom == 'xl' %}
+	{% assign margin_bottom_mobile = '10rem' %}
+{% elsif section.settings.margin_bottom == 'l' %}
+	{% assign margin_bottom_mobile = '7rem' %}
+{% elsif section.settings.margin_bottom == 'm' %}
+	{% assign margin_bottom_mobile = '6.4rem' %}
+{% elsif section.settings.margin_bottom == 's' %}
+	{% assign margin_bottom_mobile = '4rem' %}
+{% else %}
+	{% assign margin_bottom_mobile = '3.2rem' %}
+{% endif %}
+
+{% style %}
+	{% render 'section-margin' %}
+
+    #shopify-section-{{ section.id }} .recent_posts_grid {
+        margin-bottom: {{ margin_bottom_desktop }};
+    }
+
+    @media (max-width: 1359px) {
+        #shopify-section-{{ section.id }} .recent_posts_grid {
+            margin-bottom: {{ margin_bottom_laptop }};
+        }
+    }
+
+    @media (max-width: 1099px) {
+        #shopify-section-{{ section.id }} .recent_posts_grid {
+            margin-bottom: {{ margin_bottom_tablet }};
+        }
+    }
+
+    @media (max-width: 749px) {
+        #shopify-section-{{ section.id }} .recent_posts_grid {
+            margin-bottom: {{ margin_bottom_mobile }};
+        }
+    }
+{% endstyle %}
+
+<div class="custom_blog_grid">
+    <div class="container">
+        {%- paginate blog.articles by section.settings.posts_per_page -%}
+            {% if paginate.current_page == 1 %}
+            <div class="recent_posts_grid">
+                {%
+                    render 'section-header',
+                    section_heading: section.settings.recent_posts_title,
+                    section_heading_size: section.settings.recent_posts_heading_size,
+                    section_heading_tag: section.settings.recent_posts_heading_tag
+                %}
+
+                <div class="recent_posts_grid__wrapper">
+                    {% for article in blog.articles limit: section.settings.number_of_recent_posts %}
+                        {% render 'article-card',
+                            blog: blog,
+                            article: article,
+                            show_image: true,
+                            show_tags: true,
+                            show_date: true,
+                            show_author: true,
+                            show_excerpt: true,
+                            heading_tag: 'h5',
+                            enable_colored_tags: section.settings.enable_colored_tags
+                        %}
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="all_posts_grid">
+                {%
+                    render 'section-header',
+                    section_heading: section.settings.all_posts_title,
+                    section_heading_size: section.settings.all_posts_heading_size,
+                    section_heading_tag: section.settings.all_posts_heading_tag
+                %}
+
+                
+                <div class="all_posts_grid__wrapper">
+                        {% for article in blog.articles %}
+                            {% if forloop.index <= section.settings.number_of_recent_posts %}
+                                {% continue %}
+                            {% endif %}
+
+                            {% render 'article-card',
+                                blog: blog,
+                                article: article,
+                                show_image: true,
+                                show_tags: true,
+                                show_date: true,
+                                show_author: true,
+                                show_excerpt: true,
+                                heading_tag: 'h5',
+                                enable_colored_tags: section.settings.enable_colored_tags,
+                                tag_array: tag_array
+                            %}
+                        {% endfor %}
+                </div>
+                {%- if paginate.pages > 1 -%}
+                    {%- if settings.pagination_type == 'load_more' -%}
+                        {% render 'load-more',
+                            next_url: paginate.next.url,
+                            count_pages: paginate.pages,
+                            current_page: paginate.current_page
+                        %}
+                        <div class='js-hidden'>
+                            {% render 'pagination', paginate: paginate %}
+                        </div>
+                    {%- elsif settings.pagination_type == 'infinite_scroll' -%}
+                        {% render 'infinite-scroll',
+                            next_url: paginate.next.url,
+                            count_pages: paginate.pages,
+                            current_page: paginate.current_page
+                        %}
+                        <div class='js-hidden'>
+                            {% render 'pagination', paginate: paginate %}
+                        </div>
+                    {% else %}
+                        {% render 'pagination', paginate: paginate %}
+                    {%- endif -%}
+                {%- endif -%}
+            </div>
+            {% else %}
+
+            <div class="all_posts_grid">
+                {%
+                    render 'section-header',
+                    section_heading: section.settings.all_posts_title,
+                    section_heading_size: section.settings.all_posts_heading_size,
+                    section_heading_tag: section.settings.all_posts_heading_tag
+                %}
+
+                
+                <div class="all_posts_grid__wrapper">
+                        {% for article in blog.articles %}
+                            {% render 'article-card',
+                                blog: blog,
+                                article: article,
+                                show_image: true,
+                                show_tags: true,
+                                show_date: true,
+                                show_author: true,
+                                show_excerpt: true,
+                                heading_tag: 'h5',
+                                enable_colored_tags: section.settings.enable_colored_tags,
+                                tag_array: tag_array
+                            %}
+                        {% endfor %}
+                </div>
+                {%- if paginate.pages > 1 -%}
+                    {%- if settings.pagination_type == 'load_more' -%}
+                        {% render 'load-more',
+                            next_url: paginate.next.url,
+                            count_pages: paginate.pages,
+                            current_page: paginate.current_page
+                        %}
+                        <div class='js-hidden'>
+                            {% render 'pagination', paginate: paginate %}
+                        </div>
+                    {%- elsif settings.pagination_type == 'infinite_scroll' -%}
+                        {% render 'infinite-scroll',
+                            next_url: paginate.next.url,
+                            count_pages: paginate.pages,
+                            current_page: paginate.current_page
+                        %}
+                        <div class='js-hidden'>
+                            {% render 'pagination', paginate: paginate %}
+                        </div>
+                    {% else %}
+                        {% render 'pagination', paginate: paginate %}
+                    {%- endif -%}
+                {%- endif -%}
+            </div>
+            {% endif %}
+        {% endpaginate %}
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "Custom Blog Grid",
+    "settings": [
+        {
+            "type": "checkbox",
+            "id": "enable_colored_tags",
+            "default": false,
+            "label": "Enable colored tags"
+        },
+        {
+            "type": "header",
+            "content": "Recent Posts"
+        },
+        {
+            "type": "text",
+            "id": "recent_posts_title",
+            "default": "Recent Posts",
+            "label": "Recent posts title"
+        },
+        {
+			"type": "select",
+			"id": "recent_posts_heading_tag",
+			"label": "t:sections.all.heading.tag",
+			"options": [
+				{
+					"value": "h1",
+					"label": "H1"
+				},
+				{
+					"value": "h2",
+					"label": "H2"
+				},
+				{
+					"value": "h3",
+					"label": "H3"
+				},
+				{
+					"value": "h4",
+					"label": "H4"
+				},
+				{
+					"value": "h5",
+					"label": "H5"
+				},
+				{
+					"value": "h6",
+					"label": "H6"
+				},
+				{
+					"value": "div",
+					"label": "div"
+				},
+				{
+					"value": "p",
+					"label": "p"
+				},
+				{
+					"value": "span",
+					"label": "span"
+				}
+			],
+			"default": "h2"
+		},
+		{
+			"type": "select",
+			"id": "recent_posts_heading_size",
+			"options": [
+				{
+					"value": "h4",
+					"label": "t:sections.all.heading_size.options__4.label"
+				},
+				{
+					"value": "h3",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+			],
+			"default": "h1",
+			"label": "t:sections.all.heading_size.label"
+		},
+        {
+            "type": "range",
+            "id": "number_of_recent_posts",
+            "min": 1,
+            "max": 5,
+            "step": 1,
+            "default": 1,
+            "label": "Number of recent posts"
+        },
+        {
+            "type": "header",
+            "content": "All Posts"
+        },
+        {
+            "type": "text",
+            "id": "all_posts_title",
+            "default": "All Posts",
+            "label": "All posts title"
+        },
+        {
+			"type": "select",
+			"id": "all_posts_heading_tag",
+			"label": "t:sections.all.heading.tag",
+			"options": [
+				{
+					"value": "h1",
+					"label": "H1"
+				},
+				{
+					"value": "h2",
+					"label": "H2"
+				},
+				{
+					"value": "h3",
+					"label": "H3"
+				},
+				{
+					"value": "h4",
+					"label": "H4"
+				},
+				{
+					"value": "h5",
+					"label": "H5"
+				},
+				{
+					"value": "h6",
+					"label": "H6"
+				},
+				{
+					"value": "div",
+					"label": "div"
+				},
+				{
+					"value": "p",
+					"label": "p"
+				},
+				{
+					"value": "span",
+					"label": "span"
+				}
+			],
+			"default": "h2"
+		},
+		{
+			"type": "select",
+			"id": "all_posts_heading_size",
+			"options": [
+				{
+					"value": "h4",
+					"label": "t:sections.all.heading_size.options__4.label"
+				},
+				{
+					"value": "h3",
+					"label": "t:sections.all.heading_size.options__1.label"
+				},
+				{
+					"value": "h2",
+					"label": "t:sections.all.heading_size.options__2.label"
+				},
+				{
+					"value": "h1",
+					"label": "t:sections.all.heading_size.options__3.label"
+				}
+			],
+			"default": "h1",
+			"label": "t:sections.all.heading_size.label"
+		},
+        {
+            "type": "range",
+            "id": "posts_per_page",
+            "min": 1,
+            "max": 50,
+            "step": 1,
+            "default": 12,
+            "label": "Posts per page",
+            "info": "This includes the number of recent posts"
+        },
+        {
+			"type": "header",
+			"content": "t:sections.all.section-margin.header.content"
+		},
+		{
+			"type": "select",
+			"id": "margin_top",
+			"options": [
+				{
+					"value": "no-indent",
+					"label": "t:sections.all.section-margin.options__1.label"
+				},
+				{
+					"value": "xs",
+					"label": "t:sections.all.section-margin.options__2.label"
+				},
+				{
+					"value": "s",
+					"label": "t:sections.all.section-margin.options__3.label"
+				},
+				{
+					"value": "m",
+					"label": "t:sections.all.section-margin.options__4.label"
+				},
+				{
+					"value": "l",
+					"label": "t:sections.all.section-margin.options__5.label"
+				},
+				{
+					"value": "xl",
+					"label": "t:sections.all.section-margin.options__6.label"
+				}
+			],
+			"default": "s",
+			"label": "t:sections.all.section-margin.margin_top.label"
+		},
+		{
+			"type": "select",
+			"id": "margin_bottom",
+			"options": [
+				{
+					"value": "no-indent",
+					"label": "t:sections.all.section-margin.options__1.label"
+				},
+				{
+					"value": "xs",
+					"label": "t:sections.all.section-margin.options__2.label"
+				},
+				{
+					"value": "s",
+					"label": "t:sections.all.section-margin.options__3.label"
+				},
+				{
+					"value": "m",
+					"label": "t:sections.all.section-margin.options__4.label"
+				},
+				{
+					"value": "l",
+					"label": "t:sections.all.section-margin.options__5.label"
+				},
+				{
+					"value": "xl",
+					"label": "t:sections.all.section-margin.options__6.label"
+				}
+			],
+			"default": "s",
+			"label": "t:sections.all.section-margin.margin_bottom.label"
+		}
+    ],
+    "presets": [
+        {
+            "name": "Custom Blog Grid"
+        }
+    ]
+}
+{% endschema %}
