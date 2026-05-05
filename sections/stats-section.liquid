@@ -1,0 +1,112 @@
+<section class="stats-sec section {{ section.settings.custom_class }}">
+  <div class="stats-inner">
+    
+    {% for block in section.blocks %}
+      <div class="stat-block" {{ block.shopify_attributes }}>
+        
+        <div class="stat-val">
+          {{ block.settings.value }}
+        </div>
+
+        <div class="stat-lbl">
+          {{ block.settings.label }}
+        </div>
+
+      </div>
+    {% endfor %}
+
+  </div>
+  <style>
+    /* ── STATS ───────────────────────────────────────── */
+.stats-sec{background:var(--page-bg);border-top:1px solid var(--border);}
+
+.stats-sec {
+    padding: 48px var(--pad);
+}
+
+@media (min-width: 768px) {
+  .stats-sec {
+        padding: 64px var(--pad-md);
+  }
+}
+
+@media (min-width: 1024px) {
+  .stats-sec {
+        padding: 80px var(--pad-lg);
+  }
+}
+
+.stats-inner{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(min-width:768px){.stats-inner{grid-template-columns:repeat(4,1fr)}}
+.stat-block{text-align:center;padding:20px 12px;background:var(--surface);border:1px solid var(--border);border-radius:8px}
+.stat-val{font-family:var(--f-dis);font-size:clamp(28px,5vw,40px);font-weight:800;color:var(--coral);line-height:1;margin-bottom:6px}
+.stat-lbl{font-size:15px;color:#d0d0d0;line-height:1.4}
+  </style>
+</section>
+{% schema %}
+{
+  "name": "Stats Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "4.9★"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Average customer rating across all products"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Stats Section",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average customer rating across all products"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "25%",
+            "label": "Max affiliate commission — tiered, up to 25%"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "30–45%",
+            "label": "Wholesale margin on all product lines"
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "value": "3",
+            "label": "Products. One complete system. Growing."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

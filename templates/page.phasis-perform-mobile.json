@@ -1,0 +1,1251 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "mobile_hero_perform_J6ThME": {
+      "type": "mobile-hero-perform",
+      "blocks": {
+        "stat_Ygk6fP": {
+          "type": "stat",
+          "settings": {
+            "value": "+2kg",
+            "label": "Lean muscle gain"
+          }
+        },
+        "stat_MCUxrn": {
+          "type": "stat",
+          "settings": {
+            "value": "+2kg",
+            "label": "Lean muscle gain"
+          }
+        },
+        "stat_fPqybT": {
+          "type": "stat",
+          "settings": {
+            "value": "+2kg",
+            "label": "Lean muscle gain"
+          }
+        },
+        "stat_cDVKEg": {
+          "type": "stat",
+          "settings": {
+            "value": "+2kg",
+            "label": "Lean muscle gain"
+          }
+        }
+      },
+      "block_order": [
+        "stat_Ygk6fP",
+        "stat_MCUxrn",
+        "stat_fPqybT",
+        "stat_cDVKEg"
+      ],
+      "disabled": true,
+      "name": " Mobile Hero Perform",
+      "settings": {
+        "eyebrow": "β-Ecdysterone · Muscle & Endurance · Perform+",
+        "heading_line1": "The Anabolic",
+        "heading_line2": "Effect. Without",
+        "heading_line3": "The Hormones.",
+        "description": "β-Ecdysterone is a plant compound clinically shown to increase muscle protein synthesis. WADA-funded study: up to +2kg lean muscle in 10 weeks — with zero hormonal activity. No suppression. No PCT. No ban from sport.",
+        "study_title": "The study numbers are real",
+        "study_text": "Published Research — WADA-Funded · 2019\n\"Significantly higher increases in muscle mass were observed in those dosed with ecdysterone... without androgenic or estrogenic effects.\"\nIsenmann et al. · Journal of the International Society of Sports Nutrition",
+        "trust1_bold": "Safe",
+        "trust1_text": "Men & Women",
+        "trust2_bold": "Non-Hormonal",
+        "trust3_bold": "Sport Safe",
+        "button_text": "GET PERFORM+ — FROM $49",
+        "button_link": "",
+        "micro1": "Free shipping $75+",
+        "micro2": "20-day guarantee",
+        "micro3": "No subscription",
+        "bg_word": "PERFORM",
+        "emoji": "💊",
+        "research_label": "Published Research — WADA-Funded · 2019",
+        "research_text": "Significantly higher increases...",
+        "research_cite": "Isenmann et al."
+      }
+    },
+    "phasis_electro_hero_Ny8GAU": {
+      "type": "phasis-electro-hero",
+      "disabled": true,
+      "name": "Phasis Electro Hero",
+      "settings": {
+        "custom_css_class": "cst-mobile-sec",
+        "eyebrow": "β-Ecdysterone · Muscle & Endurance · Perform+",
+        "title": "The Anabolic<br>Effect. Without<br><em>The Hormones.</em>",
+        "hook": "β-Ecdysterone is a plant compound clinically shown to increase muscle protein synthesis. <strong>WADA-funded study: up to +2kg lean muscle in 10 weeks </strong> — with zero hormonal activity. No suppression. No PCT. No ban from sport.",
+        "pill_1": "Liquid drops",
+        "pill_2": "Any beverage",
+        "pill_3": "~75% less vs LMNT",
+        "pill_4": "Utah Mineral Source",
+        "pill_5": "50+ minerals",
+        "pill_no_1": "No powder",
+        "pill_no_2": "No sugar",
+        "trust_1_bold": "Safe",
+        "trust_1_text": "Men & Women",
+        "trust_2_bold": "Non-Hormonal·",
+        "trust_2_text": "",
+        "trust_3_bold": "Sport Safe",
+        "trust_3_text": "",
+        "cta_text": "GET PERFORM+ — FROM $49",
+        "cta_url": "",
+        "section_id": "purchase",
+        "micro_1": "Free shipping $75+",
+        "micro_2": "30-day guarantee",
+        "micro_3": "No subscription",
+        "bg_word": "PERFORM",
+        "product": "",
+        "emoji": "💊",
+        "review_quote": "\"Significantly higher increases in muscle mass were observed in those dosed with ecdysterone... without androgenic or estrogenic effects.\"",
+        "review_name": "",
+        "review_meta": "Isenmann et al. · Journal of the International Society of Sports Nutrition",
+        "sn_url": "",
+        "sn_icon": "🔬",
+        "sn_label": "The study numbers are real",
+        "sn_desc": "A WADA-funded, 10-week double-blind study on 46 resistance-trained men found up to +2kg lean muscle and significant bench press strength gains vs placebo. Zero hormonal side effects.",
+        "sn_arrow": "→"
+      }
+    },
+    "phasis_perform_mobile_pkFPXw": {
+      "type": "phasis-perform-mobile",
+      "name": "Phasis Perform Custom",
+      "settings": {
+        "custom_css_class": "cst-performmain-sec",
+        "eyebrow": "β-Ecdysterone · Muscle & Endurance · Perform+",
+        "title": "The Anabolic<br>Effect. Without<br><em>The Hormones.</em>",
+        "hook": "β-Ecdysterone is a plant compound clinically shown to increase muscle protein synthesis.  <strong> WADA-funded study: up to +2kg lean muscle in 10 weeks</strong>— with zero hormonal activity. No suppression. No PCT. No ban from sport.",
+        "pill_1": "Liquid drops",
+        "pill_2": "Any beverage",
+        "pill_3": "~75% less vs LMNT",
+        "pill_4": "Utah Mineral Source",
+        "pill_5": "50+ minerals",
+        "pill_no_1": "No powder",
+        "pill_no_2": "No sugar",
+        "trust_1_bold": "Safe",
+        "trust_1_text": "Men & Women",
+        "trust_2_bold": "Non-Hormonal",
+        "trust_2_text": "",
+        "trust_3_bold": "Sport Safe",
+        "trust_3_text": "",
+        "cta_text": "GET PERFORM+ — FROM $25",
+        "cta_url": "",
+        "section_id": "purchase",
+        "hero_product": "perform",
+        "micro_1": "Free shipping $75+",
+        "micro_2": "30-day guarantee",
+        "micro_3": "No subscription",
+        "bg_word": "PERFORM",
+        "emoji": "💊",
+        "new_text": "<em>Published Research — WADA-Funded · 2019</em>",
+        "review_quote": "\"Significantly higher increases in muscle mass were observed in those dosed with ecdysterone... without androgenic or estrogenic effects.\"",
+        "review_name": "",
+        "review_meta": "Isenmann et al. · Journal of the International Society of Sports Nutrition",
+        "sn_url": "",
+        "sn_icon": "🔬",
+        "sn_label": "The study numbers are real",
+        "sn_desc": "A <strong>WADA-funded, 10-week double-blind study</strong> on 46 resistance-trained men found up to +2kg lean muscle and significant bench press strength gains vs placebo. Zero hormonal side effects.",
+        "sn_arrow": "→"
+      }
+    },
+    "mobile_trust_bar_biWB6a": {
+      "type": "mobile-trust-bar",
+      "blocks": {
+        "item_34VzPJ": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "3RD PARTY TESTED"
+          }
+        },
+        "item_d6CLrJ": {
+          "type": "item",
+          "settings": {
+            "icon": "circle",
+            "text": "PLANT-DERIVED"
+          }
+        },
+        "item_UhBbXh": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "text": "NON-HORMONAL"
+          }
+        },
+        "item_nWMzmp": {
+          "type": "item",
+          "settings": {
+            "icon": "grid",
+            "text": "MADE IN USA"
+          }
+        },
+        "item_nanebY": {
+          "type": "item",
+          "settings": {
+            "icon": "check",
+            "text": "SPORT SAFE"
+          }
+        },
+        "item_xNpRNQ": {
+          "type": "item",
+          "disabled": true,
+          "settings": {
+            "icon": "plane",
+            "text": "FREE SHIPPING $75+"
+          }
+        }
+      },
+      "block_order": [
+        "item_34VzPJ",
+        "item_d6CLrJ",
+        "item_UhBbXh",
+        "item_nWMzmp",
+        "item_nanebY",
+        "item_xNpRNQ"
+      ],
+      "name": " Mobile Trust Bar",
+      "settings": {
+        "custom_css": "cst-mobtrust-sec"
+      }
+    },
+    "mobile_skeptic_section_6dkEhE": {
+      "type": "mobile-skeptic-section",
+      "blocks": {
+        "objection_gUeV3T": {
+          "type": "objection",
+          "settings": {
+            "number": "01",
+            "question": "\"Is this just another overhyped supplement?\"",
+            "answer": "The key study was a <strong>10-week double-blind, placebo-controlled trial on 46 resistance-trained men — funded by WADA.</strong> Results: up to +2kg lean muscle and significant bench press 1RM increases vs placebo. Published in JISSN 2019. Not marketing copy — peer-reviewed science funded by the world's anti-doping authority."
+          }
+        },
+        "objection_RkrLfH": {
+          "type": "objection",
+          "settings": {
+            "number": "02",
+            "question": "\"Will this get me banned from competition?\"",
+            "answer": "No — and the story here is remarkable. WADA funded the study themselves. The results were so significant they <strong>recommended adding it to the prohibited list.</strong> They added it to their monitoring list in 2021 — but it remains legal in all sports including UFC, USADA-tested events, and Olympic sports. Every batch is 3rd party tested."
+          }
+        },
+        "objection_m3FgXh": {
+          "type": "objection",
+          "settings": {
+            "number": "03",
+            "question": "\"Doesn't it mess with hormones?\"",
+            "answer": "This is the key distinction. Ecdysterone activates the <strong>Akt/mTOR muscle protein synthesis pathway</strong> through a non-androgenic mechanism. It does not bind to androgen or estrogen receptors. No hormonal suppression. No PCT needed. No endocrine effects. Same results, clean pathway."
+          }
+        },
+        "objection_yjn6ig": {
+          "type": "objection",
+          "settings": {
+            "number": "04",
+            "question": "\"How do I know what's actually in the capsule?\"",
+            "answer": "The most important question. Independent analysis found many ecdysterone products contain <strong>less than 0.1% of the dose claimed on the label</strong> — up to 99.7% underdosed. The compound works. Most products don't contain it. Perform+ is 3rd party tested every batch with COA available on request."
+          }
+        }
+      },
+      "block_order": [
+        "objection_gUeV3T",
+        "objection_RkrLfH",
+        "objection_m3FgXh",
+        "objection_yjn6ig"
+      ],
+      "name": " Mobile Skeptic Section",
+      "settings": {
+        "eyebrow": "Before You Scroll Past",
+        "heading_line1": "We Know The",
+        "heading_line2": "Four Things You're Thinking.",
+        "subtext": "Every serious athlete has the same objections. Let's address all of them now.",
+        "bottom_label": "The Numbers From The Research",
+        "bottom_highlight": "Up to <em>+2kg lean muscle</em> in 10 weeks. Significant <em>bench press strength gains</em>. Funded and studied by WADA. Zero hormonal side effects.",
+        "bottom_description": "These are results from a peer-reviewed, double-blind, placebo-controlled study on 46 resistance-trained men, published in JISSN 2019. WADA funded it. The results were significant enough they recommended ecdysterone be added to the prohibited list. It hasn't been — meaning you can still use it legally."
+      }
+    },
+    "mobile_russia_origin_Eajj8x": {
+      "type": "mobile-russia-origin",
+      "blocks": {
+        "timeline_g6jj9a": {
+          "type": "timeline",
+          "settings": {
+            "year": "1970s–80s",
+            "title": "The Soviet Secret Program",
+            "description": "The Soviet Union ran classified state-sponsored programs searching for plant-based performance enhancers for their Olympic athletes, soldiers, and cosmonauts. Scientists were <strong>banned from publishing outside the USSR.</strong>"
+          }
+        },
+        "timeline_bhPyfw": {
+          "type": "timeline",
+          "settings": {
+            "year": "1970s–80s",
+            "title": "\"The Russian Secret\"",
+            "description": "Ecdysterone — specifically called <strong>\"the Russian Secret\"</strong> in sports science circles — was suspected to be used by Soviet Olympic athletes. While Western athletes were tested for steroids, Soviet athletes may have had a legal, plant-derived edge no one was testing for."
+          }
+        },
+        "timeline_YWcrc3": {
+          "type": "timeline",
+          "settings": {
+            "year": "1970s–80s",
+            "title": "The Iron Curtain Falls",
+            "description": "When the Soviet Union collapsed, classified documents and defecting scientists brought decades of restricted research to Western researchers for the first time."
+          }
+        },
+        "timeline_tFwPV7": {
+          "type": "timeline",
+          "settings": {
+            "year": "1970s–80s",
+            "title": "WADA Investigates — And Confirms It",
+            "description": "WADA funded a formal study. Results: up to +2kg lean muscle and significant strength gains in 10 weeks — zero hormonal side effects. Researchers recommended adding ecdysterone to the prohibited list. The irony: the compound Soviet athletes may have used for decades is still legal."
+          }
+        },
+        "timeline_wUqTJ6": {
+          "type": "timeline",
+          "settings": {
+            "year": "1970s–80s",
+            "title": "Still Legal. Finally Available.",
+            "description": "What Soviet athletes may have quietly used for decades is now available to anyone — at a verified clinical dose, 3rd party tested, with full label transparency."
+          }
+        }
+      },
+      "block_order": [
+        "timeline_g6jj9a",
+        "timeline_bhPyfw",
+        "timeline_YWcrc3",
+        "timeline_tFwPV7",
+        "timeline_wUqTJ6"
+      ],
+      "name": "Russia Origin Story",
+      "settings": {
+        "eyebrow": "The Origin Story",
+        "heading_line1": "The West Is 40 Years",
+        "heading_line2": "Behind Soviet",
+        "heading_em": "Sports Science.",
+        "subtext": "Ecdysterone didn't start in a supplement company's lab. It started in classified Soviet research programs — kept secret for decades.",
+        "quote_icon": "❝",
+        "quote_text": "Ecdysterone has long been called \"the Russian Secret\" for muscle enhancement. Our study found it produced significantly higher increases in muscle mass than placebo — without a single androgenic side effect.",
+        "quote_cite": "Professor Maria Parr · Co-Author, WADA-Funded Ecdysterone Study · Archives of Toxicology"
+      }
+    },
+    "mobile_science_mechanism_BAxWz4": {
+      "type": "mobile-science-mechanism",
+      "blocks": {
+        "step_eEXAAN": {
+          "type": "step",
+          "settings": {
+            "number": "1",
+            "title": "Binds to ERβ receptors",
+            "desc": "Binds to estrogen receptor beta — not androgen receptors. No androgenic side effects, still activates downstream anabolic signaling."
+          }
+        },
+        "step_BLfwJy": {
+          "type": "step",
+          "settings": {
+            "number": "2",
+            "title": "Activates PI3K/Akt/mTOR",
+            "desc": "The master switch for muscle protein synthesis. Triggers building of new muscle protein from amino acids."
+          }
+        },
+        "step_zMmWnA": {
+          "type": "step",
+          "settings": {
+            "number": "3",
+            "title": "Increases nitrogen retention",
+            "desc": "Higher nitrogen retention signals positive protein balance — the fundamental state of muscle growth."
+          }
+        },
+        "step_yFeLjV": {
+          "type": "step",
+          "settings": {
+            "number": "4",
+            "title": "Reduces protein breakdown",
+            "desc": "Anti-catabolic effects help preserve muscle built — critical during hard training blocks or calorie deficits."
+          }
+        },
+        "comparison_QDbx7a": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Muscle protein synthesis",
+            "ours": "Activates MPS",
+            "other": "Activates MPS ⚠"
+          }
+        },
+        "comparison_fBdHGx": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Hormonal suppression",
+            "ours": "None",
+            "other": "Significant"
+          }
+        },
+        "comparison_beepbc": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Post-cycle therapy needed",
+            "ours": "Never",
+            "other": "Required"
+          }
+        },
+        "comparison_i3qjjm": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Sport banned / WADA",
+            "ours": "Not banned",
+            "other": "Banned"
+          }
+        },
+        "comparison_6ytb9b": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Plant-derived",
+            "ours": "Yes",
+            "other": "Synthetic"
+          }
+        }
+      },
+      "block_order": [
+        "step_eEXAAN",
+        "step_BLfwJy",
+        "step_zMmWnA",
+        "step_yFeLjV",
+        "comparison_QDbx7a",
+        "comparison_fBdHGx",
+        "comparison_beepbc",
+        "comparison_i3qjjm",
+        "comparison_6ytb9b"
+      ],
+      "name": " Mobile Science Mechanism",
+      "settings": {
+        "eyebrow": "The Mechanism",
+        "heading_line1": "How It Actually",
+        "heading_line2": "Builds Muscle.",
+        "description": "β-Ecdysterone <strong>directly activates the cellular machinery</strong> responsible for building muscle — the same pathway anabolic compounds target, through a completely different non-hormonal entry point.",
+        "study_label": "WADA-Funded · 10-Week Double-Blind · n=46",
+        "study_finding": "<p>Up to <strong>+2kg lean muscle</strong><br/>gained vs placebo.<br/>Significant <strong>1RM strength</strong> increase.</p>",
+        "study_detail": "46 resistance-trained men. 10 weeks of strength training + ecdysterone vs placebo. Significantly greater lean muscle mass and bench press 1RM improvements. No androgenic or estrogenic side effects detected.",
+        "study_source": "Isenmann E, et al. · JISSN 2019 · WADA-funded",
+        "comp_col1": "Comparison",
+        "comp_col2": "Perform+",
+        "comp_col3": "Steroids / SARMs"
+      }
+    },
+    "mobile_who_perform_LCe9Rk": {
+      "type": "mobile-who-perform",
+      "blocks": {
+        "card_bxXijE": {
+          "type": "card",
+          "settings": {
+            "icon": "🥋",
+            "title": "Combat Sports",
+            "points": "<div class=\"wc-pt\">More muscle during hard training camps</div>\n      <div class=\"wc-pt\">Anti-catabolic during weight cuts</div>\n      <div class=\"wc-pt\">Safe for USADA-tested athletes</div>"
+          }
+        },
+        "card_BXE7XM": {
+          "type": "card",
+          "settings": {
+            "icon": "🏋️",
+            "title": "Lifters",
+            "points": "<div class=\"wc-pt\">Accelerates muscle protein synthesis</div>\n      <div class=\"wc-pt\">Supports 1RM strength gains</div>\n      <div class=\"wc-pt\">No suppression — no PCT required</div>"
+          }
+        },
+        "card_UW9JcH": {
+          "type": "card",
+          "settings": {
+            "icon": "🏃",
+            "title": "Endurance",
+            "points": "<div class=\"wc-pt\">Preserves lean muscle through high volume</div>\n      <div class=\"wc-pt\">Reduces muscle breakdown during long efforts</div>\n      <div class=\"wc-pt\">Faster post-race recovery</div>"
+          }
+        },
+        "card_j9qgkc": {
+          "type": "card",
+          "settings": {
+            "icon": "♀️",
+            "title": "Women Athletes",
+            "points": "<div class=\"wc-pt\">Zero testosterone or estrogen impact</div>\n      <div class=\"wc-pt\">No masculinizing effects of any kind</div>\n      <div class=\"wc-pt\">No cycle disruption — safe daily use</div>"
+          }
+        },
+        "card_UHbtWm": {
+          "type": "card",
+          "settings": {
+            "icon": "⚡",
+            "title": "General Fitness",
+            "points": "<div class=\"wc-pt\">More from the same training volume</div>\n      <div class=\"wc-pt\">Lean body composition support</div>\n      <div class=\"wc-pt\">Clean, plant-derived — easy to commit</div>"
+          }
+        },
+        "card_3yYWmw": {
+          "type": "card",
+          "settings": {
+            "icon": "🎯",
+            "title": "Performance-Focused",
+            "points": "<div class=\"wc-pt\">Researching peptides or SARMs? Try this first.</div>\n      <div class=\"wc-pt\">Legal, oral, clinically studied</div>\n      <div class=\"wc-pt\">WADA-researched, verified dose</div>"
+          }
+        }
+      },
+      "block_order": [
+        "card_bxXijE",
+        "card_BXE7XM",
+        "card_UW9JcH",
+        "card_j9qgkc",
+        "card_UHbtWm",
+        "card_3yYWmw"
+      ],
+      "name": "Who It's For",
+      "settings": {
+        "eyebrow": "Who It's Built For",
+        "heading_line1": "If You Train,",
+        "heading_line2": "Perform+ Is For You.",
+        "subtext": "<p>Non-hormonal means it works equally for men and women — same pathway, same results, zero gender-specific side effects.</p>"
+      }
+    },
+    "mobile_formula_ingredient_wqGikU": {
+      "type": "mobile-formula-ingredient",
+      "blocks": {
+        "fact_7HDrew": {
+          "type": "fact",
+          "settings": {
+            "value": "250mg",
+            "label": "Ecdysterone per capsule · verified dose +25%"
+          }
+        },
+        "fact_Wc3Qac": {
+          "type": "fact",
+          "settings": {
+            "value": "+25%",
+            "label": "Above the 200mg WADA study dose 1:4"
+          }
+        },
+        "fact_pzb4fh": {
+          "type": "fact",
+          "settings": {
+            "value": "1:4",
+            "label": "Cyclodextrin complex for max bioavailability"
+          }
+        },
+        "fact_cYXziC": {
+          "type": "fact",
+          "settings": {
+            "value": "✓",
+            "label": "3rd party batch tested · COA on request"
+          }
+        },
+        "clean_rN9z3U": {
+          "type": "clean",
+          "settings": {
+            "type": "yes",
+            "text": "250mg ecdysterone per capsule — 3rd party verified"
+          }
+        },
+        "clean_fEh8mm": {
+          "type": "clean",
+          "settings": {
+            "type": "yes",
+            "text": "1250mg total fill · 1:4 cyclodextrin complex · 250mg ecdysterone"
+          }
+        },
+        "clean_LAKwx4": {
+          "type": "clean",
+          "settings": {
+            "type": "yes",
+            "text": "Sourced from Cyanotis arachnoidea — highest potency source"
+          }
+        },
+        "clean_ghXbpC": {
+          "type": "clean",
+          "settings": {
+            "type": "yes",
+            "text": "COA available on request — every batch"
+          }
+        },
+        "clean_GtDmhG": {
+          "type": "clean",
+          "settings": {
+            "type": "yes",
+            "text": "Size 000 vegan capsule · Full label transparency"
+          }
+        },
+        "clean_L7egPj": {
+          "type": "clean",
+          "settings": {
+            "type": "no",
+            "text": "No underdosing — industry avg is 99.7% below labe"
+          }
+        },
+        "clean_PrFpNN": {
+          "type": "clean",
+          "settings": {
+            "type": "no",
+            "text": "No hormones or prohormones"
+          }
+        },
+        "clean_TWmgKj": {
+          "type": "clean",
+          "settings": {
+            "type": "no",
+            "text": "No stimulants or caffeine"
+          }
+        },
+        "clean_dy7pyw": {
+          "type": "clean",
+          "settings": {
+            "type": "no",
+            "text": "No banned substance"
+          }
+        },
+        "clean_byVVbB": {
+          "type": "clean",
+          "settings": {
+            "type": "no",
+            "text": "No artificial fillers or binders"
+          }
+        },
+        "detail_hMUnYn": {
+          "type": "detail",
+          "settings": {
+            "value": "30",
+            "label": "Capsules · 30-day supply"
+          }
+        },
+        "detail_gREmYz": {
+          "type": "detail",
+          "settings": {
+            "value": "1",
+            "label": "Capsule per day"
+          }
+        },
+        "detail_tMXDc8": {
+          "type": "detail",
+          "settings": {
+            "value": "250mg",
+            "label": "Ecdysterone per capsule"
+          }
+        },
+        "detail_bLeXzn": {
+          "type": "detail",
+          "settings": {
+            "value": "000",
+            "label": "Capsule size — take with food"
+          }
+        }
+      },
+      "block_order": [
+        "fact_7HDrew",
+        "fact_Wc3Qac",
+        "fact_pzb4fh",
+        "fact_cYXziC",
+        "clean_rN9z3U",
+        "clean_fEh8mm",
+        "clean_LAKwx4",
+        "clean_ghXbpC",
+        "clean_GtDmhG",
+        "clean_L7egPj",
+        "clean_PrFpNN",
+        "clean_TWmgKj",
+        "clean_dy7pyw",
+        "clean_byVVbB",
+        "detail_hMUnYn",
+        "detail_gREmYz",
+        "detail_tMXDc8",
+        "detail_bLeXzn"
+      ],
+      "name": "Formula Ingredient",
+      "settings": {
+        "eyebrow": "What's In It",
+        "heading_line1": "One Ingredient.",
+        "heading_line2": "Done Right.",
+        "subtext": "<p>No proprietary blends. No pixie-dusting. 250mg β-Ecdysterone per capsule — 25% above the dose that produced results in published research.</p>",
+        "label": "Primary Active · Above Clinical Dose",
+        "name": "β-Ecdysterone",
+        "dose": "250mg per capsule · 1:4 Cyclodextrin Complex · 25% above study dose",
+        "description": "<p>he primary WADA study used 200mg/day and produced statistically significant results. Perform+ delivers 250mg — 25% above the studied dose. Each capsule is 1250mg total fill: a 1:4 cyclodextrin complex sourced from Cyanotis arachnoidea. Most competitors sell raw ecdysterone powder at lower doses with no complexation. Independent testing has found many products contain less than 0.1% of the label claim. You're getting a verified, above-study dose.</p>",
+        "clean_title": "Clean Label Promise",
+        "details_title": "Product Details"
+      }
+    },
+    "phasis_electro_problem_WKqiXV": {
+      "type": "phasis-electro-problem",
+      "blocks": {
+        "problem_point_rM6rYd": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Powder packets - messy, single-use, committed to one drink"
+          }
+        },
+        "problem_point_mXjnkC": {
+          "type": "problem_point",
+          "settings": {
+            "text": "$1.00-$1.50 per serving adds up fast for daily use"
+          }
+        },
+        "problem_point_4CNpMb": {
+          "type": "problem_point",
+          "settings": {
+            "text": "34g sugar per serving spikes insulin and crashes energy"
+          }
+        },
+        "problem_point_yALqjY": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Only replace 3-5 minerals, ignore 45+ others your body needs"
+          }
+        },
+        "problem_point_Tgy64t": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Artificial sweeteners alter the taste of your drink"
+          }
+        },
+        "approach_point_pqqWXF": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds."
+          }
+        },
+        "approach_point_zfd4jU": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>From $0.38 per serving</b> - up to 75% less than powder brands"
+          }
+        },
+        "approach_point_GqyWHh": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Zero sugar</b> - not reduced, not substituted. Eliminated."
+          }
+        },
+        "approach_point_t6KVzc": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>50+ trace minerals</b> drawn from Utah's ancient mineral deposits - not synthetic"
+          }
+        },
+        "approach_point_HwLz6M": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Unflavored</b> - works in anything without changing the taste"
+          }
+        }
+      },
+      "block_order": [
+        "problem_point_rM6rYd",
+        "problem_point_mXjnkC",
+        "problem_point_4CNpMb",
+        "problem_point_yALqjY",
+        "problem_point_Tgy64t",
+        "approach_point_pqqWXF",
+        "approach_point_zfd4jU",
+        "approach_point_GqyWHh",
+        "approach_point_t6KVzc",
+        "approach_point_HwLz6M"
+      ],
+      "disabled": true,
+      "name": "Phasis Electro Problem",
+      "settings": {
+        "custom_css_class": "cst-hydrat-sec",
+        "eyebrow": "Before You Go Further",
+        "heading": "Thinking About Peptides.<br>or SARMs?<em>Read This First.</em>",
+        "subheading": "If you're serious enough about performance to consider injections, you're exactly the athlete Perform+ was built for. Here's an honest comparison.",
+        "button_text": "TRY PERFORM+ FIRST — FROM $49",
+        "button_link": "#",
+        "extra_text": "Not medical advice. We're not telling anyone what to do with their body. We're simply suggesting that a legal, oral, clinically-studied option deserves to be tried before more invasive routes.",
+        "problem_label": "Peptides / SARMs",
+        "problem_title": "The route most serious athletes consider when supplements aren't enough",
+        "approach_label": "The Electro+ Approach",
+        "approach_title": "Minerals first. Everything else removed.",
+        "depletion_label": "The Depletion Problem",
+        "depletion_stat": "In a 60-minute training session, your body loses <em>sodium, potassium, magnesium,</em> and up to <em>48 trace minerals</em> through sweat.",
+        "depletion_sub": "Water replaces fluid volume. It doesn't replace mineral density. That gap is what causes cramping, fatigue, poor sleep, and slow recovery."
+      }
+    },
+    "peptide_comparison_CUUykA": {
+      "type": "peptide-comparison",
+      "blocks": {
+        "left_point_47tgQg": {
+          "type": "left_point",
+          "settings": {
+            "bold_text": "Injections required",
+            "normal_text": "daily or multiple times weekly"
+          }
+        },
+        "left_point_fDH7YQ": {
+          "type": "left_point",
+          "settings": {
+            "bold_text": "Grey-market sourcing",
+            "normal_text": "no quality guarantee"
+          }
+        },
+        "left_point_Nk87yJ": {
+          "type": "left_point",
+          "settings": {
+            "bold_text": "No human clinical trials",
+            "normal_text": "mostly animal data"
+          }
+        },
+        "left_point_TWVAhU": {
+          "type": "left_point",
+          "settings": {
+            "bold_text": "Legal ambiguity",
+            "normal_text": " banned in most competitive sports"
+          }
+        },
+        "left_point_GxrHhj": {
+          "type": "left_point",
+          "settings": {
+            "bold_text": "$150–$400+/month",
+            "normal_text": " no purity guarantee"
+          }
+        },
+        "right_point_fmKnXD": {
+          "type": "right_point",
+          "settings": {
+            "bold_text": "Oral capsules",
+            "normal_text": "1 per day, no needles"
+          }
+        },
+        "right_point_NzrqhV": {
+          "type": "right_point",
+          "settings": {
+            "bold_text": "3rd party tested",
+            "normal_text": " COA available, verified dose"
+          }
+        },
+        "right_point_nKhW6H": {
+          "type": "right_point",
+          "settings": {
+            "bold_text": "Human clinical data",
+            "normal_text": "10-week WADA-funded study"
+          }
+        },
+        "right_point_9QmXad": {
+          "type": "right_point",
+          "settings": {
+            "bold_text": "Fully legal",
+            "normal_text": " not banned by WADA, UFC, USADA"
+          }
+        },
+        "right_point_GVJHqa": {
+          "type": "right_point",
+          "settings": {
+            "bold_text": "From $1.63/day",
+            "normal_text": "transparent, no grey market"
+          }
+        }
+      },
+      "block_order": [
+        "left_point_47tgQg",
+        "left_point_fDH7YQ",
+        "left_point_Nk87yJ",
+        "left_point_TWVAhU",
+        "left_point_GxrHhj",
+        "right_point_fmKnXD",
+        "right_point_NzrqhV",
+        "right_point_nKhW6H",
+        "right_point_9QmXad",
+        "right_point_GVJHqa"
+      ],
+      "name": "Peptide Comparison",
+      "settings": {
+        "eyebrow": "Before You Go Further",
+        "heading_line1": "Thinking About Peptides or SARMs?",
+        "heading_emphasis": "Read This First.",
+        "subheading": "If you're serious enough about performance to consider injections, you're exactly the athlete Perform+ was built for. Here's an honest comparison.",
+        "left_label": "Peptides / SARMs",
+        "left_title": "The route most serious athletes consider when supplements aren't enough",
+        "right_label": "Perform+ · β-Ecdysterone",
+        "right_title": "The logical first step for athletes who want results without the risks",
+        "logic_eyebrow": "The Logical Sequence",
+        "logic_text": "If you haven't maxed out what a <em>verified, clinical-dose, plant-derived anabolic</em> can do — why inject anything yet?",
+        "logic_subtext": "Perform+ delivers a meaningful anabolic stimulus through a completely natural, legal, non-hormonal pathway backed by the same research WADA used to evaluate it. No needles. No side effects. No compromise on purity.",
+        "button_text": "TRY PERFORM+ FIRST — FROM $49",
+        "button_link": "shopify://pages/perform-plus",
+        "disclaimer": "Not medical advice. We're not telling anyone what to do with their body. We're simply suggesting that a legal, oral, clinically-studied option deserves to be tried before more invasive routes."
+      }
+    },
+    "mobile_social_proof_JkHeGV": {
+      "type": "mobile-social-proof",
+      "blocks": {
+        "review_gT3Prw": {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "stars": 5,
+            "review_text": "\"I was skeptical — I've been training 12 years. After 6 weeks I put 15lbs on my squat and recovery between sessions got noticeably faster. I didn't change anything else.\"",
+            "reviewer_name": "Tyler M.",
+            "review_meta": "Perform+ · Athlete · 6 Week Review",
+            "review_tag": "Verified early access buyer"
+          }
+        },
+        "review_46FYEJ": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": 5,
+            "review_text": "\"I'm USADA tested so anything hormonal is off the table. Perform+ is clean, plant-based, and within 4 weeks my training partners started asking what I changed. Lean and full.\"",
+            "reviewer_name": "Darius C.",
+            "review_meta": "Perform+ · MMA Fighter · USADA Pool",
+            "review_tag": "Verified early access buyer"
+          }
+        },
+        "review_PFrLXa": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": 5,
+            "review_text": "\"As a female athlete I've always been skeptical of performance supplements. Perform+ is genuinely different. Six weeks in, I'm leaner, recovering faster, and nothing weird hormonally.\"",
+            "reviewer_name": "Samira K.",
+            "review_meta": "erform+ · BJJ Black Belt · Female Athlete",
+            "review_tag": "Verified early access buyer"
+          }
+        }
+      },
+      "block_order": [
+        "review_gT3Prw",
+        "review_46FYEJ",
+        "review_PFrLXa"
+      ],
+      "name": " Mobile Social Proof",
+      "settings": {
+        "badge_text": "Early Access Reviews",
+        "heading_line1": "Real Results From",
+        "heading_emphasis": "Early Testers.",
+        "button_text": "ALL REVIEWS",
+        "button_link": ""
+      }
+    },
+    "mobilepurchase_section_cy9ibj": {
+      "type": "mobilepurchase-section",
+      "blocks": {
+        "variant_9Tab3y": {
+          "type": "variant",
+          "settings": {
+            "name": "30 Capsules",
+            "desc": "30-day supply. Try it.",
+            "price": "",
+            "compare_price": "",
+            "sub": "1 capsule/day",
+            "badge": "",
+            "note": "30 capsules · 30-day supply",
+            "variant": "46097349705900"
+          }
+        },
+        "variant_86FLLk": {
+          "type": "variant",
+          "settings": {
+            "name": "60 Capsules",
+            "desc": "60-day supply. Matches research timeline",
+            "price": "",
+            "compare_price": " $98",
+            "sub": "Save $13 vs buying two bottles",
+            "badge": "SAVE $13 Capsules",
+            "note": "60 capsules · 60-day supply",
+            "variant": "46097349673132"
+          }
+        },
+        "secure_hGQcxW": {
+          "type": "secure",
+          "settings": {
+            "text": "Secure checkout"
+          }
+        },
+        "secure_YmTMGQ": {
+          "type": "secure",
+          "settings": {
+            "text": "SSL encrypted"
+          }
+        },
+        "secure_eADPgm": {
+          "type": "secure",
+          "settings": {
+            "text": "Made in USA"
+          }
+        },
+        "guarantee_rEaPNa": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🛡️",
+            "title": "30-Day Guarantee",
+            "desc": "Full refund. No questions."
+          }
+        },
+        "guarantee_PVUgei": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "desc": "Description"
+          }
+        },
+        "guarantee_P3B4kN": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🧪",
+            "title": "Lab Tested",
+            "desc": "Every batch. COA available."
+          }
+        },
+        "upsell_XdP4ft": {
+          "type": "upsell",
+          "settings": {
+            "icon": "🧴",
+            "name": "Max Relief Balm",
+            "desc": "Recover faster from training · From $60",
+            "link": "",
+            "button_text": "ADD",
+            "color": "coral",
+            "product": "max-relief-balm"
+          }
+        },
+        "upsell_VPzDXA": {
+          "type": "upsell",
+          "settings": {
+            "icon": "💧",
+            "name": "Electro+ Drops",
+            "desc": "Replenish minerals · From $45",
+            "link": "",
+            "button_text": "ADD",
+            "color": "teal",
+            "product": "electro-drops"
+          }
+        }
+      },
+      "block_order": [
+        "variant_9Tab3y",
+        "variant_86FLLk",
+        "secure_hGQcxW",
+        "secure_YmTMGQ",
+        "secure_eADPgm",
+        "guarantee_rEaPNa",
+        "guarantee_PVUgei",
+        "guarantee_P3B4kN",
+        "upsell_XdP4ft",
+        "upsell_VPzDXA"
+      ],
+      "custom_css": [],
+      "name": " Mobile Purchase Section",
+      "settings": {
+        "custom_css_class": "cst-performplus-sec",
+        "section_id": "purchase",
+        "use_product": true,
+        "product": "perform",
+        "use_image": false,
+        "visual": "💊",
+        "eyebrow": "Perform+ · β-Ecdysterone Formula",
+        "heading": "Perform+",
+        "tagline": "250mg ecdysterone per capsule...",
+        "size_label": "Choose Your Supply",
+        "price_sub": "Size 000 capsule — take with food · No subscription · Ships in 1–3 business days",
+        "button_text": "ADD TO CART — GET PERFORM+",
+        "button_link": "",
+        "upsell_label": "Complete The PHASIS Stack",
+        "gallery_type_layout": "thumbs_bottom"
+      }
+    },
+    "mobile_faq_section_RrH67K": {
+      "type": "mobile-faq-section",
+      "blocks": {
+        "faq_AhLned": {
+          "type": "faq",
+          "settings": {
+            "open_default": true,
+            "question": "Will this get me banned from competition?",
+            "answer": "No. β-Ecdysterone is not on the WADA prohibited list and is not banned by USADA, UFC, or any major sports organization. WADA added it to their monitoring list in 2021 — but that is distinct from the prohibited list. Every batch of Perform+ is 3rd party tested to confirm zero contamination with banned substances."
+          }
+        },
+        "faq_iRJbch": {
+          "type": "faq",
+          "settings": {
+            "open_default": false,
+            "question": "How long before I see results?",
+            "answer": "The primary study ran 10 weeks and found up to +2kg lean muscle and significant strength improvements. Most users report noticeably faster recovery within 2 weeks, and visible strength improvements by weeks 4–6. The full anabolic effect builds over the study timeline — which is why the 60-cap option is the recommended first order."
+          }
+        },
+        "faq_wKUN3K": {
+          "type": "faq",
+          "settings": {
+            "open_default": false,
+            "question": "Do I need to cycle it or do PCT?",
+            "answer": "No. Because β-Ecdysterone is non-hormonal — it doesn't suppress your body's natural testosterone production or affect your endocrine system — there's no hormonal rebound to manage. Take it continuously or stop whenever you choose without side effects."
+          }
+        },
+        "faq_EdPFFa": {
+          "type": "faq",
+          "settings": {
+            "open_default": false,
+            "question": "Is it safe for women?",
+            "answer": "Yes — and female athletes may benefit more from Perform+ than most supplements because it's completely non-hormonal. No testosterone increase, no masculinizing effects, no hair loss, no acne, no voice changes, no menstrual disruption. The muscle protein synthesis pathway it activates works identically regardless of biological sex. Zero gender-specific side effects."
+          }
+        },
+        "faq_f8yRmt": {
+          "type": "faq",
+          "settings": {
+            "open_default": false,
+            "question": "How does this compare to peptides or SARMs?",
+            "answer": "Completely different category. Peptides and SARMs require injections, grey-market sourcing, and carry legal risk in competitive sports. Most peptide research in humans is limited. Ecdysterone has more published human research than most peptides being discussed in performance communities. Our position: if you haven't maxed out what a legal, oral, clinically-studied compound can do — try that first."
+          }
+        },
+        "faq_XyRJq9": {
+          "type": "faq",
+          "settings": {
+            "open_default": false,
+            "question": "Why 60 caps over 30?",
+            "answer": "The WADA study ran 10 weeks. A 30-cap bottle gives you 30 days. The 60-cap option covers 60 days, aligns with the research timeline, and saves you $13 vs two separate purchases ($98 vs $85). If you want to match the study conditions where +2kg lean muscle was achieved — give it the time the research used."
+          }
+        }
+      },
+      "block_order": [
+        "faq_AhLned",
+        "faq_iRJbch",
+        "faq_wKUN3K",
+        "faq_EdPFFa",
+        "faq_f8yRmt",
+        "faq_XyRJq9"
+      ],
+      "name": " MobileFAQ Section",
+      "settings": {
+        "custom_cc_class": "cst-mbfq-sec",
+        "eyebrow": "Common Questions",
+        "heading_line1": "Everything You",
+        "heading_emphasis": "Need to Know",
+        "subtext": "The questions we get asked most about Perform+."
+      }
+    },
+    "mobile_final_cta_j7FNyi": {
+      "type": "mobile-final-cta",
+      "blocks": {
+        "trust_Bc8qrd": {
+          "type": "trust",
+          "settings": {
+            "text": "30-day money back guarantee"
+          }
+        },
+        "trust_AfaPTk": {
+          "type": "trust",
+          "settings": {
+            "text": "No PCT required"
+          }
+        }
+      },
+      "block_order": [
+        "trust_Bc8qrd",
+        "trust_AfaPTk"
+      ],
+      "name": " Mobile Final CTA",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "The Clean Anabolic Edge",
+        "heading_line1": "Train Harder.",
+        "heading_line2": "Build More.",
+        "heading_emphasis": "Stay Clean.",
+        "description": "Up to +2kg lean muscle in 10 weeks. WADA-funded research. 250mg verified dose. Non-hormonal. Safe for men and women. Backed by a 30-day guarantee.",
+        "button_text": "GET PERFORM+ — FROM $49",
+        "button_link": "",
+        "section_id": "purchase"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "mobile_hero_perform_J6ThME",
+    "phasis_electro_hero_Ny8GAU",
+    "phasis_perform_mobile_pkFPXw",
+    "mobile_trust_bar_biWB6a",
+    "mobile_skeptic_section_6dkEhE",
+    "mobile_russia_origin_Eajj8x",
+    "mobile_science_mechanism_BAxWz4",
+    "mobile_who_perform_LCe9Rk",
+    "mobile_formula_ingredient_wqGikU",
+    "phasis_electro_problem_WKqiXV",
+    "peptide_comparison_CUUykA",
+    "mobile_social_proof_JkHeGV",
+    "mobilepurchase_section_cy9ibj",
+    "mobile_faq_section_RrH67K",
+    "mobile_final_cta_j7FNyi"
+  ]
+}

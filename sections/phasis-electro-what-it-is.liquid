@@ -1,145 +1,146 @@
 <section class="what-sec section">
-  <div class="what-inner">
-    <div>
-      <div class="what-eyebrow-row"><span>{{ section.settings.eyebrow }}</span></div>
-      <h2>{{ section.settings.heading }}</h2>
-      <p class="what-p mt-4">{{ section.settings.description }}</p>
-      <div class="how-steps">
-        {% for block in section.blocks %}
-          {% if block.type == 'step' %}
-            <div class="hs" {{ block.shopify_attributes }}>
-              <div class="hs-num">{{ block.settings.number }}</div>
-              <div>
-                <div class="hs-title">{{ block.settings.title }}</div>
-                <div class="hs-desc">{{ block.settings.desc }}</div>
+    <div class="what-inner">
+      <div>
+        <div class="what-eyebrow-row"><span>{{ section.settings.eyebrow }}</span></div>
+        <h2>{{ section.settings.heading }}</h2>
+        <p class="what-p mt-4">{{ section.settings.description }}</p>
+        <div class="how-steps">
+          {% for block in section.blocks %}
+            {% if block.type == 'step' %}
+              <div class="hs" {{ block.shopify_attributes }}>
+                <div class="hs-num">{{ block.settings.number }}</div>
+                <div>
+                  <h3 class="hs-title">{{ block.settings.title }}</h3>
+                  <div class="hs-desc">{{ block.settings.desc }}</div>
+                </div>
               </div>
-            </div>
-          {% endif %}
-        {% endfor %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+      <div class="mineral-card">
+        <div class="mc-header">
+          <span class="mc-header-label">{{ section.settings.card_label }}</span>
+          <h4 class="mc-header-title">{{ section.settings.card_title }}</h4>
+          <div style="font-size:15px;color:#d0d0d0;margin-top:6px;line-height:1.5">{{ section.settings.card_intro }}</div>
+        </div>
+        <div class="minerals-list">
+          {% for block in section.blocks %}
+            {% if block.type == 'mineral' %}
+              <div class="ml-item" {{ block.shopify_attributes }}>
+                <div class="ml-icon">{{ block.settings.icon }}</div>
+                <div style="flex:1">
+                  <h4 class="ml-name">{{ block.settings.name }}</h4>
+                  <div class="ml-role">{{ block.settings.role }}</div>
+                </div>
+                <div class="ml-bar-wrap">
+                  <div class="ml-bar-track"><div class="ml-bar-fill" style="width:{{ block.settings.fill }}%"></div></div>
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="mc-footer">
+          <div><span class="mcf-val">{{ section.settings.stat_1_val }}</span><span class="mcf-lbl">{{ section.settings.stat_1_lbl }}</span></div>
+          <div><span class="mcf-val">{{ section.settings.stat_2_val }}</span><span class="mcf-lbl">{{ section.settings.stat_2_lbl }}</span></div>
+          <div><span class="mcf-val">{{ section.settings.stat_3_val }}</span><span class="mcf-lbl">{{ section.settings.stat_3_lbl }}</span></div>
+        </div>
       </div>
     </div>
-    <div class="mineral-card">
-      <div class="mc-header">
-        <span class="mc-header-label">{{ section.settings.card_label }}</span>
-        <div class="mc-header-title">{{ section.settings.card_title }}</div>
-        <div style="font-size:11px;color:var(--muted-l);margin-top:6px;line-height:1.5">{{ section.settings.card_intro }}</div>
-      </div>
-      <div class="minerals-list">
-        {% for block in section.blocks %}
-          {% if block.type == 'mineral' %}
-            <div class="ml-item" {{ block.shopify_attributes }}>
-              <div class="ml-icon">{{ block.settings.icon }}</div>
-              <div style="flex:1">
-                <div class="ml-name">{{ block.settings.name }}</div>
-                <div class="ml-role">{{ block.settings.role }}</div>
-              </div>
-              <div class="ml-bar-wrap">
-                <div class="ml-bar-track"><div class="ml-bar-fill" style="width:{{ block.settings.fill }}%"></div></div>
-              </div>
-            </div>
-          {% endif %}
-        {% endfor %}
-      </div>
-      <div class="mc-footer">
-        <div><span class="mcf-val">{{ section.settings.stat_1_val }}</span><span class="mcf-lbl">{{ section.settings.stat_1_lbl }}</span></div>
-        <div><span class="mcf-val">{{ section.settings.stat_2_val }}</span><span class="mcf-lbl">{{ section.settings.stat_2_lbl }}</span></div>
-        <div><span class="mcf-val">{{ section.settings.stat_3_val }}</span><span class="mcf-lbl">{{ section.settings.stat_3_lbl }}</span></div>
-      </div>
-    </div>
-  </div>
-</section>
-<style>
-  /* ── WHAT IS IT ──────────────────────────────────── */
-  .what-sec{background:var(--surface);border-top:1px solid var(--border)}
-  .what-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .what-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--teal);flex-shrink:0}
-  .what-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
-  .what-sec h2{margin-bottom:16px}
-  .what-p{font-size:14px;font-weight:300;color:var(--muted-l);line-height:1.75;margin-bottom:20px}
-  .what-p strong{color:var(--off-white);font-weight:600}
-  
-  /* How to use steps */
-  .how-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-  .hs{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
-  .hs-num{font-family:var(--f-dis);font-size:20px;font-weight:800;color:var(--teal);line-height:1;width:28px;flex-shrink:0;opacity:.8}
-  .hs-title{font-family:var(--f-dis);font-size:13px;font-weight:700;margin-bottom:2px}
-  .hs-desc{font-size:12px;color:var(--muted)}
-  
-  /* Mineral card */
-  .mineral-card{background:var(--page-bg);border:1px solid rgba(0,191,168,.2);border-radius:10px;padding:20px 16px;margin-top:28px;position:relative;overflow:hidden}
-  .mineral-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,191,168,.06) 0%,transparent 65%);pointer-events:none}
-  .mc-header{margin-bottom:16px}
-  .mc-header-label{font-family:var(--f-body);font-size:9px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block}
-  .mc-header-title{font-family:var(--f-dis);font-size:17px;font-weight:700}
-  .minerals-list{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
-  .ml-item{display:flex;align-items:center;gap:12px}
-  .ml-icon{font-size:16px;width:28px;text-align:center;flex-shrink:0}
-  .ml-name{font-family:var(--f-dis);font-size:12px;font-weight:700;margin-bottom:2px}
-  .ml-role{font-size:11px;color:var(--muted)}
-  .ml-bar-wrap{flex:1;display:flex;align-items:center}
-  .ml-bar-track{flex:1;height:3px;background:var(--surface3);border-radius:2px;overflow:hidden}
-  .ml-bar-fill{height:100%;background:var(--teal);border-radius:2px}
-  .mc-footer{border-top:1px solid var(--border);padding-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
-  .mcf-val{font-family:var(--f-dis);font-size:17px;font-weight:700;color:var(--teal);display:block;margin-bottom:2px}
-  .mcf-lbl{font-size:10px;color:var(--muted)}
-  
-  @media(min-width:1024px){
-    .what-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
-    .mineral-card{margin-top:0}
+  </section>
+  <style>
+    /* ── WHAT IS IT ──────────────────────────────────── */
+    .what-sec{background:var(--surface);border-top:1px solid var(--border)}
+    .what-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .what-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--teal);flex-shrink:0}
+    .what-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal)}
+    .what-sec h2{margin-bottom:16px}
+    .what-p{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.75;margin-bottom:20px}
+    .what-p strong{color:var(--off-white);font-weight:600}
+    
+    /* How to use steps */
+    .how-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+    .hs{display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:14px 16px}
+    .hs-num{font-family:var(--f-dis);font-size:20px;font-weight:800;color:var(--teal);line-height:1;width:28px;flex-shrink:0;opacity:.8}
+    .hs-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:2px}
+    .hs-desc{font-size:15px;color:#d0d0d0;}
+    
+    /* Mineral card */
+    .mineral-card{background:var(--page-bg);border:1px solid rgba(0,191,168,.2);border-radius:10px;padding:20px 16px;margin-top:28px;position:relative;overflow:hidden}
+    .mineral-card::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(0,191,168,.06) 0%,transparent 65%);pointer-events:none}
+    .mc-header{margin-bottom:16px}
+    .mc-header-label{font-family:var(--f-body);font-size:9px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:6px;display:block}
+    .mc-header-title{font-family:var(--f-dis);font-size:17px;font-weight:700}
+    .minerals-list{display:flex;flex-direction:column;gap:12px;margin-bottom:16px}
+    .ml-item{display:flex;align-items:center;gap:12px}
+    .ml-icon{font-size:16px;width:28px;text-align:center;flex-shrink:0}
+    .ml-name{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:2px}
+    .ml-role{font-size:15px;color:#d0d0d0;}
+    .ml-bar-wrap{flex:1;display:flex;align-items:center}
+    .ml-bar-track{flex:1;height:3px;background:var(--surface3);border-radius:2px;overflow:hidden}
+    .ml-bar-fill{height:100%;background:var(--teal);border-radius:2px}
+    .mc-footer{border-top:1px solid var(--border);padding-top:14px;display:grid;grid-template-columns:repeat(3,1fr);gap:10px;text-align:center}
+    .mcf-val{font-family:var(--f-dis);font-size:17px;font-weight:700;color:var(--teal);display:block;margin-bottom:2px}
+    .mcf-lbl{font-size:15px;color:#d0d0d0;}
+    
+    @media(min-width:1024px){
+      .what-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+      .mineral-card{margin-top:0}
+    }
+  </style>
+  {% schema %}
+  {
+    "name": "Phasis Electro What It Is",
+    "settings": [
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What Is Electro+" },
+      { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Liquid drops.<br><em>Any drink. Anywhere.</em>" },
+      { "type": "textarea", "id": "description", "label": "Description (HTML allowed)", "default": "Electro+ is a <strong>liquid mineral concentrate in a dropper bottle.</strong> No powder to mix. No packet to tear. No clumping at the bottom of your shaker." },
+      { "type": "text", "id": "card_label", "label": "Card label", "default": "What's Inside" },
+      { "type": "text", "id": "card_title", "label": "Card title", "default": "Full-Spectrum Mineral Profile" },
+      { "type": "textarea", "id": "card_intro", "label": "Card intro (HTML allowed)", "default": "Minerals drawn from <strong style=\"color:var(--teal)\">Utah's ancient mineral deposits</strong> - naturally concentrated, filtered, and purified." },
+      { "type": "text", "id": "stat_1_val", "label": "Footer stat 1 value", "default": "50+" },
+      { "type": "text", "id": "stat_1_lbl", "label": "Footer stat 1 label", "default": "Trace minerals" },
+      { "type": "text", "id": "stat_2_val", "label": "Footer stat 2 value", "default": "0g" },
+      { "type": "text", "id": "stat_2_lbl", "label": "Footer stat 2 label", "default": "Sugar ever" },
+      { "type": "text", "id": "stat_3_val", "label": "Footer stat 3 value", "default": "1mL" },
+      { "type": "text", "id": "stat_3_lbl", "label": "Footer stat 3 label", "default": "Per serving - 20 drops" }
+    ],
+    "blocks": [
+      {
+        "type": "step",
+        "name": "How-to step",
+        "settings": [
+          { "type": "text", "id": "number", "label": "Number", "default": "01" },
+          { "type": "text", "id": "title", "label": "Title", "default": "Daily Hydration - 20 drops into 16oz" },
+          { "type": "textarea", "id": "desc", "label": "Description", "default": "1oz bottle: count 20 drops. 4oz bottle: fill to the 1mL mark on the graduated dropper." }
+        ]
+      },
+      {
+        "type": "mineral",
+        "name": "Mineral row",
+        "settings": [
+          { "type": "text", "id": "icon", "label": "Icon", "default": "🧂" },
+          { "type": "text", "id": "name", "label": "Name", "default": "Sodium + Potassium" },
+          { "type": "textarea", "id": "role", "label": "Role", "default": "Fluid retention · Muscle contraction · Nerve signaling" },
+          { "type": "range", "id": "fill", "label": "Bar fill (%)", "min": 0, "max": 100, "step": 1, "default": 95 }
+        ]
+      }
+    ],
+    "max_blocks": 12,
+    "presets": [
+      {
+        "name": "Phasis Electro What It Is",
+        "blocks": [
+          { "type": "step", "settings": { "number": "01", "title": "Daily Hydration - 20 drops into 16oz", "desc": "1oz bottle: count 20 drops. 4oz bottle: fill to the 1mL mark on the graduated dropper. Add to any beverage." } },
+          { "type": "step", "settings": { "number": "02", "title": "Hard Training - 40-60 drops into 2L", "desc": "Higher sweat output means more mineral loss. Scale up to 2-3mL for intense training sessions." } },
+          { "type": "step", "settings": { "number": "03", "title": "Endurance / Extreme Sweat - up to 5mL per gallon", "desc": "Extended training or all-day events - up to 100 drops throughout the day." } },
+          { "type": "mineral", "settings": { "icon": "🧂", "name": "Sodium + Potassium", "role": "Fluid retention · Muscle contraction · Nerve signaling", "fill": 95 } },
+          { "type": "mineral", "settings": { "icon": "⚡", "name": "Magnesium", "role": "Recovery + sleep + 300+ enzymatic reactions", "fill": 85 } },
+          { "type": "mineral", "settings": { "icon": "🌊", "name": "50+ Trace Minerals", "role": "Micronutrients stripped from modern water - restored", "fill": 100 } },
+          { "type": "mineral", "settings": { "icon": "🟡", "name": "Sulfate + Chloride", "role": "Detoxification · pH balance · Cellular hydration", "fill": 75 } }
+        ]
+      }
+    ]
   }
-</style>
-{% schema %}
-{
-  "name": "Phasis Electro What It Is",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What Is Electro+" },
-    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Liquid drops.<br><em>Any drink. Anywhere.</em>" },
-    { "type": "textarea", "id": "description", "label": "Description (HTML allowed)", "default": "Electro+ is a <strong>liquid mineral concentrate in a dropper bottle.</strong> No powder to mix. No packet to tear. No clumping at the bottom of your shaker." },
-    { "type": "text", "id": "card_label", "label": "Card label", "default": "What's Inside" },
-    { "type": "text", "id": "card_title", "label": "Card title", "default": "Full-Spectrum Mineral Profile" },
-    { "type": "textarea", "id": "card_intro", "label": "Card intro (HTML allowed)", "default": "Minerals drawn from <strong style=\"color:var(--teal)\">Utah's ancient mineral deposits</strong> - naturally concentrated, filtered, and purified." },
-    { "type": "text", "id": "stat_1_val", "label": "Footer stat 1 value", "default": "50+" },
-    { "type": "text", "id": "stat_1_lbl", "label": "Footer stat 1 label", "default": "Trace minerals" },
-    { "type": "text", "id": "stat_2_val", "label": "Footer stat 2 value", "default": "0g" },
-    { "type": "text", "id": "stat_2_lbl", "label": "Footer stat 2 label", "default": "Sugar ever" },
-    { "type": "text", "id": "stat_3_val", "label": "Footer stat 3 value", "default": "1mL" },
-    { "type": "text", "id": "stat_3_lbl", "label": "Footer stat 3 label", "default": "Per serving - 20 drops" }
-  ],
-  "blocks": [
-    {
-      "type": "step",
-      "name": "How-to step",
-      "settings": [
-        { "type": "text", "id": "number", "label": "Number", "default": "01" },
-        { "type": "text", "id": "title", "label": "Title", "default": "Daily Hydration - 20 drops into 16oz" },
-        { "type": "textarea", "id": "desc", "label": "Description", "default": "1oz bottle: count 20 drops. 4oz bottle: fill to the 1mL mark on the graduated dropper." }
-      ]
-    },
-    {
-      "type": "mineral",
-      "name": "Mineral row",
-      "settings": [
-        { "type": "text", "id": "icon", "label": "Icon", "default": "🧂" },
-        { "type": "text", "id": "name", "label": "Name", "default": "Sodium + Potassium" },
-        { "type": "textarea", "id": "role", "label": "Role", "default": "Fluid retention · Muscle contraction · Nerve signaling" },
-        { "type": "range", "id": "fill", "label": "Bar fill (%)", "min": 0, "max": 100, "step": 1, "default": 95 }
-      ]
-    }
-  ],
-  "max_blocks": 12,
-  "presets": [
-    {
-      "name": "Phasis Electro What It Is",
-      "blocks": [
-        { "type": "step", "settings": { "number": "01", "title": "Daily Hydration - 20 drops into 16oz", "desc": "1oz bottle: count 20 drops. 4oz bottle: fill to the 1mL mark on the graduated dropper. Add to any beverage." } },
-        { "type": "step", "settings": { "number": "02", "title": "Hard Training - 40-60 drops into 2L", "desc": "Higher sweat output means more mineral loss. Scale up to 2-3mL for intense training sessions." } },
-        { "type": "step", "settings": { "number": "03", "title": "Endurance / Extreme Sweat - up to 5mL per gallon", "desc": "Extended training or all-day events - up to 100 drops throughout the day." } },
-        { "type": "mineral", "settings": { "icon": "🧂", "name": "Sodium + Potassium", "role": "Fluid retention · Muscle contraction · Nerve signaling", "fill": 95 } },
-        { "type": "mineral", "settings": { "icon": "⚡", "name": "Magnesium", "role": "Recovery + sleep + 300+ enzymatic reactions", "fill": 85 } },
-        { "type": "mineral", "settings": { "icon": "🌊", "name": "50+ Trace Minerals", "role": "Micronutrients stripped from modern water - restored", "fill": 100 } },
-        { "type": "mineral", "settings": { "icon": "🟡", "name": "Sulfate + Chloride", "role": "Detoxification · pH balance · Cellular hydration", "fill": 75 } }
-      ]
-    }
-  ]
-}
-{% endschema %}
+  {% endschema %}
+  

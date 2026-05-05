@@ -36,7 +36,7 @@
   assign search_url = '?q=' | append: terms | append: '&options%5Bprefix%5D=last&sort_by=' | append: sort_by 
 -%}
 
-<div class="template-search{% if search.performed == true and search.results_count == 0 and terms != blank %} template-search--empty{% endif %}">
+<div class="template-search{% if search.performed == true and search.results_count == 0 and terms != blank %} template-search--empty{% endif %} {{ section.settings.custom_css_class }}">
   <div class="template-search__header">
     <div class="container">
     <div class="page-header">
@@ -298,6 +298,11 @@
   "tag": "section",
   "class": "section-search",
   "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
     {
 			"type": "select",
 			"id": "section_heading_tag",

@@ -20,18 +20,28 @@
         {% endif %}
       {% endfor %}
     </div>
-    <select class="sort-select">
+    {% comment %} <select class="sort-select">
       {% for option in section.settings.sort_options %}
         <option>{{ option }}</option>
       {% endfor %}
-    </select>
+    </select> {% endcomment %}
+    <select class="sort-select">
+  {% assign sort_list = section.settings.sort_options | newline_to_br | split: '<br />' %}
+  {% for option in sort_list %}
+    {% if option != blank %}
+      <option value="{{ option | strip | handleize }}">
+        {{ option | strip }}
+      </option>
+    {% endif %}
+  {% endfor %}
+</select>
   </div>
   <style>
      /* ── FILTER BAR ──────────────────────────────────── */
      .filter-bar{background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 var(--pad);height:48px;gap:16px}
      .filter-bar::-webkit-scrollbar{display:none}
      .filter-tabs{display:flex;gap:0;flex-shrink:0}
-     .filter-tab{background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:0 14px;height:48px;cursor:pointer;transition:all .15s;white-space:nowrap;min-height:48px}
+     .filter-tab{background:none;border:none;border-bottom:2px solid transparent;color:#d0d0d0;font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:0 14px;height:48px;cursor:pointer;transition:all .15s;white-space:nowrap;min-height:48px}
      .filter-tab.active{color:var(--coral);border-bottom-color:var(--coral)}
      .filter-count{display:inline-flex;align-items:center;justify-content:center;background:rgba(232,72,42,.15);color:var(--coral);font-size:9px;font-weight:700;width:15px;height:15px;border-radius:50%;margin-left:4px}
      .sort-select{background:var(--surface2);border:1px solid var(--border2);border-radius:4px;color:var(--off-white);font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.04em;padding:6px 10px;cursor:pointer;outline:none;flex-shrink:0;min-height:36px}
@@ -39,6 +49,51 @@
      @media(min-width:768px){.filter-bar{padding:0 var(--pad-md)}}
      @media(min-width:1024px){.filter-bar{padding:0 var(--pad-lg)}}
   </style>
+  <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  const tabs = document.querySelectorAll(".filter-tab");
+  const products = document.querySelectorAll(".product-card");
+
+  tabs.forEach(tab => {
+    tab.addEventListener("click", function () {
+
+      const filter = this.dataset.filter;
+
+      tabs.forEach(t => t.classList.remove("active"));
+      this.classList.add("active");
+
+      products.forEach(card => {
+
+        const text = card.innerText.toLowerCase();
+
+        let show = false;
+
+        if (filter === "all") {
+          show = true;
+        }
+
+        else if (filter === "recovery") {
+          show = text.includes("max relief") || text.toLowerCase().includes("relief balm");
+        }
+
+        else if (filter === "hydration") {
+           show = text.toLowerCase().includes("electro+ drops");
+        }
+
+        else if (filter === "performance") {
+          show = text.includes("perform+");
+        }
+
+        card.style.display = show ? "block" : "none";
+
+      });
+
+    });
+  });
+
+});
+</script>
   {% schema %}
   {
     "name": "Filter Bar",

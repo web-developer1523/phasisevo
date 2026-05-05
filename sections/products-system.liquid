@@ -1,0 +1,194 @@
+<section class="products-sec section {{ section.settings.custom_css_class }}">
+  <div class="products-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>
+      {{ section.settings.heading_line1 -}}
+      <br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+    <p class="prod-sub mt-4">{{ section.settings.subtext }}</p>
+  </div>
+
+  <div class="about-products">
+    {% for block in section.blocks %}
+      {% assign product = block.settings.product %}
+      {% if product %}
+        {% assign link = block.settings.custom_link | default: product.url %}
+        <a href="{{ link }}" class="ap" {{ block.shopify_attributes }}>
+          <!-- Image (icon image or product featured image) or emoji fallback -->
+          <div class="ap-emoji">
+            {% if block.settings.icon_image != blank %}
+              <img
+                src="{{ block.settings.icon_image | image_url: width: 80 }}"
+                alt="{{ product.title }}"
+                width="40"
+                height="40"
+                loading="lazy"
+              >
+            {% elsif product.featured_image %}
+              <img
+                src="{{ product.featured_image | img_url: '80x80' }}"
+                alt="{{ product.title }}"
+                width="40"
+                height="40"
+                loading="lazy"
+              >
+            {% else %}
+              {{ block.settings.emoji }}
+            {% endif %}
+          </div>
+
+          <div class="ap-body">
+            <!-- Category text above product title -->
+            <div class="ap-cat" style="color:{{ block.settings.category_color | default: 'var(--teal)' }}">
+              {{ block.settings.category }}
+            </div>
+
+            <div class="ap-name">
+              {{ product.title }}
+            </div>
+
+            <div class="ap-desc">
+              {% if block.settings.custom_desc != blank %}
+                {{ block.settings.custom_desc }}
+              {% else %}
+                {{ product.description | strip_html | truncate: 140 }}
+              {% endif %}
+            </div>
+          </div>
+
+          <div class="ap-arrow">→</div>
+        </a>
+      {% else %}
+        <p>Please select a product in this block.</p>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<style>
+    /* ── THE PRODUCTS ────────────────────────────────── */
+  .products-sec{background:var(--surface);border-top:1px solid var(--border)}
+  .products-top{text-align:center;margin-bottom:24px}
+  .products-top h2{margin-bottom:12px}
+  .prod-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7}
+
+  .about-products{display:flex;flex-direction:column;gap:12px;margin-bottom:24px}
+  .ap{display:flex;align-items:center;gap:16px;background:var(--page-bg);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .15s;text-decoration:none;color:inherit}
+  .ap:hover{border-color:var(--border2)}
+  .ap-emoji{font-size:36px;flex-shrink:0}
+  .ap-body{flex:1}
+  .ap-cat{font-family:var(--f-body);font-size:9px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;margin-bottom:4px}
+  .ap-name{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:4px}
+  .ap-desc{font-size:15px;color:#c4c4c4;line-height:1.5}
+  .ap-arrow{color:var(--muted);font-size:18px;flex-shrink:0}
+  .ap:hover .ap-arrow{color:var(--coral)}
+
+
+  .products-sec h2 {
+      font-family: var(--f-dis);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+  }
+  @media (min-width: 768px) {
+      .products-sec h2 {
+          font-size: 36px;
+      }
+  }
+
+  @media (min-width: 1024px) {
+      .products-sec h2 {
+          font-size: 44px;
+      }
+  }
+</style>
+{% schema %}
+{
+  "name": "Products System",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Product Line"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Three Products."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "One Complete System."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Each one was built to solve a specific, underserved problem."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_block",
+      "name": "Product",
+      "settings": [
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        },
+        {
+          "type": "text",
+          "id": "emoji",
+          "label": "Emoji (fallback)",
+          "default": "🧴"
+        },
+        {
+          "type": "image_picker",
+          "id": "icon_image",
+          "label": "Icon Image (overrides emoji)"
+        },
+        {
+          "type": "text",
+          "id": "category",
+          "label": "Category Text",
+          "default": "Recovery · CBD Topical"
+        },
+        {
+          "type": "text",
+          "id": "category_color",
+          "label": "Category Color (CSS variable)",
+          "default": "var(--coral)"
+        },
+        {
+          "type": "textarea",
+          "id": "custom_desc",
+          "label": "Custom Description (optional)"
+        },
+        {
+          "type": "url",
+          "id": "custom_link",
+          "label": "Custom Link (overrides product link)"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Products System",
+      "blocks": [{ "type": "product_block" }, { "type": "product_block" }, { "type": "product_block" }]
+    }
+  ]
+}
+{% endschema %}

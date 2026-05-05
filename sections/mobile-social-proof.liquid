@@ -1,0 +1,174 @@
+<!-- SOCIAL PROOF -->
+<section class="proof-sec section">
+  <div class="proof-top">
+    <div>
+      <div class="early-badge">{{ section.settings.badge_text }}</div>
+      <h2>
+        {{ section.settings.heading_line1 }}<br>
+        <em>{{ section.settings.heading_emphasis }}</em>
+      </h2>
+    </div>
+
+    <a href="{{ section.settings.button_link }}">
+      <button style="background:var(--surface);border:1px solid var(--border2);border-radius:5px;color:var(--off-white);font-family:var(--f-dis);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:10px 14px;cursor:pointer;white-space:nowrap;min-height:44px">
+        {{ section.settings.button_text }}
+      </button>
+    </a>
+  </div>
+
+  <div class="reviews-grid">
+    {% for block in section.blocks %}
+      <div class="rev-card {% if block.settings.featured %}featured{% endif %}">
+        
+        <div class="rq">❝</div>
+
+        <div class="rev-stars">
+          {% for i in (1..block.settings.stars) %}
+            ★
+          {% endfor %}
+        </div>
+
+        <blockquote>{{ block.settings.review_text }}</blockquote>
+
+        <div class="rev-name">{{ block.settings.reviewer_name }}</div>
+
+        <div class="rev-meta">{{ block.settings.review_meta }}</div>
+
+        <div class="rev-tag">{{ block.settings.review_tag }}</div>
+
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<style> 
+    /* ── SOCIAL PROOF ────────────────────────────────── */
+.proof-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.early-badge{display:inline-flex;align-items:center;gap:8px;background:var(--amber-dim);border:1px solid rgba(212,131,26,.3);border-radius:20px;padding:5px 12px;font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:14px}
+.early-badge::before{content:'';width:6px;height:6px;background:var(--amber);border-radius:50%;animation:pa 2s ease-in-out infinite}
+@keyframes pa{0%,100%{opacity:1}50%{opacity:.4}}
+.proof-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+.reviews-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:600px){.reviews-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+.rev-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px}
+.rev-card.featured{border-color:rgba(212,131,26,.35);background:rgba(212,131,26,.04)}
+.rq{font-size:22px;color:var(--amber);opacity:.4;line-height:1;margin-bottom:10px}
+.rev-stars{color:var(--amber);font-size:12px;margin-bottom:10px}
+.rev-card blockquote{font-size:15px;font-style:italic;color:#d0d0d0;line-height:1.7;margin-bottom:14px}
+.rev-name{font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.rev-meta{font-size:12px;color:#d0d0d0;margin-top:2px}
+.rev-tag{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--amber);margin-top:8px}
+.rev-tag::before{content:'✓';font-family:var(--f-dis)}
+ </style>
+{% schema %}
+{
+  "name": "Social Proof",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "Early Access Reviews"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Real Results From"
+    },
+    {
+      "type": "text",
+      "id": "heading_emphasis",
+      "label": "Heading Emphasis",
+      "default": "Early Testers."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "ALL REVIEWS"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "review",
+      "name": "Review Card",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Featured Review",
+          "default": false
+        },
+        {
+          "type": "range",
+          "id": "stars",
+          "label": "Star Rating",
+          "min": 1,
+          "max": 5,
+          "step": 1,
+          "default": 5
+        },
+        {
+          "type": "textarea",
+          "id": "review_text",
+          "label": "Review Text",
+          "default": "Amazing results. Highly recommend."
+        },
+        {
+          "type": "text",
+          "id": "reviewer_name",
+          "label": "Reviewer Name",
+          "default": "John D."
+        },
+        {
+          "type": "text",
+          "id": "review_meta",
+          "label": "Review Meta",
+          "default": "Perform+ · Athlete · 6 Week Review"
+        },
+        {
+          "type": "text",
+          "id": "review_tag",
+          "label": "Review Tag",
+          "default": "Verified early access buyer"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": " Mobile Social Proof",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "reviewer_name": "Tyler M."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Darius C."
+          }
+        },
+        {
+          "type": "review",
+          "settings": {
+            "reviewer_name": "Samira K."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -52,7 +52,6 @@
   assign temp = aspect_ratio[0] | append: '.0'
   assign padding_bottom = aspect_ratio[1] | divided_by: temp | times: 100 | round: 2
 %}
-
 <div
   class="featured-product featured-product-radios product {% if product.media.size > 0 %}row{% else %}product--no-media{% endif %} color-{{ section.settings.color_scheme }}"
   style="{% if section.settings.section_layout == 'full' and section.settings.gallery_type == 'thumbs_aside'%}padding: 0 2rem;{% endif %} {% if section.settings.gallery_type == 'thumbs_aside' %}padding-top: 3.8rem; padding-bottom: 4.4rem;{% endif %}"
@@ -69,49 +68,52 @@
         {% if product.media.size > 0 %}
           <div class="product__media-wrapper">
             <div class="product__media-list-wrapper">
-              {% if section.settings.gallery_type == 'thumbs_aside' %}
-                <div class="product__media-sublist-outer no-js-hidden">
-                  <div
-                    class="product__media-sublist js-media-sublist swiper"
-                    data-js-media-list-id="slider-{{ product.id }}"
-                  >
-                    <div class="swiper-wrapper">
-                      {%- if product.selected_or_first_available_variant.featured_media != null -%}
-                        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
-                        <div
-                          class="product__media-subitem swiper-slide{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
-                          data-media-sub-id="{{ section.id }}-{{ featured_media.id }}"
-                        >
-                          <div class="product__media">
-                            {{
-                              featured_media.preview_image
-                              | image_url: width: 200
-                              | image_tag: loading: 'lazy', height: '187', widths: '150, 200'
-                            }}
-                          </div>
-                        </div>
-                      {%- endif -%}
-
-                      {%- for media in product.media -%}
-                        {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+              {% comment %}
+                {% if section.settings.gallery_type == 'thumbs_aside'%}
+                  <div class="product__media-sublist-outer no-js-hidden">
+                    <div
+                      class="product__media-sublist js-media-sublist swiper"
+                      data-js-media-list-id="slider-{{ product.id }}"
+                    >
+                      <div class="swiper-wrapper">
+                        {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                          {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
                           <div
-                            class="product__media-subitem swiper-slide{% if variant_images contains media.src %} product__media-item--variant{% endif %}{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
-                            data-media-sub-id="{{ section.id }}-{{ media.id }}"
+                            class="product__media-subitem swiper-slide{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                            data-media-sub-id="{{ section.id }}-{{ featured_media.id }}"
                           >
                             <div class="product__media">
                               {{
-                                media.preview_image
+                                featured_media.preview_image
                                 | image_url: width: 200
                                 | image_tag: loading: 'lazy', height: '187', widths: '150, 200'
                               }}
                             </div>
                           </div>
-                        {%- endunless -%}
-                      {%- endfor -%}
+                        {%- endif -%}
+
+                        {%- for media in product.media -%}
+                          {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                            <div
+                              class="product__media-subitem swiper-slide{% if variant_images contains media.src %} product__media-item--variant{% endif %}{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                              data-media-sub-id="{{ section.id }}-{{ media.id }}"
+                            >
+                              <div class="product__media">
+                                {{
+                                  media.preview_image
+                                  | image_url: width: 200
+                                  | image_tag: loading: 'lazy', height: '187', widths: '150, 200'
+                                }}
+                              </div>
+                            </div>
+                          {%- endunless -%}
+                        {%- endfor -%}
+                      </div>
                     </div>
                   </div>
-                </div>
-              {% endif %}
+                {% endif %}
+              {% endcomment %}
+
               <div
                 class="product__media-list{% if section.settings.gallery_type != 'static_column_aside' %} js-media-list swiper {% endif %}"
                 data-js-media-list-id="slider-{{ product.id }}"
@@ -125,9 +127,18 @@
                 <div class="{% if section.settings.gallery_type != 'static_column_aside' %}swiper-wrapper{% else %}product__media-list-inner{% endif %}">
                   {%- liquid
                     assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src'
+                    assign initial_variant = product.selected_or_first_available_variant
+                    for variant in product.variants
+                      if variant.title contains 'Jar — 60ml'
+                        assign initial_variant = variant
+                        break
+                      endif
+                    endfor
+                    assign featured_media = initial_variant.featured_media | default: product.featured_media
                   -%}
-                  {%- if product.selected_or_first_available_variant.featured_media != null -%}
-                    {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+                  {%- if featured_media != null -%}
+                  {% comment %} {%- if product.selected_or_first_available_variant.featured_media != null -%} 
+                     {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%} {% endcomment %}
                     <div
                       class="product__media-item swiper-slide{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
                       data-media-id="{{ section.id }}-{{ featured_media.id }}"
@@ -145,7 +156,8 @@
                     </div>
                   {%- endif -%}
                   {%- for media in product.media -%}
-                    {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}
+                    {%- unless media.id == featured_media.id -%}
+                   {% comment %} {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%}  {% endcomment %}
                       <div
                         class="product__media-item{% if section.settings.gallery_type != 'static_column_aside' %} swiper-slide{% endif %}{% if media.media_type != 'image' %} product__media-item--full{% endif %}{% if variant_images contains media.src %} product__media-item--variant{% endif %}{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
                         data-media-id="{{ section.id }}-{{ media.id }}"
@@ -160,7 +172,7 @@
                           lazy_load: false
                         %}
                       </div>
-                    {%- endunless -%}
+                    {%- endunless -%} 
                   {%- endfor -%}
                 </div>
                 {% if section.settings.gallery_type != 'static_column_aside' %}
@@ -184,6 +196,53 @@
                   {% endif %}
                 {% endif %}
               </div>
+              {% comment %} start {% endcomment %}
+              {% if section.settings.gallery_type == 'thumbs_bottom' %}
+                <div class="product__media-sublist-outer no-js-hidden thumbs-bottom">
+                  <div
+                    class="product__media-sublist js-media-sublist swiper"
+                    data-js-media-list-id="slider-{{ product.id }}"
+                  >
+                    <div class="swiper-wrapper">
+                      {%- if featured_media != null -%}
+                      {% comment %} {%- if product.selected_or_first_available_variant.featured_media != null -%}
+                        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%} {% endcomment %}
+                        <div
+                          class="product__media-subitem swiper-slide{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                          data-media-sub-id="{{ section.id }}-{{ featured_media.id }}"
+                        >
+                          <div class="product__media">
+                            {{
+                              featured_media.preview_image
+                              | image_url: width: 200
+                              | image_tag: loading: 'lazy', height: '187', widths: '150, 200'
+                            }}
+                          </div>
+                        </div>
+                      {%- endif -%}
+
+                      {%- for media in product.media -%}
+                        {%- unless media.id == featured_media.id -%}
+                        {% comment %} {%- unless media.id == product.selected_or_first_available_variant.featured_media.id -%} {% endcomment %}
+                          <div
+                            class="product__media-subitem swiper-slide{% if variant_images contains media.src %} product__media-item--variant{% endif %}{% if section.settings.image_fit == 'contain' %} product__media-item--contain{% endif %}"
+                            data-media-sub-id="{{ section.id }}-{{ media.id }}"
+                          >
+                            <div class="product__media">
+                              {{
+                                media.preview_image
+                                | image_url: width: 200
+                                | image_tag: loading: 'lazy', height: '187', widths: '150, 200'
+                              }}
+                            </div>
+                          </div>
+                        {%- endunless -%}
+                      {%- endfor -%}
+                    </div>
+                  </div>
+                </div>
+              {% endif %}
+              <!-- ✅ END THUMBNAILS -->
             </div>
           </div>
         {% else %}
@@ -353,59 +412,118 @@
                 id="price-{{ section.id }}"
                 {{ block.shopify_attributes }}
               >
-                <span class="product-form__group-name">
-                  {{- 'products.product.price.name' | t -}}
-                </span>
-                {% comment %} {%- render 'price',
-                  product: product,
-                  use_variant: true,
-                  show_badges: false,
-                  price_class: 'price--product'
-                -%} {% endcomment %}
+                {% comment %}
+                  <span class="product-form__group-name">
+                    {{- 'products.product.price.name' | t -}}
+                  </span>
+                {% endcomment %}
+                {% comment %}
+                  {%- render 'price',
+                    product: product,
+                    use_variant: true,
+                    show_badges: false,
+                    price_class: 'price--product'
+                  -%}
+                {% endcomment %}
+                {% comment %} price range {% endcomment %}
+                <div class="price-and-subtext">
                   {% if product.price_varies %}
-                  <span class="price--product">
-                    {{ product.price_min | money }} – {{ product.price_max | money }}
-                  </span>
-                {% else %}
-                  <span class="price--product">
-                    {{ product.price | money }}
-                  </span>
-                {% endif %}
-                <div class="product__tax">
-                  {%- if cart.taxes_included and block.settings.show_tax_info -%}
-                    {{ 'products.product.include_taxes' | t }}
-                  {%- endif -%}
-                  {%- if shop.shipping_policy.body != blank and block.settings.show_shipping -%}
-                    {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
-                  {%- endif -%}
-                </div>
-              </div>
-              {%- if section.settings.product_item != blank -%}
-                <div class="installment-wrapper" {{ block.shopify_attributes }}>
-                  {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
-                  {%- form 'product', product, id: product_form_installment_id, class: 'installment caption-large' -%}
-                    <input
-                      type="hidden"
-                      name="id"
-                      value="{{ product.selected_or_first_available_variant.id }}"
-                    >
-                    {{ form | payment_terms }}
-                  {%- endform -%}
-                </div>
-              {%- endif -%}
-              <div class="custom-product-info">
-                {% if section.settings.sub_text != blank %}
-                  <p class="product-subtext">
-                    {{ section.settings.sub_text }}
-                  </p>
-                {% endif %}
+                    <span class="price--product">
+                      {% comment %} {{ product.price_min | money | replace: '.00', ''  }} – {{ product.price_max | money | replace: '.00', '' }} {% endcomment %}
+                      {% assign min_price = null %}
+                      {% assign max_price = null %}
 
-                {% if section.settings.purchase_note != blank %}
-                  <p class="product-note">
-                    {{ section.settings.purchase_note }}
-                  </p>
-                {% endif %}
-              </div>
+                      {% for variant in product.variants %}
+                        {% if variant.title contains '20ml' or variant.title contains '60ml' %}
+                          {% if min_price == null or variant.price < min_price %}
+                            {% assign min_price = variant.price %}
+                          {% endif %}
+
+                          {% if max_price == null or variant.price > max_price %}
+                            {% assign max_price = variant.price %}
+                          {% endif %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {{ min_price | money | replace: '.00', '' }} – {{ max_price | money | replace: '.00', '' }}
+                    </span>
+                  {% else %}
+                    <span class="price--product">
+                      {{ product.price | money | replace: '.00', '' }}
+                    </span>
+                  {% endif %}
+
+                  {% if section.settings.sub_text != blank %}
+                    <p class="product-subtext">
+                      {{ section.settings.sub_text }}
+                    </p>
+                  {% else %}
+                    <p class="product-subtext">
+                      {% for variant in product.variants %}
+                        {% if variant.title == 'Jar — 60ml'  or variant.title == 'Stick — 30ml'  or variant.title == 'Stick — 20ml' %}
+                          <input
+                            type="radio"
+                            id="variant-{{ variant.id }}"
+                            name="id"
+                            value="{{ variant.id }}"
+                            {% if variant.id == initial_variant.id %}
+                              checked
+                            {% endif %}
+                            {% comment %} {% if variant == product.selected_or_first_available_variant %}
+                              checked
+                            {% endif %} {% endcomment %}
+                            hidden
+                          >
+                          <label for="variant-{{ variant.id }}" class="pill-variant focus-inset {% if variant.title contains '60ml' %}extra-60ml-class{% endif %}">
+                            {{ variant.title }}
+                          </label>
+                        {% endif %}
+                      {% endfor %}
+                    </p>
+                  {% endif %}
+                  <div class="price-and-subtext">
+                    {% comment %} end {% endcomment %}
+                    <div class="product__tax">
+                      {%- if cart.taxes_included and block.settings.show_tax_info -%}
+                        {{ 'products.product.include_taxes' | t }}
+                      {%- endif -%}
+                      {%- if shop.shipping_policy.body != blank and block.settings.show_shipping -%}
+                        {{ 'products.product.shipping_policy_html' | t: link: shop.shipping_policy.url }}
+                      {%- endif -%}
+                    </div>
+                  </div>
+                  {%- if section.settings.product_item != blank -%}
+                    <div class="installment-wrapper" {{ block.shopify_attributes }}>
+                      {%- assign product_form_installment_id = 'product-form-installment-' | append: section.id -%}
+                      {%- form 'product',
+                        product,
+                        id: product_form_installment_id,
+                        class: 'installment caption-large'
+                      -%}
+                        <input
+                          type="hidden"
+                          name="id"
+                          value="{{ product.selected_or_first_available_variant.id }}"
+                        >
+                        {{ form | payment_terms }}
+                      {%- endform -%}
+                    </div>
+                  {%- endif -%}
+                  <div class="custom-product-info">
+                    {% comment %}
+                      {% if section.settings.sub_text != blank %}
+                        <p class="product-subtext">
+                          {{ section.settings.sub_text }}
+                        </p>
+                      {% endif %}
+                    {% endcomment %}
+
+                    {% if section.settings.purchase_note != blank %}
+                      <p class="product-note">
+                        {{ section.settings.purchase_note }}
+                      </p>
+                    {% endif %}
+                  </div>
             {%- when 'sku' -%}
               <p
                 class="product__sku no-js-hidden{% if product.selected_or_first_available_variant.sku.size == 0 %} visibility-hidden{% endif %}"
@@ -673,6 +791,7 @@
                         name="add"
                         class="product-form__submit button button--full-width button--primary"
                         style="flex: 1;"
+                        id="add-both-variants"
                         {% if product.selected_or_first_available_variant.available == false %}
                           disabled
                         {% else %}
@@ -694,13 +813,13 @@
                       </button>
 
                       {% comment %} --- LEARN MORE BUTTON  {% endcomment %}
-                      <a
+                      {% comment %} <a
                         href="{{ product.url }}"
                         class="button button--secondary"
                         style="flex: 1; text-align: center; border: 1px solid #333; text-decoration: none; display: flex; align-items: center; justify-content: center; height: 100%; min-height: 4.6rem;"
                       >
                         LEARN MORE
-                      </a>
+                      </a> {% endcomment %}
                       {% comment %}
                         {%- if block.settings.show_dynamic_checkout -%}
                           {{ form | payment_button }}
@@ -712,15 +831,15 @@
               </div>
               <div class="product-benefits">
                 {% if section.settings.benefit_1 != blank %}
-                  <span>✔ {{ section.settings.benefit_1 }}</span>
+                  <p><span class="highlight_tick">✔</span>{{ section.settings.benefit_1 }}</p>
                 {% endif %}
 
                 {% if section.settings.benefit_2 != blank %}
-                  <span>✔ {{ section.settings.benefit_2 }}</span>
+                  <p><span class="highlight_tick">✔ </span>{{ section.settings.benefit_2 }}</p>
                 {% endif %}
 
                 {% if section.settings.benefit_3 != blank %}
-                  <span>✔ {{ section.settings.benefit_3 }}</span>
+                  <p><span class="highlight_tick">✔ </span>{{ section.settings.benefit_3 }}</p>
                 {% endif %}
               </div>
               {% comment %} end  {% endcomment %}
@@ -1313,6 +1432,157 @@
   <script src="{{ 'product-model.js' | asset_url }}" defer></script>
 {%- endif -%}
 
+<script>
+  document.getElementById('add-both-variants').addEventListener('click', function(e) {
+    e.preventDefault();
+
+  let variantId = null;
+
+  // check selected variant
+  const selectedRadio = document.querySelector('.product-subtext input[type="radio"]:checked');
+
+  if (selectedRadio) {
+    variantId = selectedRadio.value;
+  }
+
+  // fallback = 60ml default
+  const productJson = {{ product.variants | json }};
+
+  if (!variantId) {
+    const defaultVariant = productJson.find(v => v.title.includes('60ml'));
+    if (defaultVariant) {
+      variantId = defaultVariant.id;
+    }
+  }
+
+  if (!variantId) return;
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      items: [{
+        id: variantId,
+        quantity: 1
+      }]
+    })
+  })
+  .then(res => res.json())
+  .then(data => {
+    updateCartHeader();
+    console.log('Item added');
+  })
+  .catch(err => console.error(err));
+
+});
+  function updateCartHeader() {
+  fetch('/cart.js')
+    .then(response => response.json())
+    .then(cart => {
+      const cartSelectors = ['.cart-count-bubble', '#CartCount', '.header__cart-count'];
+      
+      cartSelectors.forEach(selector => {
+        const element = document.querySelector(selector);
+        if (element) {
+          element.textContent = cart.item_count;
+          if (element.classList.contains('hidden')) {
+            element.classList.remove('hidden');
+          }
+        }
+      });
+    });
+}
+  // variant click
+  document.addEventListener('DOMContentLoaded', function() {
+  const variantRadios = document.querySelectorAll('.product-subtext input[type="radio"]');
+
+//vrainat class
+ {% comment %} function apply60ml(radio) {
+  
+  const allLabels = document.querySelectorAll('.product-subtext label');
+  allLabels.forEach(l => l.classList.remove('extra-60ml-class')); 
+
+  const label = document.querySelector(`label[for="${radio.id}"]`);
+  if (!label) return;
+
+  if (label.innerText.toLowerCase().includes('60ml')) {
+    label.classList.add('extra-60ml-class');
+  }
+}  {% endcomment %}
+function apply60ml(radio) {
+
+  const allLabels = document.querySelectorAll('.product-subtext label');
+
+  // 🔥 sab reset karo
+  allLabels.forEach(l => {
+    l.classList.remove('extra-60ml-class');
+    l.classList.remove('extra-60ml-class'); // 👈 ye missing tha
+  });
+
+  const label = document.querySelector(`label[for="${radio.id}"]`);
+  if (!label) return;
+
+  // ✅ jo select hua hai usko highlight do
+  label.classList.add('extra-60ml-class');
+
+  // ✅ sirf 60ml pe extra styling
+  if (label.innerText.toLowerCase().includes('60ml')) {
+    label.classList.add('extra-60ml-class');
+  }
+}
+  variantRadios.forEach(radio => {
+    radio.addEventListener('change', function() {
+      const variantId = this.value;
+      const productJson = {{ product.variants | json }};
+      
+      // 1. Selected variant ka data nikaalna
+      const selectedVariant = productJson.find(v => v.id == variantId);
+
+      if (selectedVariant && selectedVariant.featured_media) {
+        const mediaId = selectedVariant.featured_media.id;
+        
+        // Wo slide dhundna jisme ye media ID hai
+        const targetSlide = document.querySelector(`[data-media-id*="${mediaId}"]`);
+        
+        if (targetSlide) {
+          // 3. Swiper slider ko us image par move karna
+          const swiperContainer = document.querySelector('.js-media-list');
+          if (swiperContainer && swiperContainer.swiper) {
+            // Agar Swiper initialized hai
+            const slideIndex = Array.from(targetSlide.parentNode.children).indexOf(targetSlide);
+            swiperContainer.swiper.slideTo(slideIndex);
+          } else {
+            // Agar slider nahi hai toh scroll karke wahan le jana
+            targetSlide.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          }
+        }
+      }
+           apply60ml(this);
+    });
+  });
+
+
+ function applyAll60ml() {
+  const variantRadios = document.querySelectorAll('.product-subtext input[type="radio"]');
+
+  variantRadios.forEach(radio => {
+    const label = document.querySelector(`label[for="${radio.id}"]`);
+
+    if (radio.checked && label && label.innerText.includes('60ml')) {
+      label.classList.add('extra-60ml-class');
+    }
+  });
+}  
+
+// run multiple safe points (Shopify safe)
+document.addEventListener('DOMContentLoaded', applyAll60ml);
+window.addEventListener('load', applyAll60ml);
+setTimeout(applyAll60ml, 1000);
+});
+
+</script>
 {% schema %}
 {
   "name": "t:sections.featured-product.name",
@@ -1430,7 +1700,8 @@
         {
           "value": "thumbs_aside",
           "label": "t:sections.main-product.settings.gallery_type.options__2.label"
-        }
+        },
+        { "value": "thumbs_bottom", "label": "Thumbnails Bottom" }
       ],
       "default": "slideshow",
       "label": "t:sections.main-product.settings.gallery_type.label"
@@ -2059,3 +2330,4 @@
   ]
 }
 {% endschema %}
+

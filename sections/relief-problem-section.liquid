@@ -1,0 +1,128 @@
+<section class="problem-sec section">
+  <div class="problem-center">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+    <p class="problem-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="tried-grid">
+    {% for block in section.blocks %}
+      <div class="tried-item">
+        <div class="tried-icon">{{ block.settings.icon }}</div>
+        <h3 class="tried-name">{{ block.settings.name }}</h3>
+        <div class="tried-why">{{ block.settings.description }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="problem-transition">
+    <span class="pt-label">{{ section.settings.transition_label }}</span>
+    <div class="pt-text">
+      {{ section.settings.transition_text }}
+    </div>
+  </div>
+</section>
+<style>
+    /* ── PROBLEM SECTION ────────────────────────────── */
+.problem-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.problem-center{text-align:center;margin-bottom:28px}
+.problem-center h2{margin-bottom:16px}
+.problem-center h2 em{color:var(--coral);font-style:normal}
+.problem-sub{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.7}
+
+/* Tried grid — 1 col mobile, 2 col tablet, 4 col desktop */
+.tried-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+@media(min-width:768px){.tried-grid{grid-template-columns:repeat(4,1fr);gap:12px}}
+
+.tried-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 14px;text-align:center}
+.tried-icon{font-size:24px;margin-bottom:10px}
+.tried-name{font-family:var(--f-dis);font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.tried-why{font-size:15px;color:#d0d0d0;line-height:1.5}
+
+.problem-transition{background:rgba(232,72,42,.06);border:1px solid rgba(232,72,42,.2);border-radius:8px;padding:24px 20px;text-align:center}
+.pt-label{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;display:block}
+.pt-text{font-family:var(--f-dis);font-size:17px;font-weight:700;line-height:1.35;letter-spacing:-0.01em}
+.pt-text em{color:var(--coral);font-style:normal}
+@media(min-width:768px){.pt-text{font-size:20px}}
+@media(min-width:1024px){.pt-text{font-size:24px}}
+<style>
+{% schema %}
+{
+  "name": "Problem Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Problem With Everything Else"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "You've Tried Everything."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Nothing Goes Deep Enough."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text"
+    },
+    {
+      "type": "text",
+      "id": "transition_label",
+      "label": "Transition Label",
+      "default": "The PHASIS Difference"
+    },
+    {
+      "type": "textarea",
+      "id": "transition_text",
+      "label": "Transition Text"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Tried Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or HTML)"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product Name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Why it fails"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Problem Section",
+      "blocks": [
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" },
+        { "type": "item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

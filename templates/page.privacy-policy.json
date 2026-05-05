@@ -1,0 +1,145 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "phasis_policy_tabs_LAV8aG": {
+      "type": "phasis-policy-tabs",
+      "blocks": {
+        "tab_igdGYR": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Privacy Policy",
+            "tab_id": "privacy",
+            "tab_content": "<div class=\"prose\">\n    <div class=\"highlight\"><p>PHASIS takes your privacy seriously. We collect only what we need to process your orders and improve your experience. We never sell your personal information to third parties.</p></div>\n    <h3>1. Information We Collect</h3>\n    <p>When you place an order we collect your name, email, shipping address, phone number, and payment information (processed by our payment provider — we never store full card details). When you browse our site we collect standard analytics data via cookies.</p>\n    <h3>2. How We Use Your Information</h3>\n    <ul>\n      <li>To process and fulfill your orders and send tracking information</li>\n      <li>To communicate with you about orders, returns, or support inquiries</li>\n      <li>To send marketing emails if you have opted in — unsubscribe at any time</li>\n      <li>To improve our website based on aggregate usage data</li>\n      <li>To comply with legal obligations and prevent fraud</li>\n    </ul>\n    <h3>3. Information Sharing</h3>\n    <p>We share your information only with service providers necessary to operate — including our payment processor, shipping carriers (USPS, UPS), and email provider. We do not sell, rent, or trade your personal information to third parties for marketing purposes.</p>\n    <h3>4. Cookies</h3>\n    <p>We use cookies to maintain your shopping cart and collect aggregate analytics. You can control cookie settings in your browser. Disabling cookies may limit certain functionality.</p>\n    <h3>5. Data Retention</h3>\n    <p>We retain your order history as long as needed to provide services. You may request deletion of your personal data at any time by emailing  — we process requests within 30 days.</p>\n    <h3>6. Security</h3>\n    <p>We use SSL encryption for all data transmission. Payments are handled by PCI-compliant processors. We never store sensitive payment data on our servers.</p>\n    <h3>7. Your Rights</h3>\n    <p>You have the right to access, correct, or delete your personal information at any time. Contact us at  to exercise these rights.</p>\n    <h3>8. Maryland Privacy Rights (MODPA)</h3>\n    <p>Maryland residents have additional rights under the Maryland Online Data Privacy Act, including the right to access, delete, and correct personal information, and the right to opt-out of the sale of personal data (we do not sell personal data). Contact  to exercise Maryland privacy rights.</p>\n    <h3>9. Changes to This Policy</h3>\n    <p>We may update this policy periodically. Significant changes will be communicated via email or site notice. Continued use after updates constitutes acceptance.</p>\n    <h3>10. Contact</h3>\n    <p>Natural Performance LLC · Oakland, MD · </p>\n  </div>"
+          }
+        },
+        "tab_d6dxVa": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Terms of Service",
+            "tab_id": "terms",
+            "tab_content": "<div class=\"prose\">\n    <div class=\"highlight\"><p>By using our website and purchasing our products, you agree to these terms. Please read them carefully. If you do not agree, please do not use our services.</p></div>\n    <h3>1. Acceptance of Terms</h3>\n    <p>By accessing phasisevo.com and purchasing products from Natural Performance LLC (\"PHASIS\", \"we\", \"us\", or \"our\"), you agree to be bound by these Terms of Service and all applicable laws. These terms apply to all visitors, users, and customers.</p>\n    <h3>2. Products and Descriptions</h3>\n    <p>We make every effort to accurately describe our products including ingredients, dosages, and intended use. Product images are representative. We reserve the right to modify or discontinue any product at any time. These statements have not been evaluated by the Food and Drug Administration. Our products are not intended to diagnose, treat, cure, or prevent any disease.</p>\n    <h3>3. Pricing and Payment</h3>\n    <p>All prices are in USD and subject to change without notice. We reserve the right to refuse or cancel any order if a pricing error occurs. Payment is processed securely at checkout. We accept all major credit cards, Apple Pay, and PayPal.</p>\n    <h3>4. Age Requirement</h3>\n    <p>You must be 18 years or older to purchase from PHASIS. By placing an order, you confirm you meet this requirement.</p>\n    <h3>5. Health Disclaimer</h3>\n    <p>Our products are dietary supplements intended for healthy adults. Consult a qualified healthcare provider before use, especially if you are pregnant, nursing, have a medical condition, or take prescription medications. Stop use and consult a professional if you experience any adverse reaction. Natural Performance LLC is not responsible for any health outcomes resulting from supplement use.</p>\n    <h3>6. Intellectual Property</h3>\n    <p>All content on this website — text, images, logos, product names, and formulas — is the property of Natural Performance LLC and protected by applicable intellectual property laws. You may not reproduce or distribute our content without prior written permission.</p>\n    <h3>7. Limitation of Liability</h3>\n    <p>Natural Performance LLC shall not be liable for any indirect, incidental, special, or consequential damages arising from use of our products or website. Our maximum liability for any claim shall not exceed the amount paid for the product in question.</p>\n    <h3>8. Governing Law</h3>\n    <p>These Terms of Service are governed by the laws of the State of Maryland, United States. Any disputes shall be resolved in the courts of Maryland.</p>\n    <h3>9. Changes to Terms</h3>\n    <p>We reserve the right to modify these terms at any time. Updated terms will be posted with a revised date. Continued use of our services constitutes acceptance.</p>\n    <h3>10. Contact</h3>\n    <p>Natural Performance LLC · Oakland, MD · </p>\n  </div>"
+          }
+        },
+        "tab_eQrgPH": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Shipping Policy",
+            "tab_id": "shipping",
+            "tab_content": "<div class=\"prose\">\n    <div class=\"highlight\"><p>All orders ship within 1–3 business days via USPS or UPS. Orders over $75 ship free. Tracking provided on every order.</p></div>\n    <h3>Processing Time</h3>\n    <p>Orders are processed within 1–3 business days of payment confirmation. Orders placed on weekends or public holidays are processed the next business day. You will receive a shipping confirmation email with your tracking number once your order ships.</p>\n    <h3>Carriers</h3>\n    <p>We ship via USPS and UPS. Carrier selection is based on your location and order size. Both carriers provide full tracking from dispatch to delivery.</p>\n    <h3>Shipping Options &amp; Rates</h3>\n    <ul>\n      <li>\n<strong>Free Standard Shipping</strong> — All orders over $75 (3–7 business days via USPS or UPS)</li>\n      <li>\n<strong>Standard Shipping</strong> — $5.99 for orders under $75 (3–7 business days)</li>\n      <li>\n<strong>Expedited Shipping</strong> — $12.99 (2–3 business days via UPS)</li>\n    </ul>\n    <h3>Domestic Shipping (USA)</h3>\n    <p>We ship to all 50 US states including Alaska and Hawaii. APO/FPO addresses accepted via USPS. Delivery times are estimates and may vary by location and carrier volume. Rural areas may experience slightly longer windows.</p>\n    <h3>International Shipping</h3>\n    <p>International shipping is not currently available. We ship to US addresses only. This policy will be updated when international shipping becomes available.</p>\n    <h3>Tracking Your Order</h3>\n    <p>A tracking number is emailed once your order ships. Track directly via USPS.com or UPS.com. If you haven't received a tracking email within 4 business days, check your spam folder or contact us at .</p>\n    <h3>Lost or Stolen Packages</h3>\n    <p>If tracking shows delivered but you haven't received your package, first check with neighbors and building management. Then contact your local USPS or UPS facility with your tracking number. If not located within 5 business days of the delivery scan, contact us and we will open a carrier investigation.</p>\n    <h3>Incorrect Address</h3>\n    <p>Ensure your shipping address is correct at checkout. Contact us immediately at  if you notice an error. We can update addresses before shipment but cannot redirect packages in transit. Orders returned due to an incorrect address may be reshipped at the customer's expense.</p>\n    <h3>Contact</h3>\n    <p>Natural Performance LLC · Oakland, MD · </p>\n  </div>"
+          }
+        },
+        "tab_JLpGDe": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "Returns & Refunds",
+            "tab_id": "returns",
+            "tab_content": "<div class=\"prose\">\n    <div class=\"highlight\"><p>We stand behind every product we make. If something isn't working for you, contact us within 30 days of delivery and we'll make it right.</p></div>\n    <h3>Our 30-Day Satisfaction Guarantee</h3>\n    <p>If you are not satisfied with your purchase for any reason, contact us at  within 30 days of your delivery date. We will issue a refund to your original payment method once your request has been reviewed. We want every customer to feel confident buying from us — if something didn't work, we own that.</p>\n    <h3>Eligibility</h3>\n    <ul>\n      <li>Refund requests must be submitted within 30 days of the confirmed delivery date</li>\n      <li>Product must have been purchased directly from phasisevo.com</li>\n      <li>Limit of one refund per product per customer</li>\n      <li>Refunds are issued to the original payment method only</li>\n      <li>We reserve the right to decline requests that show clear signs of misuse or abuse of this policy</li>\n    </ul>\n    <h3>How to Request a Refund</h3>\n    <p>Email  with your order number and a brief reason for your request. You do not need to return the product. We process all requests within 3 business days. Refunds typically appear on your statement within 5–10 business days.</p>\n    <h3>Damaged or Incorrect Orders</h3>\n    <p>If your order arrives damaged or incorrect, contact us within 7 days with your order number and a photo. We will send a replacement or issue a full refund — your choice.</p>\n    <h3>Items Not Received</h3>\n    <p>If tracking</p>\n</div>"
+          }
+        }
+      },
+      "block_order": [
+        "tab_igdGYR",
+        "tab_d6dxVa",
+        "tab_eQrgPH",
+        "tab_JLpGDe"
+      ],
+      "name": "Policy Tabs",
+      "settings": {}
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "phasis_policy_tabs_LAV8aG"
+  ]
+}

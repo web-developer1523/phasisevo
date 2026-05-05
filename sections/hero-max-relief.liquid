@@ -13,9 +13,9 @@
       <em>{{ section.settings.heading_emphasis }}</em>
     </h1>
 
-    <p class="hero-hook">
+    <div class="hero-hook">
       {{ section.settings.hook_text }}
-    </p>
+    </div>
 
     <!-- PROOF ROW -->
     <div class="proof-row">
@@ -35,7 +35,7 @@
 
     <!-- CTA -->
     <div class="hero-cta">
-      <a href="{{ section.settings.cta_link }}" class="btn btn-p btn-lg">
+      <a href="{% if section.settings.cta_url != blank %}{{ section.settings.cta_url }}{% else %}#{{ section.settings.section_id }}{% endif %}" class="btn btn-p btn-lg glow-cta">
         {{ section.settings.cta_text }}
       </a>
 
@@ -182,10 +182,10 @@
       "default": "Until Now."
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "hook_text",
       "label": "Hook Text",
-      "default": "Most recovery products treat the surface..."
+      "default": "<p>Most recovery products treat the surface...<p>"
     },
     {
       "type": "text",
@@ -198,6 +198,12 @@
       "id": "cta_link",
       "label": "CTA Link"
     },
+    {
+  "type": "text",
+  "id": "section_id",
+  "label": "Section ID",
+  "default": "purchase"
+},
     {
       "type": "text",
       "id": "quiz_text",

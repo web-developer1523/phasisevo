@@ -1,0 +1,145 @@
+<section class="hero" id="hero-top">
+  <div class="hero-content">
+
+    <div class="hero-eyebrow-row">
+      <span>{{ section.settings.eyebrow }}</span>
+    </div>
+
+    <h1>
+      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line2 }}<br>
+      <em>{{ section.settings.heading_line3 }}</em>
+    </h1>
+
+    <p class="hero-hook">
+      {{ section.settings.description }}
+    </p>
+
+    <div class="skeptic-bar">
+      <div class="sb-icon">🔬</div>
+      <div>
+        <div class="sb-title">{{ section.settings.study_title }}</div>
+        <div class="sb-text">{{ section.settings.study_text }}</div>
+      </div>
+    </div>
+
+    <div class="trust-row">
+      <div class="stars">★★★★★</div>
+
+      <span class="trust-pill"><b>{{ section.settings.trust1_bold }}</b> {{ section.settings.trust1_text }}</span>
+      <span class="trust-sep">·</span>
+
+      <span class="trust-pill"><b>{{ section.settings.trust2_bold }}</b></span>
+      <span class="trust-sep">·</span>
+
+      <span class="trust-pill"><b>{{ section.settings.trust3_bold }}</b></span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="{{ section.settings.button_link }}" class="btn btn-a">
+        {{ section.settings.button_text }}
+      </a>
+
+      <div class="cta-micro">
+        <span class="cta-micro-item">{{ section.settings.micro1 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro2 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro3 }}</span>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="hero-visual">
+    <div class="hero-bg-word">{{ section.settings.bg_word }}</div>
+    <div class="hero-emo">{{ section.settings.emoji }}</div>
+  </div>
+
+  <div class="hero-stats">
+    {% for block in section.blocks %}
+      <div class="hstat">
+        <div class="hstat-val">{{ block.settings.value }}</div>
+        <div class="hstat-lbl">{{ block.settings.label }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="hero-study">
+    <div class="hs-label">{{ section.settings.research_label }}</div>
+    <div class="hs-text">{{ section.settings.research_text }}</div>
+    <div class="hs-cite">{{ section.settings.research_cite }}</div>
+  </div>
+
+</section>
+<style>
+    * ── HERO ─────────────────────────────────────────── */
+.hero{display:flex;flex-direction:column}
+.hero-content{padding:28px var(--pad) 20px;display:flex;flex-direction:column}
+.hero-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.hero-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--amber);flex-shrink:0}
+.hero-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)}
+.hero h1{margin-bottom:14px}
+.hero-hook{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.65;border-left:3px solid rgba(212,131,26,.35);padding-left:14px;margin-bottom:16px}
+.hero-hook strong{color:var(--off-white);font-weight:600}
+
+
+</style>
+{% schema %}
+{
+  "name": "Hero Perform",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow Text", "default": "β-Ecdysterone · Muscle & Endurance · Perform+" },
+
+    { "type": "text", "id": "heading_line1", "label": "Heading Line 1", "default": "The Anabolic" },
+    { "type": "text", "id": "heading_line2", "label": "Heading Line 2", "default": "Effect. Without" },
+    { "type": "text", "id": "heading_line3", "label": "Heading Line 3", "default": "The Hormones." },
+
+    { "type": "textarea", "id": "description", "label": "Description", "default": "β-Ecdysterone is a plant compound clinically shown to increase muscle protein synthesis." },
+
+    { "type": "text", "id": "study_title", "label": "Study Title", "default": "The study numbers are real" },
+    { "type": "textarea", "id": "study_text", "label": "Study Text", "default": "WADA-funded, 10-week study..." },
+
+    { "type": "text", "id": "trust1_bold", "label": "Trust 1 Bold", "default": "Safe" },
+    { "type": "text", "id": "trust1_text", "label": "Trust 1 Text", "default": "Men & Women" },
+
+    { "type": "text", "id": "trust2_bold", "label": "Trust 2", "default": "Non-Hormonal" },
+    { "type": "text", "id": "trust3_bold", "label": "Trust 3", "default": "Sport Safe" },
+
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "GET PERFORM+ — FROM $49" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+
+    { "type": "text", "id": "micro1", "label": "Micro Text 1", "default": "Free shipping $75+" },
+    { "type": "text", "id": "micro2", "label": "Micro Text 2", "default": "30-day guarantee" },
+    { "type": "text", "id": "micro3", "label": "Micro Text 3", "default": "No subscription" },
+
+    { "type": "text", "id": "bg_word", "label": "Background Word", "default": "PERFORM" },
+    { "type": "text", "id": "emoji", "label": "Emoji", "default": "💊" },
+
+    { "type": "text", "id": "research_label", "label": "Research Label", "default": "Published Research — WADA-Funded · 2019" },
+    { "type": "textarea", "id": "research_text", "label": "Research Text", "default": "Significantly higher increases..." },
+    { "type": "text", "id": "research_cite", "label": "Research Citation", "default": "Isenmann et al." }
+  ],
+
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "+2kg" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Lean muscle gain" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": " Mobile Hero Perform",
+      "blocks": [
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" },
+        { "type": "stat" }
+      ]
+    }
+  ]
+}
+{% endschema %}

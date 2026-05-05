@@ -1,0 +1,122 @@
+<section class="who-sec section">
+
+  <div class="who-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+
+    <p class="who-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="who-grid">
+    {% for block in section.blocks %}
+      <div class="who-card">
+
+        <div class="wc-icon">{{ block.settings.icon }}</div>
+
+        <h3 class="wc-title">{{ block.settings.title }}</h3>
+
+        <div class="wc-points">
+          {{ block.settings.points }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+
+</section>  
+<style>
+    * ── WHO IT'S FOR ────────────────────────────────── */
+.who-sec{background:var(--surface);border-top:1px solid var(--border)}
+.who-top{text-align:center;margin-bottom:24px}
+.who-top h2{margin-bottom:12px}
+.who-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7}
+
+/* 2 col on mobile for compact layout */
+.who-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:768px){.who-grid{grid-template-columns:repeat(3,1fr)}}
+
+.who-card{background:var(--page-bg);border:1px solid var(--border);border-radius:8px;padding:16px;transition:border-color .2s}
+.who-card:hover{border-color:rgba(212,131,26,.35)}
+.wc-icon{font-size:28px;margin-bottom:12px}
+.wc-title{font-family:var(--f-dis);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;margin-bottom:10px}
+.wc-pt{display:flex;align-items:flex-start;gap:6px;font-size:15px;color:#d0d0d0;padding:4px 0;line-height:1.45}
+.wc-pt::before{content:'→';color:var(--amber);font-size:10px;flex-shrink:0;margin-top:2px;font-weight:700}
+</style>
+{% schema %}
+{
+  "name": "Who It's For",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Who It's Built For"
+
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "If You Train,"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Perform+ Is For You."
+    },
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>Non-hormonal means it works equally for men and women — same pathway, same results, zero gender-specific side effects.</p>"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "card",
+      "name": "User Type Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji)",
+          "default": "🏋️"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Card Title"
+        },
+        {
+          "type": "html",
+          "id": "points",
+          "label": "Points"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Who It's For",
+      "blocks": [
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

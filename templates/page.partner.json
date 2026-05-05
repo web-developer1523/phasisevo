@@ -1,0 +1,455 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "page_hero_dNQYLg": {
+      "type": "page-hero",
+      "name": "Page Hero",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow_text": "Wholesale · Affiliates · Collaborations",
+        "heading_line_1": "Let's Grow",
+        "heading_line_2": "Together.",
+        "subtext": "Whether you're a gym, a coach, a competing athlete, a content creator, or a brand — if your audience trains hard and cares about what goes in their body, there's a conversation to be had.",
+        "primary_btn_text": "Affiliate LOGIN",
+        "primary_btn_link": "https://af.uppromote.com/btcsyr-rw/login",
+        "secondary_btn_text": "Partnership Programs",
+        "secondary_btn_link": ""
+      }
+    },
+    "partner_types_N6ntiq": {
+      "type": "partner-types",
+      "blocks": {
+        "program_A9rCAe": {
+          "type": "program",
+          "settings": {
+            "icon": "🏪",
+            "program_label": "Program 01",
+            "title": "Wholesale",
+            "description": "<p>Stock PHASIS products in your gym, clinic, retail location, or CrossFit box. Minimum order quantities apply. Custom pricing tiers based on volume.<br/></p>",
+            "highlight_box": "",
+            "perks": "30–45% wholesale margin on all products,\nMinimum opening order: 24 units,\nDedicated wholesale account manager,\nMarketing materials — shelf cards, posters, social assets,\nPriority stock allocation for launch events,\nNet 30 payment terms for approved accounts",
+            "button_text": "Apply for Wholesale",
+            "button_url": "",
+            "form_value": "wholesale",
+            "scroll_target_id": "contact"
+          }
+        },
+        "program_6EktkW": {
+          "type": "program",
+          "settings": {
+            "icon": "🤝",
+            "program_label": "Program 02",
+            "title": "Brand Collaboration",
+            "description": "<p>We take on a small number of brand collaborations with gyms, academies, and organizations that are genuinely aligned with what we're building. This isn't an open program — it's a conversation we have with the right people.</p>",
+            "highlight_box": "",
+            "perks": "Custom labeled products for your gym or organization,\nEvent and competition product placement,\nTeam and athlete supply packages,\nShared audience campaigns — when the fit is right",
+            "button_text": "TELL US WHY IT'S A FIT",
+            "button_url": "",
+            "form_value": "wholesale",
+            "scroll_target_id": "contact"
+          }
+        },
+        "program_QjQRJg": {
+          "type": "program",
+          "settings": {
+            "icon": "📱",
+            "program_label": "Program 03",
+            "title": "Affiliate & Creator",
+            "description": "<p>For coaches, athletes, trainers, and content creators. The more your community buys, the more you earn. No caps, no gimmicks — just a straightforward commission that grows with your performance.</p>",
+            "highlight_box": "<div class=\"commission-box\">\n  <div class=\"cb-title\">Commission Tiers — Monthly Referred Sales</div>\n  \n  <div class=\"cb-row\">\n    <span>Entry — Up to $499/mo</span>\n    <strong>15%</strong>\n  </div>\n\n  <div class=\"cb-row\">\n    <span>Growth — $500–$1,999/mo</span>\n    <strong>20%</strong>\n  </div>\n\n  <div class=\"cb-row highlight\">\n    <span>Elite — $2,000+/mo</span>\n    <strong>25%</strong>\n  </div>\n</div>",
+            "perks": "Unique tracking link and personal discount code,\nFree product to try before you promote,\nReal-time dashboard — clicks, sales, earnings,\nMonthly payouts via direct transfer or PayPal,\nEarly access to new product launches,\nNo exclusivity required — stack with other brands",
+            "button_text": "Apply as Affiliate",
+            "button_url": "https://af.uppromote.com/btcsyr-rw/register",
+            "form_value": "wholesale",
+            "scroll_target_id": "contact"
+          }
+        },
+        "program_4gwL6Q": {
+          "type": "program",
+          "settings": {
+            "icon": "🏆",
+            "program_label": "Program 04",
+            "title": "Athlete Sponsorship",
+            "description": "<p>We sponsor a small number of athletes who genuinely represent what PHASIS is built for — people who train hard, compete seriously, and care about what goes in their body. We're selective because who represents us matters.</p>",
+            "highlight_box": "<div class=\"how-it-works\">\n  <div class=\"hiw-title\">How It Works</div>\n\n  <div class=\"hiw-step\">\n    <span class=\"hiw-step-number\">01</span>\n    <span class=\"hiw-step-text\">Product supply — full product stack, replenished every month</span>\n  </div>\n\n  <div class=\"hiw-step\">\n    <span class=\"hiw-step-number\">02</span>\n    <span class=\"hiw-step-text\">Affiliate commission — 20% base, scaling to 25% on top of your product deal</span>\n  </div>\n\n  <div class=\"hiw-step\">\n    <span class=\"hiw-step-number\">03</span>\n    <span class=\"hiw-step-text\">Brand representation — authentic posts, competition tags, honest reviews</span>\n  </div>\n</div>",
+            "perks": "No scripts, no forced content — represent us how you'd represent anything you actually use,\nFeatured on PHASIS social and website as a sponsored athlete,\nEarly access to every new product before public launch,\nCash deals available as the brand grows — this is the starting point",
+            "button_text": "APPLY FOR SPONSORSHIP",
+            "button_url": "https://af.uppromote.com/btcsyr-rw/register",
+            "form_value": "wholesale",
+            "scroll_target_id": "contact"
+          }
+        }
+      },
+      "block_order": [
+        "program_A9rCAe",
+        "program_6EktkW",
+        "program_QjQRJg",
+        "program_4gwL6Q"
+      ],
+      "name": "Partner Types",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "Partnership Programs",
+        "heading_line_1": "Four Ways to",
+        "heading_line_2": "Work With PHASIS.",
+        "subtext": "Pick the model that fits your business. All three come with dedicated support, real product, and a brand worth standing behind."
+      }
+    },
+    "why_section_kj3TDh": {
+      "type": "why-section",
+      "blocks": {
+        "feature_aJaAwz": {
+          "type": "feature",
+          "settings": {
+            "icon": "🔬",
+            "title": "Real Science",
+            "desc": "Every formula backed by peer-reviewed research. The WADA-funded study. Published mechanisms. Cited sources."
+          }
+        },
+        "feature_WmrEqe": {
+          "type": "feature",
+          "settings": {
+            "icon": "🧪",
+            "title": "3rd Party Tested",
+            "desc": "Every batch independently tested for purity and label accuracy."
+          }
+        },
+        "feature_JQD3BQ": {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Clean Formulas",
+            "desc": "No proprietary blends. No banned substances. No misleading claims."
+          }
+        },
+        "feature_PQyRTj": {
+          "type": "feature",
+          "settings": {
+            "icon": "💬",
+            "title": "Converts Well",
+            "desc": "Built for performance. Real reviews. Honest positioning."
+          }
+        }
+      },
+      "block_order": [
+        "feature_aJaAwz",
+        "feature_WmrEqe",
+        "feature_JQD3BQ",
+        "feature_PQyRTj"
+      ],
+      "name": "Why Section",
+      "settings": {
+        "custom_class": "",
+        "eyebrow": "Why It's Worth Your Endorsement",
+        "heading_line1": "Products Your Audience",
+        "heading_em": "Will Actually Trust.",
+        "subtext": "We don't make supplements your community has to take on faith. Every formula is defensible, science-backed, and third-party verified."
+      }
+    },
+    "stats_section_bmjaJx": {
+      "type": "stats-section",
+      "blocks": {
+        "stat_ryJDBy": {
+          "type": "stat",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average customer rating across all products"
+          }
+        },
+        "stat_aajqek": {
+          "type": "stat",
+          "settings": {
+            "value": "25%",
+            "label": "Max affiliate commission — tiered, up to 25%"
+          }
+        },
+        "stat_DWEAGU": {
+          "type": "stat",
+          "settings": {
+            "value": "30–45%",
+            "label": "Wholesale margin on all product lines"
+          }
+        },
+        "stat_Ltr8YW": {
+          "type": "stat",
+          "settings": {
+            "value": "3",
+            "label": "Products. One complete system. Growing."
+          }
+        }
+      },
+      "block_order": [
+        "stat_ryJDBy",
+        "stat_aajqek",
+        "stat_DWEAGU",
+        "stat_Ltr8YW"
+      ],
+      "name": "Stats Section",
+      "settings": {
+        "custom_class": ""
+      }
+    },
+    "rich_text_bAabwH": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-ps-sec",
+        "section_layout": "column",
+        "subheading": "Try it before you partner.",
+        "heading": "Our best partners actually use the protocol.",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>Start with the stack - backed by a 30 day guarantee.</p>",
+        "button_label": "SHOP ALL PRODUCTS",
+        "button_link": "shopify://pages/phasis-shop",
+        "first_section_id": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "",
+        "button_link_2": "#",
+        "second_section_id": "",
+        "button_style_2": "secondary",
+        "button_dot_2": false,
+        "margin_top": "s",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "contact_form_pAqCaj": {
+      "type": "contact-form",
+      "name": "t:sections.contact-form.presets.name",
+      "settings": {
+        "content_align": "center",
+        "heading": "Apply toPartner With Us.",
+        "subheading": "Get In Touch",
+        "heading_tag": "h2",
+        "heading_size": "h2",
+        "text": "Some text for your contact form. You can use multiple lines of text",
+        "additional_text": "By submitting you agree to our <a href=\"phasis-policies.html\">Privacy Policy</a>. We don't share your information and we won't spam you.",
+        "image_ratio": "16/9",
+        "button_style": "primary",
+        "margin_top": "m",
+        "margin_bottom": "m",
+        "button_dot": false
+      }
+    },
+    "collapsible_content_VamDgi": {
+      "type": "collapsible-content",
+      "blocks": {
+        "accordion_h7KgCT": {
+          "type": "accordion",
+          "settings": {
+            "question": "Is there a minimum follower count for affiliate partners?",
+            "answer": "<p>No. We care about authentic fit, not follower count. A BJJ coach with 2,000 highly engaged followers in the right community is worth more to us than 50,000 generic fitness followers. Apply and tell us about your audience — we'll evaluate fit honestly.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_4Dzctz": {
+          "type": "accordion",
+          "settings": {
+            "question": "What's the minimum wholesale order?",
+            "answer": "<p>Opening orders start at 24 units minimum — mix and match products. Reorders can be smaller once an account is established. We'll discuss specific terms during the application process based on your location and expected volume.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_Pgqdgw": {
+          "type": "accordion",
+          "settings": {
+            "question": "How does affiliate tracking and payment work?",
+            "answer": "<p>You'll receive a unique tracking link and a personal discount code from day one. Commission tiers are calculated on your total monthly referred sales — 15% up to $499, 20% from $500–$1,999, and 25% at $2,000 and above. Tiers reset monthly. You'll have access to a real-time dashboard showing clicks, conversions, and earnings. We pay monthly via direct bank transfer or PayPal with no minimum payout threshold.<br/><br/></p>",
+            "default_open": false
+          }
+        },
+        "accordion_cnkajx": {
+          "type": "accordion",
+          "settings": {
+            "question": "How does athlete sponsorship work at this stage?",
+            "answer": "<p>We're honest about where we are as a brand. Right now sponsorship means product supply every month — the full PHASIS stack — plus a 20% affiliate commission that scales to 25% on top of that. No cash deals yet, but that changes as the brand grows and we'll reward the athletes who were with us early. What we ask for in return is authentic representation — use the product, post about it honestly, tag us at competitions. No scripts, no forced content. If you're someone who'd use this anyway, it's a natural fit.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_GUYxqX": {
+          "type": "accordion",
+          "settings": {
+            "question": "How does Brand Collaboration work?",
+            "answer": "<p>Brand Collaboration isn't an open program — we take on a small number of partnerships each year with gyms, academies, and organizations that are a genuine fit for what PHASIS is building. If you think that's you, tell us who your community is, what you do, and why PHASIS belongs in it. We'll take it from there.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_zyhAJG": {
+          "type": "accordion",
+          "settings": {
+            "question": "Can I stock only one product or do I need to carry all three?",
+            "answer": "<p>You can start with any single product. Many wholesale partners begin with Max Relief because it's the most universal — it works for everyone in pain regardless of training background. We don't require you to carry the full line, though most partners do once they see the sell-through rates.</p>",
+            "default_open": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_h7KgCT",
+        "accordion_4Dzctz",
+        "accordion_Pgqdgw",
+        "accordion_cnkajx",
+        "accordion_GUYxqX",
+        "accordion_zyhAJG"
+      ],
+      "custom_css": [
+        ".custom-cross {display: none; font-size: 20px; font-weight: bold; color: currentColor; /* plus ke same color ke liye */}",
+        " /* open hone par cross dikhe */.collapsible-content__item.active .custom-cross {display: inline-block;}",
+        " /* open hone par plus hide ho */.collapsible-content__item.active .collapsible-content__icon svg {display: none;}"
+      ],
+      "name": "t:sections.collapsible-content.name",
+      "settings": {
+        "custom_css_class": "cst-sccord-sec",
+        "section_layout": "column",
+        "icon_style": "secondary",
+        "section_heading": "Common Questions",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h2",
+        "section_subheading": "Partner FAQs",
+        "heading_description": "<p>Everything partners ask before applying.</p>",
+        "dot": false,
+        "collapse_heading_tag": "h4",
+        "section_button_label": "",
+        "section_button_link": "",
+        "button_dot": false,
+        "section_button_style": "primary",
+        "margin_top": "s",
+        "margin_bottom": "s"
+      }
+    },
+    "rich_text_KC3mB3": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-fast-sec",
+        "section_layout": "column",
+        "subheading": "Ready to Work Together?",
+        "heading": "Apply now. We move fast",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>Whether you are stocking products, creating content, or competing — there is a partnership program built for you.</p>",
+        "button_label": "APPLY TO PARTNER",
+        "button_link": "",
+        "first_section_id": "shopify-section-template--20511205851308__contact_form_pAqCaj",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "Want to try the products first? Shop →",
+        "button_link_2": "shopify://pages/phasis-shop",
+        "second_section_id": "",
+        "button_style_2": "secondary",
+        "button_dot_2": false,
+        "margin_top": "s",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "page_hero_dNQYLg",
+    "partner_types_N6ntiq",
+    "why_section_kj3TDh",
+    "stats_section_bmjaJx",
+    "rich_text_bAabwH",
+    "contact_form_pAqCaj",
+    "collapsible_content_VamDgi",
+    "rich_text_KC3mB3"
+  ]
+}

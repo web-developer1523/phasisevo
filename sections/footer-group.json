@@ -17,9 +17,9 @@
         "footer-0": {
           "type": "logo_info",
           "settings": {
-            "logo": "shopify://shop_images/footer-logo_1.png",
+            "logo": "shopify://shop_images/New_Project_3.png",
             "logo_width": 100,
-            "description": "<em>Recovery & Replenishment · Made to Evolve</em>Clinically-driven, plant-powered products built for real relief and real recovery."
+            "description": "<em> Made to Evolve </em>Clinically-driven, plant-powered products built for real relief and real recovery."
           }
         },
         "footer-1": {
@@ -28,7 +28,7 @@
           "settings": {
             "heading": "Quick Links",
             "menu": "footer-menu-1",
-            "default_open": false
+            "default_open": true
           }
         },
         "link_list_knBYMN": {
@@ -36,7 +36,7 @@
           "settings": {
             "heading": "Quick Links",
             "menu": "footer-menu-3",
-            "default_open": false
+            "default_open": true
           }
         },
         "footer-2": {
@@ -44,7 +44,7 @@
           "settings": {
             "heading": "Policies",
             "menu": "footer-menu-2",
-            "default_open": false
+            "default_open": true
           }
         },
         "contacts_KYPCki": {
@@ -53,6 +53,7 @@
             "address": "",
             "phone": "",
             "email": "Admin@naturalperformance.co",
+            "email_2": "@PhasisEvo",
             "working_hours": ""
           }
         }

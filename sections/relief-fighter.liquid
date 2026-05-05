@@ -1,0 +1,203 @@
+<!-- FIGHTER CREDIBILITY -->
+<section class="fighter-sec section">
+  <div class="fighter-inner">
+    
+    <div>
+      <div class="fighter-eyebrow-row">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <h2>
+        {{ section.settings.heading_line1 }}<br>
+        <em>{{ section.settings.heading_line2 }}</em>
+      </h2>
+
+      <p class="fighter-p mt-4">
+        {{ section.settings.description }}
+      </p>
+
+      <div class="sport-tags">
+        {% for block in section.blocks %}
+          {% if block.type == 'sport_tag' %}
+            <span class="sport-tag {% if block.settings.active %}active{% endif %}">
+              {{ block.settings.text }}
+            </span>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <div class="fighter-quote">
+        <div class="fq-stars">{{ section.settings.stars }}</div>
+        <div class="fq-text">{{ section.settings.quote_text }}</div>
+        <div class="fq-cite">
+          {{ section.settings.author }}
+          <span>· {{ section.settings.meta }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="pain-points">
+      {% for block in section.blocks %}
+        {% if block.type == 'pain_point' %}
+          <div class="pain-card">
+            <div class="pc-icon">{{ block.settings.icon }}</div>
+            <div class="pc-body">
+              <h4 class="pc-title">{{ block.settings.title }}</h4>
+              <div class="pc-desc">{{ block.settings.desc }}</div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+
+  </div>
+</section>
+<style>
+    /* ── FIGHTER SECTION ────────────────────────────── */
+.fighter-sec{background:var(--surface);border-top:1px solid var(--border)}
+.fighter-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.fighter-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.fighter-eyebrow-row span{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.fighter-sec h2{margin-bottom:16px}
+.fighter-sec h2 em{color:var(--coral);font-style:normal}
+.fighter-p{font-size:16px;font-weight:300;color:var(--muted);line-height:1.75;margin-bottom:20px}
+.fighter-p strong{color:var(--off-white);font-weight:600}
+
+/* Sport tags — wrap on mobile */
+.sport-tags{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.sport-tag{display:flex;align-items:center;gap:6px;background:rgba(255,255,255,.05);border:1px solid var(--border2);color:var(--muted-l);font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding:6px 10px;border-radius:20px}
+.sport-tag.active{background:rgba(42,184,207,.1);border-color:rgba(42,184,207,.3);color:var(--coral)}
+
+.fighter-quote{background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:3px solid var(--coral);border-radius:4px;padding:16px}
+.fq-stars{color:var(--coral);font-size:12px;margin-bottom:10px}
+.fq-text{font-size:16px;font-style:italic;color:var(--muted);line-height:1.65;margin-bottom:10px}
+.fq-cite{font-family:var(--f-dis);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.fq-cite span{font-weight:400;color:var(--muted);letter-spacing:0;text-transform:none;margin-left:4px;font-size:12px}
+
+/* Pain point cards — stack on mobile */
+.pain-points{display:flex;flex-direction:column;gap:8px;margin-top:24px}
+@media(min-width:1024px){
+  .fighter-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+  .pain-points{margin-top:0}
+}
+.pain-card{background:var(--page-bg);border:1px solid var(--border);border-radius:6px;padding:14px 16px;display:flex;align-items:center;gap:14px}
+.pc-icon{font-size:22px;flex-shrink:0;width:36px;text-align:center}
+.pc-body{}
+.pc-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:2px}
+.pc-desc{font-size:15px;color:var(--muted);line-height:1.45}
+
+</style>
+{% schema %}
+{
+  "name": " Relief Fighter Cred",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Who Uses Relief"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Built for the people who"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "train through real pain."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Combat sports athletes don't stop training because something hurts. They need relief that's fast, deep, and lasts through a full session."
+    },
+    {
+      "type": "text",
+      "id": "stars",
+      "label": "Stars",
+      "default": "★★★★★"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "Post rotator cuff surgery, the pain is relentless..."
+    },
+    {
+      "type": "text",
+      "id": "author",
+      "label": "Author Name",
+      "default": "Sharon Cook"
+    },
+    {
+      "type": "text",
+      "id": "meta",
+      "label": "Author Meta",
+      "default": "Post-Surgery Recovery · Verified Buyer"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "sport_tag",
+      "name": "Sport Tag",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Tag Text",
+          "default": "🥋 BJJ"
+        },
+        {
+          "type": "checkbox",
+          "id": "active",
+          "label": "Active Tag",
+          "default": true
+        }
+      ]
+    },
+    {
+      "type": "pain_point",
+      "name": "Pain Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji or SVG)",
+          "default": "🦵"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Pain Title"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Short description here..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Fighter Cred",
+      "blocks": [
+        { "type": "sport_tag" },
+        { "type": "sport_tag" },
+        { "type": "sport_tag" },
+        { "type": "pain_point" },
+        { "type": "pain_point" },
+        { "type": "pain_point" },
+        { "type": "pain_point" },
+        { "type": "pain_point" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,88 @@
+<!-- QUIZ CTA -->
+<div class="journal-cta {{section.settings.custom_css_class }}">
+  <div class="journal-cta-inner">
+
+    <h3 style="font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:12px">
+      {{ section.settings.cta_label }}
+    </h3>
+
+    <h2 style="font-family:var(--f-dis);font-size:clamp(28px, 4vw, 40px);font-weight:800;letter-spacing:-.02em;margin-bottom:10px">
+      {{ section.settings.cta_heading }}
+    </h2>
+
+    <p style="font-size:15px;color:#d0d0d0;line-height:1.7;margin-bottom:20px">
+      {{ section.settings.cta_text }}
+    </p>
+
+    <a href="{{ section.settings.cta_link }}" 
+       class="btn btn-p" 
+       style="display:inline-flex;max-width:280px">
+      {{ section.settings.cta_button }}
+    </a>
+
+  </div>
+</div>
+<style>
+    /* ── QUIZ CTA STRIP ─────────────────────────────────────── */
+.journal-cta {
+  background:var(--surface);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  padding:40px var(--pad);
+  text-align:center;
+}
+@media(min-width:768px){.journal-cta{padding:48px var(--pad-md)}}
+@media(min-width:1024px){.journal-cta{padding:56px var(--pad-lg)}}
+
+.journal-cta-inner {
+  max-width:500px;
+  margin:0 auto;
+}
+
+</style>
+{% schema %}
+{
+"name":"Journal CTA Section",
+"settings": [
+{
+  "type": "header",
+  "content": "CTA Section"
+},
+{
+  "type": "text",
+  "id": "cta_label",
+  "label": "CTA Label",
+  "default": "Not sure where to start?"
+},
+{
+  "type": "text",
+  "id": "cta_heading",
+  "label": "CTA Heading",
+  "default": "Find your protocol first."
+},
+{
+  "type": "textarea",
+  "id": "cta_text",
+  "label": "CTA Description",
+  "default": "Most people want to feel better. They just don’t know where to begin. The PHASIS Protocol Scan identifies your starting point in 3 minutes — holistic-first, product recommendations second."
+},
+{
+  "type": "url",
+  "id": "cta_link",
+  "label": "Button Link"
+},
+{
+  "type": "text",
+  "id": "cta_button",
+  "label": "Button Text",
+  "default": "FIND YOUR PROTOCOL"
+}
+],
+"presets": [
+    {
+    "name": "Journal CTA Section"
+    
+    }
+]
+}
+{% endschema %}

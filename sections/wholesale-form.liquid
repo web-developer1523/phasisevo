@@ -4,7 +4,7 @@
   {% render 'section-margin' %}
 {%- endstyle -%}
 
-<div id="wholesale-form" class="contact-form">
+<div id="wholesale-form" class="contact-form {{section.settings.custom_css_class }}">
   <div class="container">
     <div class="contact-form__container contact-form__container--{{ section.settings.content_align }}">
       {% if template == 'page.contact' %}
@@ -640,6 +640,11 @@
     "templates": ["*"]
   },
   "settings": [
+    {
+ "type": "text",
+ "id": "custom_css_class",
+ "label": "Custom CSS Class"
+},
     {
       "type": "select",
       "id": "content_align",

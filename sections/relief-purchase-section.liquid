@@ -1,0 +1,432 @@
+<section class="purchase-sec section {{section.settings.custom_css_class }}" id="purchase">
+  <div class="purchase-inner">
+    <!-- LEFT VISUAL -->
+    <div class="purchase-visual">
+      {% if section.settings.select_product != blank %}
+        <img
+          id="product-image"
+          src="{{ section.settings.select_product.featured_image | img_url: '500x' }}"
+          alt="{{ section.settings.select_product.title }}"
+          loading="lazy"
+        >
+      {% else %}
+        {{ section.settings.product_visual }}
+      {% endif %}
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div>
+      <div class="pi-eyebrow-row">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <h2 class="pi-h">
+        {% if section.settings.select_product != blank %}
+          {{ section.settings.select_product.title }}
+        {% else -%}
+          {{- section.settings.product_name -}}
+        {%- endif %}
+      </h2>
+
+      <p class="pi-tagline">
+        {% if section.settings.select_product != blank %}
+          {{ section.settings.select_product.description | strip_html | truncate: 120 }}
+        {% else %}
+          {{ section.settings.tagline }}
+        {% endif %}
+      </p>
+
+      <!-- SIZE OPTIONS -->
+      <span class="size-label">{{ section.settings.size_label }}</span>
+
+      <div class="size-opts">
+  {% assign variants = section.settings.select_product.variants %}
+
+  {% for block in section.blocks %}
+    {% if block.type == 'variant' %}
+      
+      {% assign variant = variants[forloop.index0] %}
+
+      <div
+        class="sopt {% if block.settings.default %}sel{% endif %}"
+        data-price="{{ variant.price | money }}"
+        data-note="{{ block.settings.note }}"
+        data-variant-id="{{ variant.id }}"
+        data-image="{% if variant.featured_image %}{{ variant.featured_image | image_url: width: 500 }}{% else %}{{ section.settings.select_product.featured_image | image_url: width: 500 }}{% endif %}"
+      >
+        {% if block.settings.badge != blank %}
+          <div class="sopt-badge">{{ block.settings.badge }}</div>
+        {% endif %}
+
+        <!-- UI same rakha -->
+        <div class="sopt-name">{{ block.settings.name }}</div>
+        <div class="sopt-desc">{{ block.settings.description }}</div>
+
+        <div class="sopt-price">
+          {{ variant.price | money }}
+        </div>
+      </div>
+
+    {% endif %}
+  {% endfor %}
+</div>
+      {% comment %} <div class="size-opts">
+  {% for variant in section.settings.select_product.variants %}
+    <div
+      class="sopt {% if forloop.first %}sel{% endif %}"
+      data-price="{{ variant.price | money }}"
+      data-variant-id="{{ variant.id }}"
+      data-image="{% if variant.featured_image %}{{ variant.featured_image | image_url: width: 500 }}{% else %}{{ section.settings.select_product.featured_image | image_url: width: 500 }}{% endif %}"
+    >
+      <div class="sopt-name">{{ variant.title }}</div>
+      <div class="sopt-price">{{ variant.price | money }}</div>
+    </div>
+  {% endfor %}
+</div> {% endcomment %}
+
+      <!-- PRICE -->
+      <div class="price-row">
+        <div class="price-main" id="price-display">
+          {{ section.settings.default_price }}
+        </div>
+        <div class="price-note">{{ section.settings.price_note }}</div>
+      </div>
+
+      <div class="price-sub">
+        {{ section.settings.shipping_note }}
+      </div>
+
+      <!-- CTA -->
+      <div class="buy-block">
+        {% if section.settings.select_product != blank %}
+          <form method="post" action="/cart/add" id="add-to-cart-form">
+            <input type="hidden" name="id" id="variant-id-input" value="">
+
+            <button type="submit" class="btn btn-p btn-full glow-cta">
+              {{ section.settings.button_text }}
+            </button>
+          </form>
+        {% else %}
+          <a href="{{ section.settings.button_link }}" class="btn btn-p btn-full">
+            {{ section.settings.button_text }}
+          </a>
+        {% endif %}
+        <!-- GUARANTEES -->
+        <div class="guarantees mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'guarantee' %}
+              <div class="g-item">
+                <div class="g-icon">{{ block.settings.icon }}</div>
+                <div class="g-title">{{ block.settings.title }}</div>
+                <div class="g-desc">{{ block.settings.description }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- TRUST -->
+        <div class="secure-row mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'trust' %}
+              <span class="secure-item">{{ block.settings.text }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+      /* ── PURCHASE SECTION ───────────────────────────── */
+  .purchase-sec{background:var(--surface);border-top:1px solid var(--border)}
+  .purchase-visual{
+    height:unset;
+    background:linear-gradient(135deg,#1c1d21,#18191c);
+    display:flex;align-items:center;justify-content:center;
+    font-size:100px;position:relative;overflow:hidden;
+    border-radius:8px;margin-bottom:24px;
+  }
+  .purchase-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(232,72,42,.07) 0%,transparent 70%)}
+  @media(min-width:1024px){
+    .purchase-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+    .purchase-visual{height:unset;margin-bottom:0}
+  }
+
+  .pi-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+  .pi-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+  .pi-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+  .pi-h{font-family:var(--f-dis);font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px}
+  .pi-tagline{font-size:14px;color:#d0d0d0;line-height:1.65;margin-bottom:24px}
+  @media(min-width:768px){.pi-h{font-size:36px}}
+
+  /* Size selector */
+  .size-label{font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d0d0d0;margin-bottom:10px;display:block}
+  .size-opts{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:20px}@media(min-width:400px){.size-opts{grid-template-columns:1fr 1fr 1fr}}
+  .sopt{background:var(--page-bg);border:2px solid var(--border);border-radius:6px;padding:14px 12px;cursor:pointer;transition:all .15s;position:relative;min-height:100px}
+  .sopt.sel{border-color:var(--coral);background:rgba(232,72,42,.06)}
+  .sopt-name{font-family:var(--f-dis);font-size:13px;font-weight:700;margin-bottom:2px}
+  .sopt-desc{font-size:14px;color:#d0d0d0;margin-bottom:8px;line-height:1.4}
+  .sopt-price{font-family:var(--f-dis);font-size:18px;font-weight:700}
+  .sopt-badge{position:absolute;top:-8px;right:10px;background:var(--coral);color:#fff;font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:10px}
+
+  .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+  .price-main{font-family:var(--f-dis);font-size:36px;font-weight:800;line-height:1}
+  .price-note{font-size:13px;color:#d0d0d0}
+  .price-sub{font-size:12px;color:#d0d0d0;margin-bottom:20px}
+
+  /* CTA block */
+  .buy-block .btn-p{font-size:16px;padding:18px 24px;margin-bottom:12px}
+  .guarantees{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+  .g-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:12px 10px;text-align:center}
+  .g-icon{font-size:18px;margin-bottom:4px}
+  .g-title{font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+  .g-desc{font-size:12px;color:#d0d0d0;line-height:1.4}
+  .secure-row{display:flex;align-items:center;justify-content:center;gap:16px;padding-top:14px;border-top:1px solid var(--border);flex-wrap:wrap}
+  .secure-item{font-size:11px;color:#d0d0d0;display:flex;align-items:center;gap:4px}
+  .secure-item::before{content:'🔒';font-size:10px}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const options = document.querySelectorAll('.sopt');
+    const priceDisplay = document.getElementById('price-display');
+    const variantInput = document.getElementById('variant-id-input');
+    const productImage = document.getElementById('product-image');
+
+    function selectVariant(el) {
+      // remove all selected
+      options.forEach((opt) => opt.classList.remove('sel'));
+
+      // add selected class
+      el.classList.add('sel');
+
+      // update price
+      const price = el.getAttribute('data-price');
+      if (priceDisplay && price) {
+        priceDisplay.innerText = price;
+      }
+
+      // update variant id
+      const variantId = el.getAttribute('data-variant-id');
+      if (variantInput && variantId) {
+        variantInput.value = variantId; //set value
+      }
+      //update image
+      const newImage = el.getAttribute('data-image');
+      if (productImage && newImage) {
+        productImage.src = newImage;
+         productImage.srcset = '';
+      }
+    }
+
+    // click event
+    options.forEach((opt) => {
+      opt.addEventListener('click', function () {
+        console.log("Variant Clicked!");
+        selectVariant(this);
+      });
+    });
+
+    // default selection (IMPORTANT)
+    {% comment %} let defaultOpt = document.querySelector('.sopt.sel');
+
+    if (!defaultOpt && options.length > 0) {
+      defaultOpt = options[0]; // first select if none default
+    }
+
+    if (defaultOpt) {
+      selectVariant(defaultOpt);
+    } {% endcomment %}
+    // default selection = 60ml
+let defaultOpt = null;
+
+options.forEach((opt) => {
+  const name = opt.querySelector('.sopt-name')?.innerText.toLowerCase();
+  if (name && name.includes('60ml')) {
+    defaultOpt = opt;
+  }
+});
+
+// fallback
+if (!defaultOpt && options.length > 0) {
+  defaultOpt = options[0];
+}
+
+if (defaultOpt) {
+  selectVariant(defaultOpt);
+}
+
+//stop redirect
+const form = document.getElementById('add-to-cart-form');
+
+if (form) {
+  form.addEventListener('submit', function (e) {
+    e.preventDefault(); //
+
+    const variantId = variantInput.value;
+    if (!variantId) return;
+
+    fetch(window.Shopify.routes.root + 'cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({
+        items: [
+          {
+            id: variantId,
+            quantity: 1
+          }
+        ]
+      })
+    })
+    .then(res => res.json())
+    .then(() => {
+      updateCartCounter(); 
+    })
+    .catch(err => console.error(err));
+  });
+}
+//update cart counter
+
+function updateCartCounter() {
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+
+      const bubbles = document.querySelectorAll('.cart-count-bubble');
+
+      bubbles.forEach(bubble => {
+        if (cart.item_count > 0) {
+          bubble.innerHTML = `<span>${cart.item_count}</span>`;
+          bubble.classList.remove('hidden');
+        } else {
+          bubble.classList.add('hidden');
+        }
+      });
+
+    });
+}
+  });
+</script>
+{% schema %}
+{
+  "name": "Purchase Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "product",
+      "id": "select_product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "product_visual",
+      "label": "Product Visual (emoji or image HTML)",
+      "default": "🧴"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Max Relief Balm · CBD Topical"
+    },
+    {
+      "type": "text",
+      "id": "product_name",
+      "label": "Product Name",
+      "default": "Max Relief Balm"
+    },
+    {
+      "type": "textarea",
+      "id": "tagline",
+      "label": "Tagline"
+    },
+    {
+      "type": "text",
+      "id": "size_label",
+      "label": "Size Label",
+      "default": "Choose Your Size"
+    },
+    {
+      "type": "text",
+      "id": "default_price",
+      "label": "Default Price",
+      "default": "$30"
+    },
+    {
+      "type": "text",
+      "id": "price_note",
+      "label": "Price Note",
+      "default": "One-time purchase"
+    },
+    {
+      "type": "text",
+      "id": "shipping_note",
+      "label": "Shipping Note"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "ADD TO CART — GET RELIEF TODAY"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "variant",
+      "name": "Product Variant",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Variant Name" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "price", "label": "Price" },
+        { "type": "text", "id": "note", "label": "Price Note (per ml etc.)" },
+        { "type": "text", "id": "badge", "label": "Badge (optional)" },
+        { "type": "product", "id": "variant_product", "label": "Select Product" },
+        {
+          "type": "checkbox",
+          "id": "default",
+          "label": "Default Selected",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "guarantee",
+      "name": "Guarantee",
+      "settings": [
+        { "type": "text", "id": "icon", "label": "Icon" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "description", "label": "Description" }
+      ]
+    },
+    {
+      "type": "trust",
+      "name": "Trust Badge",
+      "settings": [{ "type": "text", "id": "text", "label": "Text" }]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Purchase Section",
+      "blocks": [
+        { "type": "variant" },
+        { "type": "variant" },
+        { "type": "variant" },
+        { "type": "guarantee" },
+        { "type": "guarantee" },
+        { "type": "trust" },
+        { "type": "trust" }
+      ]
+    }
+  ]
+}
+{% endschema %}

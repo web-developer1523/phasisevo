@@ -1,0 +1,220 @@
+<section class="proof-sec section {{section.settings.custom_css_class }}">
+
+  <!-- TOP -->
+  <div class="proof-top">
+    <div>
+      <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2>
+        {{ section.settings.heading_line1 }}<br>
+        <em>{{ section.settings.heading_line2 }}</em>
+      </h2>
+    </div>
+
+    <a href="{{ section.settings.button_link }}" class="proof-btn">
+      {{ section.settings.button_text }}
+    </a>
+  </div>
+
+  <!-- RATING BLOCK -->
+  <div class="rating-block">
+    <div>
+      <div class="score-big">{{ section.settings.rating_score }}</div>
+      <div class="score-stars">{{ section.settings.rating_stars }}</div>
+      <div class="score-count">{{ section.settings.review_count }}</div>
+    </div>
+
+    <div class="bars">
+      {% for block in section.blocks %}
+        {% if block.type == 'rating_bar' %}
+          <div class="br">
+            <span>{{ block.settings.label }}</span>
+            <div class="bt">
+              <div class="bf" style="width:{{ block.settings.percent }}%"></div>
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- REVIEWS -->
+  <div class="reviews-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'review' %}
+        <div class="rev-card {% if block.settings.featured %}featured{% endif %}">
+          <div class="rq">❝</div>
+          <div class="rev-stars">{{ block.settings.stars }}</div>
+
+          <blockquote>{{ block.settings.text }}</blockquote>
+
+          <div class="rev-name">{{ block.settings.name }}</div>
+          <div class="rev-meta">{{ block.settings.meta }}</div>
+          <div class="rev-tag">{{ block.settings.tag }}</div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<style>
+    /* ── SOCIAL PROOF ───────────────────────────────── */
+.proof-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.proof-top{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap}
+
+.rating-block{background:var(--surface);border:1px solid var(--border);border-radius:6px;padding:20px 16px;display:flex;gap:20px;align-items:flex-start;margin-bottom:20px;flex-wrap:wrap}
+.score-big{font-family:var(--f-dis);font-size:48px;font-weight:800;line-height:1;margin-bottom:6px}
+.score-stars{color:var(--coral);font-size:15px;letter-spacing:2px;margin-bottom:4px}
+.score-count{font-size:12px;color:#d0d0d0;}
+.bars{flex:1;min-width:160px;display:flex;flex-direction:column;gap:5px}
+.br{display:flex;align-items:center;gap:10px}
+.br span{font-size:10px;color:#d0d0d0;width:18px;flex-shrink:0}
+.bt{flex:1;height:4px;background:var(--surface3);border-radius:2px;overflow:hidden}
+.bf{height:100%;background:var(--coral);border-radius:2px}
+
+/* Reviews — 1 col mobile, 3 col desktop */
+.reviews-grid{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:600px){.reviews-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+
+.rev-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px}
+.rev-card.featured{border-color:rgba(232,72,42,.3);background:rgba(232,72,42,.04)}
+.rq{font-size:22px;color:var(--coral);opacity:.4;line-height:1;margin-bottom:10px}
+.rev-stars{color:var(--coral);font-size:12px;margin-bottom:10px}
+.rev-card blockquote{font-size:15px;font-style:italic;color:#d0d0d0;line-height:1.7;margin-bottom:14px}
+.rev-name{font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.rev-meta{font-size:12px;color:#d0d0d0;margin-top:2px}
+.rev-tag{display:flex;align-items:center;gap:4px;font-size:10px;font-weight:600;color:var(--coral);margin-top:8px}
+.rev-tag::before{content:'✓';font-family:var(--f-dis)}
+ </style>
+{%schema %}
+{
+  "name": "Reviews Section",
+  "settings": [
+         {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Verified Reviews"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Real People."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Real Results."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "All Reviews"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "rating_score",
+      "label": "Rating Score",
+      "default": "4.9"
+    },
+    {
+      "type": "text",
+      "id": "rating_stars",
+      "label": "Stars",
+      "default": "★★★★★"
+    },
+    {
+      "type": "text",
+      "id": "review_count",
+      "label": "Review Count",
+      "default": "8 verified reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "rating_bar",
+      "name": "Rating Bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label (e.g. 5★)"
+        },
+        {
+          "type": "range",
+          "id": "percent",
+          "label": "Percentage",
+          "min": 0,
+          "max": 100,
+          "step": 1,
+          "default": 80
+        }
+      ]
+    },
+    {
+      "type": "review",
+      "name": "Review",
+      "settings": [
+        {
+          "type": "checkbox",
+          "id": "featured",
+          "label": "Featured Review",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "stars",
+          "label": "Stars",
+          "default": "★★★★★"
+        },
+        {
+          "type": "textarea",
+          "id": "text",
+          "label": "Review Text"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Reviewer Name"
+        },
+        {
+          "type": "text",
+          "id": "meta",
+          "label": "Meta (e.g. Product / Use Case)"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag",
+          "default": "Verified purchase"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Max Reviews Section",
+      "blocks": [
+        { "type": "rating_bar" },
+        { "type": "rating_bar" },
+        { "type": "rating_bar" },
+        { "type": "review" },
+        { "type": "review" },
+        { "type": "review" }
+      ]
+    }
+  ]
+}
+{%endschema %}

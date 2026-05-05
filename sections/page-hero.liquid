@@ -1,0 +1,102 @@
+<section class="page-hero {{section.settings.custom_css_class }}">
+  <div class="ph-eyebrow-row">
+    <span>{{ section.settings.eyebrow_text }}</span>
+  </div>
+
+  <h1>
+    {{ section.settings.heading_line_1 }}<br>
+    <em>{{ section.settings.heading_line_2 }}</em>
+  </h1>
+
+  <p class="ph-sub">
+    {{ section.settings.subtext }}
+  </p>
+
+  <div class="ph-ctas">
+    <a href="{{ section.settings.primary_btn_link }}" class="btn btn-p">
+      {{ section.settings.primary_btn_text}}
+    </a>
+
+    <a href="{{ section.settings.secondary_btn_link | default: '#types' }}" class="btn btn-s">
+      {{ section.settings.secondary_btn_text }}
+    </a>
+  </div>
+</section>
+<style>
+    /* ── PAGE HERO ───────────────────────────────────── */
+.page-hero{background:var(--surface);border-bottom:1px solid var(--border);padding:40px var(--pad) 48px;position:relative;overflow:hidden}
+.page-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 0% 50%,rgba(232,72,42,.05) 0%,transparent 60%);pointer-events:none}
+.ph-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;position:relative}
+.ph-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.ph-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.ph-sub{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.7;margin-top:14px;max-width:560px;position:relative}
+.ph-ctas{display:flex;flex-direction:column;gap:12px;margin-top:28px;position:relative}
+@media(min-width:768px){
+  .page-hero{padding:64px var(--pad-md) 72px}
+  .ph-ctas{flex-direction:row}
+}
+@media(min-width:1024px){.page-hero{padding:80px var(--pad-lg) 80px}}
+</style>
+{% schema %}
+{
+  "name": "Page Hero",
+  "settings": [
+      {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+      },
+    {
+      "type": "text",
+      "id": "eyebrow_text",
+      "label": "Eyebrow Text",
+      "default": "Wholesale · Affiliates · Collaborations"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Let's Grow"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "Together."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Whether you're a gym, a coach, a competing athlete, a content creator, or a brand — if your audience trains hard and cares about what goes in their body, there's a conversation to be had."
+    },
+    {
+      "type": "text",
+      "id": "primary_btn_text",
+      "label": "Primary Button Text",
+      "default": "APPLY TO PARTNER"
+    },
+    {
+      "type": "url",
+      "id": "primary_btn_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_btn_text",
+      "label": "Secondary Button Text",
+      "default": "WHOLESALE · AFFILIATE · SPONSORSHIP · COLLAB"
+    },
+    {
+      "type": "url",
+      "id": "secondary_btn_link",
+      "label": "Secondary Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Hero"
+    }
+  ]
+}
+{% endschema %}

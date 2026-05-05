@@ -117,7 +117,7 @@
               </ul>
             </nav>
           {%- endif -%}
-
+          
           <div class="menu-drawer__utility-links">
             {%- if shop.customer_accounts_enabled -%}
               {%- if customer -%}
@@ -177,6 +177,7 @@
                   </ul>
                 </div>
               {%- else -%}
+                {% comment %} affilate login {% endcomment %}
                 <a
                   href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
                   class="button button--primary button--primary-size menu-drawer__account link focus-inset"
@@ -194,6 +195,16 @@
                     endif
                   -%}
                 </a>
+                {% comment %} login button {% endcomment %}
+                <a
+                  href="https://shopify.com/authentication/70389629100/login?client_id=2ed3d82e-ee40-42fa-8aaa-5abaf547fb75&locale=en-US&redirect_uri=%2Fauthentication%2F70389629100%2Foauth%2Fauthorize%3Fbuyer_flags%3DeyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJidGNzeXItcncubXlzaG9waWZ5LmNvbSIsImZsYWdzIjpbXSwiZXhwIjoxNzc4MTU4MDY3LCJuYmYiOjE3Nzc1NTMyNjd9.vqiVH76ADEVHRLae2jpZZG9pjF-m3uDXOf5nbNmKcso%26client_id%3D2ed3d82e-ee40-42fa-8aaa-5abaf547fb75%26locale%3Den-US%26nonce%3Da26923b5-65ec-42f5-93a5-936fe0c97a69%26redirect_uri%3Dhttps%253A%252F%252Fshopify.com%252F70389629100%252Faccount%252Fcallback%26region_country%3DUS%26response_type%3Dcode%26scope%3Dopenid%2Bemail%2Bcustomer-account-api%253Afull%26state%3DhWNBccfgpBykJFWkWUomOb7x&region_country=US"
+                  class="button button--secondary button--primary-size menu-drawer__account link focus-inset mobile_login "
+                  aria-label="Affiliate Login"
+                >
+                 User Login
+                </a>
+
+                {% comment %} end {% endcomment %}
                 <div class="menu-drawer__account-register">
                   <span>
                     {{- 'customer.activate_account.no_account_yet' | t -}}

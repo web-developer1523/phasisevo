@@ -1,0 +1,173 @@
+<!-- SOLUTION -->
+<section class="solution-sec section">
+  
+  <div class="solution-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+    <p class="solution-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:28px">
+    
+    {% for block in section.blocks %}
+      {% if block.type == 'solution_item' %}
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:22px 20px;display:flex;align-items:flex-start;gap:16px">
+          
+          <div style="font-size:24px;flex-shrink:0;margin-top:2px">
+            {{ block.settings.icon }}
+          </div>
+
+          <div>
+            <h4 style="font-family:var(--f-dis);font-size:16px;font-weight:700;color:var(--off-white);margin-bottom:6px">
+              {{ block.settings.title }}
+            </h4>
+            <p style="font-size:15px;color:var(--muted-l);line-height:1.65;margin:0">
+              {{ block.settings.description }}
+            </p>
+          </div>
+
+        </div>
+      {% endif %}
+    {% endfor %}
+
+  </div>
+
+  <!-- Gentle note -->
+  <div style="background:rgba(0,191,168,.05);border:1px solid rgba(0,191,168,.2);border-radius:8px;padding:16px 20px">
+    
+    <div style="font-family:var(--f-dis);font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--teal);margin-bottom:6px">
+      {{ section.settings.note_label }}
+    </div>
+
+    <p style="font-size:14px;color:var(--muted);line-height:1.65;margin:0">
+      {{ section.settings.note_text }}
+    </p>
+
+  </div>
+
+</section>
+<style>
+    /* ── SOLUTION — 4 PATHWAY ───────────────────────── */
+.solution-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.solution-top{text-align:center;margin-bottom:28px}
+.solution-top h2{margin-bottom:12px}
+.solution-top h2 em{color:var(--coral);font-style:normal}
+.solution-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7}
+
+/* Pathway cards — 1 col mobile, 2 col tablet, 4 col desktop */
+.pathways-grid{display:grid;grid-template-columns:1fr;gap:2px;margin-bottom:28px}
+@media(min-width:600px){.pathways-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.pathways-grid{grid-template-columns:repeat(4,1fr)}}
+
+.pw{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 18px;position:relative;overflow:hidden}
+.pw::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--coral);opacity:0;transition:opacity .2s}
+.pw:hover::before{opacity:1}
+.pw-num{font-family:var(--f-dis);font-size:40px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:14px;opacity:.7}
+.pw h4{font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.pw-ingredient{font-family:var(--f-dis);font-size:11px;font-weight:600;color:var(--coral);margin-bottom:10px;letter-spacing:.04em}
+.pw p{font-size:12px;color:var(--muted);line-height:1.65}
+
+/* VS block — horizontal scroll on mobile */
+.vs-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--pad))}
+@media(min-width:768px){.vs-scroll{overflow-x:visible;margin:0}}
+
+.vs-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;min-width:560px}
+@media(min-width:768px){.vs-block{min-width:0}}
+
+.vs-head{display:grid;grid-template-columns:1.4fr 1fr 1fr;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
+.vh{padding:12px 16px;font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.vh.ours{color:var(--coral);background:rgba(42,184,207,.05)}
+.vr{display:grid;grid-template-columns:1.4fr 1fr 1fr;border-bottom:1px solid var(--border);align-items:center}
+.vr:last-child{border-bottom:none}
+.vc{padding:10px 16px;font-size:12px}
+.vc.feat{color:var(--off-white);font-weight:500}
+.vc.yes{color:var(--coral);font-weight:600;text-align:center}.vc.yes::after{content:' ✓'}
+.vc.no{color:var(--muted);text-align:center;font-size:11px}.vc.no::after{content:' ✗';color:#c04040}
+.vc.warn{color:#e8b84b;text-align:center;font-size:11px}
+.vc.hl{background:rgba(42,184,207,.04)}
+
+</style>
+{% schema %}
+{
+  "name": "Solution Section Custom",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How It Works"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Three Things."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Happening at Once."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Relief is a gentler formula — but not a weaker one..."
+    },
+    {
+      "type": "text",
+      "id": "note_label",
+      "label": "Note Label",
+      "default": "Note"
+    },
+    {
+      "type": "textarea",
+      "id": "note_text",
+      "label": "Note Text",
+      "default": "Relief contains capsaicin — a natural botanical..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "solution_item",
+      "name": "Solution Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji or SVG)",
+          "default": "🌱"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title here"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Description here..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Solution Section Custom",
+      "blocks": [
+        { "type": "solution_item" },
+        { "type": "solution_item" },
+        { "type": "solution_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

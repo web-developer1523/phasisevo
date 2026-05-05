@@ -1,0 +1,343 @@
+{% assign product = all_products[section.settings.product] %}
+
+<div class="hero" id="hero-top">
+  <div class="hero-content">
+    
+    <div class="hero-eyebrow-row">
+      <span>{{ section.settings.eyebrow }}</span>
+    </div>
+
+    <h1>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em><br>
+      <em>{{ section.settings.heading_line3 }}</em><br>
+      <em>{{ section.settings.heading_line4 }}</em>
+    </h1>
+
+    <p class="hero-hook">
+      <strong>{{ section.settings.bold_text }}</strong>
+      {{ section.settings.description }}
+    </p>
+
+    <div class="trust-row">
+      <div class="stars">{{ section.settings.stars }}</div>
+      <span class="trust-pill"><b>{{ section.settings.rating }}</b> {{ section.settings.review_label }}</span>
+      <span class="trust-sep">·</span>
+      <span class="trust-pill"><b>{{ section.settings.trust1_bold }}</b> {{ section.settings.trust1 }}</span>
+      <span class="trust-sep">·</span>
+      <span class="trust-pill"><b>{{ section.settings.trust2_bold }}</b> {{ section.settings.trust2 }}</span>
+    </div>
+
+    <div class="hero-cta">
+      <a href="{% if section.settings.cta_id != blank %}#{{ section.settings.cta_id }}{% else %}{{ section.settings.cta_link }}{% endif %}" class="btn btn-p">
+        {{ section.settings.cta_text }}
+      </a>
+
+      <div class="cta-micro">
+        <span class="cta-micro-item">{{ section.settings.micro1 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro2 }}</span>
+        <span class="cta-micro-item">{{ section.settings.micro3 }}</span>
+      </div>
+    </div>
+
+    <a href="{{ section.settings.nudge_link }}" class="stack-nudge">
+      <div class="sn-icon">{{ section.settings.nudge_icon }}</div>
+      <div class="sn-text">
+        <div class="sn-label">{{ section.settings.nudge_label }}</div>
+        <div class="sn-desc">{{ section.settings.nudge_desc }}</div>
+      </div>
+      <div class="sn-arrow">{{ section.settings.nudge_arrow }}</div>
+    </a>
+
+  </div>
+
+  <!--  ONLY PRODUCT IMAGE FROM BACKEND -->
+ <div class="hero-visual">
+  <div class="hero-bg-word">{{ section.settings.bg_word }}</div>
+
+    {% if section.settings.product != blank %}
+    
+    {% assign product = all_products[section.settings.product] %}
+
+    {% if product.featured_image %}
+      <img 
+        src="{{ product.featured_image | image_url: width: 800 }}" 
+        alt="{{ product.title }}" 
+        style="max-width:100%; height:auto; display:block; margin:0 auto;"
+        loading="lazy">
+    {% else %}
+      <div class="hero-emo" style="
+        font-size:80px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        height:100%;
+      ">
+        {{ section.settings.fallback_emoji | default: "🧴" }}
+      </div>
+    {% endif %}
+
+  {% else %}
+    
+    <!--  PRODUCT HI NA HO -->
+    <div class="hero-emo" style="
+      font-size:80px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      width:100%;
+      height:100%;
+      animation:none;
+      transform:none;
+      position:static;
+    ">
+      {{ section.settings.fallback_emoji | default: "🧴" }}
+    </div>
+
+  {% endif %}
+    <div class="hero-rev">
+    <div class="stars">{{ section.settings.review_stars }}</div>
+    <blockquote>{{ section.settings.review_text }}</blockquote>
+    <cite>
+      {{ section.settings.review_author }}
+      <span>{{ section.settings.review_meta }}</span>
+    </cite>
+  </div>
+</div>
+
+
+</div>
+
+
+<style>
+    /* ═══════════════════════════════════════════════════
+   MOBILE FIRST — Base styles written for 390px
+   Scale UP with min-width queries
+   ═══════════════════════════════════════════════════ */
+:root {
+  --relief-blue:#2AB8CF; --relief-blue-h:#1FAABD; --relief-blue-dim:rgba(42,184,207,.12); --coral:#2AB8CF; --coral-h:#1FAABD;
+  --teal:#00BFA8;
+  --page-bg:#080808;
+  --surface:#18191C; --surface2:#1e1f23; --surface3:#252629;
+  --border:#2a2b2f; --border2:#383a3e;
+  --off-white:#F4F3F0; --muted:#c4c4c4; --muted-l:#9aa0a8;
+  /* Spacing — tighter on mobile, expands up */
+  --pad:16px;       /* base page padding mobile */
+  --pad-md:32px;    /* tablet */
+  --pad-lg:80px;    /* desktop */
+  --f-dis:'Sora',sans-serif;
+  --f-mark:'Conthrax',sans-serif;
+  --f-body:'DM Sans',sans-serif;
+}
+
+/* ── RESET ──────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{background:var(--page-bg);color:var(--off-white);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* ── BASE TYPOGRAPHY (mobile) ───────────────────── */
+.eyebrow{display:inline-block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+
+h1,.h1{font-family:var(--f-dis);font-weight:800;font-size:42px;letter-spacing:-0.025em;line-height:.92}
+h2,.h2{font-family:var(--f-dis);font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1.05}
+h3,.h3{font-family:var(--f-dis);font-weight:700;font-size:20px;letter-spacing:-0.01em;line-height:1.1}
+
+/* Scale typography up */
+@media(min-width:768px){
+  h1,.h1{font-size:56px}
+  h2,.h2{font-size:36px}
+  h3,.h3{font-size:24px}
+}
+@media(min-width:1024px){
+  h1,.h1{font-size:72px}
+  h2,.h2{font-size:44px}
+  h3,.h3{font-size:28px}
+}
+
+/* ── BUTTONS (mobile-optimized tap targets) ─────── */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:8px;
+  font-family:var(--f-dis);font-size:14px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  /* Min 48px height for touch targets */
+  padding:15px 24px;min-height:52px;
+  border-radius:6px;border:none;cursor:pointer;transition:all .18s;white-space:nowrap;
+  width:100%; /* Full width on mobile by default */
+}
+.btn::before{content:'●';font-size:7px;flex-shrink:0}
+.btn-p{background:var(--coral);color:#fff;box-shadow:0 4px 20px rgba(42,184,207,.25)}
+.btn-p:hover{background:var(--coral-h)}
+.btn-p:active{transform:scale(.98)}
+.btn-s{background:transparent;color:var(--off-white);border:1px solid var(--border2)}
+.btn-s:hover{border-color:#666;background:rgba(255,255,255,.04)}
+
+/* Auto-width on larger screens */
+@media(min-width:768px){
+  .btn{width:auto}
+  .btn-full{width:100%}
+}
+
+/* ── GLOBE LINE ─────────────────────────────────── */
+.globe-line{height:3px;background:linear-gradient(90deg,#FF5577,#FF9999,#FF9140,#FFE899,#8AC88A,#8AF2D3,#1CA8D8,#5271FF,#8C52FF)}
+/* ── HERO ── mobile: stacked, CTA above fold ─────── */
+.hero{display:flex;flex-direction:column}
+
+/* Mobile hero content */
+.hero-content{
+  padding:32px var(--pad) 28px;
+  display:flex;flex-direction:column;
+}
+.hero-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.hero-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.hero-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+
+.hero h1{margin-bottom:16px}
+.hero h1 em{color:var(--coral);font-style:normal}
+
+.hero-hook{
+  font-size:16px;font-weight:300;color:var(--muted-l);line-height:1.65;
+  border-left:3px solid var(--border2);padding-left:14px;
+  margin-bottom:20px;
+}
+.hero-hook strong{color:var(--off-white);font-weight:600}
+
+/* Trust row — horizontal scroll on mobile */
+.trust-row{
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:24px;
+  overflow-x:auto;-webkit-overflow-scrolling:touch;
+  scrollbar-width:none;padding-bottom:4px;
+      flex-wrap: wrap;
+}
+.trust-row::-webkit-scrollbar{display:none}
+.stars{color:var(--coral);font-size:14px;letter-spacing:1px;flex-shrink:0}
+.trust-pill{display:flex;align-items:center;gap:6px;font-size:15px;color:var(--muted);flex-shrink:0}
+.trust-pill b{color:var(--off-white);font-weight:500}
+.trust-sep{color:var(--border2);flex-shrink:0}
+
+/* Mobile CTA — full width, prominent */
+.hero-cta{display:flex;flex-direction:column;gap:12px;margin-bottom:20px}
+.hero-cta .btn-p{font-size:15px;padding:17px 24px}
+.cta-micro{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}
+.cta-micro-item{display:flex;align-items:center;gap:4px;font-size:13px;color:var(--muted)}
+.cta-micro-item::before{content:'✓';color:var(--coral);font-weight:700;font-size:10px;font-family:var(--f-dis)}
+
+/* Stack nudge */
+.stack-nudge{
+  display:flex;align-items:center;gap:12px;
+  background:rgba(232,72,42,.05);border:1px solid rgba(232,72,42,.18);border-radius:6px;
+  padding:12px 14px;cursor:pointer;transition:all .15s;
+}
+.stack-nudge:active{background:rgba(232,72,42,.1)}
+.sn-icon{font-size:18px;flex-shrink:0}
+.sn-text{flex:1}
+.sn-label{font-family:var(--f-dis);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#E8482A;margin-bottom:2px}
+.sn-desc{font-size:11px;color:var(--muted-l)}
+.sn-arrow{color:#E8482A;flex-shrink:0;font-size:16px}
+
+/* Hero image — below content on mobile */
+.hero-visual{
+  height:280px;
+  background:var(--surface);
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.hero-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 40%,rgba(42,184,207,.08) 0%,transparent 65%)}
+.hero-bg-word{position:absolute;bottom:-15px;right:-8px;font-family:var(--f-dis);font-size:120px;font-weight:800;color:rgba(255,255,255,.02);letter-spacing:-0.05em;line-height:1;pointer-events:none;user-select:none}
+.hero-emo{font-size:100px;filter:drop-shadow(0 20px 50px rgba(42,184,207,.18));animation:fl 5s ease-in-out infinite!important;position:relative;z-index:1}
+@keyframes fl{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+
+/* Floating review — mobile version */
+.hero-rev{
+  background:rgba(8,8,8,.95);border:1px solid var(--border);border-radius:8px;
+  padding:14px 16px;
+  margin:0 var(--pad) 0;
+  /* Sits below the visual on mobile */
+}
+.hero-rev .stars{font-size:12px;margin-bottom:8px}
+.hero-rev blockquote{font-size:16px;font-style:italic;color:var(--muted);line-height:1.6;margin-bottom:10px}
+.hero-rev cite{font-family:var(--f-dis);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-style:normal}
+.hero-rev cite span{display:block;font-size:12px;font-weight:400;color:var(--muted);text-transform:none;margin-top:2px}
+
+/* Desktop: side by side hero */
+@media(min-width:768px){
+  .hero{flex-direction:row;min-height:calc(100vh - 93px)}
+  .hero-content{flex:1;padding:64px var(--pad-md);justify-content:center}
+  .hero-visual{flex:1;height:auto}
+  .hero-rev{
+    position:absolute;bottom:24px;left:16px;right:16px;
+    margin:0;
+  }
+  .hero h1{font-size:56px}
+  .trust-row {
+    gap: 16px;
+}
+}
+@media(min-width:1024px){
+  .hero-content{padding:80px var(--pad-lg) 80px calc(var(--pad-lg) - 20px);max-width:52%}
+  .hero-visual{position:relative}
+  .hero h1{font-size:72px}
+  .hero-hook{font-size:17px}
+}
+
+</style>
+{% schema %}
+{
+  "name": "Relief Hero Products",
+  "settings": [
+
+    { "type": "product", "id": "product", "label": "Product (for image)" },
+
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "All-Natural Formula. Gentle on Sensitive Skin." },
+
+    { "type": "text", "id": "heading_line1", "label": "Heading Line 1", "default": "All-Natural." },
+    { "type": "text", "id": "heading_line2", "label": "Heading Line 2", "default": "Gentle on" },
+    { "type": "text", "id": "heading_line3", "label": "Heading Line 3", "default": "Sensitive" },
+    { "type": "text", "id": "heading_line4", "label": "Heading Line 4", "default": "Skin." },
+
+    { "type": "text", "id": "bold_text", "label": "Bold Text", "default": "Relief is an all-natural CBD recovery balm" },
+    { "type": "textarea", "id": "description", "label": "Description", "default": "built for sensitive skin, older adults, and daily use." },
+
+    { "type": "text", "id": "stars", "label": "Stars", "default": "★★★★★" },
+    { "type": "text", "id": "rating", "label": "Rating", "default": "4.9" },
+    { "type": "text", "id": "review_label", "label": "Review Label", "default": "reviews" },
+
+    { "type": "text", "id": "trust1_bold", "label": "Trust 1 Bold", "default": "3rd Party" },
+    { "type": "text", "id": "trust1", "label": "Trust 1", "default": "Tested" },
+
+    { "type": "text", "id": "trust2_bold", "label": "Trust 2 Bold", "default": "Made" },
+    { "type": "text", "id": "trust2", "label": "Trust 2", "default": "in USA" },
+
+    { "type": "text", "id": "cta_text", "label": "CTA Text", "default": "GET RELIEF — FROM $25" },
+    { "type": "url", "id": "cta_link", "label": "CTA Link" },
+    {"type":"text","id":"cta_id","label":"Button Id"},
+
+    { "type": "text", "id": "micro1", "label": "Micro 1", "default": "Free shipping $75+" },
+    { "type": "text", "id": "micro2", "label": "Micro 2", "default": "30-day guarantee" },
+    { "type": "text", "id": "micro3", "label": "Micro 3", "default": "No subscription" },
+
+    { "type": "text", "id": "nudge_icon", "label": "Nudge Icon", "default": "🧴" },
+    { "type": "text", "id": "nudge_label", "label": "Nudge Label", "default": "Want Stronger Relief? · Max Relief" },
+    { "type": "text", "id": "nudge_desc", "label": "Nudge Description", "default": "Upgrade to our pharmaceutical-strength formula" },
+    { "type": "text", "id": "nudge_arrow", "label": "Nudge Arrow", "default": "→" },
+    { "type": "url", "id": "nudge_link", "label": "Nudge Link" },
+
+    { "type": "text", "id": "bg_word", "label": "Background Word", "default": "GENTLE" },
+    { "type": "text", "id": "fallback_emoji", "label": "Fallback Emoji", "default": "🧴" },
+
+    { "type": "text", "id": "review_stars", "label": "Review Stars", "default": "★★★★★" },
+    { "type": "textarea", "id": "review_text", "label": "Review Text", "default": "\"I’ve been using Max Relief...\"" },
+    { "type": "text", "id": "review_author", "label": "Review Author", "default": "Priya T." },
+    { "type": "text", "id": "review_meta", "label": "Review Meta", "default": "Verified Buyer · Sensitive Skin" }
+
+  ],
+  "presets": [
+    {
+      "name": "Relief Hero Products"
+    }
+  ]
+}
+{% endschema %}

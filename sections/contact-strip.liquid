@@ -1,0 +1,129 @@
+{% style %}
+.contact-strip {
+  padding: 40px 16px;
+  text-align: center;
+}
+
+.cs-title {
+  font-family: 'Sora', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.cs-title em {
+  color: #E8482A;
+  font-style: normal;
+}
+
+.cs-sub {
+  font-size: 15px;
+  color: #d0d0d0;
+  margin-bottom: 16px;
+}
+
+.cs-options {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.sf-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #2a2b2f;
+  border-radius: 50%;
+  text-decoration: none;
+  color: #fff;
+  font-size: 14px;
+}
+.sf-social svg {
+    width: 15px;
+}
+{% endstyle %}
+
+<div class="contact-strip">
+  <div class="cs-title">
+    {{ section.settings.title }}
+    <em>{{ section.settings.highlight }}</em>
+  </div>
+
+  <p class="cs-sub">
+    {{ section.settings.subtitle }}
+  </p>
+
+  <div class="cs-options">
+    {% if section.settings.facebook != blank %}
+      <a href="{{ section.settings.facebook }}" class="sf-social" aria-label="Facebook" target="_blank">f</a>
+    {% endif %}
+
+    {% if section.settings.linkedin != blank %}
+      <a href="{{ section.settings.linkedin }}" class="sf-social" aria-label="LinkedIn" target="_blank">in</a>
+    {% endif %}
+
+    {% if section.settings.instagram != blank %}
+      <a href="{{ section.settings.instagram }}" class="sf-social" aria-label="Instagram" target="_blank"><svg viewBox="0 0 24 24" width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">  
+  <path d="M12 2c2.717 0 3.056.01 4.122.06 1.065.05 1.79.217 2.428.465.66.254 1.216.598 1.772 1.153.509.5.902 1.105 1.153 1.772.247.637.415 1.363.465 2.428.047 1.066.06 1.405.06 4.122 0 2.717-.01 3.056-.06 4.122-.05 1.065-.218 1.79-.465 2.428a4.883 4.883 0 0 1-1.153 1.772c-.5.508-1.105.902-1.772 1.153-.637.247-1.363.415-2.428.465-1.066.047-1.405.06-4.122.06-2.717 0-3.056-.01-4.122-.06-1.065-.05-1.79-.218-2.428-.465a4.89 4.89 0 0 1-1.772-1.153 4.904 4.904 0 0 1-1.153-1.772c-.248-.637-.415-1.363-.465-2.428C2.013 15.056 2 14.717 2 12c0-2.717.01-3.056.06-4.122.05-1.066.217-1.79.465-2.428a4.88 4.88 0 0 1 1.153-1.772A4.897 4.897 0 0 1 5.45 2.525c.638-.248 1.362-.415 2.428-.465C8.944 2.013 9.283 2 12 2Zm0 5a5 5 0 1 0 0 10 5 5 0 0 0 0-10Zm6.5-.25a1.25 1.25 0 1 0-2.5 0 1.25 1.25 0 0 0 2.5 0ZM12 9a3 3 0 1 1 0 6 3 3 0 0 1 0-6Z" fill="currentColor"></path></a>
+    {% endif %}
+
+    {% if section.settings.tiktok != blank %}
+      <a href="{{ section.settings.tiktok }}" class="sf-social" aria-label="TikTok" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512"><path d="M412.19 118.66a109.27 109.27 0 01-9.45-5.5 132.87 132.87 0 01-24.27-20.62c-18.1-20.71-24.86-41.72-27.35-56.43h.1C349.14 23.9 350 16 350.13 16h-82.44v318.78c0 4.28 0 8.51-.18 12.69 0 .52-.05 1-.08 1.56 0 .23 0 .47-.05.71v.18a70 70 0 01-35.22 55.56 68.8 68.8 0 01-34.11 9c-38.41 0-69.54-31.32-69.54-70s31.13-70 69.54-70a68.9 68.9 0 0121.41 3.39l.1-83.94a153.14 153.14 0 00-118 34.52 161.79 161.79 0 00-35.3 43.53c-3.48 6-16.61 30.11-18.2 69.24-1 22.21 5.67 45.22 8.85 54.73v.2c2 5.6 9.75 24.71 22.38 40.82A167.53 167.53 0 00115 470.66v-.2l.2.2c39.91 27.12 84.16 25.34 84.16 25.34 7.66-.31 33.32 0 62.46-13.81 32.32-15.31 50.72-38.12 50.72-38.12a158.46 158.46 0 0027.64-45.93c7.46-19.61 9.95-43.13 9.95-52.53V176.49c1 .6 14.32 9.41 14.32 9.41s19.19 12.3 49.13 20.31c21.48 5.7 50.42 6.9 50.42 6.9v-81.84c-10.14 1.1-30.73-2.1-51.81-12.61z" style="&#10;    fill: #fff;&#10;"/></svg>
+      </a>
+    {% endif %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Contact Strip",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Still Have"
+    },
+    {
+      "type": "text",
+      "id": "highlight",
+      "label": "Highlight Text",
+      "default": "Questions?"
+    },
+    {
+      "type": "textarea",
+      "id": "subtitle",
+      "label": "Subtitle",
+      "default": "We respond to every email within 1 business day. Real humans, not bots."
+    },
+    {
+      "type": "url",
+      "id": "facebook",
+      "label": "Facebook Link"
+    },
+    {
+      "type": "url",
+      "id": "linkedin",
+      "label": "LinkedIn Link"
+    },
+    {
+      "type": "url",
+      "id": "instagram",
+      "label": "Instagram Link"
+    },
+    {
+      "type": "url",
+      "id": "tiktok",
+      "label": "TikTok Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Contact Strip New"
+    }
+  ]
+}
+{% endschema %}

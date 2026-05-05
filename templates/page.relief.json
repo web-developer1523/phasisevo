@@ -1,0 +1,735 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "relief_hero_XqcWF3": {
+      "type": "relief-hero",
+      "name": " Relief Hero Products",
+      "settings": {
+        "product": "relief-balm",
+        "eyebrow": "All-Natural Formula. Gentle on Sensitive Skin.",
+        "heading_line1": "All-Natural.",
+        "heading_line2": "Gentle on",
+        "heading_line3": "Sensitive",
+        "heading_line4": "Skin.",
+        "bold_text": "Relief is an all-natural CBD recovery balm",
+        "description": "built for sensitive skin, older adults, and daily use. Same 1200mg full spectrum CBD as Max Relief — with a gentler botanical formula. No strong heating or cooling sensation. Just clean, plant-based relief that absorbs easily and works every day.",
+        "stars": "★★★★★",
+        "rating": "4.9",
+        "review_label": "reviews",
+        "trust1_bold": "3rd Party",
+        "trust1": "Tested",
+        "trust2_bold": "Made",
+        "trust2": "in USA",
+        "cta_text": "GET RELIEF — FROM $25",
+        "cta_link": "",
+        "cta_id": "purchase",
+        "micro1": "Free shipping $75+",
+        "micro2": "30-day guarantee",
+        "micro3": "No subscription",
+        "nudge_icon": "🧴",
+        "nudge_label": "Want Stronger Relief? · Max Relief",
+        "nudge_desc": "Upgrade to our pharmaceutical-strength formula",
+        "nudge_arrow": "→",
+        "nudge_link": "shopify://pages/max-relief",
+        "bg_word": "GENTLE",
+        "fallback_emoji": "🧴",
+        "review_stars": "★★★★★",
+        "review_text": "\"I’ve been using Max Relief for training but it was too strong for everyday use on my sensitive skin. Relief has the same effectiveness with a much gentler feel. Use it every morning.\"",
+        "review_author": "Priya T.",
+        "review_meta": "Verified Buyer · Sensitive Skin"
+      }
+    },
+    "relief_trust_bar_dzpYyi": {
+      "type": "relief-trust-bar",
+      "blocks": {
+        "trust_item_ijkU3B": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>",
+            "text": "3RD PARTY TESTED"
+          }
+        },
+        "trust_item_9nBL7Q": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 2a9 9 0 0 0-9 9c0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11a9 9 0 0 0-9-9z\"></path></svg>",
+            "text": "ORGANIC HEMP"
+          }
+        },
+        "trust_item_gYbwNQ": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect><path d=\"M3 9h18M9 21V9\"></path></svg>",
+            "text": "MADE IN USA"
+          }
+        },
+        "trust_item_TKLP4T": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
+            "text": "30-DAY GUARANTEE"
+          }
+        },
+        "trust_item_fDNjnB": {
+          "type": "trust_item",
+          "settings": {
+            "icon": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"22\" y1=\"2\" x2=\"11\" y2=\"13\"></line><polygon points=\"22 2 15 22 11 13 2 9 22 2\"></polygon></svg>",
+            "text": "FREE SHIPPING $75+"
+          }
+        }
+      },
+      "block_order": [
+        "trust_item_ijkU3B",
+        "trust_item_9nBL7Q",
+        "trust_item_gYbwNQ",
+        "trust_item_TKLP4T",
+        "trust_item_fDNjnB"
+      ],
+      "name": " Relief Trust Bar",
+      "settings": {}
+    },
+    "relief_prob_DeVA4D": {
+      "type": "relief-prob",
+      "blocks": {
+        "problem_item_Q6KYjA": {
+          "type": "problem_item",
+          "settings": {
+            "icon": "🧊",
+            "name": "IcyHot",
+            "description": "Counterirritant only. Wears off in 30 minutes. No anti-inflammatory action."
+          }
+        },
+        "problem_item_eJerjL": {
+          "type": "problem_item",
+          "settings": {
+            "icon": "💊",
+            "name": "Voltaren",
+            "description": "Anti-inflammatory only. No nerve block. No CBD. Limited penetration."
+          }
+        },
+        "problem_item_dVCWEy": {
+          "type": "problem_item",
+          "settings": {
+            "icon": "🌿",
+            "name": "CBD Cream",
+            "description": "Underdosed. No pharmaceutical actives. Wellness product dressed as pain relief."
+          }
+        },
+        "problem_item_eN3xnp": {
+          "type": "problem_item",
+          "settings": {
+            "icon": "💉",
+            "name": "Injections",
+            "description": "Invasive. Short-term. Degrades tissue. Not a daily solution."
+          }
+        }
+      },
+      "block_order": [
+        "problem_item_Q6KYjA",
+        "problem_item_eJerjL",
+        "problem_item_dVCWEy",
+        "problem_item_eN3xnp"
+      ],
+      "name": " Relief Phasis Problem",
+      "settings": {
+        "eyebrow": "The Problem With Everything Else",
+        "heading_line1": "Not Every Skin",
+        "heading_line2": "Needs the Same Formula.",
+        "subtext": "Most pain products treat the surface. They mask the signal briefly — then the pain comes back.",
+        "bottom_label": "The PHASIS Difference",
+        "bottom_text": "Relief combines <em>full spectrum CBD and 13 natural botanicals</em> for gentle, effective everyday recovery."
+      }
+    },
+    "relief_fighter_aWVmAy": {
+      "type": "relief-fighter",
+      "blocks": {
+        "sport_tag_Cnti3b": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🥋 BJJ",
+            "active": true
+          }
+        },
+        "sport_tag_KyrWTe": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🥊 Boxing / MMA",
+            "active": true
+          }
+        },
+        "sport_tag_JaET8z": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🤼 Wrestling",
+            "active": true
+          }
+        },
+        "sport_tag_fidTBM": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🏋️ Weightlifting",
+            "active": false
+          }
+        },
+        "sport_tag_JXbMUj": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🏃 Running",
+            "active": false
+          }
+        },
+        "sport_tag_chBBMb": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🧓 Chronic Pain",
+            "active": false
+          }
+        },
+        "sport_tag_6PVe3W": {
+          "type": "sport_tag",
+          "settings": {
+            "text": "🏥 Post-Surgery",
+            "active": false
+          }
+        },
+        "pain_point_kkNdaH": {
+          "type": "pain_point",
+          "settings": {
+            "icon": "🦵",
+            "title": "Post-Workout Soreness & DOMS",
+            "desc": "Fast-acting relief for muscle soreness after training."
+          }
+        },
+        "pain_point_jU9KYB": {
+          "type": "pain_point",
+          "settings": {
+            "icon": "🦷",
+            "title": "Joint Pain — Knees, Shoulders, Elbows",
+            "desc": "Deep penetration targets joint inflammation at the source."
+          }
+        },
+        "pain_point_4xJwAc": {
+          "type": "pain_point",
+          "settings": {
+            "icon": "🔄",
+            "title": "Chronic Stiffness — Neck, Lower Back",
+            "desc": "Daily use desensitizes pain receptors over time."
+          }
+        },
+        "pain_point_3PGxYc": {
+          "type": "pain_point",
+          "settings": {
+            "icon": "⚡",
+            "title": "Nerve Discomfort & Overuse Injuries",
+            "desc": "Peppermint and CBD work together for fast-acting natural comfort."
+          }
+        },
+        "pain_point_drXcbJ": {
+          "type": "pain_point",
+          "settings": {
+            "icon": "🏥",
+            "title": "Post-Surgery Rehabilitation",
+            "desc": "Multi-pathway approach supports recovery at every level."
+          }
+        }
+      },
+      "block_order": [
+        "sport_tag_Cnti3b",
+        "sport_tag_KyrWTe",
+        "sport_tag_JaET8z",
+        "sport_tag_fidTBM",
+        "sport_tag_JXbMUj",
+        "sport_tag_chBBMb",
+        "sport_tag_6PVe3W",
+        "pain_point_kkNdaH",
+        "pain_point_jU9KYB",
+        "pain_point_4xJwAc",
+        "pain_point_3PGxYc",
+        "pain_point_drXcbJ"
+      ],
+      "name": " Relief Fighter Cred",
+      "settings": {
+        "eyebrow": "Who Uses Relief",
+        "heading_line1": "Built for the people who",
+        "heading_line2": "train through",
+        "description": "Combat sports athletes don't stop training because something hurts. They need relief that's fast, deep, and lasts through a full session.",
+        "stars": "★★★★★",
+        "quote_text": "\"Post rotator cuff surgery, the pain is relentless. Relief eases the stiffness and soreness in my traps and upper scapulary muscles. A genuine game changer.\"",
+        "author": "Sharon Cook",
+        "meta": "· Post-Surgery Recovery · Verified Buyer"
+      }
+    },
+    "relief_solution_custom_wLa7zf": {
+      "type": "relief-solution-custom",
+      "blocks": {
+        "solution_item_tXQjmF": {
+          "type": "solution_item",
+          "settings": {
+            "icon": "🌱",
+            "title": "Natural cooling & comfort",
+            "description": "Peppermint Oil activates cold-sensitive receptors in the skin for immediate surface comfort. Ylang Ylang calms tension and supports a sense of ease — especially useful during massage or post-activity wind-down."
+          }
+        },
+        "solution_item_AMXPeR": {
+          "type": "solution_item",
+          "settings": {
+            "icon": "🌿",
+            "title": "Anti-inflammatory support",
+            "description": "1200mg full spectrum CBD binds to CB2 receptors in muscle and connective tissue. Arnica reduces soreness and swelling. Turmeric delivers curcumin anti-inflammatory support — and Black Pepper's piperine increases absorption of the whole formula by up to 2000%."
+          }
+        },
+        "solution_item_DiP4qd": {
+          "type": "solution_item",
+          "settings": {
+            "icon": "🔄",
+            "title": "Warming circulation & recovery",
+            "description": "Ginger Root increases local blood flow and eases post-exercise soreness. Capsaicin — natural, from chili pepper — gently desensitizes pain receptors with repeated use. Clary Sage and Lemongrass support muscle relaxation and joint comfort. Castor Oil drives actives deeper into tissue."
+          }
+        }
+      },
+      "block_order": [
+        "solution_item_tXQjmF",
+        "solution_item_AMXPeR",
+        "solution_item_DiP4qd"
+      ],
+      "name": "Solution Section Custom",
+      "settings": {
+        "eyebrow": "How It Works",
+        "heading_line1": "Three Things.",
+        "heading_line2": "Happening at Once.",
+        "subtext": "Relief is a gentler formula — but not a weaker one. 1200mg full spectrum CBD works alongside 12 supporting botanicals to cool, calm, and recover. No single active does all the work.",
+        "note_label": "Note",
+        "note_text": "Relief contains capsaicin — a natural botanical — so you may notice a gentle natural warmth. It is not recommended for use on the face. Ideal for muscles, joints, and areas of the body where you want consistent daily relief without a strong pharmaceutical sensation."
+      }
+    },
+    "relief_ingred_FXQ6Wz": {
+      "type": "relief-ingred",
+      "blocks": {
+        "ingredient_QwjChp": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🥥",
+            "tag": "Base",
+            "tag_class": "tb2",
+            "title": "Coconut Oil",
+            "description": "Clean, skin-nourishing carrier. Absorbs easily without residue. Supports ingredient penetration."
+          }
+        },
+        "ingredient_w89epQ": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🍯",
+            "tag": "Base",
+            "tag_class": "tb2",
+            "title": "Beeswax",
+            "description": "Natural emollient and texture agent. Creates a smooth, non-greasy finish that seals moisture in."
+          }
+        },
+        "ingredient_ACyUJ4": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌿",
+            "tag": "Full Spectrum Cannabinoid",
+            "tag_class": "tc2",
+            "title": "Full Spectrum CBD",
+            "description": "1200mg across all sizes. Full spectrum means the complete hemp plant: CBD, minor cannabinoids (CBG, CBN, CBC), terpenes, and trace THC (<0.3%). The whole plant — because that's what actually works."
+          }
+        },
+        "ingredient_JwUzpB": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌼",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Arnica Montana Extract",
+            "description": "Most studied botanical anti-inflammatory. Reduces soreness, swelling, and bruising from training and daily movement."
+          }
+        },
+        "ingredient_hpRHGr": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "✨",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Castor Oil",
+            "description": "Anti-inflammatory and deep-penetrating. Supports tissue recovery and smooth texture."
+          }
+        },
+        "ingredient_ztaFK7": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌱",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Peppermint Oil",
+            "description": "Natural cooling sensation. Activates cold-sensitive receptors for immediate comfort and freshness."
+          }
+        },
+        "ingredient_ypGNcx": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌾",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Clary Sage Oil",
+            "description": "Supports circulation and muscle relaxation. Accelerates tissue recovery and eases tension."
+          }
+        },
+        "ingredient_Fezgee": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🍋",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Lemongrass Oil",
+            "description": "Anti-inflammatory and analgesic. Eases joint fatigue and supports connective tissue comfort."
+          }
+        },
+        "ingredient_x8JTRk": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🫚",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Ginger Root Oil",
+            "description": "Warming anti-inflammatory. Increases local circulation and reduces post-exercise soreness."
+          }
+        },
+        "ingredient_hbxqUN": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🧄",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Turmeric Extract",
+            "description": "Curcumin anti-inflammatory. Reduces chronic soreness and supports long-term joint comfort."
+          }
+        },
+        "ingredient_ArWmpw": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌶️",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Black Pepper Oil",
+            "description": "Piperine increases bioavailability of other botanicals by up to 2000%. Warming circulatory support."
+          }
+        },
+        "ingredient_7CFmRn": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌸",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Ylang Ylang Oil",
+            "description": "Calming and restorative. Reduces tension and supports a sense of ease during massage."
+          }
+        },
+        "ingredient_agE3DU": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌶️",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Capsaicin",
+            "description": "Desensitizes TRPV1 pain receptors with repeated use. Natural, plant-derived from chili peppers."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_QwjChp",
+        "ingredient_w89epQ",
+        "ingredient_ACyUJ4",
+        "ingredient_JwUzpB",
+        "ingredient_hpRHGr",
+        "ingredient_ztaFK7",
+        "ingredient_ypGNcx",
+        "ingredient_Fezgee",
+        "ingredient_x8JTRk",
+        "ingredient_hbxqUN",
+        "ingredient_ArWmpw",
+        "ingredient_7CFmRn",
+        "ingredient_agE3DU"
+      ],
+      "name": " Relief Ingred Section",
+      "settings": {
+        "eyebrow": "Ingredient Breakdown",
+        "heading_line1": "13 Natural Ingredients.",
+        "heading_line2": "Every One Earns Its Place.",
+        "subtext": "Every ingredient is plant-derived and chosen for a specific role..."
+      }
+    },
+    "newrelief_purchase_xQP83L": {
+      "type": "newrelief-purchase",
+      "blocks": {
+        "guarantee_hAEH36": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🛡️",
+            "title": "30-Day Guarantee",
+            "desc": "Full refund. No questions."
+          }
+        },
+        "guarantee_TWHwce": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "desc": "Orders over $75.."
+          }
+        },
+        "guarantee_9CnzbN": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🧪",
+            "title": "Lab Tested",
+            "desc": "Every batch."
+          }
+        },
+        "secure_FjK6yb": {
+          "type": "secure",
+          "settings": {
+            "text": "Secure checkout"
+          }
+        },
+        "secure_BimnNJ": {
+          "type": "secure",
+          "settings": {
+            "text": "SSL encrypted"
+          }
+        },
+        "secure_iLErG9": {
+          "type": "secure",
+          "settings": {
+            "text": "Made in USA"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee_hAEH36",
+        "guarantee_TWHwce",
+        "guarantee_9CnzbN",
+        "secure_FjK6yb",
+        "secure_BimnNJ",
+        "secure_iLErG9"
+      ],
+      "name": "Relief Purchase",
+      "settings": {
+        "custom_css_class": "cst-reliefpurchase-sec",
+        "product": "relief-balm",
+        "eyebrow": "Relief Balm · Topical Salve",
+        "size_label": "Choose Your Size",
+        "price_sub": "No subscription required · Ships in 1–3 business days",
+        "button_text": "ADD TO CART — GET RELIEF TODAY",
+        "gallery_type_layout_id": "thumbs_bottom",
+        "upsell_label": "Complete Your Stack",
+        "upsell_title": "Relief Balm",
+        "upsell_desc": "Electro+ handles hydration. Max Relief handles pain relief. From $30.",
+        "upsell_product": "max-relief-balm",
+        "upsell_btn_text": "ADD",
+        "upsell_title_2": "Electro+ Drops",
+        "upsell_desc_2": "Electro+ handles hydration. Replenish minerals · From $25",
+        "upsell_product_2": "electro-drops",
+        "upsell_btn_text_2": "ADD"
+      }
+    },
+    "new_relief_faq_4NHEKP": {
+      "type": "newRelief-faq",
+      "blocks": {
+        "faq_NQ4ftq": {
+          "type": "faq",
+          "settings": {
+            "question": "Will the CBD show up on a drug test?",
+            "answer": "No. Relief is a topical — it does not enter the bloodstream in meaningful amounts. Full spectrum CBD in topical form does not produce a positive drug test under standard testing protocols."
+          }
+        },
+        "faq_XnFJjB": {
+          "type": "faq",
+          "settings": {
+            "question": "How fast does it work?",
+            "answer": "Most users feel the cooling and nerve block effect within 5–10 minutes. The anti-inflammatory benefits build over 20–30 minutes. With repeated use the capsaicin component desensitizes pain receptors — it becomes more effective over time."
+          }
+        },
+        "faq_qJ83Pz": {
+          "type": "faq",
+          "settings": {
+            "question": "What makes this different from Voltaren or IcyHot?",
+            "answer": "Voltaren is anti-inflammatory only. IcyHot is counterirritant only. Neither has a nerve block, neither has CBD. Relief combines full spectrum CBD with 13 natural botanicals for gentle, plant-based relief."
+          }
+        },
+        "faq_q9nqey": {
+          "type": "faq",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "Yes. Relief is specifically formulated for daily use. The natural plant oilsine HCl is at OTC-safe concentrations. The CBD is non-intoxicating and topical. We recommend applying to the affected area 2–3 times daily or as needed."
+          }
+        },
+        "faq_KMhqhk": {
+          "type": "faq",
+          "settings": {
+            "question": "Jar or Stick — which should I get?",
+            "answer": "The Stick is great for targeted application — precise, no mess, on-the-go. The Jar gives you more product for larger areas like lower back, quads, or shoulders. For daily use on a larger area, the Jar is the better value."
+          }
+        },
+        "faq_PBCpJr": {
+          "type": "faq",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "30-day satisfaction guarantee. If Relief doesn't work for you, contact us within 30 days for a full refund — no questions asked."
+          }
+        }
+      },
+      "block_order": [
+        "faq_NQ4ftq",
+        "faq_XnFJjB",
+        "faq_qJ83Pz",
+        "faq_q9nqey",
+        "faq_KMhqhk",
+        "faq_PBCpJr"
+      ],
+      "name": " Phasis FAQ",
+      "settings": {
+        "eyebrow": "Common Questions",
+        "heading_line1": "Everything You",
+        "heading_line2": "Need to Know",
+        "subtext": "Answers to the questions we get asked most.",
+        "open_first": true
+      }
+    },
+    "relief_finalcta_hgKwxq": {
+      "type": "relief-finalcta",
+      "blocks": {
+        "trust_kXHcmH": {
+          "type": "trust",
+          "settings": {
+            "text": "30-day money back guarantee"
+          }
+        },
+        "trust_qiFVL4": {
+          "type": "trust",
+          "settings": {
+            "text": "Free shipping $75+"
+          }
+        }
+      },
+      "block_order": [
+        "trust_kXHcmH",
+        "trust_qiFVL4"
+      ],
+      "name": " ReliFinal CTA",
+      "settings": {
+        "eyebrow": "Built Different. Works Different.",
+        "heading_line1": "Done Trying Things",
+        "heading_line2": "That Don't Work.",
+        "subtext": "30-day guarantee. Real ingredients. Real mechanisms.",
+        "button_text": "GET RELIEF — FROM $25",
+        "button_link": "",
+        "section_id": "purchase"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "relief_hero_XqcWF3",
+    "relief_trust_bar_dzpYyi",
+    "relief_prob_DeVA4D",
+    "relief_fighter_aWVmAy",
+    "relief_solution_custom_wLa7zf",
+    "relief_ingred_FXQ6Wz",
+    "newrelief_purchase_xQP83L",
+    "new_relief_faq_4NHEKP",
+    "relief_finalcta_hgKwxq"
+  ]
+}

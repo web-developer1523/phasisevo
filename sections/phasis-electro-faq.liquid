@@ -1,70 +1,80 @@
-<section class="faq-sec section">
-  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
-  <h2>{{ section.settings.heading }}</h2>
-  <p class="faq-top-sub">{{ section.settings.subheading }}</p>
-  {% for block in section.blocks %}
-    <div class="faq-item{% if forloop.first %} open{% endif %}" {{ block.shopify_attributes }}>
-      <div class="faq-q"><span class="faq-q-text">{{ block.settings.question }}</span><span class="faq-icon">+</span></div>
-      <div class="faq-a">{{ block.settings.answer }}</div>
-    </div>
-  {% endfor %}
-</section>
-<style>
-     /* ── FAQ ─────────────────────────────────────────── */
-     .faq-sec{background:var(--page-bg);border-top:1px solid var(--border)}
-     .faq-sec h2{margin-bottom:8px}
-     .faq-top-sub{font-size:14px;color:var(--muted);margin-bottom:28px}
-     .faq-item{border-bottom:1px solid var(--border)}
-     .faq-item:first-of-type{border-top:1px solid var(--border)}
-     .faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;gap:16px;min-height:52px}
-     .faq-q-text{font-family:var(--f-dis);font-size:14px;font-weight:600;line-height:1.3}
-     .faq-icon{color:var(--teal);font-size:20px;flex-shrink:0;transition:transform .2s;font-weight:300;line-height:1;min-width:24px;text-align:center}
-     .faq-item.open .faq-icon{transform:rotate(45deg)}
-     .faq-a{font-size:14px;color:var(--muted-l);line-height:1.75;padding-bottom:16px;display:none}
-     .faq-item.open .faq-a{display:block}
-</style>
-<script>
-document.querySelectorAll('#shopify-section-{{ section.id }} .faq-q').forEach(function(q) {
-  q.addEventListener('click', function() {
-    var item = q.closest('.faq-item');
-    if (!item) return;
-    var isOpen = item.classList.contains('open');
-    document.querySelectorAll('#shopify-section-{{ section.id }} .faq-item').forEach(function(i) { i.classList.remove('open'); });
-    if (!isOpen) item.classList.add('open');
+<section class="faq-sec section {{section.settings.custom_css_class }}">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>{{ section.settings.heading }}</h2>
+    <p class="faq-top-sub">{{ section.settings.subheading }}</p>
+    {% for block in section.blocks %}
+      <div class="faq-item{% if forloop.first %} open{% endif %}" {{ block.shopify_attributes }}>
+        <div class="faq-q"><span class="faq-q-text">{{ block.settings.question }}</span><span class="faq-icon">+</span></div>
+        <div class="faq-a">{{ block.settings.answer }}</div>
+      </div>
+    {% endfor %}
+  </section>
+  <style>
+       /* ── FAQ ─────────────────────────────────────────── */
+       .faq-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+       .faq-sec h2{margin-bottom:8px}
+       .faq-top-sub{font-size:15px;color:#d0d0d0;margin-bottom:28px}
+       .faq-item{border-bottom:1px solid var(--border)}
+       .faq-item:first-of-type{border-top:1px solid var(--border)}
+       .faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;gap:16px;min-height:52px}
+       .faq-q-text{font-family:var(--f-dis);font-size:16px;font-weight:600;line-height:1.3}
+       .faq-icon{color:var(--teal);font-size:20px;flex-shrink:0;transition:transform .2s;font-weight:300;line-height:1;min-width:24px;text-align:center}
+       .faq-item.open .faq-icon{transform:rotate(45deg)}
+       .faq-a{font-size:15px;color:#d0d0d0;line-height:1.75;padding-bottom:16px;display:none;}
+        .faq-a p {
+            font: inherit;
+            color: inherit;
+        }
+       .faq-item.open .faq-a{display:block}
+  </style>
+  <script>
+  document.querySelectorAll('#shopify-section-{{ section.id }} .faq-q').forEach(function(q) {
+    q.addEventListener('click', function() {
+      var item = q.closest('.faq-item');
+      if (!item) return;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('#shopify-section-{{ section.id }} .faq-item').forEach(function(i) { i.classList.remove('open'); });
+      if (!isOpen) item.classList.add('open');
+    });
   });
-});
-</script>
-
-{% schema %}
-{
-  "name": "Phasis Electro FAQ",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Common Questions" },
-    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Everything You<br><em>Need to Know</em>" },
-    { "type": "text", "id": "subheading", "label": "Subheading", "default": "The questions we get asked most about Electro+." }
-  ],
-  "blocks": [
-    {
-      "type": "faq_item",
-      "name": "FAQ item",
-      "settings": [
-        { "type": "text", "id": "question", "label": "Question", "default": "Does it taste like anything?" },
-        { "type": "textarea", "id": "answer", "label": "Answer", "default": "Barely. At the recommended dose you will notice a very slight saltiness at the back of your palate." }
-      ]
-    }
-  ],
-  "max_blocks": 10,
-  "presets": [
-    {
-      "name": "Phasis Electro FAQ",
-      "blocks": [
-        { "type": "faq_item", "settings": { "question": "Does it taste like anything?", "answer": "Barely. At the recommended dose you will notice a very slight saltiness at the back of your palate. It will not change the taste of your coffee, water, or shake." } },
-        { "type": "faq_item", "settings": { "question": "How is this different from LMNT or Liquid IV?", "answer": "Three big differences: price, format, and mineral spectrum. Electro+ is lower cost, liquid format, and broader mineral profile." } },
-        { "type": "faq_item", "settings": { "question": "How much should I take?", "answer": "Daily hydration: 20 drops (1mL) into 16oz. Hard training: 40-60 drops into 2L. Endurance days: up to 5mL per gallon." } },
-        { "type": "faq_item", "settings": { "question": "Is the 4oz worth it vs the 1oz?", "answer": "If you plan to use it daily, the 4oz offers the best value per serving. The 1oz is great for first-time trial." } },
-        { "type": "faq_item", "settings": { "question": "Can I stack this with Max Relief?", "answer": "Yes. Electro+ handles internal mineral replenishment while Max Relief handles topical pain and inflammation." } }
-      ]
-    }
-  ]
-}
-{% endschema %}
+  </script>
+  
+  {% schema %}
+  {
+    "name": "Phasis Electro FAQ",
+    "settings": [
+           {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Common Questions" },
+      { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "Everything You<br><em>Need to Know</em>" },
+      { "type": "text", "id": "subheading", "label": "Subheading", "default": "The questions we get asked most about Electro+." }
+    ],
+    "blocks": [
+      {
+        "type": "faq_item",
+        "name": "FAQ item",
+        "settings": [
+          { "type": "text", "id": "question", "label": "Question", "default": "Does it taste like anything?" },
+          { "type": "textarea", "id": "answer", "label": "Answer", "default": "Barely. At the recommended dose you will notice a very slight saltiness at the back of your palate." }
+        ]
+      }
+    ],
+    "max_blocks": 10,
+    "presets": [
+      {
+        "name": "Phasis Electro FAQ",
+        "blocks": [
+          { "type": "faq_item", "settings": { "question": "Does it taste like anything?", "answer": "Barely. At the recommended dose you will notice a very slight saltiness at the back of your palate. It will not change the taste of your coffee, water, or shake." } },
+          { "type": "faq_item", "settings": { "question": "How is this different from LMNT or Liquid IV?", "answer": "Three big differences: price, format, and mineral spectrum. Electro+ is lower cost, liquid format, and broader mineral profile." } },
+          { "type": "faq_item", "settings": { "question": "How much should I take?", "answer": "Daily hydration: 20 drops (1mL) into 16oz. Hard training: 40-60 drops into 2L. Endurance days: up to 5mL per gallon." } },
+          { "type": "faq_item", "settings": { "question": "Is the 4oz worth it vs the 1oz?", "answer": "If you plan to use it daily, the 4oz offers the best value per serving. The 1oz is great for first-time trial." } },
+          { "type": "faq_item", "settings": { "question": "Can I stack this with Max Relief?", "answer": "Yes. Electro+ handles internal mineral replenishment while Max Relief handles topical pain and inflammation." } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
+  

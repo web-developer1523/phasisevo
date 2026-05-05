@@ -1,0 +1,142 @@
+<!-- PROBLEM SECTION -->
+<section class="problem-sec section">
+  <div class="problem-center">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+    <p class="problem-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="tried-grid">
+    {% for block in section.blocks %}
+      <div class="tried-item">
+        <div class="tried-icon">{{ block.settings.icon }}</div>
+        <h3 class="tried-name">{{ block.settings.name }}</h3>
+        <div class="tried-why">{{ block.settings.description }}</div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="problem-transition">
+    <span class="pt-label">{{ section.settings.bottom_label }}</span>
+    <div class="pt-text">
+      {{ section.settings.bottom_text }}
+    </div>
+  </div>
+</section>
+<style>
+  /* ── SECTION SPACING ────────────────────────────── */
+/* Mobile: tighter, scales up */
+.section{padding:48px var(--pad)}
+@media(min-width:768px){.section{padding:64px var(--pad-md)}}
+@media(min-width:1024px){.section{padding:80px var(--pad-lg)}}
+
+.section-header{margin-bottom:32px}
+@media(min-width:768px){.section-header{margin-bottom:48px}}
+    /* ── PROBLEM SECTION ────────────────────────────── */
+.problem-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.problem-center{text-align:center;margin-bottom:28px}
+.problem-center h2{margin-bottom:16px}
+.problem-center h2 em{color:var(--coral);font-style:normal}
+.problem-sub{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.7}
+
+/* Tried grid — 1 col mobile, 2 col tablet, 4 col desktop */
+.tried-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:24px}
+@media(min-width:768px){.tried-grid{grid-template-columns:repeat(4,1fr);gap:12px}}
+
+.tried-item{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px 14px;text-align:center}
+.tried-icon{font-size:24px;margin-bottom:10px}
+.tried-name{font-family:var(--f-dis);font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.tried-why{font-size:16px;color:var(--muted);line-height:1.5}
+
+.problem-transition{background:rgba(42,184,207,.06);border:1px solid rgba(42,184,207,.2);border-radius:8px;padding:24px 20px;text-align:center}
+.pt-label{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;display:block}
+.pt-text{font-family:var(--f-dis);font-size:17px;font-weight:700;line-height:1.35;letter-spacing:-0.01em}
+.pt-text em{color:var(--coral);font-style:normal}
+@media(min-width:768px){.pt-text{font-size:20px}}
+@media(min-width:1024px){.pt-text{font-size:24px}}
+</style>
+{% schema %}
+{
+  "name": "Relief Phasis Problem",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow Text",
+      "default": "The Problem With Everything Else"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Not Every Skin"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2 (Italic)",
+      "default": "Needs the Same Formula."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Most pain products treat the surface. They mask the signal briefly — then the pain comes back."
+    },
+    {
+      "type": "text",
+      "id": "bottom_label",
+      "label": "Bottom Label",
+      "default": "The PHASIS Difference"
+    },
+    {
+      "type": "textarea",
+      "id": "bottom_text",
+      "label": "Bottom Text",
+      "default": "Relief combines <em>full spectrum CBD and 13 natural botanicals</em> for gentle, effective everyday recovery."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "problem_item",
+      "name": "Problem Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji or SVG)",
+          "default": "🧊"
+        },
+        {
+          "type": "text",
+          "id": "name",
+          "label": "Product Name",
+          "default": "IcyHot"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Short description here..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Phasis Problem",
+      "blocks": [
+        { "type": "problem_item" },
+        { "type": "problem_item" },
+        { "type": "problem_item" },
+        { "type": "problem_item" }
+      ]
+    }
+  ]
+}
+{% endschema %}

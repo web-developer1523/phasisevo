@@ -1,0 +1,138 @@
+<section class="ingr-sec section">
+  
+  <div class="ingr-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+    <p class="ingr-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="ingr-grid">
+    
+    {% for block in section.blocks %}
+      <div class="ic">
+        <div class="ii">{{ block.settings.icon }}</div>
+        
+        <div class="it {{ block.settings.tag_class }}">
+          {{ block.settings.tag }}
+        </div>
+
+        <h4>{{ block.settings.title }}</h4>
+        <p>{{ block.settings.description }}</p>
+      </div>
+    {% endfor %}
+
+  </div>
+
+</section>
+<style>
+    /* ── INGREDIENTS ────────────────────────────────── */
+.ingr-sec{background:var(--surface);border-top:1px solid var(--border)}
+.ingr-top{text-align:center;margin-bottom:28px}
+.ingr-top h2{margin-bottom:12px}
+.ingr-top h2 em{color:var(--coral);font-style:normal}
+.ingr-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7}
+
+.ingr-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px}
+@media(min-width:768px){.ingr-grid{grid-template-columns:repeat(4,1fr)}}
+
+.ic{background:var(--page-bg);border:1px solid var(--border);border-radius:4px;padding:16px 14px}
+.ii{width:38px;height:38px;background:var(--surface);border:1px solid var(--border);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;margin-bottom:12px}
+.it{font-size:12px;font-weight:500;font-style:italic;letter-spacing:.18em;text-transform:uppercase;margin-bottom:6px}
+.tp2{color:var(--coral)}.tc2{color:var(--teal)}.tb2{color:#7dc567}.td2{color:#f0c040}
+.ic h4{font-family:var(--f-dis);font-size:16px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:6px}
+.ic p{font-size:16px;color:var(--muted);line-height:1.6}
+</style>
+{% schema %}
+{
+  "name": "Relief Ingred Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ingredient Breakdown"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "13 Natural Ingredients."
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Every One Earns Its Place."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Every ingredient is plant-derived and chosen for a specific role..."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (Emoji or SVG)",
+          "default": "🌿"
+        },
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag (Base / Botanical / etc)",
+          "default": "Botanical"
+        },
+        {
+          "type": "text",
+          "id": "tag_class",
+          "label": "Tag Class (tb2 / tc2 etc)",
+          "default": "tb2"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Ingredient Name",
+          "default": "Ingredient Name"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Ingredient description here..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Ingred Section",
+      "blocks": [
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" },
+        { "type": "ingredient" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -66,24 +66,27 @@
         "search_promo",
         "simple_mega_menu_wTfqFz"
       ],
+      "custom_css": [],
       "settings": {
         "header_type": "top-menu",
         "logo_position": "left-logo",
         "full_menu": true,
         "background": "primary",
         "enable_border": false,
-        "logo": "shopify://shop_images/PHASIS_1_ff64a029-60d8-4978-b03a-9e3e007f63f5.svg",
+        "logo": "shopify://shop_images/PHASIS-logo.svg",
         "section_heading_tag": "h1",
         "apply_logo_pages": false,
         "logo_width": 140,
-        "menu": "main-menu-new",
+        "menu": "main-menu-custom",
         "enable_country_selector": false,
         "enable_language_selector": false,
         "enable_social": false,
         "buttons_type": "icon",
-        "sticky_header_type": "on-scroll-up",
+        "sticky_header_type": "always",
         "menu_heading_tag": "span",
-        "enable_search": true
+        "enable_search": true,
+        "enable_search_mobile": true,
+        "enable_account_mobile": true
       }
     }
   },

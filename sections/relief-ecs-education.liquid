@@ -1,0 +1,140 @@
+<section class="fighter-sec section {{section.settings.custom_css_class }}" style="background:var(--page-bg);border-top:1px solid var(--border)">
+
+  <!-- EYEBROW -->
+  <div class="fighter-eyebrow-row">
+    <span>{{ section.settings.eyebrow }}</span>
+  </div>
+
+  <!-- HEADING -->
+  <h2 style="margin-bottom:16px">
+    {{ section.settings.heading_line1 }}<br>
+    <em>{{ section.settings.heading_line2 }}</em><br>
+    {{ section.settings.heading_line3 }}
+  </h2>
+
+  <!-- PARAGRAPHS -->
+  {% for block in section.blocks %}
+    {% if block.type == 'text' %}
+      <p class="fighter-p" {% if block.settings.spacing %}style="margin-bottom:24px"{% endif %}>
+        {{ block.settings.content }}
+      </p>
+    {% endif %}
+  {% endfor %}
+
+  <!-- CARDS -->
+  <div class="pain-points">
+    {% for block in section.blocks %}
+      {% if block.type == 'card' %}
+        <div class="pain-card">
+          <div class="pc-icon">{{ block.settings.icon }}</div>
+          <div class="pc-body">
+            <div class="pc-title">{{ block.settings.title }}</div>
+            <div class="pc-desc">{{ block.settings.description }}</div>
+          </div>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+</section>
+<style>
+    /* ── FIGHTER SECTION ────────────────────────────── */
+.fighter-sec{background:var(--surface);border-top:1px solid var(--border)}
+.fighter-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.fighter-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.fighter-eyebrow-row span{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.fighter-sec h2{margin-bottom:16px}
+.fighter-sec h2 em{color:var(--coral);font-style:normal}
+.fighter-p{font-size:14px;font-weight:300;color:var(--muted-l);line-height:1.75;margin-bottom:20px}
+.fighter-p strong{color:var(--off-white);font-weight:600}
+    </style>
+{% schema %}
+{
+  "name": "ECS Education",
+  "settings": [
+       {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why CBD Works Differently Here"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Your Body Has a"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Recovery System."
+    },
+    {
+      "type": "text",
+      "id": "heading_line3",
+      "label": "Heading Line 3",
+      "default": "CBD Activates It."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Paragraph",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "Text Content"
+        },
+        {
+          "type": "checkbox",
+          "id": "spacing",
+          "label": "Add Bottom Spacing",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "card",
+      "name": "Info Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or HTML)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief ECS Education",
+      "blocks": [
+        { "type": "text" },
+        { "type": "text" },
+        { "type": "text" },
+        { "type": "text" },
+        { "type": "card" },
+        { "type": "card" },
+        { "type": "card" }
+      ]
+    }
+  ]
+}
+{% endschema %}

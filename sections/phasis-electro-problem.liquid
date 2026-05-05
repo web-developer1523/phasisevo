@@ -1,4 +1,4 @@
-<section class="problem-sec section">
+<section class="problem-sec section {{ section.settings.custom_css_class }}">
   <div class="problem-center">
     <span class="eyebrow">{{ section.settings.eyebrow }}</span>
     <h2>{{ section.settings.heading }}</h2>
@@ -7,7 +7,7 @@
   <div class="myth-grid">
     <div class="myth-card myth">
       <div class="mc-label bad">{{ section.settings.problem_label }}</div>
-      <div class="mc-title">{{ section.settings.problem_title }}</div>
+      <h4 class="mc-title">{{ section.settings.problem_title }}</h4>
       <div class="mc-points">
         {% for block in section.blocks %}
           {% if block.type == 'problem_point' %}
@@ -32,90 +32,102 @@
     <span class="db-label">{{ section.settings.depletion_label }}</span>
     <div class="db-stat">{{ section.settings.depletion_stat }}</div>
     <p class="db-sub">{{ section.settings.depletion_sub }}</p>
+     <!-- NEW BUTTON AND TEXT -->
+{% if section.settings.button_text != blank %}
+  <a href="{{ section.settings.button_link }}" class="problem-btn">{{ section.settings.button_text }}</a>
+{% endif %}
+{% if section.settings.extra_text != blank %}
+  <div class="problem-extra-text">{{ section.settings.extra_text }}</div>
+{% endif %}
   </div>
 </section>
-<style>
-  /* ── PROBLEM — the water myth ────────────────────── */
-  .problem-sec{background:var(--page-bg);border-top:1px solid var(--border)}
-  .problem-center{text-align:center;margin-bottom:28px}
-  .problem-center h2{margin-bottom:12px}
-  .problem-sub{font-size:16px;font-weight:300;color:var(--muted-l);line-height:1.7}
-  .mt-4{margin-top:16px}
+  <style>
+    /* ── PROBLEM — the water myth ────────────────────── */
+    .problem-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+    .problem-center{text-align:center;margin-bottom:28px}
+    .problem-center h2{margin-bottom:12px}
+    .problem-sub{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.7}
+    .mt-4{margin-top:16px}
+    
+    /* Myth grid — 1 col mobile, 2 col desktop */
+    .myth-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:24px}
+    @media(min-width:768px){.myth-grid{grid-template-columns:1fr 1fr}}
+    
+    .myth-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px}
+    .myth-card.myth{border-top:3px solid #c04040}
+    .myth-card.truth{border-top:3px solid var(--teal)}
+    .mc-label{display:flex;align-items:center;gap:6px;font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
+    .mc-label.bad{color:#c04040}
+    .mc-label.bad::before{content:'✗';font-size:14px}
+    .mc-label.good{color:var(--teal)}
+    .mc-label.good::before{content:'✓';font-size:14px}
+    .mc-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:14px;line-height:1.2}
+    .mc-points{display:flex;flex-direction:column;gap:10px}
+    .mc-point{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#d0d0d0;line-height:1.55;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:4px}
+    .mc-point.bad::before{content:'·';color:#c04040;font-size:18px;line-height:1;flex-shrink:0;margin-top:-2px}
+    .mc-point.good::before{content:'→';color:var(--teal);font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
+    .mc-point b{color:var(--off-white);font-weight:600}
+    
+    .depletion-block{background:rgba(0,191,168,.05);border:1px solid rgba(0,191,168,.2);border-radius:8px;padding:24px 20px;text-align:center}
+    .db-label{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:block}
+    .db-stat{font-family:var(--f-dis);font-size:clamp(18px,4vw,28px);font-weight:800;line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px}
+    .db-stat em{color:var(--teal);font-style:normal}
+    .db-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7;max-width:520px;margin:0 auto}
+    
+  </style>
+  {% schema %}
+  {
+    "name": "Phasis Electro Problem",
+    "settings": [
+       { "type": "text", "id": "custom_css_class", "label": "custom css class" },
+      { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Water Isn't Enough" },
+      { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "You're Hydrated.<br><em>But Still Depleted.</em>" },
+      { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Modern water treatment strips trace minerals. Sports drinks add them back - buried under 34g of sugar. There's a better way." },
+      { "type": "text", "id": "button_text", "label": "Button Text", "default": "Learn More" },
+    { "type": "url", "id": "button_link", "label": "Button Link"},
+    { "type": "textarea", "id": "extra_text", "label": "Extra Text (HTML allowed)", "default": "<em>No powders. No sugar. Just minerals.</em>" },
+      { "type": "text", "id": "problem_label", "label": "Problem column label", "default": "The Problem" },
+      { "type": "text", "id": "problem_title", "label": "Problem column title", "default": "What most products get wrong" },
+      { "type": "text", "id": "approach_label", "label": "Approach column label", "default": "The Electro+ Approach" },
+      { "type": "text", "id": "approach_title", "label": "Approach column title", "default": "Minerals first. Everything else removed." },
+      { "type": "text", "id": "depletion_label", "label": "Depletion label", "default": "The Depletion Problem" },
+      { "type": "textarea", "id": "depletion_stat", "label": "Depletion stat (HTML allowed)", "default": "In a 60-minute training session, your body loses <em>sodium, potassium, magnesium,</em> and up to <em>48 trace minerals</em> through sweat." },
+      { "type": "textarea", "id": "depletion_sub", "label": "Depletion sub text", "default": "Water replaces fluid volume. It doesn't replace mineral density. That gap is what causes cramping, fatigue, poor sleep, and slow recovery." }
+    ],
+    "blocks": [
+      {
+        "type": "problem_point",
+        "name": "Problem point",
+        "settings": [
+          { "type": "textarea", "id": "text", "label": "Text", "default": "Powder packets - messy, single-use, committed to one drink" }
+        ]
+      },
+      {
+        "type": "approach_point",
+        "name": "Approach point",
+        "settings": [
+          { "type": "textarea", "id": "text", "label": "Text (HTML allowed)", "default": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds." }
+        ]
+      }
+    ],
+    "max_blocks": 12,
+    "presets": [
+      {
+        "name": "Phasis Electro Problem",
+        "blocks": [
+          { "type": "problem_point", "settings": { "text": "Powder packets - messy, single-use, committed to one drink" } },
+          { "type": "problem_point", "settings": { "text": "$1.00-$1.50 per serving adds up fast for daily use" } },
+          { "type": "problem_point", "settings": { "text": "34g sugar per serving spikes insulin and crashes energy" } },
+          { "type": "problem_point", "settings": { "text": "Only replace 3-5 minerals, ignore 45+ others your body needs" } },
+          { "type": "problem_point", "settings": { "text": "Artificial sweeteners alter the taste of your drink" } },
+          { "type": "approach_point", "settings": { "text": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds." } },
+          { "type": "approach_point", "settings": { "text": "<b>From $0.38 per serving</b> - up to 75% less than powder brands" } },
+          { "type": "approach_point", "settings": { "text": "<b>Zero sugar</b> - not reduced, not substituted. Eliminated." } },
+          { "type": "approach_point", "settings": { "text": "<b>50+ trace minerals</b> drawn from Utah's ancient mineral deposits - not synthetic" } },
+          { "type": "approach_point", "settings": { "text": "<b>Unflavored</b> - works in anything without changing the taste" } }
+        ]
+      }
+    ]
+  }
+  {% endschema %}
   
-  /* Myth grid — 1 col mobile, 2 col desktop */
-  .myth-grid{display:grid;grid-template-columns:1fr;gap:12px;margin-bottom:24px}
-  @media(min-width:768px){.myth-grid{grid-template-columns:1fr 1fr}}
-  
-  .myth-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px}
-  .myth-card.myth{border-top:3px solid #c04040}
-  .myth-card.truth{border-top:3px solid var(--teal)}
-  .mc-label{display:flex;align-items:center;gap:6px;font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:14px}
-  .mc-label.bad{color:#c04040}
-  .mc-label.bad::before{content:'✗';font-size:14px}
-  .mc-label.good{color:var(--teal)}
-  .mc-label.good::before{content:'✓';font-size:14px}
-  .mc-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:14px;line-height:1.2}
-  .mc-points{display:flex;flex-direction:column;gap:10px}
-  .mc-point{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted-l);line-height:1.55;padding:10px 12px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:4px}
-  .mc-point.bad::before{content:'·';color:#c04040;font-size:18px;line-height:1;flex-shrink:0;margin-top:-2px}
-  .mc-point.good::before{content:'→';color:var(--teal);font-size:12px;font-weight:700;flex-shrink:0;margin-top:2px}
-  .mc-point b{color:var(--off-white);font-weight:600}
-  
-  .depletion-block{background:rgba(0,191,168,.05);border:1px solid rgba(0,191,168,.2);border-radius:8px;padding:24px 20px;text-align:center}
-  .db-label{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--teal);margin-bottom:12px;display:block}
-  .db-stat{font-family:var(--f-dis);font-size:clamp(18px,4vw,28px);font-weight:800;line-height:1.2;letter-spacing:-0.02em;margin-bottom:12px}
-  .db-stat em{color:var(--teal);font-style:normal}
-  .db-sub{font-size:14px;font-weight:300;color:var(--muted-l);line-height:1.7;max-width:520px;margin:0 auto}
-  
-</style>
-{% schema %}
-{
-  "name": "Phasis Electro Problem",
-  "settings": [
-    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Why Water Isn't Enough" },
-    { "type": "textarea", "id": "heading", "label": "Heading (HTML allowed)", "default": "You're Hydrated.<br><em>But Still Depleted.</em>" },
-    { "type": "textarea", "id": "subheading", "label": "Subheading", "default": "Modern water treatment strips trace minerals. Sports drinks add them back - buried under 34g of sugar. There's a better way." },
-    { "type": "text", "id": "problem_label", "label": "Problem column label", "default": "The Problem" },
-    { "type": "text", "id": "problem_title", "label": "Problem column title", "default": "What most products get wrong" },
-    { "type": "text", "id": "approach_label", "label": "Approach column label", "default": "The Electro+ Approach" },
-    { "type": "text", "id": "approach_title", "label": "Approach column title", "default": "Minerals first. Everything else removed." },
-    { "type": "text", "id": "depletion_label", "label": "Depletion label", "default": "The Depletion Problem" },
-    { "type": "textarea", "id": "depletion_stat", "label": "Depletion stat (HTML allowed)", "default": "In a 60-minute training session, your body loses <em>sodium, potassium, magnesium,</em> and up to <em>48 trace minerals</em> through sweat." },
-    { "type": "textarea", "id": "depletion_sub", "label": "Depletion sub text", "default": "Water replaces fluid volume. It doesn't replace mineral density. That gap is what causes cramping, fatigue, poor sleep, and slow recovery." }
-  ],
-  "blocks": [
-    {
-      "type": "problem_point",
-      "name": "Problem point",
-      "settings": [
-        { "type": "textarea", "id": "text", "label": "Text", "default": "Powder packets - messy, single-use, committed to one drink" }
-      ]
-    },
-    {
-      "type": "approach_point",
-      "name": "Approach point",
-      "settings": [
-        { "type": "textarea", "id": "text", "label": "Text (HTML allowed)", "default": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds." }
-      ]
-    }
-  ],
-  "max_blocks": 12,
-  "presets": [
-    {
-      "name": "Phasis Electro Problem",
-      "blocks": [
-        { "type": "problem_point", "settings": { "text": "Powder packets - messy, single-use, committed to one drink" } },
-        { "type": "problem_point", "settings": { "text": "$1.00-$1.50 per serving adds up fast for daily use" } },
-        { "type": "problem_point", "settings": { "text": "34g sugar per serving spikes insulin and crashes energy" } },
-        { "type": "problem_point", "settings": { "text": "Only replace 3-5 minerals, ignore 45+ others your body needs" } },
-        { "type": "problem_point", "settings": { "text": "Artificial sweeteners alter the taste of your drink" } },
-        { "type": "approach_point", "settings": { "text": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds." } },
-        { "type": "approach_point", "settings": { "text": "<b>From $0.38 per serving</b> - up to 75% less than powder brands" } },
-        { "type": "approach_point", "settings": { "text": "<b>Zero sugar</b> - not reduced, not substituted. Eliminated." } },
-        { "type": "approach_point", "settings": { "text": "<b>50+ trace minerals</b> drawn from Utah's ancient mineral deposits - not synthetic" } },
-        { "type": "approach_point", "settings": { "text": "<b>Unflavored</b> - works in anything without changing the taste" } }
-      ]
-    }
-  ]
-}
-{% endschema %}

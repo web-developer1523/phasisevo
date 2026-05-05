@@ -51,6 +51,7 @@
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "background-2",
@@ -76,7 +77,6 @@
       "type": "about-hero",
       "name": "About Hero",
       "settings": {
-        "custom_css_class": "cst-about-sec",
         "eyebrow": "Our Story · Our Standards · Our Products",
         "heading_line1": "PHASIS is a simple",
         "heading_line2": "truth built into",
@@ -84,6 +84,21 @@
         "subtext": "Humans are <strong>made to evolve.</strong> The supplements industry mostly makes products for people who want shortcuts. We built PHASIS for people who don't need shortcuts — they need better tools.",
         "tagline": "MADE TO EVOLVE.",
         "tagline_sub": "PHASIS brand mantra · est. 2025"
+      }
+    },
+    "founder_story_RrxxRV": {
+      "type": "founder-story",
+      "name": "Founder Story",
+      "settings": {
+        "founder_photo": "shopify://shop_images/0FD77DFE-CEA7-4EAF-BBA1-7212227B51F9.jpg",
+        "eyebrow": "— THE FOUNDER",
+        "headline": "You can be physically disciplined — and still feel mentally <span class=\"accent\">out of control</span>.",
+        "founder_story": "<p>I was always drawn to health and performance — sports, training, lifting. I believed that discipline in the gym would naturally translate into mental clarity.</p>\n\n        <p>It doesn't.</p>\n\n        <p>In my late teens and early twenties, I dealt with anxiety and constant overthinking. I was stuck in my head — ruminating, questioning everything, struggling to stay present.</p>\n\n        <blockquote>\n          <p>No one teaches you how to train your mind.</p>\n        </blockquote>\n\n        <p>When I moved to California, I was introduced to meditation. At the time, I didn't buy into it. But I was willing to try anything.</p>\n\n        <p>During my first real session, I sat for 20 minutes — and when it ended, I felt something I hadn't felt in a long time: clarity, calm, and control.</p>\n\n        <p>That moment changed how I saw everything. If something that simple could shift your mental state, what else is out there that people aren't being taught?</p>\n\n        <p>Years later, I started training jiu-jitsu in my late 20s. Three months in, I entered my first tournament.</p>\n\n        <p>Match after match, I was caught in guillotines, triangles — constant pressure on my neck. I refused to tap. I fought through everything.</p>\n\n        <p>By the final match, my neck was cramping badly. I was ready to forfeit. I went to my bag looking for anything that could help. The only thing I had was a CBD balm — just CBD extract and beeswax.</p>\n\n        <p>I used it. Within minutes, the pain started to fade. The cramp eased. Then it was gone.</p>\n\n        <p>Another moment that connected. If a natural compound that simple could have that kind of effect on the body, how many others are out there that people don't understand?</p>\n\n        <p>Mental tools that can shift your state. Physical compounds that can support your body. Most people don't know they exist, don't understand how they work, or don't know how to use them correctly.</p>\n\n        <p>PHASIS was built to bridge that gap. Not just as a supplement brand, but as a system.</p>\n\n        <blockquote>\n          <p>Train your mind without medication. Support your body with natural compounds.</p>\n        </blockquote>\n\n        <p>Whether you're simply trying to feel better or chasing an edge in your sport, the goal is the same: to evolve.</p>\n\n        <p>The body keeps adapting. The mind keeps adapting. At any age. You're taught that getting older means getting worse — it doesn't. You shouldn't decline. You should keep evolving.</p>\n\n        <p>That's what PHASIS is for. Real tools, real compounds, for every phase of becoming who you're capable of being.</p>\n\n        <p>Made to Evolve.</p>",
+        "founder_signature": "shopify://shop_images/phasis-founder-signature.png",
+        "founder_name": "Jonathan Ross-Turcios",
+        "founder_meta": "Founder, PHASIS",
+        "cta_text": "Take the phase scan",
+        "cta_link": "shopify://pages/quiz"
       }
     },
     "manifesto_section_FNHcfh": {
@@ -115,7 +130,7 @@
       ],
       "name": "Manifesto Section",
       "settings": {
-        "custom_css_class": "cst-manifest-sec",
+        "custom_css_class": "",
         "eyebrow": "The PHASIS Manifesto",
         "heading_line1": "We Refuse to Make",
         "heading_em": "Products That Underperform.",
@@ -166,7 +181,7 @@
       ],
       "name": "Problem Section",
       "settings": {
-        "custom_css_class": "cst-prob-sec",
+        "custom_css_class": "cst-prot-sec",
         "eyebrow": "Why PHASIS Exists",
         "heading_line1": "The Industry Has",
         "heading_em": "Four Serious Problems.",
@@ -185,6 +200,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "custom_css_class": "",
         "color_scheme": "background-1",
         "image_position": "image_right",
         "content_alignment": "left",
@@ -215,6 +231,7 @@
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "custom_css_class": "",
         "color_scheme": "background-1",
         "image_position": "image_left",
         "content_alignment": "left",
@@ -238,31 +255,6 @@
     },
     "rich_text_8UJ9tt": {
       "type": "rich-text",
-      "blocks": {
-        "guarantee_eVPVp6": {
-          "type": "guarantee",
-          "settings": {
-            "text": "30-day guarantee"
-          }
-        },
-        "guarantee_UyTc8t": {
-          "type": "guarantee",
-          "settings": {
-            "text": "Free shipping $75+"
-          }
-        },
-        "guarantee_8bXRgz": {
-          "type": "guarantee",
-          "settings": {
-            "text": "No subscription"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee_eVPVp6",
-        "guarantee_UyTc8t",
-        "guarantee_8bXRgz"
-      ],
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_css_class": "cst-prot-sec",
@@ -272,14 +264,16 @@
         "heading_2": "",
         "section_heading_tag": "h2",
         "heading_size": "h2",
-        "dot": true,
+        "dot": false,
         "text": "<p>23 questions. A clear picture of where to focus. A path forward that starts with you, not a product.</p>",
         "button_label": "FIND YOUR PROTOCOL",
-        "button_link": "#",
+        "button_link": "shopify://pages/quiz",
+        "first_section_id": "",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "s",
@@ -294,42 +288,42 @@
           "type": "standard",
           "settings": {
             "title": "Clinical Dose or Above",
-            "desc": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. <strong>Perform+ delivers 25% above the WADA study dose.</strong>"
+            "desc": "<p>We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. Perform+ delivers 25% above the WADA study dose.</p>"
           }
         },
         "standard_c9QiVc": {
           "type": "standard",
           "settings": {
             "title": "Third-Party Tested",
-            "desc": "Every batch of every product is independently tested for purity, potency, and label accuracy before it ships."
+            "desc": "<p>Every batch of every product is independently tested for purity, potency, and label accuracy before it ships. Certificate of Analysis available on request for every order.</p>"
           }
         },
         "standard_yFjqP8": {
           "type": "standard",
           "settings": {
             "title": "Transparent Labels",
-            "desc": "No proprietary blends. Every ingredient, every dose, visible on the label."
+            "desc": "<p>No proprietary blends. Every ingredient, every dose, visible on the label. If we can't tell you exactly what's in it and why, we don't put it in.</p>"
           }
         },
         "standard_7imKVt": {
           "type": "standard",
           "settings": {
             "title": "Peer-Reviewed Foundations",
-            "desc": "Every formula is built around human clinical research — not trends."
+            "desc": "<p>Every formula is built around human clinical research — not animal studies, not in-vitro data, not social media trends. We cite the studies. You can read them.</p>"
           }
         },
         "standard_qEfjHK": {
           "type": "standard",
           "settings": {
             "title": "No Banned Substances",
-            "desc": "Every product is safe for competitive athletes and tested for contamination."
+            "desc": "<p>Every product is safe for competitive athletes at every level — USADA-tested, UFC-competing, or amateur. Tested for contamination. Confirmed clean.</p>"
           }
         },
         "standard_bwfyLk": {
           "type": "standard",
           "settings": {
             "title": "Fair Pricing",
-            "desc": "Premium ingredients don't require premium gouging."
+            "desc": "<p>Premium ingredients don't require premium gouging. We price for accessibility — because a formula this good should be something people can actually afford to use every day.</p>"
           }
         }
       },
@@ -347,7 +341,70 @@
         "eyebrow": "How We Build Products",
         "heading_line1": "The PHASIS Standard.",
         "heading_em": "Every Formula. Every Batch.",
-        "subtext": "There are six things we commit to for every product we make. Non-negotiable."
+        "subtext": "<p>There are six things we commit to for every product we make. Non-negotiable.</p>"
+      }
+    },
+    "products_system_h3hT8Y": {
+      "type": "products-system",
+      "blocks": {
+        "product_block_abBKBX": {
+          "type": "product_block",
+          "settings": {
+            "product": "max-relief-balm",
+            "emoji": "🧴",
+            "category": "Recovery · CBD Topical",
+            "category_color": "#ff5a3c",
+            "custom_desc": "Each one was built to solve a specific, underserved problem in the recovery and performance space.",
+            "custom_link": "shopify://pages/max-relief"
+          }
+        },
+        "product_block_k4MD3C": {
+          "type": "product_block",
+          "settings": {
+            "product": "electro-drops",
+            "emoji": "🧴",
+            "category": "Hydration · Minerals",
+            "category_color": "#ff5a3c",
+            "custom_desc": "Liquid mineral concentrate. 50+ trace minerals. Zero sugar. Works in any drink. 75% less per serving than leading powder brands.",
+            "custom_link": "shopify://pages/electro-plus"
+          }
+        },
+        "product_block_jadhyp": {
+          "type": "product_block",
+          "settings": {
+            "product": "perform",
+            "emoji": "🧴",
+            "category": "Performance · β-Ecdysterone<",
+            "category_color": "#ff5a3c",
+            "custom_desc": "250mg β-Ecdysterone per capsule — 25% above the WADA study dose. Non-hormonal. Plant-derived. Safe for men and women.",
+            "custom_link": "shopify://pages/perform-plus"
+          }
+        },
+        "product_block_KFeKHi": {
+          "type": "product_block",
+          "settings": {
+            "product": "relief-balm",
+            "emoji": "🧴",
+            "category": "Recovery · CBD Topical",
+            "category_color": "var(--coral)",
+            "custom_desc": "",
+            "custom_link": "shopify://pages/relief"
+          }
+        }
+      },
+      "block_order": [
+        "product_block_abBKBX",
+        "product_block_k4MD3C",
+        "product_block_jadhyp",
+        "product_block_KFeKHi"
+      ],
+      "name": "Products System",
+      "settings": {
+        "custom_css_class": "cst-prosys-sec",
+        "eyebrow": "The Product Line",
+        "heading_line1": "Four Products.",
+        "heading_line2": "One Complete System.",
+        "subtext": "Each one was built to solve a specific, underserved problem."
       }
     },
     "rich_text_azbzfG": {
@@ -371,13 +428,124 @@
         "text": "",
         "button_label": "",
         "button_link": "",
+        "first_section_id": "purchase",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "m",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "rich_text_iJ9zxe": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-start-sec",
+        "section_layout": "row",
+        "subheading": "Ready to start?",
+        "heading": "",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "",
+        "button_label": "SHOP ALL PRODUCTS",
+        "button_link": "shopify://pages/phasis-shop",
+        "first_section_id": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "WANT TO FEEL BETTER? START HERE",
+        "button_link_2": "shopify://pages/quiz",
+        "second_section_id": "",
+        "button_style_2": "secondary",
+        "button_dot_2": true,
+        "margin_top": "s",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "values_section_CTkh7k": {
+      "type": "values-section",
+      "blocks": {
+        "value_iBEkcy": {
+          "type": "value",
+          "settings": {
+            "title": "Science Over Trend",
+            "description": "We don't chase ingredients because they're hot on social media. We build formulas around human clinical research. If the data doesn't support it, it doesn't go in the product."
+          }
+        },
+        "value_fLdFBW": {
+          "type": "value",
+          "settings": {
+            "title": "Transparency as Default",
+            "description": "Full labels. Third-party testing. COA on request. No proprietary blends. No hidden doses. If we can't tell you exactly what's in it, we don't sell it."
+          }
+        },
+        "value_ybPxfY": {
+          "type": "value",
+          "settings": {
+            "title": "Honesty in Marketing",
+            "description": "We don't claim things we can't support. The \"+2kg lean muscle\" number comes from a WADA-funded, peer-reviewed study — not a before/after photo. Every claim on our pages has a citation."
+          }
+        },
+        "value_XcwDhU": {
+          "type": "value",
+          "settings": {
+            "title": "Respect for the Athlete",
+            "description": "Our customers are smart. They research what they put in their bodies. We match their standard by explaining the mechanisms, citing the studies, and giving them everything they need to make an informed decision."
+          }
+        },
+        "value_gM9Bdt": {
+          "type": "value",
+          "settings": {
+            "title": "Refuse to Stay the Same",
+            "description": "Evolution is the point. We're not building a supplement brand — we're building a performance system for people who take their physical development seriously. Every product we release moves that mission forward."
+          }
+        }
+      },
+      "block_order": [
+        "value_iBEkcy",
+        "value_fLdFBW",
+        "value_ybPxfY",
+        "value_XcwDhU",
+        "value_gM9Bdt"
+      ],
+      "name": "Values Section",
+      "settings": {
+        "eyebrow": "What We Stand For",
+        "heading": "The Values We",
+        "heading_em": "Won't Compromise On."
+      }
+    },
+    "rich_text_nHwBLm": {
+      "type": "rich-text",
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-part-sec",
+        "section_layout": "column",
+        "subheading": "Ready to Experience the Difference",
+        "heading": "Made to Evolve.",
+        "heading_2": "Built For You.",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>Browse the full product line and see what clinically-informed, transparently-labeled, third-party tested supplements actually feel like.</p>",
+        "button_label": "SHOP ALL PRODUCTS",
+        "button_link": "shopify://pages/phasis-shop",
+        "first_section_id": "",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "PARTNER WITH US",
+        "button_link_2": "shopify://pages/partner",
+        "second_section_id": "",
+        "button_style_2": "secondary",
+        "button_dot_2": true,
+        "margin_top": "s",
         "margin_bottom": "s",
         "section_id": ""
       }
@@ -456,12 +624,14 @@
         "column_rek737",
         "column_cgpiC9"
       ],
+      "disabled": true,
       "custom_css": [
         "{background: #e9e9e9b2;}",
         ".background {background: transparent;}"
       ],
       "name": "t:sections.multicolumn.name",
       "settings": {
+        "custom_css_class": "",
         "section_heading": "",
         "section_heading_tag": "h2",
         "section_heading_size": "h2",
@@ -500,11 +670,13 @@
       "block_order": [
         "slideshow_item_GpW8CX"
       ],
+      "disabled": true,
       "custom_css": [
         "{background: #e9e9e9b2;}"
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "",
@@ -528,6 +700,7 @@
     },
     "rich_text_jPgryB": {
       "type": "rich-text",
+      "disabled": true,
       "custom_css": [
         "{background: #e9e9e9b2; text-align: center;}",
         ".rich-text__wrapper {align-items: center;}",
@@ -546,10 +719,12 @@
         "text": "",
         "button_label": "",
         "button_link": "",
+        "first_section_id": "purchase",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "m",
@@ -631,12 +806,14 @@
         "column_9bTzdG",
         "column_G9MwHW"
       ],
+      "disabled": true,
       "custom_css": [
         "{background: #e9e9e9b2;}",
         ".background {background: transparent;}"
       ],
       "name": "t:sections.multicolumn.name",
       "settings": {
+        "custom_css_class": "",
         "section_heading": "",
         "section_heading_tag": "h2",
         "section_heading_size": "h1",
@@ -653,12 +830,14 @@
     },
     "image_with_text_Nktw4T": {
       "type": "image-with-text",
+      "disabled": true,
       "custom_css": [
         ".image-with-text__content {background: transparent;}",
         ".section-header,.image-with-text__text {max-width: 100%;}"
       ],
       "name": "t:sections.image-with-text.presets.name",
       "settings": {
+        "custom_css_class": "",
         "color_scheme": "background-1",
         "image_position": "image_left",
         "content_alignment": "left",
@@ -704,6 +883,7 @@
       "block_order": [
         "slideshow_item_HhJ8Y8"
       ],
+      "disabled": true,
       "custom_css": [
         ".container {align-self: center;}",
         ".slideshow-slide__text {max-width: 800px; width: 100%;}",
@@ -711,6 +891,7 @@
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "",
@@ -737,13 +918,18 @@
     "main",
     "slideshow_e6rRN9",
     "about_hero_j4CGjp",
+    "founder_story_RrxxRV",
     "manifesto_section_FNHcfh",
     "problem_section_TCh9CU",
     "image_with_text_JFF7tT",
     "image_with_text_RyrqtR",
     "rich_text_8UJ9tt",
     "standards_section_QiKcjf",
+    "products_system_h3hT8Y",
     "rich_text_azbzfG",
+    "rich_text_iJ9zxe",
+    "values_section_CTkh7k",
+    "rich_text_nHwBLm",
     "multicolumn_w7yQBR",
     "slideshow_echwjT",
     "rich_text_jPgryB",

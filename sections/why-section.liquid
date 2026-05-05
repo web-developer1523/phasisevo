@@ -1,0 +1,205 @@
+<section class="why-sec section {{ section.settings.custom_class }}">
+  <div class="why-top">
+    
+    <span class="eyebrow">
+      {{ section.settings.eyebrow }}
+    </span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_em }}</em>
+    </h2>
+
+    <p class="why-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+
+  </div>
+
+  <div class="why-grid">
+    {% for block in section.blocks %}
+      <div class="why-item" {{ block.shopify_attributes }}>
+        
+        <div class="wi-icon">
+          {{ block.settings.icon }}
+        </div>
+
+        <h3 class="wi-title">
+          {{ block.settings.title }}
+        </h3>
+
+        <div class="wi-desc">
+          {{ block.settings.desc }}
+        </div>
+
+      </div>
+    {% endfor %}
+  </div>
+</section>
+<style>
+    /* ── WHY PHASIS ──────────────────────────────────── */
+.why-sec{background:var(--surface);border-top:1px solid var(--border)}
+
+.why-sec {
+    padding: 48px var(--pad);
+}
+
+@media (min-width: 768px) {
+    .why-sec {
+        padding: 64px var(--pad-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .why-sec {
+        padding: 80px var(--pad-lg);
+    }
+}
+
+.eyebrow {
+    margin-bottom:14px;
+}
+
+.why-top{text-align:center;margin-bottom:28px}
+.why-top h2{margin-bottom:12px}
+
+.why-top h2 {
+    font-family: var(--f-dis);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+@media (min-width: 768px) {
+  .why-top h2 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+  .why-top h2 {
+        font-size: 44px;
+    }
+}
+
+h1 em, h2 em {
+    color: var(--coral);
+    font-style: normal;
+}
+
+.mt-4 {
+    margin-top: 16px;
+}
+.why-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7}
+
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media(min-width:768px){.why-grid{grid-template-columns:repeat(4,1fr)}}
+
+.why-item{background:var(--page-bg);border:1px solid var(--border);border-radius:8px;padding:20px 16px;text-align:center}
+.wi-icon{font-size:28px;margin-bottom:12px}
+.wi-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:8px}
+.wi-desc{font-size:15px;color:#d0d0d0;line-height:1.6}
+
+</style>
+{% schema %}
+{
+  "name": "Why Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why It's Worth Your Endorsement"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Products Your Audience"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Heading Highlight",
+      "default": "Will Actually Trust."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "We don't make supplements your community has to take on faith. Every formula is defensible, science-backed, and third-party verified."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "feature",
+      "name": "Why Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "🔬"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Real Science"
+        },
+        {
+          "type": "textarea",
+          "id": "desc",
+          "label": "Description",
+          "default": "Every formula backed by peer-reviewed research."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Section",
+      "blocks": [
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🔬",
+            "title": "Real Science",
+            "desc": "Every formula backed by peer-reviewed research. The WADA-funded study. Published mechanisms. Cited sources."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "🧪",
+            "title": "3rd Party Tested",
+            "desc": "Every batch independently tested for purity and label accuracy."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "⚡",
+            "title": "Clean Formulas",
+            "desc": "No proprietary blends. No banned substances. No misleading claims."
+          }
+        },
+        {
+          "type": "feature",
+          "settings": {
+            "icon": "💬",
+            "title": "Converts Well",
+            "desc": "Built for performance. Real reviews. Honest positioning."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

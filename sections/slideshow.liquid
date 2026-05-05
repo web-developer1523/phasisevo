@@ -155,7 +155,7 @@
 	endif
 %}
 <div
-	class="slideshow {{ slide_class }} {% if slide_effects == 'custom' %} slideshow--custom-effect {% endif %}"
+	class="slideshow {{ slide_class }} {{section.settings.custom_css_class }} {% if slide_effects == 'custom' %} slideshow--custom-effect {% endif %}"
 	data-id="shopify-section-{{ section.id }}"
 	data-autoplay="{{ autoplay }}"
 	data-stop-autoplay="{{ stop_autoplay }}"
@@ -418,6 +418,11 @@
 			"templates": ["*"]
 		},
 		"settings": [
+			{
+				"type": "text",
+				"id": "custom_css_class",
+				"label": "Custom CSS Class"
+			},
 			{
 				"type": "checkbox",
 				"id": "header_overlay",

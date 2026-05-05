@@ -1,0 +1,346 @@
+<section class="types-sec section {{ section.settings.custom_css_class }}" id="types">
+  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+  <h2>
+    {{ section.settings.heading_line_1 -}}
+    <br>
+    <em>{{ section.settings.heading_line_2 }}</em>
+  </h2>
+
+  <p class="types-sub">
+    {{ section.settings.subtext }}
+  </p>
+
+  <div class="partner-cards">
+    {% for block in section.blocks %}
+      {% if block.type == 'program' %}
+        <div class="partner-card">
+          <div class="pc-icon">{{ block.settings.icon }}</div>
+          <span class="pc-type">{{ block.settings.program_label }}</span>
+          <h3 class="pc-title">{{ block.settings.title }}</h3>
+          <div class="pc-desc">{{ block.settings.description }}</div>
+
+          {% if block.settings.highlight_box != blank %}
+            <div class="pc-highlight">
+              {{ block.settings.highlight_box }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.perks != blank %}
+            <div class="pc-perks">
+              {% assign perks = block.settings.perks | split: ',' %}
+              {% for perk in perks %}
+                <div class="pc-perk">{{ perk }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+          {% if block.settings.button_url != blank %}
+            <a href="{{ block.settings.button_url }}" class="pc-cta">
+              {{ block.settings.button_text }}
+            </a>
+          {% else %}
+            <button
+              class="pc-cta"
+               onclick="handleProgramClick('{{ block.settings.scroll_target_id }}', '{{ block.settings.form_value }}')"
+            >
+              {{ block.settings.button_text }}
+            </button>
+          {% endif %}
+        </div>
+
+      {% elsif block.type == 'commission_tier' %}
+        <div class="commission-tier {% if block.settings.highlight %}highlight{% endif %}">
+          <span>{{ block.settings.tier_name }}</span>
+          <strong>{{ block.settings.tier_value }}</strong>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<style>
+    /* ── PARTNER TYPES ───────────────────────────────── */
+
+
+  .types-sec {
+      padding: 48px var(--pad);
+  }
+
+  @media (min-width: 768px) {
+      .types-sec {
+          padding: 64px var(--pad-md);
+      }
+  }
+
+  @media (min-width: 1024px) {
+      .types-sec {
+          padding: 80px var(--pad-lg);
+      }
+  }
+
+  .types-sec h2 {
+      margin-bottom: 14px;
+      font-family: var(--f-dis);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+  }
+
+  @media (min-width: 768px) {
+      .types-sec h2 {
+          font-size: 36px;
+      }
+  }
+
+  @media (min-width: 1024px) {
+      .types-sec h2 {
+          font-size: 44px;
+      }
+  }
+
+  .types-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+  .types-sec .eyebrow{display:block; margin-bottom: 14px;}
+  .types-sec h2{margin-bottom:14px}
+  .types-sec h2 em{color:var(--coral);font-style:normal}
+  .types-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7;margin-bottom:28px}
+
+  .commission-box , .how-it-works{
+      background: rgba(232,72,42,.06);
+      border: 1px solid rgba(232,72,42,.18);
+      border-radius: 6px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+  }
+
+  .commission-box .cb-title, .how-it-works .hiw-title {
+      font-family: 'Sora',sans-serif;
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--coral);
+      margin-bottom: 12px;
+  }
+  .commission-box .cb-row, .how-it-works .hiw-step {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-size: 13px;
+      padding: 8px 10px;
+      background: rgba(255,255,255,.03);
+      border-radius: 4px;
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+  }
+
+  .commission-box .cb-row span {
+      color: var(--muted-l);
+  }
+
+  .commission-box strong {
+      font-family: 'Sora',sans-serif;
+      font-weight: 700;
+      color: var(--off-white);
+  }
+  .commission-box .cb-row.highlight {
+      background: rgba(232, 72, 42, .08);
+      border-radius: 4px;
+      border: 1px solid rgba(232, 72, 42, .25);
+      margin: 0;
+  }
+
+  .commission-box .cb-row.highlight span {
+      color: var(--off-white);
+      font-weight: 500;
+  }
+
+  .commission-box .cb-row.highlight strong {
+      font-family: 'Sora',sans-serif;
+      font-weight: 700;
+      color: var(--coral);
+  }
+
+  .how-it-works .hiw-step .hiw-step-number {
+      color: var(--coral);
+      font-weight: 700;
+      font-size: 11px;
+      flex-shrink: 0;
+      font-family: 'Sora',sans-serif;
+  }
+
+  .how-it-works .hiw-step .hiw-step-text {
+      color: var(--muted-l);
+  }
+
+  .how-it-works .hiw-step {
+      gap: 12px;
+      justify-content: start;
+  }
+
+  .partner-cards{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:600px){.partner-cards{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.partner-cards{grid-template-columns:repeat(2,1fr)}}
+
+  .partner-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:24px 20px;position:relative;overflow:hidden;transition:border-color .2s}
+  .partner-card:hover{border-color:rgba(232,72,42,.3)}
+  .partner-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--coral);opacity:.7}
+  .pc-icon{font-size:36px;margin-bottom:16px}
+  .pc-type{font-family:var(--f-body);font-size:9px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:8px;display:block}
+  .pc-title{font-family:var(--f-dis);font-size:18px;font-weight:700;margin-bottom:12px;line-height:1.1}
+  .pc-desc p{font-size:15px;color:#d0d0d0;line-height:1.7;margin-bottom:16px}
+  .pc-perks{display:flex;flex-direction:column;gap:8px;margin-bottom:20px}
+  .pc-perk{display:flex;align-items:center;gap:8px;font-size:14px;color:var(--off-white)}
+  .pc-perk::before{content:'✓';color:var(--coral);font-weight:700;font-size:11px;flex-shrink:0;font-family:var(--f-dis)}
+  .pc-cta{display:flex;align-items:center;gap:6px;font-family:var(--f-dis);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);background:none;border:none;cursor:pointer;padding:0;min-height:44px}
+  .pc-cta::after{content:'→';margin-left:4px}
+</style>
+<script>
+function handleProgramClick(scrollId, formValue){
+
+  //  OLD BEHAVIOR (form fill)
+  const input = document.getElementById('partner-type');
+  if(input){
+    input.value = formValue;
+  }
+
+  // NEW BEHAVIOR (smooth scroll)
+  if(scrollId){
+    const el = document.getElementById(scrollId);
+    if(el){
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  }
+
+}
+</script>
+{% schema %}
+{
+  "name": "Partner Types",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Partnership Programs"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_1",
+      "label": "Heading Line 1",
+      "default": "Three Ways to"
+    },
+    {
+      "type": "text",
+      "id": "heading_line_2",
+      "label": "Heading Line 2",
+      "default": "Work With PHASIS."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "Pick the model that fits your business. All three come with dedicated support, real product, and a brand worth standing behind."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "program",
+      "name": "Program Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji)",
+          "default": "🏪"
+        },
+        {
+          "type": "text",
+          "id": "program_label",
+          "label": "Program Label",
+          "default": "Program 01"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Wholesale"
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description"
+        },
+        {
+          "type": "textarea",
+          "id": "highlight_box",
+          "label": "Highlight Box (optional HTML)"
+        },
+        {
+          "type": "textarea",
+          "id": "perks",
+          "label": "Perks (comma separated)",
+          "info": "Example: Perk 1, Perk 2, Perk 3"
+        },
+        {
+          "type": "text",
+          "id": "button_text",
+          "label": "Button Text",
+          "default": "Apply Now"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Button Link"
+        },
+        {
+          "type": "text",
+          "id": "form_value",
+          "label": "Form Value",
+          "default": "wholesale"
+        },
+        {
+          "type": "text",
+          "id": "scroll_target_id",
+          "label": "Scroll To Section ID (optional)",
+          "default": "contact"
+        }
+      ]
+    },
+    {
+      "type": "commission_tier",
+      "name": "Commission Tier",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tier_name",
+          "label": "Tier Name",
+          "default": "Entry — Up to $499/mo"
+        },
+        {
+          "type": "text",
+          "id": "tier_value",
+          "label": "Tier Value",
+          "default": "15%"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight this Tier",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Partner Types",
+      "blocks": [{ "type": "program" }, { "type": "program" }, { "type": "program" }]
+    }
+  ]
+}
+{% endschema %}

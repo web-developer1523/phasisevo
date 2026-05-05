@@ -1,0 +1,177 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "journal_hero_cTmYg7": {
+      "type": "journal-hero",
+      "name": "Journal Hero",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "PHASIS Journal",
+        "heading_line1": "The",
+        "heading_em1": "thinking",
+        "heading_line2": "behind",
+        "heading_line3": "the",
+        "heading_em2": "training.",
+        "tagline": "What works. Why it works. How to apply it."
+      }
+    },
+    "journal_featured_blog_posts_WQXx66": {
+      "type": "journal-featured-blog-posts",
+      "name": "Journal Blog Posts",
+      "settings": {
+        "heading": "Recent Posts",
+        "blog": "articles",
+        "post_limit": 3
+      }
+    },
+    "journal_ctabtn_LFGB9H": {
+      "type": "journal-ctabtn",
+      "name": "Journal CTA Section",
+      "settings": {
+        "cta_label": "Dont Guess your supplements",
+        "cta_heading": "Start with your protocol",
+        "cta_text": "Get a personalized protocol in 3 minutes—built around what your body actually needs.",
+        "cta_link": "shopify://pages/quiz",
+        "cta_button": "START MY SCAN"
+      }
+    },
+    "journalcustom_article_list_gwTg3x": {
+      "type": "journalcustom-article-list",
+      "blocks": {
+        "article_block_rYGmTJ": {
+          "type": "article_block",
+          "settings": {
+            "article": "articles/best-recovery-drinks-for-athletes-hydration-endurance-and-faster-muscle-repair"
+          }
+        },
+        "article_block_FzbR8V": {
+          "type": "article_block",
+          "settings": {
+            "article": "articles/electrolyte-hydration-recovery-performance"
+          }
+        },
+        "article_block_7PExPy": {
+          "type": "article_block",
+          "settings": {
+            "article": "articles/natural-muscle-joint-pain-relief-for-everyday-recovery-and-mobility"
+          }
+        },
+        "article_block_YyRaTH": {
+          "type": "article_block",
+          "settings": {
+            "article": "articles/max-strength-muscle-joint-pain-relief-fast-recovery-for-active-bodies"
+          }
+        }
+      },
+      "block_order": [
+        "article_block_rYGmTJ",
+        "article_block_FzbR8V",
+        "article_block_7PExPy",
+        "article_block_YyRaTH"
+      ],
+      "name": "Journal Article List",
+      "settings": {
+        "heading": "All Journal Posts"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "journal_hero_cTmYg7",
+    "journal_featured_blog_posts_WQXx66",
+    "journal_ctabtn_LFGB9H",
+    "journalcustom_article_list_gwTg3x"
+  ]
+}

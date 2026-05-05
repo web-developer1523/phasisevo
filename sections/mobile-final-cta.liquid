@@ -1,0 +1,138 @@
+<section class="final-cta section {{section.settings.custom_css_class }}">
+  <span class="fc-eyebrow">{{ section.settings.eyebrow }}</span>
+
+  <h2 class="fc-h">
+    {{ section.settings.heading_line1 -}}
+    <br>
+    {{ section.settings.heading_line2 -}}
+    <br>
+    <em>{{ section.settings.heading_emphasis }}</em>
+  </h2>
+
+  <p class="fc-p">{{ section.settings.description }}</p>
+
+  <div class="fc-cta">
+    <a
+      href="
+        {% if section.settings.button_link != blank %}
+            {{ section.settings.button_link }}
+        {% elsif section.settings.section_id != blank %}
+            #{{ section.settings.section_id }}
+        {% else %}
+            #
+        {% endif %}
+      "
+      class="btn btn-a btn-full"
+      style="max-width:360px"
+    >
+      {{ section.settings.button_text }}
+    </a>
+
+    <div class="fc-trust">
+      {% for block in section.blocks %}
+        {% if block.type == 'trust' %}
+          <span>{{ block.settings.text }}</span>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+<style>
+      /* ── FINAL CTA ───────────────────────────────────── */
+  .final-cta{background:var(--surface);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+  .final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(212,131,26,.08) 0%,transparent 55%);pointer-events:none}
+</style>
+{% schema %}
+{
+  "name": "Final CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Clean Anabolic Edge"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Train Harder."
+    },
+    {
+      "type": "html",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Build More."
+    },
+    {
+      "type": "text",
+      "id": "heading_emphasis",
+      "label": "Heading Emphasis",
+      "default": "Stay Clean."
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Up to +2kg lean muscle in 10 weeks. WADA-funded research. 250mg verified dose. Non-hormonal. Safe for men and women. Backed by a 30-day guarantee."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "GET PERFORM+ — FROM $49"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "section_id",
+      "label": "Button Section Id"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Trust Point",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "30-day money back guarantee"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": " Mobile Final CTA",
+      "category": "Custom",
+      "blocks": [
+        {
+          "type": "trust",
+          "settings": {
+            "text": "30-day money back guarantee"
+          }
+        },
+        {
+          "type": "trust",
+          "settings": {
+            "text": "No PCT required"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

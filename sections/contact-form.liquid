@@ -4,21 +4,12 @@
   {% render 'section-margin' %}
 {%- endstyle -%}
 
-<div class="contact-form">
+<div class="contact-form cst-cont-new" id="contact">
   <div class="container">
     <div class="contact-form__container contact-form__container--{{ section.settings.content_align }}">
       {% if template == 'page.contact' %}
-        <nav
-          id="breadcrumbs"
-          class="breadcrumb"
-          role="navigation"
-          aria-label="breadcrumbs"
-        >
-          <a
-            href="{{ routes.root_url }}"
-            title="{{ 'general.breadcrumbs.home' | t }}"
-            class="focus-inset"
-          >
+        <nav id="breadcrumbs" class="breadcrumb" role="navigation" aria-label="breadcrumbs">
+          <a href="{{ routes.root_url }}" title="{{ 'general.breadcrumbs.home' | t }}" class="focus-inset">
             {{- 'general.breadcrumbs.home' | t -}}
           </a>
           <div class="breadcrumb__delimiter">
@@ -27,19 +18,28 @@
           <span>{{ page.title }}</span>
         </nav>
       {% endif %}
+      
       <div class="contact-form__inner">
         <div class="contact-form__wrapper">
+          {%- if section.settings.subheading != blank -%}
+            <p class="contact-form__subheading">
+              {{ section.settings.subheading }}
+            </p>
+          {%- endif -%}
+
           {%- if section.settings.heading != blank -%}
             {% assign heading_tag = section.settings.heading_tag %}
             <{{ heading_tag }} class="contact-form__title {{ section.settings.heading_size }}">
-              {{ section.settings.heading }}
+              {{ section.settings.heading | replace: 'Partner With Us.', '<span class="highlight_heading">Partner With Us.</span>' }}
             </{{ heading_tag }}>
           {%- endif -%}
+
           {%- if section.settings.text != blank -%}
             <p class="contact-form__text">
               {{ section.settings.text }}
             </p>
           {%- endif -%}
+
           {%- form 'contact', id: 'ContactForm' -%}
             {%- if form.posted_successfully? -%}
               <div class="form-status form-status-list form__message" tabindex="-1" autofocus>
@@ -48,110 +48,112 @@
               </div>
             {%- elsif form.errors -%}
             {%- endif -%}
+            <div class="field__name-wrapper">
+            <!-- First Name -->
             <div class="field field__name">
-              <input
-                class="field__input focus-inset"
-                autocomplete="name"
-                type="text"
-                dir="ltr"
-                id="ContactForm-name"
-                name="contact[{{ 'templates.contact.form.name' | t }}]"
-                value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
-                placeholder="{{ 'templates.contact.form.name' | t }}"
-              >
-              <label
-                class="field__label"
-                for="ContactForm-name"
-                placeholder="{{ 'templates.contact.form.name' | t }}"
-              >
-                {{ 'templates.contact.form.name' | t }}
-              </label>
+              <input class="field__input focus-inset" autocomplete="given-name" type="text" dir="ltr"
+                     id="ContactForm-first-name"
+                     name="contact[First Name]"
+                     value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
+                     placeholder="Your first name">
+              <label class="field__label" for="ContactForm-first-name">First Name</label>
             </div>
+
+            <!-- Last Name (New Field) -->
+            <div class="field field__last-name">
+              <input class="field__input focus-inset" autocomplete="family-name" type="text" dir="ltr"
+                     id="ContactForm-last-name"
+                     name="contact[Last Name]"
+                     placeholder="Your last name">
+              <label class="field__label" for="ContactForm-last-name">Last Name</label>
+            </div>
+            </div>
+            <!-- Email (existing) -->
             <div class="field field--with-error">
-              <input
-                autocomplete="email"
-                type="email"
-                dir="ltr"
-                id="ContactForm-email"
-                class="field__input focus-inset"
-                name="contact[email]"
-                spellcheck="false"
-                autocapitalize="off"
-                value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
-                aria-required="true"
-                {% if form.errors contains 'email' %}
-                  aria-invalid="true"
-                  aria-describedby="ContactForm-email-error"
-                {% endif %}
-                placeholder="{{ 'templates.contact.form.email' | t }}"
-                required
-              >
-              <label
-                class="field__label"
-                for="ContactForm-email"
-                placeholder="{{ 'templates.contact.form.email' | t }}"
-              >
-                {{ 'templates.contact.form.email' | t }}
-              </label>
+              <input autocomplete="email" type="email" dir="ltr" id="ContactForm-email" class="field__input focus-inset"
+                     name="contact[email]" spellcheck="false" autocapitalize="off"
+                     value="{% if form.email %}{{ form.email }}{% elsif customer %}{{ customer.email }}{% endif %}"
+                     aria-required="true"
+                     {% if form.errors contains 'email' %}aria-invalid="true" aria-describedby="ContactForm-email-error"{% endif %}
+                     {% comment %} placeholder="{{ 'templates.contact.form.email' | t }}" {% endcomment %}
+                     placeholder="your@email.com" required>
+              {% comment %} <label class="field__label" for="ContactForm-email">{{ 'templates.contact.form.email' | t }}</label> {% endcomment %}
+                <label class="field__label" for="ContactForm-email">Email Address</label>
               {%- if form.errors contains 'email' -%}
                 <small class="contact-form__field-error" id="ContactForm-email-error">
                   <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
-                  <span class="form__message">
-                    {{- form.errors.translated_fields.email | capitalize }}
-                    {{ form.errors.messages.email -}}
-                  </span>
+                  <span class="form__message">{{- form.errors.translated_fields.email | capitalize }} {{ form.errors.messages.email -}}</span>
                 </small>
               {%- endif -%}
             </div>
-            <div class="field">
-              <input
-                type="tel"
-                dir="ltr"
-                id="ContactForm-phone"
-                class="field__input"
-                autocomplete="tel"
-                name="contact[{{ 'templates.contact.form.phone' | t }}]"
-                pattern="[0-9\-]*"
-                value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
-                placeholder="{{ 'templates.contact.form.phone' | t }}"
-              >
-              <label
-                class="field__label"
-                for="ContactForm-phone"
-                placeholder="{{ 'templates.contact.form.phone' | t }}"
-              >
-                {{- 'templates.contact.form.phone' | t -}}
-              </label>
-            </div>
-            <div class="field">
-              <textarea
-                dir="ltr"
-                id="ContactForm-body"
-                class="text-area field__input"
-                name="contact[{{ 'templates.contact.form.comment' | t }}]"
-                placeholder="{{ 'templates.contact.form.comment' | t }}"
-                aria-required="true"
-                required
-              >
-                {{- form.body -}}
-              </textarea>
-              <label
-                class="form__label field__label"
-                for="ContactForm-body"
-                placeholder="{{ 'templates.contact.form.comment' | t }}"
-              >
-                {{- 'templates.contact.form.comment' | t -}}
-              </label>
-            </div>
-            <div class="contact-form__bottom">
-              <button
-                type="submit"
-                class="button button--{{ section.settings.button_style }} button--primary-size focus-inset"
-                data-button-text="{{ 'templates.contact.form.send' | t }}"
-              >
-                <span>{{ 'templates.contact.form.send' | t }}</span>
-              </button>
 
+            <!-- Phone (existing) -->
+            {% comment %} <div class="field">
+              <input type="tel" dir="ltr" id="ContactForm-phone" class="field__input" autocomplete="tel"
+                     name="contact[{{ 'templates.contact.form.phone' | t }}]"
+                     pattern="[0-9\-]*"
+                     value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
+                     placeholder="{{ 'templates.contact.form.phone' | t }}">
+              <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+            </div> {% endcomment %}
+
+            <!-- Business / Brand Name (New Field) -->
+            <div class="field field__business">
+              <input class="field__input" type="text" dir="ltr" id="ContactForm-business" name="contact[Business / Brand Name]"
+                     placeholder="Your gym, brand, or handle">
+              <label class="field__label" for="ContactForm-business">Business / Brand Name</label>
+            </div>
+
+            <!-- Partnership Type (Dropdown) -->
+            <div class="field field__partnership">
+              <label class="field__label" for="ContactForm-partnership">Partnership Type</label>
+              <select class="field__input" id="ContactForm-partnership" name="contact[Partnership Type]" required>
+                <option value="" disabled selected>Select a program</option>
+                <option value="Reseller">Reseller</option>
+                <option value="Affiliate">Affiliate</option>
+                <option value="Supplier">Supplier</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <!-- Partnership Type (New Field) -->
+            {% comment %} <div class="field field__partnership">
+              <input class="field__input" type="text" dir="ltr" id="ContactForm-partnership" name="contact[Partnership Type]"
+                     placeholder="Partnership Type">
+              <label class="field__label" for="ContactForm-partnership">Partnership Type</label>
+            </div> {% endcomment %}
+
+            <!-- Website / Social (New Field) -->
+            <div class="field field__website">
+              <input class="field__input" type="url" dir="ltr" id="ContactForm-website" name="contact[Website / Social]"
+                     placeholder="yoursite.com or @yourhandle">
+              <label class="field__label" for="ContactForm-website">Website or Social Handle</label>
+            </div>
+
+            <!-- Tell Us About Yourself (New Field) -->
+            <div class="field field__textarea">
+              <textarea dir="ltr" id="ContactForm-about" class="text-area field__input"
+                        name="contact[Tell Us About Yourself]" placeholder="Who is your audience? What does your business do? Why is PHASIS a fit?" required></textarea>
+              <label class="field__label" for="ContactForm-about">Tell Us About Yourself</label>
+            </div>
+
+            <!-- Submit Button -->
+            {% comment %} <div class="contact-form__bottom">
+              <button type="submit"
+                      class="button button--{{ section.settings.button_style }} button--primary-size focus-inset"
+                      data-button-text="{{ 'templates.contact.form.send' | t }}">
+                <span>{{ 'templates.contact.form.send' | t }}</span>
+              </button> {% endcomment %}
+              <button
+              type="submit"
+              class="button button--{{ section.settings.button_style }} button--primary-size focus-inset {% if section.settings.button_dot %}button--dot{% endif %}"
+              data-button-text="Send Partner Enquiry" >
+              <span>
+                Send Partner Inquiry
+                {% if section.settings.button_dot %}
+                  <span class="button__dot"></span>
+                {% endif %}
+              </span>
+            </button>
               {% if section.settings.additional_text != blank %}
                 <div class="contact-form__add-text">
                   {{ section.settings.additional_text }}
@@ -160,7 +162,34 @@
             </div>
           {%- endform -%}
         </div>
+          <!-- **Yahan niche right side contact info wala section add kar diya hai** -->
+        <div class="contact-form__aside">
+          <div class="contact-card">
+            <div class="contact-card__header">DIRECT CONTACT</div>
+            <div class="contact-card__item">
+              <span class="contact-card__icon">✉️</span>
+              <strong>Partnerships Email</strong>
+            </div>
+            <div class="contact-card__item">
+              <span class="contact-card__icon">💼</span>
+              <strong>Wholesale Inquiries</strong>
+            </div>
+            <div class="contact-card__item">
+              <span class="contact-card__icon">📍</span>
+              <strong>Based In</strong>
+              <div class="contact-card__location">Maryland, USA</div>
+            </div>
+          </div>
+          <div class="response-commitment">
+            <div class="response-commitment__icon">⚡</div>
+            <div class="response-commitment__title"><strong>Fast Response Commitment</strong></div>
+            <div class="response-commitment__text">
+              We review all partnership applications within 2 business days. No automated brush-offs — a real person reads every submission.
+            </div>
+          </div>
+        </div>
 
+      </div> <!-- /.contact-form__inner -->
         {% if section.settings.image != blank %}
           {% capture style %}
             {% if section.settings.image_ratio != 'adapt' %}
@@ -176,13 +205,13 @@
           {{
             section.settings.image
             | image_url: width: section.settings.image.width
-            | image_tag: 
-              loading: 'lazy', 
+            | image_tag:
+              loading: 'lazy',
               widths: '375, 600, 750, 990, 1200, 1400, 1600',
-              class: "contact-form__image",
+              class: 'contact-form__image',
               style: style,
               sizes: sizes
-          }} 
+          }}
         {% endif %}
       </div>
     </div>
@@ -204,12 +233,12 @@
       "label": "t:sections.contact-form.settings.content_align.label",
       "options": [
         {
-        "value": "left",
-        "label": "t:sections.contact-form.settings.content_align.options_1.label"
+          "value": "left",
+          "label": "t:sections.contact-form.settings.content_align.options_1.label"
         },
         {
-        "value": "center",
-        "label": "t:sections.contact-form.settings.content_align.options_2.label"
+          "value": "center",
+          "label": "t:sections.contact-form.settings.content_align.options_2.label"
         }
       ],
       "default": "center"
@@ -224,50 +253,56 @@
       "default": "t:sections.contact-form.settings.heading.default",
       "label": "t:sections.all.heading.label"
     },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Your subheading here"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "t:sections.all.heading.tag",
+      "options": [
         {
-			"type": "select",
-			"id": "heading_tag",
-			"label": "t:sections.all.heading.tag",
-			"options": [
-				{
-					"value": "h1",
-					"label": "H1"
-				},
-				{
-					"value": "h2",
-					"label": "H2"
-				},
-				{
-					"value": "h3",
-					"label": "H3"
-				},
-				{
-					"value": "h4",
-					"label": "H4"
-				},
-				{
-					"value": "h5",
-					"label": "H5"
-				},
-				{
-					"value": "h6",
-					"label": "H6"
-				},
-				{
-					"value": "div",
-					"label": "div"
-				},
-				{
-					"value": "p",
-					"label": "p"
-				},
-				{
-					"value": "span",
-					"label": "span"
-				}
-			],
-			"default": "h2"
-		},
+          "value": "h1",
+          "label": "H1"
+        },
+        {
+          "value": "h2",
+          "label": "H2"
+        },
+        {
+          "value": "h3",
+          "label": "H3"
+        },
+        {
+          "value": "h4",
+          "label": "H4"
+        },
+        {
+          "value": "h5",
+          "label": "H5"
+        },
+        {
+          "value": "h6",
+          "label": "H6"
+        },
+        {
+          "value": "div",
+          "label": "div"
+        },
+        {
+          "value": "p",
+          "label": "p"
+        },
+        {
+          "value": "span",
+          "label": "span"
+        }
+      ],
+      "default": "h2"
+    },
     {
       "type": "select",
       "id": "heading_size",
@@ -301,50 +336,50 @@
       "label": "t:sections.contact-form.settings.additional_text.label"
     },
     {
-			"type": "header",
-			"content": "t:sections.all.image.header.content"
-		},
+      "type": "header",
+      "content": "t:sections.all.image.header.content"
+    },
     {
       "type": "image_picker",
       "id": "image",
       "label": "t:sections.all.image.label"
     },
     {
-			"type": "select",
-			"id": "image_ratio",
-			"default": "16/9",
-			"label": "t:sections.all.image.aspect_ratio.label",
-			"options": [
-				{
-					"value": "1/1",
-					"label": "t:sections.all.image.aspect_ratio.options__1.label"
-				},
-				{
-					"value": "3/2",
-					"label": "t:sections.all.image.aspect_ratio.options__2.label"
-				},
-				{
-					"value": "3/4",
-					"label": "t:sections.all.image.aspect_ratio.options__3.label"
-				},
-				{
-					"value": "4/3",
-					"label": "t:sections.all.image.aspect_ratio.options__4.label"
-				},
-				{
-					"value": "16/9",
-					"label": "t:sections.all.image.aspect_ratio.options__5.label"
-				},
-				{
-					"value": "21/9",
-					"label": "t:sections.all.image.aspect_ratio.options__6.label"
-				},
-				{
-					"value": "adapt",
-					"label": "t:sections.all.image.aspect_ratio.options__7.label"
-				}
-			]
-		},
+      "type": "select",
+      "id": "image_ratio",
+      "default": "16/9",
+      "label": "t:sections.all.image.aspect_ratio.label",
+      "options": [
+        {
+          "value": "1/1",
+          "label": "t:sections.all.image.aspect_ratio.options__1.label"
+        },
+        {
+          "value": "3/2",
+          "label": "t:sections.all.image.aspect_ratio.options__2.label"
+        },
+        {
+          "value": "3/4",
+          "label": "t:sections.all.image.aspect_ratio.options__3.label"
+        },
+        {
+          "value": "4/3",
+          "label": "t:sections.all.image.aspect_ratio.options__4.label"
+        },
+        {
+          "value": "16/9",
+          "label": "t:sections.all.image.aspect_ratio.options__5.label"
+        },
+        {
+          "value": "21/9",
+          "label": "t:sections.all.image.aspect_ratio.options__6.label"
+        },
+        {
+          "value": "adapt",
+          "label": "t:sections.all.image.aspect_ratio.options__7.label"
+        }
+      ]
+    },
     {
       "type": "header",
       "content": "t:sections.all.button.header_button.content"
@@ -436,7 +471,13 @@
       ],
       "default": "m",
       "label": "t:sections.all.section-margin.margin_bottom.label"
-    }
+    },
+    {
+  "type": "checkbox",
+  "id": "button_dot",
+  "label": "Show dot on button",
+  "default": false
+}
   ],
   "presets": [
     {

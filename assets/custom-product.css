@@ -1,3 +1,8 @@
+.template-product #shopify-section-template--20277632958636__17622339975f51b702 {
+    /* background: var(--surface) !important; */
+    padding: 50px 0 10px !important;
+}
+
 .product .breadcrumbs_mobile {
     display: none;
 }
@@ -63,7 +68,9 @@
 .product-form__quantity .quantity {
     border: 1px solid #F0F0F0;
 }
-
+.main-product .share-buttons-simple .share-buttons-simple__button {
+    color: #fff;
+}
 .product-form__quantity .quantity__button {
     background: #F0F0F0;
 }
@@ -96,7 +103,7 @@
 }
 
 .custom_tabs .container {
-    max-width: 1200px;
+    max-width: 1320px;
 }
 
 .custom_tabs__title_list {
@@ -121,7 +128,29 @@
 .custom_tabs__title_item.active {
     background: #F5F5F5;
 }
+.cst-new-tabs .custom_tabs__title_item {
+    color: #fff;
+}
 
+.custom_tabs__title_item:hover{
+    color:#000;
+}
+
+.cst-new-tabs .custom_tabs__title_item.active , .cst-new-tabs .product_details_table .product_details_title , .cst-new-tabs .product_details_table .product_details_value{
+    color: #000;
+}
+.cst-new-tabs .custom_tabs__content_item p:last-child {
+    color: #000;
+}
+.popular-products {
+    padding-bottom: 50px;
+}
+.cst-new-spc {
+    padding-top: 50px;
+}
+.cst-new-tabs .custom_tabs__content_list {
+    padding: 0 20px;
+}
 /* .custom_tabs__title_item:hover:not(:last-child):after,
 .custom_tabs__title_item.active:not(:last-child):after {
     background: transparent;
@@ -189,6 +218,12 @@
 }
 
 @media (max-width: 989px) {
+   .template-product #shopify-section-template--20277632958636__17622339975f51b702 h2.jdgm-rev-widg__title {
+    font-size: 45px !important;
+}
+    body .main-product {
+    padding: 20px !important;
+}
     .product .product__info-container {
         padding-top: 0 !important;
     }
@@ -215,6 +250,12 @@
 }
 
 @media (max-width: 767px) {
+    .cst-new-tabs .product_details_table .product_details_title , .cst-new-tabs .product_details_table .product_details_value , .cst-new-tabs .custom_tabs__content_item p:last-child {
+    color: #fff !important;
+}
+    .cst-new-tabs .custom_tabs__content_list {
+    padding: 30px 0 0;
+}
     .product_payment {
         flex-direction: column;
         text-align: center;

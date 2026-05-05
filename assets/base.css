@@ -1,3 +1,6 @@
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @charset "UTF-8";
 /* Color custom properties */
 :root {
@@ -7,6 +10,7 @@
   --duration-short: 100ms;
   --duration-default: 250ms;
   --duration-long: 500ms;
+--f-body: 'DM Sans', sans-serif;
 }
 
 :root {
@@ -1140,7 +1144,7 @@ details > * {
 .subheading {
   color: rgb(var(--color-foreground));
   font-size: calc(var(--font-subtitle-scale) * 1rem);
-  font-family: var(--font-subtitle-family);
+  font-family: var(--f-body);
   font-style: var(--font-subtitle-style);
   font-weight: var(--font-subtitle-weight);
   letter-spacing: calc(var(--font-subtitle-letter-spacing) * 0.1);
@@ -5483,3 +5487,5 @@ body.mouse-focus .header__icons .header__icon--cart:focus-visible {
   background-color: rgb(var(--color-button-tertiary-background));
   color: rgb(var(--color-button-tertiary-text));
 }
+
+

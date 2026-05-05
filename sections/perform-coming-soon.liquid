@@ -1,15 +1,23 @@
 <section class="perf-sec {{ section.settings.custom_css_class }}">
   <div class="perf-inner">
     <div class="perf-l">
-      <div class="perf-eyebrow"><span>{{ section.settings.eyebrow }}</span></div>
+      <div class="perf-eyebrow">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
       <h2 class="perf-h">
-        {{ section.settings.heading_line1 }}<br>
-        {{ section.settings.heading_line2 }}<br>
+        {{ section.settings.heading_line1 -}}
+        <br>
+        {{ section.settings.heading_line2 -}}
+        <br>
         <em>{{ section.settings.heading_highlight }}</em>
       </h2>
-      <p class="perf-p">
-        {{ section.settings.description | replace: "β-Ecdysterone", "<span class='highlight'>β-Ecdysterone</span>" | raw  }}
-      </p>
+      <div class="perf-p">
+        {{
+          section.settings.description
+          | replace: 'β-Ecdysterone', "<span class='highlight'>β-Ecdysterone</span>"
+          | raw
+        }}
+      </div>
 
       <div class="perf-pills">
         {% for block in section.blocks %}
@@ -58,7 +66,14 @@
           <div class="perf-dot"></div>
           <span class="perf-status-txt">{{ section.settings.status_text }}</span>
         </div>
-        <div class="perf-pname">{{ section.settings.product_name }}</div>
+        <div class="perf-pname">
+          {% assign product = section.settings.selected_product %}
+          {% if product %}
+            {{ product.title }}
+          {% else -%}
+            {{- section.settings.product_name -}}
+          {%- endif %}
+        </div>
         <div class="perf-psub">{{ section.settings.product_sub }}</div>
 
         <div class="perf-stats">
@@ -84,18 +99,153 @@
             <div class="pl-val amber">{{ section.settings.perk_value }}</div>
           </div>
         </div>
-
-        <div class="countdown">
+        {%comment%}<div class="countdown">
           <div class="cdc"><span class="cdc-n" id="cd-d">--</span><span class="cdc-l">Days</span></div>
           <div class="cdc"><span class="cdc-n" id="cd-h">--</span><span class="cdc-l">Hours</span></div>
           <div class="cdc"><span class="cdc-n" id="cd-m">--</span><span class="cdc-l">Mins</span></div>
           <div class="cdc"><span class="cdc-n" id="cd-s">--</span><span class="cdc-l">Secs</span></div>
-        </div>
+        </div> {%endcomment%}
+          <div class="countdown cst-variant-btn">
+             {% assign product = section.settings.selected_product %}
+          {% for block in section.blocks %}
+            {% if block.type == 'variant_btn' %}
+                 {% assign matched_variant = nil %}
+                  {% for v in product.variants %}
+        {% if v.title == block.settings.label %}
+          {% assign matched_variant = v %}
+        {% endif %}
+      {% endfor %}
+              <div class="cdc pv-btn {% if block.settings.highlight %}active{% endif %}"   data-variant-id="{{ matched_variant.id }}" data-value="{{ block.settings.value }}">
+                <span class="cdc-n">
+                  {{ block.settings.value }}
+                </span>
+                <span class="cdc-l">
+                  {{ block.settings.price }}
+                </span>
+                <label class="cdc-l pill variant">
+                  {{ block.settings.label }}
+                </label>
+              </div>
+            {% endif %}
+          {% endfor %}
+      </div>
+            {% assign product = section.settings.selected_product %}
+    <form method="post" action="/cart/add" class="perf-cta-form">
+      <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+      <button type="submit" class="btn btn-a perf-cta-btn">
+        PRE-ORDER NOW
+      </button>
+    </form>
+      <div class="product-benefits">
+          <p><span class="pstat-v">✔</span>Free Shipping over $75</p>
+          <p><span class="pstat-v">✔ </span>30-Day Money Back Guarantee</p>
+          <p><span class="pstat-v">✔ </span>Ships in 2–3 Business Days</p>             
       </div>
     </div>
+    </div>
   </div>
+ <script>
+  window.__PERF_VARIANTS__ = {{ product.variants | json }};
+</script>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+  const section = document.querySelector('.perf-sec');
+  const buttons = document.querySelectorAll('.perf-sec .pv-btn');
+  const hiddenInput = document.querySelector('.perf-sec .perf-cta-form input[name="id"]');
+  const form = document.querySelector('.perf-sec .perf-cta-form');
+  const btn = document.querySelector('.perf-sec .perf-cta-btn');
+  if (!buttons.length || !hiddenInput) return;
+  
+  //variant data
+    const productVariants = window.__PERF_VARIANTS__ || [];
+
+  //ACTIVE BUTTON 
+  let activeBtn =
+    document.querySelector('.perf-sec .pv-btn.active') ||
+    buttons[0];
+
+  setActive(activeBtn);
+
+  //  CLICK HANDLER
+  buttons.forEach(btn => {
+    btn.addEventListener('click', function () {
+      setActive(this);
+    });
+  });
+
+function setActive(btnEl) {
+  buttons.forEach(b => b.classList.remove('active'));
+  btnEl.classList.add('active');
+
+  const variantId = btnEl.dataset.variantId;
+
+  if (variantId) {
+    hiddenInput.value = variantId;
+  }
+}
+  // add to cart
+
+   form.addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const variantId = hiddenInput.value;
+
+  if (!variantId) {
+    console.log("No variant selected");
+    return;
+  }
+
+  btn.disabled = true;
+
+
+  fetch('/cart/add.js', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json'
+    },
+    body: JSON.stringify({
+      id: Number(variantId),
+      quantity: 1
+    })
+  })
+  .then(async res => {
+    const data = await res.json();
+    if (!res.ok) throw data;
+    return data;
+  })
+  .then(() => updateCartCount())
+  .catch(err => console.log("Cart Error:", err))
+  .finally(() => {
+    btn.innerText = "PRE-ORDER NOW";
+    btn.disabled = false;
+  });
+});
+
+  //  CART COUNTER UPDATE
+  function updateCartCount() {
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cart => {
+
+        const count = cart.item_count;
+
+        document.querySelectorAll('.cart-count-bubble span[aria-hidden="true"]')
+          .forEach(el => el.textContent = count);
+
+        document.querySelectorAll('.cart-count-bubble .visually-hidden')
+          .forEach(el => {
+            el.textContent = count + (count === 1 ? ' item' : ' items');
+          });
+
+      });
+  }
+
+
+});
+</script>
 {% schema %}
 {
   "name": "Perform Coming Soon",
@@ -130,10 +280,10 @@
       "default": "Perform+"
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "description",
       "label": "Description",
-      "default": "Built around β-Ecdysterone — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk."
+      "default": "<p>Built around β-Ecdysterone — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk.</p>"
     },
     {
       "type": "text",
@@ -206,6 +356,11 @@
       "id": "perk_value",
       "label": "Perk Value",
       "default": "Early Access Pricing"
+    },
+    {
+      "type": "product",
+      "id": "selected_product",
+      "label": "Select Product"
     }
   ],
   "blocks": [
@@ -235,7 +390,34 @@
           "label": "Label"
         }
       ]
+    },
+    {
+  "type": "variant_btn",
+  "name": "Variant Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "label",
+      "label": "Button Label"
+    },
+    {
+      "type": "text",
+      "id": "value",
+      "label": "Value"
+    },
+    {
+      "type": "text",
+      "id": "price",
+      "label": "Price"
+    },
+    {
+      "type": "checkbox",
+      "id": "highlight",
+      "label": "Highlight (Active)",
+      "default": false
     }
+  ]
+}
   ],
   "presets": [
     {

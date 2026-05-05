@@ -40,6 +40,7 @@
         ".slideshow-slide__text * {max-width: 100%;}"
       ],
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "background-2",
@@ -128,19 +129,20 @@
         "heading_line1": "Nothing Has",
         "heading_line2": "Worked.",
         "heading_emphasis": "Until Now.",
-        "hook_text": "Most recovery products treat the surface. Max Relief goes beneath it — combining a pharmaceutical nerve block, full spectrum CBD at 20mg/ml, and botanical anti-inflammatories into one 4-pathway formula that actually works.",
+        "hook_text": "<p>Most recovery products treat the surface. <strong>Max Relief goes beneath it </strong>— combining a pharmaceutical nerve block, full spectrum CBD at 20mg/ml, and botanical anti-inflammatories into one 4-pathway formula that actually works.</p>",
         "cta_text": "GET MAX RELIEF",
-        "cta_link": "#",
-        "quiz_text": "🧬Want to feel better but not sure where to start? Find Your Protocol →",
-        "quiz_link": "#",
+        "cta_link": "",
+        "section_id": "shopify-section-template--20511205556396__featured_product_HKzAnR",
+        "quiz_text": "🧬 Want to feel better but not sure where to start? Find Your Protocol →",
+        "quiz_link": "shopify://pages/quiz",
         "bg_text": "RELIEF",
-        "product_image": "shopify://shop_images/ReleifJarRender_579c709d-c2c5-47cd-b599-d80f273624d8.jpg",
+        "product_image": "shopify://shop_images/max-relief-1200mg-60ml_1.png",
         "product_emoji": "🧴",
         "show_stack": true,
         "stack_icon": "💧",
         "stack_label": "Stack & Save · Electro+",
         "stack_desc": "Add mineral-first hydration to your recovery protocol",
-        "stack_link": "#"
+        "stack_link": "shopify://pages/electro-plus"
       }
     },
     "trust_bar_iyArea": {
@@ -149,35 +151,40 @@
         "trust_item_YEtbAC": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/svgviewer-png-output_3.png",
             "text": "3RD PARTY LAB TESTED"
           }
         },
         "trust_item_p8NxRR": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><path d=\"M12 2a9 9 0 0 0-9 9c0 4.17 2.84 7.67 6.69 8.69L12 22l2.31-2.31C18.16 18.67 21 15.17 21 11a9 9 0 0 0-9-9z\"></path></svg>",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/svgviewer-png-output_4.png",
             "text": "ORGANIC HEMP"
           }
         },
         "trust_item_qXBGGf": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect><path d=\"M3 9h18M9 21V9\"></path></svg>",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/svgviewer-png-output_5.png",
             "text": "MADE IN USA"
           }
         },
         "trust_item_BHXLPU": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/svgviewer-png-output_6.png",
             "text": "30-DAY GUARANTEE"
           }
         },
         "trust_item_n9yfkD": {
           "type": "trust_item",
           "settings": {
-            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\"><line x1=\"22\" y1=\"2\" x2=\"11\" y2=\"13\"></line><polygon points=\"22 2 15 22 11 13 2 9 22 2\"></polygon></svg>",
+            "icon_svg": "",
+            "icon_image": "shopify://shop_images/svgviewer-png-output_7.png",
             "text": "FREE SHIPPING $75+"
           }
         }
@@ -249,9 +256,8 @@
       "blocks": {
         "text_Eiihx7": {
           "type": "text",
-          "disabled": true,
           "settings": {
-            "text": "{{ section.settings.product_item.vendor }}"
+            "text": "CBD Topical · Full Spectrum"
           }
         },
         "title_dY7AN9": {
@@ -324,6 +330,7 @@
         "buy_buttons_b4b68C",
         "custom_buy_buttons_t8NJaX"
       ],
+      "custom_css": [],
       "name": "t:sections.featured-product.name",
       "settings": {
         "color_scheme": "",
@@ -334,7 +341,7 @@
         "section_aspect_ratio": "129.0%",
         "desktop_alignment": "left",
         "mobile_alignment": "before",
-        "gallery_type": "slideshow",
+        "gallery_type": "thumbs_bottom",
         "image_fit": "cover",
         "is_autoplay": false,
         "is_hover_stop_autoplay": false,
@@ -343,7 +350,7 @@
         "slideshow_delay": 3,
         "margin_top": "s",
         "margin_bottom": "s",
-        "sub_text": "Jar 60ml · Stick 30ml",
+        "sub_text": "",
         "purchase_note": "One-time purchase · No subscription required",
         "benefit_1": "30-day satisfaction guarantee",
         "benefit_2": "Free shipping over $75",
@@ -443,7 +450,7 @@
           "settings": {
             "emoji": "🌿",
             "type_label": "Pharmaceutical",
-            "type_class": "tp2",
+            "type_class": "tp3",
             "title": "Full Spectrum CBD",
             "description": "20mg/ml — consistent across all sizes. Full spectrum means the complete hemp plant: CBD, terpenes, and minor cannabinoids working together. Supports inflammation modulation via the endocannabinoid system. 3rd party tested."
           }
@@ -453,7 +460,7 @@
           "settings": {
             "emoji": "🌼",
             "type_label": "Botanical",
-            "type_class": "tp2",
+            "type_class": "tp4",
             "title": "Arnica Montana",
             "description": "Reduces swelling and bruising. Supports post-trauma recovery. One of the most studied botanical anti-inflammatories."
           }
@@ -463,7 +470,7 @@
           "settings": {
             "emoji": "🧄",
             "type_label": "Botanical",
-            "type_class": "tp2",
+            "type_class": "tp4",
             "title": "Turmeric + Black Pepper",
             "description": "Curcumin for anti-inflammatory support. Piperine increases curcumin bioavailability by up to 2000%."
           }
@@ -473,7 +480,7 @@
           "settings": {
             "emoji": "🌾",
             "type_label": "Botanical",
-            "type_class": "tp2",
+            "type_class": "tp4",
             "title": "Clary Sage",
             "description": "Supports circulation and muscle relaxation. Improved blood flow accelerates tissue recovery."
           }
@@ -483,7 +490,7 @@
           "settings": {
             "emoji": "✨",
             "type_label": "Delivery",
-            "type_class": "tp2",
+            "type_class": "tp5",
             "title": "Vitamin E",
             "description": "Antioxidant protection. Supports cell regeneration alongside coconut oil and beeswax for sustained release."
           }
@@ -583,13 +590,14 @@
         "heading_highlight": "Replenish too.",
         "description": "Max Relief handles aches and soreness. Electro+ handles what your body loses during injury and training — the minerals and electrolytes your muscles need to actually rebuild.",
         "left_btn_text": "SHOP ELECTRO+",
-        "left_btn_link": "#",
+        "left_btn_link": "shopify://pages/electro-plus",
         "product": "electro-drops",
+        "card_image": "shopify://shop_images/electro-drop-plud-4_d5107145-b60d-406d-8051-1988468bbbcf.png",
         "card_emoji": "💧",
         "card_tag": "Mineral-First Electrolytes",
         "card_desc": "Mineral-first electrolyte drops for daily performance and endurance. No sugar. No fillers. Just minerals.",
-        "card_btn_text": "SHOP NOW",
-        "card_btn_link": "#"
+        "card_btn_text": "ADD to Cart",
+        "card_btn_link": ""
       }
     },
     "perform_coming_soon_CqFDYa": {
@@ -634,7 +642,7 @@
         "stat_ymUhrc": {
           "type": "stat",
           "settings": {
-            "value": "500mg",
+            "value": "250mg",
             "label": "β-Ecdysterone per serving. Clinically relevant dose."
           }
         },
@@ -658,6 +666,24 @@
             "value": "✓",
             "label": "Plant-derived. 3rd party tested. Made in USA."
           }
+        },
+        "variant_btn_itipG7": {
+          "type": "variant_btn",
+          "settings": {
+            "label": "30 Capsules",
+            "value": "",
+            "price": "",
+            "highlight": true
+          }
+        },
+        "variant_btn_8MAFQx": {
+          "type": "variant_btn",
+          "settings": {
+            "label": "60 Capsules",
+            "value": "",
+            "price": "",
+            "highlight": false
+          }
         }
       },
       "block_order": [
@@ -670,8 +696,11 @@
         "stat_ymUhrc",
         "stat_4MC3RW",
         "stat_bGwnj8",
-        "stat_bXPcrm"
+        "stat_bXPcrm",
+        "variant_btn_itipG7",
+        "variant_btn_8MAFQx"
       ],
+      "custom_css": [],
       "name": "Perform Coming Soon",
       "settings": {
         "custom_css_class": "cst-perform-sec",
@@ -679,7 +708,7 @@
         "heading_line1": "Nature's Most",
         "heading_line2": "Powerful Anabolic.",
         "heading_highlight": "Perform+",
-        "description": "Built around β-Ecdysterone — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk.",
+        "description": "<p>Built around <strong>β-Ecdysterone</strong> — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk.</p>",
         "form_label": "Get early access + launch-day pricing",
         "placeholder": "your@email.com",
         "button_text": "NOTIFY ME",
@@ -688,14 +717,16 @@
         "status_text": "Launching Soon",
         "product_name": "Perform+",
         "product_sub": "β-Ecdysterone · Muscle & Endurance Formula",
-        "launch_label": "Est. Launch",
+        "launch_label": "EST. LAUNCH",
         "launch_value": "Spring 2026",
         "perk_label": "Waitlist Perk",
-        "perk_value": "Early Access Pricing"
+        "perk_value": "Early Access Pricing",
+        "selected_product": "perform"
       }
     },
     "rich_text_RGzf3R": {
       "type": "rich-text",
+      "disabled": true,
       "name": "t:sections.rich-text.presets.name",
       "settings": {
         "custom_css_class": "cst-recover-sec",
@@ -708,16 +739,98 @@
         "dot": false,
         "text": "<p>Real ingredients. Real mechanisms. Real relief. Built for people who are done settling for products that don't work.</p>",
         "button_label": "GET MAX RELIEF",
-        "button_link": "shopify://products/max-relief",
+        "button_link": "shopify://pages/max-relief",
+        "first_section_id": "",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "BUILD YOUR STACK",
-        "button_link_2": "#",
+        "button_link_2": "shopify://pages/phasis-shop",
+        "second_section_id": "",
         "button_style_2": "primary",
         "button_dot_2": true,
         "margin_top": "s",
         "margin_bottom": "s",
         "section_id": ""
+      }
+    },
+    "collapsible_content_X7wD8E": {
+      "type": "collapsible-content",
+      "blocks": {
+        "accordion_gHWPKt": {
+          "type": "accordion",
+          "settings": {
+            "question": "Do all products ship together?",
+            "answer": "<p>Yes — multiple products ship in one package. Orders over $75 ship free. We ship within 1–3 business days with full tracking on every order.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_HNeN8Y": {
+          "type": "accordion",
+          "settings": {
+            "question": "Can I use all three products together?",
+            "answer": "<p>Yes — they're designed to complement each other. Max Relief is topical. Electro+ is an oral mineral supplement. Perform+ is an oral ecdysterone capsule. Three different systems with no interaction.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_MpPGx4": {
+          "type": "accordion",
+          "settings": {
+            "question": "Are these safe for drug-tested athletes?",
+            "answer": "<p>Yes. Max Relief CBD is topical and doesn't produce a positive drug test. Electro+ is minerals only. Perform+ contains β-Ecdysterone which is not on the WADA prohibited list and is legal in all major organizations including UFC and USADA-tested events. Every product is 3rd party tested for banned substance contamination.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_niADRz": {
+          "type": "accordion",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>30-day satisfaction guarantee on all products. Contact us within 30 days of purchase for a full refund — no questions asked.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_TCLDbU": {
+          "type": "accordion",
+          "settings": {
+            "question": "Which product should I start with?",
+            "answer": "<p>Dealing with pain or injury — start with Max Relief. Priority is hydration and recovery — start with Electro+. Goal is muscle building and performance — start with Perform+. Want the full system — the PHASIS Stack covers all three at a discount.</p>",
+            "default_open": false
+          }
+        },
+        "accordion_6HxR8K": {
+          "type": "accordion",
+          "settings": {
+            "question": "Is there a subscription option?",
+            "answer": "<p>Not currently — all products are one-time purchases. We're building a subscription and rewards program. Join the Rewards waitlist for early access to subscriber pricing.</p>",
+            "default_open": false
+          }
+        }
+      },
+      "block_order": [
+        "accordion_gHWPKt",
+        "accordion_HNeN8Y",
+        "accordion_MpPGx4",
+        "accordion_niADRz",
+        "accordion_TCLDbU",
+        "accordion_6HxR8K"
+      ],
+      "name": "t:sections.collapsible-content.name",
+      "settings": {
+        "custom_css_class": "cst-homefq-sec",
+        "section_layout": "column",
+        "icon_style": "primary",
+        "section_heading": "Frequently Asked Questions",
+        "section_heading_tag": "h2",
+        "section_heading_size": "h2",
+        "section_subheading": "",
+        "heading_description": "",
+        "dot": false,
+        "collapse_heading_tag": "h4",
+        "section_button_label": "Read FAQs",
+        "section_button_link": "shopify://pages/faq",
+        "button_dot": true,
+        "section_button_style": "primary",
+        "margin_top": "s",
+        "margin_bottom": "s"
       }
     },
     "rich_text_mWgnek": {
@@ -732,13 +845,13 @@
         "guarantee_ffrVc7": {
           "type": "guarantee",
           "settings": {
-            "text": "✓Free shipping $75+"
+            "text": "Free shipping $75+"
           }
         },
         "guarantee_PdP6mJ": {
           "type": "guarantee",
           "settings": {
-            "text": "✓No subscription"
+            "text": "No subscription"
           }
         }
       },
@@ -752,20 +865,22 @@
         "custom_css_class": "cst-evolv-sec",
         "section_layout": "column",
         "subheading": "Built for People Who Refuse to Stay the Same",
-        "heading": "Made to Evolve.",
+        "heading": "Made to Evolve.",
         "heading_2": "",
         "section_heading_tag": "h2",
         "heading_size": "h2",
         "dot": false,
         "text": "<p>One system. Max Relief, Electro+, and Perform+ — built on real science, tested every batch, priced fairly.</p>",
         "button_label": "SHOP ALL PRODUCTS",
-        "button_link": "#",
+        "button_link": "shopify://pages/phasis-shop",
+        "first_section_id": "purchase",
         "button_style": "primary",
         "button_dot": true,
-        "button_label_2": "NOT SURE WHERE TO START ?FIND YOUR PROTOCOL",
-        "button_link_2": "#",
+        "button_label_2": "🧬 Take the 3-min Scan",
+        "button_link_2": "shopify://pages/quiz",
+        "second_section_id": "purchase",
         "button_style_2": "primary",
-        "button_dot_2": true,
+        "button_dot_2": false,
         "margin_top": "s",
         "margin_bottom": "s",
         "section_id": ""
@@ -791,10 +906,12 @@
         "text": "<p>Clean botanicals chosen for relief, recovery, and performance.</p>",
         "button_label": "",
         "button_link": "",
+        "first_section_id": "purchase",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "m",
@@ -901,6 +1018,7 @@
       ],
       "name": "t:sections.multicolumn.name",
       "settings": {
+        "custom_css_class": "",
         "section_heading": "",
         "section_heading_tag": "h2",
         "section_heading_size": "h2",
@@ -935,10 +1053,12 @@
         "text": "<p>Because wellness is more than what you take. It’s what you learn, practice, and evolve through.</p>",
         "button_label": "Explore the Journal",
         "button_link": "shopify://blogs/articles",
+        "first_section_id": "purchase",
         "button_style": "secondary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "m",
@@ -1007,6 +1127,7 @@
       "custom_css": [],
       "name": "t:sections.multicolumn.name",
       "settings": {
+        "custom_css_class": "",
         "section_heading": "",
         "section_heading_tag": "h2",
         "section_heading_size": "h1",
@@ -1048,6 +1169,7 @@
       "disabled": true,
       "name": "t:sections.slideshow.presets.name",
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "background-1",
@@ -1088,10 +1210,12 @@
         "text": "",
         "button_label": "",
         "button_link": "",
+        "first_section_id": "purchase",
         "button_style": "primary",
         "button_dot": true,
         "button_label_2": "",
         "button_link_2": "",
+        "second_section_id": "purchase",
         "button_style_2": "secondary",
         "button_dot_2": true,
         "margin_top": "m",
@@ -1196,6 +1320,7 @@
       ],
       "name": "t:sections.multicolumn.name",
       "settings": {
+        "custom_css_class": "",
         "section_heading": "",
         "section_heading_tag": "h2",
         "section_heading_size": "h1",
@@ -1240,6 +1365,7 @@
       ],
       "name": "t:sections.slideshow.presets.name",
       "settings": {
+        "custom_css_class": "",
         "header_overlay": false,
         "header_transparent": false,
         "color_scheme_header": "",
@@ -1282,33 +1408,6 @@
         "margin_bottom": "m",
         "padding_top": "no-indent",
         "padding_bottom": "no-indent"
-      }
-    },
-    "rich_text_ahg9At": {
-      "type": "rich-text",
-      "disabled": true,
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_css_class": "",
-        "section_layout": "column",
-        "subheading": "",
-        "heading": "Fuel Your Next Phase",
-        "heading_2": "",
-        "section_heading_tag": "h2",
-        "heading_size": "h2",
-        "dot": false,
-        "text": "<p>Clean, science-backed products designed for recovery now and every phase to come.</p>",
-        "button_label": "",
-        "button_link": "",
-        "button_style": "primary",
-        "button_dot": true,
-        "button_label_2": "",
-        "button_link_2": "",
-        "button_style_2": "secondary",
-        "button_dot_2": true,
-        "margin_top": "m",
-        "margin_bottom": "no-indent",
-        "section_id": ""
       }
     },
     "product_slider_ie8eQT": {
@@ -1489,6 +1588,7 @@
     "perform_coming_soon_CqFDYa",
     "rich_text_RGzf3R",
     "rich_text_mWgnek",
+    "collapsible_content_X7wD8E",
     "rich_text_nhehhp",
     "multicolumn_JBteWQ",
     "rich_text_7rRbgP",
@@ -1498,7 +1598,6 @@
     "multicolumn_pt6PTy",
     "slideshow_DHtRwq",
     "newsletter_ENtVTU",
-    "rich_text_ahg9At",
     "product_slider_ie8eQT",
     "testimonials_jVD3KB",
     "1764762338914e48b3",

@@ -1,0 +1,622 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+{% assign product = all_products[section.settings.product] %}
+
+<section class="purchase-sec section {{ section.settings.custom_css_class }}" id="purchase">
+  <div class="purchase-inner">
+    <div class="purchase-gallery-wrapper gallery-type-{{ section.settings.gallery_type_layout_id }}">
+      <!-- MAIN SWIPER -->
+      <div class="purchase-visual swiper main-swiper">
+        <div class="swiper-wrapper">
+          {% for image in product.images %}
+            <div class="swiper-slide" data-index="{{ forloop.index0 }}">
+              <img
+                src="{{ image | image_url: width: 600 }}"
+                alt="{{ product.title }}"
+                loading="lazy"
+              >
+            </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- THUMBNAILS -->
+      {% if product != blank and section.settings.gallery_type_layout_id == 'thumbs_bottom' %}
+        <div class="custom-product-thumbnails thumbs-bottom swiper">
+          <div class="swiper-wrapper">
+            {% for image in product.images %}
+              {% assign image_variant_id = image.variants.first.id %}
+              <div
+                class="thumb-box swiper-slide {% if forloop.first %}active{% endif %}"
+                data-src="{{ image | image_url: width: 600 }}"
+                {% if image_variant_id %}
+                  data-variant-id="{{ image_variant_id }}"
+                {% endif %}
+              >
+                <img src="{{ image | image_url }}" alt="thumb" loading="lazy">
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+        {% endif %}
+       {% comment %} upshell block {% endcomment %}
+          {% comment %} upshell block start {% endcomment %}
+        <div class="upsell-block">
+        <div class="upsell-label">{{ section.settings.upsell_label }}</div>
+        {% assign upsell_product = section.settings.upsell_product %}
+        {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant.featured_image %}
+                    {{ upsell_variant.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc }}</div>
+            </div>
+          </div>
+          {% assign upsell_product = section.settings.upsell_product %}
+          {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn glow-cta red"
+            data-upsell-variant-id="{{ upsell_variant.id }}"
+            data-upsell-image="{{ upsell_variant.featured_image | image_url: width: 400 }}"
+          >
+            {{- section.settings.upsell_btn_text -}}
+          </a>
+        </div>
+        {% comment %} second upshell {% endcomment %}
+        {% assign upsell_product_2 = section.settings.upsell_product_2 %}
+        {% assign upsell_variant_2 = upsell_product_2.variants.first %}
+
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant_2.featured_image %}
+                    {{ upsell_variant_2.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product_2.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product_2.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title_2 }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc_2 }}</div>
+            </div>
+          </div>
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn su-btn teal"
+            data-upsell-variant-id="{{ upsell_variant_2.id }}"
+            data-upsell-image="{{ upsell_variant_2.featured_image | image_url: width: 400 }}"
+          >
+            {{ section.settings.upsell_btn_text_2 }}
+          </a>
+        </div>
+        {% comment %} end {% endcomment %}
+      </div>
+      <!-- ✅ gallery-wrapper closed correctly -->
+
+      {% comment %} end {% endcomment %}
+      <!-- RIGHT SIDE CONTENT -->
+     
+    </div>
+<div class="cst-right-sec">
+      <div class="pi-eyebrow-row">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <h2 class="pi-h">{{ product.title }}</h2>
+
+      <p class="pi-tagline">
+        {{ product.description | strip_html | truncate: 180 }}
+      </p>
+
+      <span class="size-label">{{ section.settings.size_label }}</span>
+
+      <div class="size-opts">
+        {% for variant in product.variants %}
+            {% assign v_img = variant.featured_image %}
+            {% assign v_index = 0 %}
+
+            {% for image in product.images %}
+              {% if image.id == v_img.id %}
+                {% assign v_index = forloop.index0 %}
+              {% endif %}
+            {% endfor %}
+
+          <div
+            class="sopt {% if forloop.first %}sel{% endif %}"
+            data-id="{{ variant.id }}"
+            data-price="{{ variant.price | money }}"
+            data-desc="{{ variant.metafields.custom.description }}"
+            data-img="{% if variant.featured_image != blank %}{{ variant.featured_image | image_url: width: 800 }}{% else %}{{ product.featured_image | image_url: width: 800 }}{% endif %}"
+             data-slide-index="{{ v_index }}"
+            
+          >
+            {% if variant.title contains '60ml' %}
+              <div class="sopt-badge">BEST VALUE</div>
+            {% endif %}
+
+            <div class="sopt-name">{{ variant.title }}</div>
+            <div class="sopt-desc">{{ variant.metafields.custom.description }}</div>
+            <div class="sopt-price">
+              {{ variant.price | money | replace: '.00', '' }}
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+
+      <div class="price-row">
+        <div class="price-main" id="price-display">
+          {{ product.variants.first.price | money }}
+        </div>
+        <div class="price-note">One-time purchase</div>
+      </div>
+
+      <div class="price-sub">
+        {{ section.settings.price_sub }}
+      </div>
+
+      <div class="buy-block">
+        <form method="post" action="/cart/add">
+          <input type="hidden" name="id" id="variant-id" value="{{ product.variants.first.id }}">
+          <button
+            type="submit"
+            class="btn btn-p btn-full"
+            id="ajax-add-to-cart"
+            data-variant-id="{{ product.variants.first.id }}"
+          >
+            {{ section.settings.button_text }}
+          </button>
+        </form>
+
+       {% comment %} gurantee {% endcomment %}
+          <div class="guarantees mt-4">
+            {% for block in section.blocks %}
+              {% if block.type == 'guarantee' %}
+                <div class="g-item">
+                  <div class="g-icon">{{ block.settings.icon }}</div>
+                  <div class="g-title">{{ block.settings.title }}</div>
+                  <div class="g-desc">{{ block.settings.desc }}</div>
+                </div>
+              {% endif %}
+            {% endfor %}
+          </div>
+        </div>
+       {% comment %} end {% endcomment %}
+
+        <div class="secure-row mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'secure' %}
+              <span class="secure-item">{{ block.settings.text }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+</section>
+<style>
+    .swiper-wrapper .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+        /* ── PURCHASE SECTION ───────────────────────────── */
+    .purchase-sec{background:var(--surface);border-top:1px solid var(--border)}
+    .purchase-visual{
+      height:240px;
+      background:linear-gradient(135deg,#1c1d21,#18191c);
+      display:flex;align-items:center;justify-content:center;
+      font-size:100px;position:relative;overflow:hidden;
+      border-radius:8px;margin-bottom:24px;
+    }
+    .purchase-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(42,184,207,.07) 0%,transparent 70%)}
+    @media(min-width:1024px){
+      .purchase-inner{display:grid;grid-template-columns:50% 1fr;gap:64px;align-items:start}
+      .purchase-visual{height:300px;margin-bottom:0}
+    }
+
+    .pi-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+    .pi-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+    .pi-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+    .pi-h{font-family:var(--f-dis);font-weight:700;font-size:28px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px}
+    .pi-tagline{font-size:15px;color:var(--muted);line-height:1.65;margin-bottom:24px}
+    @media(min-width:768px){.pi-h{font-size:36px}}
+
+    /* Size selector */
+    .size-label{font-family:var(--f-dis);font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:10px;display:block}
+    .size-opts{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:20px}@media(min-width:400px){.size-opts{grid-template-columns:1fr 1fr 1fr}}
+    .sopt{background:var(--page-bg);border:2px solid var(--border);border-radius:6px;padding:14px 12px;cursor:pointer;transition:all .15s;position:relative;min-height:100px}
+    .sopt.sel{border-color:var(--coral);background:rgba(42,184,207,.06)}
+    .sopt-name{font-family:var(--f-dis);font-size:15px;font-weight:700;margin-bottom:2px}
+    .sopt-desc{font-size:14px;color:var(--muted);margin-bottom:8px;line-height:1.4}
+    .sopt-price{font-family:var(--f-dis);font-size:18px;font-weight:700}
+    .sopt-badge{position:absolute;top:-8px;right:10px;background:var(--coral);color:#fff;font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:10px}
+
+    .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+    .price-main{font-family:var(--f-dis);font-size:36px;font-weight:800;line-height:1}
+    .price-note{font-size:16px;color:var(--muted)}
+    .price-sub{font-size:16px;color:var(--muted);margin-bottom:20px}
+
+    /* CTA block */
+    .buy-block .btn-p{font-size:16px;padding:18px 24px;margin-bottom:12px}
+    .guarantees{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+    .g-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:12px 10px;text-align:center}
+    .g-icon{font-size:18px;margin-bottom:4px}
+    .g-title{font-family:var(--f-dis);font-size:15px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+    .g-desc{font-size:14px;color:var(--muted);line-height:1.4}
+    .secure-row{display:flex;align-items:center;justify-content:center;gap:16px;padding-top:14px;border-top:1px solid var(--border);flex-wrap:wrap}
+    .secure-item{font-size:14px;color:var(--muted);display:flex;align-items:center;gap:4px}
+    .secure-item::before{content:'🔒';font-size:14px}
+</style>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    //thumb swiper
+    const thumbEl = document.querySelector('.custom-product-thumbnails.thumbs-bottom');
+
+    let thumbSwiper = null;
+
+    if (thumbEl) {
+      thumbSwiper = new Swiper(thumbEl, {
+        slidesPerView: 4,
+        spaceBetween: 10,
+        watchSlidesProgress: true,
+        freeMode: true,
+      });
+    }
+    //min swiper for main image swipe
+
+    // Swiper init
+    const mainSwiper = new Swiper('.main-swiper', {
+      loop: false,
+      slidesPerView: 1,
+      thumbs: thumbSwiper ? { swiper: thumbSwiper } : {},
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+
+    // VARIANTS
+    const items = document.querySelectorAll('.sopt');
+    if (!items.length) return;
+
+    let defaultVariant = null;
+
+    items.forEach((el) => {
+      if (el.innerText.toLowerCase().includes('60ml')) {
+        defaultVariant = el;
+      }
+    });
+
+    if (!defaultVariant) {
+      defaultVariant = items[0];
+    }
+
+    // click events
+    items.forEach((el) => {
+      el.addEventListener('click', function () {
+        selectVariant(this, mainSwiper);
+      });
+    });
+
+    // auto select default
+    selectVariant(defaultVariant, mainSwiper);
+  });
+
+  // VARIANT SELECT
+  function selectVariant(el, mainSwiper) {
+    if (!el) return;
+
+    // active class
+    document.querySelectorAll('.sopt').forEach((e) => e.classList.remove('sel'));
+    el.classList.add('sel');
+
+    // PRICE (UNCHANGED)
+    const priceBox = document.getElementById('price-display');
+    if (priceBox && el.dataset.price) {
+      priceBox.innerText = el.dataset.price;
+    }
+
+    // IMAGE fallback (UNCHANGED)
+    const img = document.getElementById('main-product-image');
+    if (img && el.dataset.img) {
+      img.src = el.dataset.img;
+    }
+
+    // DESCRIPTION (UNCHANGED)
+    const desc = document.getElementById('variant-desc');
+    if (desc && el.dataset.desc) {
+      desc.innerText = el.dataset.desc;
+    }
+
+    // VARIANT ID (UNCHANGED CART LOGIC)
+    const variantInput = document.getElementById('variant-id');
+    if (variantInput && el.dataset.id) {
+      variantInput.value = el.dataset.id;
+    }
+
+    // ✅ ONLY SLIDER FIX (SAFE)
+  if (mainSwiper && el.dataset.slideIndex) {
+  const index = parseInt(el.dataset.slideIndex);
+  if (!isNaN(index)) {
+    mainSwiper.slideTo(index);
+  }
+}
+  }
+
+  // PRICE CLEAN (UNCHANGED)
+  function cleanPrice() {
+    const priceEl = document.getElementById('price-display');
+    if (priceEl) {
+      priceEl.textContent = priceEl.textContent.replace('.00', '');
+    }
+  }
+
+
+  //add o cart
+  document.addEventListener('DOMContentLoaded', function () {
+  const addBtn = document.getElementById('ajax-add-to-cart');
+  if (!addBtn) return;
+
+  addBtn.addEventListener('click', function (e) {
+    e.preventDefault(); //  Prevent form submit / page reload
+
+    const variantInput = document.getElementById('variant-id');
+    const variantId = variantInput ? variantInput.value : null;
+    if (!variantId) {
+      alert('Please select a variant');
+      return;
+    }
+
+    addBtn.disabled = true;
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items: [{ id: variantId, quantity: 1 }] })
+    })
+    .then(res => res.json())
+    .then(cart => {
+   updateCartCount(); //  Counter update
+
+      setTimeout(() => {
+        addBtn.innerText = '{{ section.settings.button_text }}';
+        addBtn.disabled = false;
+      }, 1200);
+    })
+    .catch(err => {
+      console.error(err);
+      alert('Error adding to cart');
+      addBtn.disabled = false;
+    });
+  });
+
+  // Cart counter function
+  window.updateCartCount = function () {
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cart => {
+        const count = cart.item_count;
+        const bubble = document.querySelector('.cart-count-bubble');
+        const visibleCount = document.querySelector('.cart-count-bubble span[aria-hidden="true"]');
+        const hiddenText = document.querySelector('.cart-count-bubble .visually-hidden');
+
+        if (bubble) bubble.style.display = count > 0 ? 'flex' : 'none';
+        if (visibleCount) visibleCount.innerText = count;
+        if (hiddenText) hiddenText.innerText = `${count} items`;
+      });
+  }
+});
+
+//add upshell cart functionality
+document.addEventListener('DOMContentLoaded', function () {
+
+  document.querySelectorAll('.upsell-btn').forEach(function(btn) {
+
+    btn.addEventListener('click', function(e) {
+      e.preventDefault(); // redirect rok diya
+
+      const variantId = this.dataset.upsellVariantId;
+      if (!variantId) return;
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          items: [{ id: variantId, quantity: 1 }]
+        })
+      })
+      .then(res => res.json())
+      .then(() => {
+        // existing counter function call
+        if (typeof updateCartCount === 'function') {
+        updateCartCount();
+        }
+      })
+      .catch(err => console.error(err));
+
+    });
+
+  });
+
+});
+
+</script>
+
+{% schema %}
+{
+  "name": "Relief Purchase",
+  "settings": [
+      {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "SCustom CSS Class"
+    },
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Select Product"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Relief Balm · Topical Salve"
+    },
+    {
+      "type": "text",
+      "id": "size_label",
+      "label": "Size Label",
+      "default": "Choose Your Size"
+    },
+    {
+      "type": "text",
+      "id": "price_sub",
+      "label": "Sub Text",
+      "default": "No subscription required · Ships in 1–3 business days"
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "ADD TO CART — GET RELIEF TODAY"
+    },
+    {
+      "type": "select",
+      "id": "gallery_type_layout_id",
+      "label": "Gallery Layout",
+      "options": [
+        { "value": "slideshow", "label": "Slideshow" },
+        { "value": "thumbs_aside", "label": "Thumbnails Aside" },
+        { "value": "thumbs_bottom", "label": "Thumbnails Bottom" }
+      ],
+      "default": "slideshow"
+    },
+    {
+  "type": "text",
+  "id": "upsell_label",
+  "label": "Upsell Label",
+  "default": "Complete Your Stack"
+},
+{
+  "type": "text",
+  "id": "upsell_title",
+  "label": "Upsell Title",
+  "default": "Add Product"
+},
+{
+  "type": "text",
+  "id": "upsell_desc",
+  "label": "Upsell Description",
+  "default": "Boost your results"
+},
+{
+  "type": "product",
+  "id": "upsell_product",
+  "label": "Upsell Product"
+},
+{
+  "type": "text",
+  "id": "upsell_btn_text",
+  "label": "Button Text",
+  "default": "ADD"
+},
+
+{
+  "type": "text",
+  "id": "upsell_title_2",
+  "label": "Upsell 2 Title"
+},
+{
+  "type": "text",
+  "id": "upsell_desc_2",
+  "label": "Upsell 2 Description"
+},
+{
+  "type": "product",
+  "id": "upsell_product_2",
+  "label": "Upsell Product 2"
+},
+{
+  "type": "text",
+  "id": "upsell_btn_text_2",
+  "label": "Button Text 2",
+  "default": "ADD"
+}
+  ],
+  "blocks": [
+    {
+      "type": "guarantee",
+      "name": "Guarantee",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon",
+          "default": "🛡️"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "30-Day Guarantee"
+        },
+        {
+          "type": "text",
+          "id": "desc",
+          "label": "Description",
+          "default": "Full refund. No questions."
+        }
+      ]
+    },
+    {
+      "type": "secure",
+      "name": "Secure Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Secure checkout"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Relief Purchase",
+      "blocks": [
+        { "type": "guarantee" },
+        { "type": "guarantee" },
+        { "type": "guarantee" },
+        { "type": "secure" },
+        { "type": "secure" },
+        { "type": "secure" }
+      ]
+    }
+  ]
+}
+{% endschema %}

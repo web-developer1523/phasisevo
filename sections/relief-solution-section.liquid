@@ -1,0 +1,217 @@
+<section class="solution-sec section {{ section.settings.custom_css_class }}">
+
+  <!-- TOP CONTENT -->
+  <div class="solution-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+
+    <p class="solution-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <!-- PATHWAYS -->
+  <div class="pathways-grid">
+    {% for block in section.blocks %}
+      {% if block.type == 'pathway' %}
+        <div class="pw">
+          <div class="pw-num">{{ block.settings.number }}</div>
+          <h4>{{ block.settings.title }}</h4>
+          <div class="pw-ingredient">{{ block.settings.ingredient }}</div>
+          <p>{{ block.settings.description }}</p>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+
+  <!-- VS TABLE -->
+  <div class="vs-scroll">
+    <div class="vs-block">
+
+      <!-- HEADER -->
+      <div class="vs-head">
+        <div class="vh">Feature</div>
+        <div class="vh ours">{{ section.settings.ours_label }}</div>
+        <div class="vh">{{ section.settings.others_label }}</div>
+      </div>
+
+      <!-- ROWS -->
+      {% for block in section.blocks %}
+        {% if block.type == 'comparison' %}
+          <div class="vr">
+            <div class="vc feat">{{ block.settings.feature }}</div>
+            <div class="vc yes {% if block.settings.highlight %}hl{% endif %}">
+              {{ block.settings.ours }}
+            </div>
+            <div class="vc no {% if block.settings.warning %}warn{% endif %}">
+              {{ block.settings.others }}
+            </div>
+          </div>
+        {% endif %}
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+<style>
+    /* Pathway cards — 1 col mobile, 2 col tablet, 4 col desktop */
+.pathways-grid{display:grid;grid-template-columns:1fr;gap:2px;margin-bottom:28px}
+@media(min-width:600px){.pathways-grid{grid-template-columns:1fr 1fr}}
+@media(min-width:1024px){.pathways-grid{grid-template-columns:repeat(4,1fr)}}
+
+.pw{background:var(--surface);border:1px solid var(--border);border-radius:4px;padding:20px 18px;position:relative;overflow:hidden}
+.pw::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--coral);opacity:0;transition:opacity .2s}
+.pw:hover::before{opacity:1}
+.pw-num{font-family:var(--f-dis);font-size:40px;font-weight:800;color:var(--coral);line-height:1;margin-bottom:14px;opacity:.7}
+.pw h4{font-family:var(--f-dis);font-size:16px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.pw-ingredient{font-family:var(--f-dis);font-size:11px;font-weight:600;color:var(--coral);margin-bottom:10px;letter-spacing:.04em}
+.pw p{font-size:15px;color:#d0d0d0;line-height:1.65}
+
+/* VS block — horizontal scroll on mobile */
+.vs-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--pad))}
+@media(min-width:768px){.vs-scroll{overflow-x:visible;margin:0}}
+
+.vs-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;min-width:560px}
+@media(min-width:768px){.vs-block{min-width:0}}
+
+.vs-head{display:grid;grid-template-columns:1.4fr 1fr 1fr;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border)}
+.vh{padding:12px 16px;font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#d0d0d0;text-align: center;}
+.vs-head .vh:first-child {
+    text-align: left;
+}
+.vh.ours{color:var(--coral);background:rgba(232,72,42,.05)}
+.vr{display:grid;grid-template-columns:1.4fr 1fr 1fr;border-bottom:1px solid var(--border);align-items:center}
+.vr:last-child{border-bottom:none}
+.vc{padding:10px 16px;font-size:14px}
+.vc.feat{color:var(--off-white);font-weight:500}
+.vc.yes{color:var(--coral);font-weight:600;text-align:center}.vc.yes::after{content:' ✓'}
+.vc.no{color:#d0d0d0;text-align:center;font-size:14px}.vc.no::after{content:' ✗';color:#c04040}
+.vc.warn{color:#e8b84b;text-align:center;font-size:14px}
+.vc.hl{background:rgba(232,72,42,.04)}
+</style>
+{% schema %}
+{
+  "name": "Solution Section",
+  "settings": [
+       {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "How It Actually Works"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Not All CBD"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Is the Same."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text"
+    },
+    {
+      "type": "text",
+      "id": "ours_label",
+      "label": "Our Column Label",
+      "default": "Max Relief"
+    },
+    {
+      "type": "text",
+      "id": "others_label",
+      "label": "Others Column Label",
+      "default": "Others"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "pathway",
+      "name": "Pathway",
+      "settings": [
+        {
+          "type": "text",
+          "id": "number",
+          "label": "Number (01, 02...)"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "ingredient",
+          "label": "Ingredient"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description"
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "name": "Comparison Row",
+      "settings": [
+        {
+          "type": "text",
+          "id": "feature",
+          "label": "Feature"
+        },
+        {
+          "type": "text",
+          "id": "ours",
+          "label": "Our Product"
+        },
+        {
+          "type": "text",
+          "id": "others",
+          "label": "Others"
+        },
+        {
+          "type": "checkbox",
+          "id": "highlight",
+          "label": "Highlight Our Side",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "warning",
+          "label": "Warning Style for Others",
+          "default": false
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Relief Solution Section",
+      "blocks": [
+        { "type": "pathway" },
+        { "type": "pathway" },
+        { "type": "pathway" },
+        { "type": "pathway" },
+        { "type": "comparison" },
+        { "type": "comparison" },
+        { "type": "comparison" }
+      ]
+    }
+  ]
+}
+{% endschema %}

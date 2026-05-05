@@ -268,6 +268,7 @@
 
 {% endjavascript %}
 
+ {% comment %} {% unless request.page_type == 'page' and request.path == '/pages/about' %}
 <script type="application/ld+json">
 	{
 		"@context": "http://schema.org",
@@ -289,7 +290,68 @@
 		"url": {{ shop.url | append: page.url | json }}
 	}
 </script>
+{%  endunless %}  {% endcomment %}
+{% if request.page_type == 'page' and page.handle == 'faq' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PHASIS",
+  "url": "https://phasisevo.com",
+  "logo": "https://phasisevo.com/cdn/shop/files/phasis-logo.png",
+  "description": "Science-backed natural performance supplements. CBD topicals, mineral electrolyte drops, and ecdysterone capsules. Every formula peer-reviewed, third-party tested, and fairly priced.",
+  "foundingDate": "2025",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oakland",
+    "addressRegion": "MD",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.instagram.com/phasisevo"]
+}
+</script>
+{% endif %}
+{% if request.page_type == 'page' and page.handle == 'journal' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PHASIS",
+  "url": "https://phasisevo.com",
+  "logo": "https://phasisevo.com/cdn/shop/files/phasis-logo.png",
+  "description": "Science-backed natural performance supplements. CBD topicals, mineral electrolyte drops, and ecdysterone capsules. Every formula peer-reviewed, third-party tested, and fairly priced.",
+  "foundingDate": "2025",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oakland",
+    "addressRegion": "MD",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.instagram.com/phasisevo"]
+}
+</script>
+{% endif %}
 
+{% if request.page_type == 'page' and page.handle == 'partner' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "PHASIS",
+  "url": "https://phasisevo.com",
+  "logo": "https://phasisevo.com/cdn/shop/files/phasis-logo.png",
+  "description": "Science-backed natural performance supplements. CBD topicals, mineral electrolyte drops, and ecdysterone capsules. Every formula peer-reviewed, third-party tested, and fairly priced.",
+  "foundingDate": "2025",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Oakland",
+    "addressRegion": "MD",
+    "addressCountry": "US"
+  },
+  "sameAs": ["https://www.instagram.com/phasisevo"]
+}
+</script>
+{% endif %}
 <script>
 	const calcHeader = () => {
 		const header = document.querySelector('.shopify-section-header');
@@ -329,7 +391,7 @@
 	document.addEventListener('shopify:section:reorder', calcHeader);
 </script>
 
-{%- if request.page_type == 'index' -%}
+{% comment %} {%- if request.page_type == 'index' -%}
 	{% assign potential_action_target = shop.url | append: routes.search_url | append: "?q={search_term_string}" %}
 	<script type="application/ld+json">
 		{
@@ -344,8 +406,16 @@
 			"url": {{ shop.url | append: page.url | json }}
 		}
 	</script>
-{%- endif -%}
-
+{%- endif -%} {% endcomment %}
+ <script>
+window.addEventListener('scroll', () => {
+  const details = document.querySelector('.header__account details');
+  
+  if (details && details.hasAttribute('open')) {
+    details.removeAttribute('open');
+  }
+});
+</script>
 {% schema %}
 {
 	"name": "t:sections.header.name",
@@ -606,7 +676,19 @@
 			"default": true,
 			"label": "t:sections.header.settings.enable_search.label",
 			"info": "t:sections.header.settings.enable_search.info"
-		}
+		},
+		{
+  "type": "checkbox",
+  "id": "enable_search_mobile",
+  "default": true,
+  "label": "Enable Search on Mobile"
+},
+{
+  "type": "checkbox",
+  "id": "enable_account_mobile",
+  "default": true,
+  "label": "Enable Account on Mobile"
+}
 	],
 	"blocks": [
 		{

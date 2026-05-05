@@ -1,0 +1,183 @@
+<div class="policy-tabs">
+  {% for block in section.blocks %}
+    <button 
+      class="ptab {% if forloop.first %}active{% endif %}" 
+        data-tab="{{ block.settings.tab_id }}"
+      onclick="showPolicy('{{ block.settings.tab_id }}', this)">
+      {{ block.settings.tab_title }}
+    </button>
+  {% endfor %}
+</div>
+
+<div class="policy-contents">
+  {% for block in section.blocks %}
+    <div 
+      id="{{ block.settings.tab_id }}" 
+      class="policy-panel {% if forloop.first %}active{% endif %}">
+         <!--DYNAMIC HEADER -->
+      <div class="policy-header-dynamic">
+        <span class="policy-tag">LEGAL</span>
+
+        <div class="policy-title">
+          {{ block.settings.tab_title }}
+        </div>
+
+        <p class="policy-meta">
+          {% comment %} Last updated: January 1, 2026 &middot; {{ shop.name }} {% endcomment %}
+            Last updated: {{ block.settings.last_updated }} &middot; {{ shop.name }}
+        </p>
+      </div>
+      {{ block.settings.tab_content }}
+    
+    </div>
+  {% endfor %}
+</div>
+
+<style>
+.policy-tabs {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0 var(--pad);
+}
+.policy-tabs::-webkit-scrollbar { display: none; }
+
+.ptab {
+  background: none;
+  border: none;
+  border-bottom: 2px solid transparent;
+  color: var(--muted);
+  font-family: var(--f-dis);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: 0 16px;
+  height: 48px;
+  cursor: pointer;
+  transition: all .15s;
+  white-space: nowrap;
+  min-height: 48px;
+  flex-shrink: 0;
+}
+
+.ptab.active {
+  color: var(--coral);
+  border-bottom-color: var(--coral);
+}
+
+.ptab:hover:not(.active) {
+  color: var(--off-white);
+}
+
+.policy-panel {
+  display: none;
+  padding: 16px 0;
+}
+
+.policy-panel.active {
+  display: block;
+}
+
+@media(min-width:768px){.policy-tabs{padding:0 var(--pad-md)}}
+@media(min-width:1024px){.policy-tabs{padding:0 var(--pad-lg)}}
+</style>
+
+<script>
+function showPolicy(tabId, el) {
+  // Remove active from buttons
+  document.querySelectorAll('.ptab').forEach(btn => btn.classList.remove('active'));
+
+  // Remove active from content panels
+  document.querySelectorAll('.policy-panel').forEach(panel => panel.classList.remove('active'));
+
+  // Activate clicked button and corresponding content
+  el.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+    history.replaceState(null, null, '#' + tabId);
+}
+function openTabFromHash() {
+  const hash = window.location.hash.replace('#', '');
+
+  if (!hash) return;
+
+  const targetPanel = document.getElementById(hash);
+  const targetBtn = document.querySelector(`.ptab[data-tab="${hash}"]`);
+
+  if (targetPanel && targetBtn) {
+    showPolicy(hash, targetBtn);
+  } else {
+    setTimeout(openTabFromHash, 300);
+  }
+}
+window.addEventListener("load", openTabFromHash);
+window.addEventListener("hashchange", openTabFromHash);
+
+document.addEventListener("click", function(e) {
+  const link = e.target.closest('a[href*="#"]');
+  if (!link) return;
+
+  const url = new URL(link.href);
+  const tabId = url.hash.replace('#', '');
+
+  if (!tabId) return;
+
+  const targetBtn = document.querySelector(`.ptab[data-tab="${tabId}"]`);
+
+  if (targetBtn) {
+    e.preventDefault();
+
+    // Agar panel abhi load nahi hua ho to wait karo
+    setTimeout(() => {
+      showPolicy(tabId, targetBtn);
+    }, 100);
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Policy Tabs",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Policy Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "Privacy Policy"
+        },
+        {
+          "type": "text",
+          "id": "tab_id",
+          "label": "Tab ID",
+          "default": "privacy"
+        },
+        {
+          "type": "html",
+          "id": "tab_content",
+          "label": "Tab Content",
+          "default": "<div class='policy-header'><span class='policy-tag'>Legal</span><div class='policy-title'>Privacy Policy</div><p class='policy-meta'>Last updated: January 1, 2026 &middot; Natural Performance LLC</p></div><div class='prose'><p>PHASIS takes your privacy seriously...</p></div>"
+        },
+                {
+  "type": "text",
+  "id": "last_updated",
+  "label": "Last Updated",
+  "default": "January 1, 2026"
+}
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Policy Tabs"
+    }
+  ]
+}
+{% endschema %}

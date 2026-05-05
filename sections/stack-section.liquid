@@ -60,6 +60,7 @@
               <img
                 src="{{ product.featured_image | image_url: width: 600 }}"
                 alt="{{ product.title }}"
+                 class="stack-product-image"
                 loading="lazy"
               >
             {% endif %}
@@ -99,22 +100,56 @@
                 {% endif %}
               </div>  {% endcomment %}
               <div class="electro-footer">
-  <div class="electro-price">
-    From {{ product.price | money }} <span class="unit-text">1 oz or 4 oz</span>
+              <div class="electro-price">
+                {% assign prices = product.variants | map: 'price' | uniq %}
+                From {% for price in prices %}
+                  {{ price | money | replace: '.00', '' }}{% unless forloop.last %} - {% endunless %}
+                {% endfor %} <span class="unit-text variant-pills cst-pills-select">
+              {% if product.variants.size > 0 %}
 
-    {% if product.compare_at_price > product.price %}
-      <span style="text-decoration:line-through;">
-        {{ product.compare_at_price | money }}
-      </span>
-    {% endif %}
-  </div> 
+                {% assign variant_titles = product.variants | map: 'title' | uniq %}
 
-              <a
-                href="{% if section.settings.card_btn_link != blank %}{{ section.settings.card_btn_link }}{% else %}{{ product.url }}{% endif %}"
-                class="btn btn-t"
-              >
+                {% for variant in product.variants %}
+                  <input
+                    type="radio"
+                    id="variant-{{ variant.id }}"
+                    name="id"
+                    value="{{ variant.id }}"
+                    data-price="{{ variant.price | money }}"
+                    data-image="{{ variant.featured_image | image_url: width: 600 }}"
+                      {% if variant.title contains '120' %}checked{% elsif forloop.first %}checked{% endif %}
+                    hidden
+                  >
+
+                  <label for="variant-{{ variant.id }}" class="pill variant">
+                    {{ variant.title }}
+                  </label>
+                {% endfor %}
+              {% else %}
+                1 oz or 4 oz
+              {% endif %}
+            </span>
+
+              {% if product.compare_at_price > product.price %}
+                <span style="text-decoration:line-through;">
+                  {{ product.compare_at_price | money }}
+                </span>
+              {% endif %}
+            </div> 
+            {% if section.settings.card_btn_link != blank %}
+            <!-- fallback  mode -->
+            <a href="{{ section.settings.card_btn_link }}" class="btn btn-t">
+              {{ section.settings.card_btn_text }}
+            </a>
+          {% else %}
+            <!-- Shopify Add to Cart  -->
+            <form method="post" action="/cart/add" class="perf-cta-form">
+              <input type="hidden" name="id" id="selected-variant" value="{{ product.variants.first.id }}">
+              <button type="submit" class="btn btn-t">
                 {{ section.settings.card_btn_text }}
-              </a>
+              </button>
+            </form>
+          {% endif %}
             </div>
           </div>
         </div>
@@ -122,7 +157,114 @@
     </div>
   </div>
 </section>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
 
+  let selectedVariant = document.querySelector('#stack .variant-pills input:checked')?.value;
+  const stackSection = document.querySelector('#stack');
+  const checkedInput = document.querySelector('#stack .variant-pills input:checked');
+  if (checkedInput) {
+    applyDynamicClass(checkedInput);
+  }
+ 
+  // VARIANT CHANGE (IMAGE + STORE)
+
+  document.querySelectorAll('#stack .variant-pills input').forEach(input => {
+
+    input.addEventListener('change', function () {
+
+      selectedVariant = this.value;
+       applyDynamicClass(this);
+
+      // IMAGE CHANGE
+      const newImage = this.dataset.image;
+
+      if (newImage) {
+        const img = document.querySelector('#stack .electro-card-img img');
+        if (img) img.src = newImage;
+      }
+
+    });
+
+  });
+
+
+  // ADD TO CART (AJAX)
+
+  const form = document.querySelector('#stack .perf-cta-form');
+
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        id: selectedVariant,
+        quantity: 1
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+
+      console.log('Added to cart:', data);
+
+      updateCartCount();
+
+    })
+    .catch(err => {
+      console.error('Add to cart error:', err);
+    });
+
+  });
+
+
+  // CART COUNT UPDATE (Dawn theme FIX)
+
+  function updateCartCount() {
+    fetch('/cart.js')
+      .then(res => res.json())
+      .then(cart => {
+
+        const count = cart.item_count;
+
+        // MAIN CART BUBBLE (your theme)
+        document.querySelectorAll('.cart-count-bubble span[aria-hidden="true"]')
+          .forEach(el => {
+            el.textContent = count;
+          });
+
+        // accessibility text
+        document.querySelectorAll('.cart-count-bubble .visually-hidden')
+          .forEach(el => {
+            el.textContent = count + (count === 1 ? ' item' : ' items');
+          });
+
+      });
+  }
+
+
+    function applyDynamicClass(input) {
+   const label = document.querySelector(`label[for="${input.id}"]`)?.textContent.toLowerCase();
+
+    // old class remove
+    stackSection.classList.remove('is-120ml');
+
+    // 120ml detect
+     if (label && label.includes('120')) {
+    stackSection.classList.add('is-120ml');
+  }
+  }
+
+
+
+});
+</script>
 {% schema %}
 {
   "name": "Stack Section (Product)",

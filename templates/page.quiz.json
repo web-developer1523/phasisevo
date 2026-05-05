@@ -7,92 +7,92 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "main": {
-        "type": "main-page",
-        "disabled": true,
-        "settings": {
-          "section_heading_tag": "h1",
-          "heading_size": "h3",
-          "margin_top": "no-indent",
-          "margin_bottom": "m"
-        }
-      },
-      "slideshow_UQx4mh": {
-        "type": "slideshow",
-        "blocks": {
-          "slideshow_item_WJDLEn": {
-            "type": "slideshow_item",
-            "settings": {
-              "desktop_image": "shopify://shop_images/blog_banner.jpg",
-              "color_scheme": "background-2",
-              "heading": "Blog",
-              "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
-              "text_width": "large",
-              "button_label": "",
-              "button_link": "",
-              "button_dot": true,
-              "button_style": "primary",
-              "overlay_enable": true,
-              "overlay_opacity": 0,
-              "overlay_opacity_mobile": 0
-            }
-          }
-        },
-        "block_order": [
-          "slideshow_item_WJDLEn"
-        ],
-        "custom_css": [
-          ".slideshow-slide__img img {object-position: center top !important;}",
-          ".slideshow-slide__text {max-width: 640px; width: 100%;}",
-          ".slideshow-slide__text * {max-width: 100%;}"
-        ],
-        "name": "t:sections.slideshow.presets.name",
-        "settings": {
-          "header_overlay": false,
-          "header_transparent": false,
-          "color_scheme_header": "background-2",
-          "light_logo": true,
-          "section_layout": "full",
-          "text_position": "left",
-          "pagination_position": "center",
-          "image_size": "21/9",
-          "heading_tag": "h1",
-          "image_size_mobile": "3/4",
-          "text_position_mobile": "bottom-left",
-          "is_autoplay": true,
-          "is_hover_stop_autoplay": false,
-          "slideshow_speed": 0.8,
-          "slideshow_delay": 3,
-          "slide_effects": "custom",
-          "text_animation": false,
-          "margin_top": "no-indent",
-          "margin_bottom": "no-indent"
-        }
-      },
-      "custom_blog_grid_EA6geK": {
-        "type": "custom-blog-grid",
-        "name": "Custom Blog Grid",
-        "settings": {
-          "enable_colored_tags": true,
-          "recent_posts_title": "Recent Posts",
-          "recent_posts_heading_tag": "h2",
-          "recent_posts_heading_size": "h1",
-          "number_of_recent_posts": 3,
-          "all_posts_title": "All Blog Posts",
-          "all_posts_heading_tag": "h2",
-          "all_posts_heading_size": "h1",
-          "posts_per_page": 9,
-          "margin_top": "m",
-          "margin_bottom": "m"
-        }
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
       }
     },
-    "order": [
-      "main",
-      "slideshow_UQx4mh",
-      "custom_blog_grid_EA6geK"
-    ]
-  }
-  
+    "quiz_Vby3YB": {
+      "type": "quiz",
+      "name": "PHASIS Protocol Quiz",
+      "settings": {
+        "logo": "shopify://shop_images/PHASIS-logo.svg",
+        "brand_name": "PHASIS",
+        "back_button_label": "Back",
+        "intro_badge": "PHASIS Wellness Protocol",
+        "intro_heading": "Find Your<br><em>Phase.</em>",
+        "intro_subtext": "You don't need to figure it all out at once. <strong>The PHASIS Protocol Scan</strong> finds your starting point in 3 minutes.",
+        "intro_meta_1": "24 questions",
+        "intro_meta_2": "3–5 minutes",
+        "intro_meta_3": "Holistic-first approach",
+        "start_button_label": "FIND YOUR PROTOCOL",
+        "intake1_eyebrow": "Quick Setup — 1 of 4",
+        "intake1_heading": "What brings you here today?",
+        "intake1_note": "Pick the one that resonates most right now.",
+        "intake1_opt1_label": "Just want to feel better",
+        "intake1_opt1_desc": "More energy, better sleep, less stress — I want to feel like myself again",
+        "intake1_opt2_label": "Build healthy habits",
+        "intake1_opt2_desc": "Starting fresh — I want to establish a real foundation",
+        "intake1_opt3_label": "Recovery & Pain",
+        "intake1_opt3_desc": "Soreness, stiffness, inflammation — I want to recover faster",
+        "intake1_opt4_label": "Energy & Performance",
+        "intake1_opt4_desc": "Fatigue, crashes, poor endurance — I want to perform better",
+        "intake1_opt5_label": "Muscle & Body Composition",
+        "intake1_opt5_desc": "I want to build lean muscle and optimize my physique",
+        "intake2_eyebrow": "Quick Setup — 2 of 4",
+        "intake2_heading": "How would you describe your training?",
+        "intake2_note": "This helps calibrate the intensity of your protocol.",
+        "intake2_opt1_label": "Just getting started",
+        "intake2_opt1_desc": "New to exercise or wellness — building habits from scratch",
+        "intake2_opt2_label": "Casual",
+        "intake2_opt2_desc": "1–3 times per week, general fitness or activity",
+        "intake2_opt3_label": "Regular",
+        "intake2_opt3_desc": "4–5 times per week, structured training",
+        "intake2_opt4_label": "Competitive",
+        "intake2_opt4_desc": "Active competitor — BJJ, lifting, endurance, team sport",
+        "intake2_opt5_label": "Elite / Tested",
+        "intake2_opt5_desc": "High-level athlete, drug-tested environment",
+        "intake3_eyebrow": "Quick Setup — 3 of 4",
+        "intake3_heading": "Where are you in your supplement journey?",
+        "intake3_note": "No right or wrong answer — this shapes how we present options.",
+        "intake3_opt1_label": "Natural only",
+        "intake3_opt1_desc": "I prefer clean, plant-derived, food-based supplements",
+        "intake3_opt2_label": "Taking the basics — open to more",
+        "intake3_opt2_desc": "Protein, creatine, vitamins — I'll add more if it makes sense",
+        "intake3_opt3_label": "I research everything",
+        "intake3_opt3_desc": "Evidence-based, informed decisions — show me all my options",
+        "intake_age_eyebrow": "Quick Setup — 4 of 4",
+        "intake_age_heading": "What is your age range?",
+        "intake_age_note": "Age helps us calibrate your protocol — recovery timelines, mineral needs, and lifestyle recommendations shift meaningfully by decade.",
+        "age_opt1_label": "18 – 30",
+        "age_opt1_desc": "Peak adaptation — performance, muscle building, high training load",
+        "age_opt2_label": "31 – 45",
+        "age_opt2_desc": "Recovery taking longer — stress load higher, energy consistency matters more",
+        "age_opt3_label": "46 – 60",
+        "age_opt3_desc": "Hormonal shifts, joint health, sleep quality and mineral depletion accelerate",
+        "age_opt4_label": "60+",
+        "age_opt4_desc": "Muscle preservation, circulation, cognitive support, gentler protocols",
+        "start_scan_button_label": "START CORE SCAN →",
+        "continue_button_label": "CONTINUE →",
+        "deep_dive_yes_label": "YES — REFINE MY PROTOCOL",
+        "deep_dive_skip_label": "Skip to my results →",
+        "copyright_text": "© 2025 Natural Performance LLC. All rights reserved.",
+        "privacy_policy_link": "",
+        "privacy_policy_label": "Privacy Policy",
+        "terms_of_service_link": "",
+        "terms_of_service_label": "Terms of Service"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "quiz_Vby3YB"
+  ]
+}

@@ -16,7 +16,6 @@
         <div class="footer__blocks-wrapper">
           {% for block in section.blocks %}
             {% case block.type %}
-             
               {% when 'link_list' %}
                 {% if block.settings.heading != blank %}
                   <div class="accordion">
@@ -29,10 +28,10 @@
                         <h5 class="footer-block__heading subtitle h5">
                           {{ block.settings.heading | escape }}
                         </h5>
-                        <div class="collapsible-content__icon icon-style--{{ section.settings.icon_style }}">
+                        {% comment %} <div class="collapsible-content__icon icon-style--{{ section.settings.icon_style }}">
                           {% render 'icon-minus' %}
                           {% render 'icon-plus' %}
-                        </div>
+                        </div> {% endcomment %}
                       </summary>
                       {% if block.settings.menu != blank %}
                         <ul class="footer-block__details-content list-unstyled">
@@ -152,209 +151,209 @@
                       {{ block.settings.description }}
                     </div>
                   {%- endif -%}
-				       {%- if section.settings.show_social == true -%}
-            {% if settings.social_twitter_link != blank
-              or settings.social_facebook_link != blank
-              or settings.social_linkedin_link != blank
-              or settings.social_pinterest_link != blank
-              or settings.social_instagram_link != blank
-              or settings.social_tiktok_link != blank
-              or settings.social_tumblr_link != blank
-              or settings.social_snapchat_link != blank
-              or settings.social_youtube_link != blank
-              or settings.social_vimeo_link != blank
-            %}
-              <div class="footer-block footer__list-social-wrapper">
-                <ul
-                  class="footer__list-social list-unstyled list-social"
-                  role="list"
-                >
-                  {% if settings.social_twitter_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_twitter_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="twitter"
-                      >
-                        {% render 'icon-twitter' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.twitter' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_facebook_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_facebook_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="facebook"
-                      >
-                        {% render 'icon-facebook' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.facebook' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_linkedin_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_linkedin_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="linkedin"
-                      >
-                        {% render 'icon-linkedin' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.linkedin' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_pinterest_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_pinterest_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="pinterest"
-                      >
-                        {% render 'icon-pinterest' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.pinterest' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_instagram_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_instagram_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="instagram"
-                      >
-                        {% render 'icon-instagram' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.instagram' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_tiktok_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_tiktok_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="tiktok"
-                      >
-                        {% render 'icon-tiktok' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.tiktok' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_tumblr_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_tumblr_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="tumblr"
-                      >
-                        {% render 'icon-tumblr' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.tumblr' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_snapchat_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_snapchat_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="snapchat"
-                      >
-                        {% render 'icon-snapchat' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.snapchat' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_youtube_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_youtube_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="youtube"
-                      >
-                        {% render 'icon-youtube' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.youtube' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                  {% if settings.social_vimeo_link != blank %}
-                    <li class="list-social__item">
-                      <a
-                        href="{{ settings.social_vimeo_link }}"
-                        {% if settings.new_tab %}
-                          target="_blank"
-                        {% endif %}
-                        class="link link--text list-social__link focus-inset"
-                        aria-describedby="a11y-external-message"
-                        aria-label="vimeo"
-                      >
-                        {% render 'icon-vimeo' %}
-                        <span class="visually-hidden">
-                          {{ 'general.social.links.vimeo' | t }}
-                        </span>
-                      </a>
-                    </li>
-                  {% endif %}
-                </ul>
-              </div>
-            {% endif %}
-          {%- endif -%}
+                  {%- if section.settings.show_social == true -%}
+                    {% if settings.social_twitter_link != blank
+                      or settings.social_facebook_link != blank
+                      or settings.social_linkedin_link != blank
+                      or settings.social_pinterest_link != blank
+                      or settings.social_instagram_link != blank
+                      or settings.social_tiktok_link != blank
+                      or settings.social_tumblr_link != blank
+                      or settings.social_snapchat_link != blank
+                      or settings.social_youtube_link != blank
+                      or settings.social_vimeo_link != blank
+                    %}
+                      <div class="footer-block footer__list-social-wrapper">
+                        <ul
+                          class="footer__list-social list-unstyled list-social"
+                          role="list"
+                        >
+                          {% if settings.social_twitter_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_twitter_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="twitter"
+                              >
+                                {% render 'icon-twitter' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.twitter' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_facebook_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_facebook_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="facebook"
+                              >
+                                {% render 'icon-facebook' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.facebook' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_linkedin_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_linkedin_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="linkedin"
+                              >
+                                {% render 'icon-linkedin' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.linkedin' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_pinterest_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_pinterest_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="pinterest"
+                              >
+                                {% render 'icon-pinterest' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.pinterest' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_instagram_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_instagram_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="instagram"
+                              >
+                                {% render 'icon-instagram' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.instagram' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_tiktok_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_tiktok_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="tiktok"
+                              >
+                                {% render 'icon-tiktok' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.tiktok' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_tumblr_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_tumblr_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="tumblr"
+                              >
+                                {% render 'icon-tumblr' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.tumblr' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_snapchat_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_snapchat_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="snapchat"
+                              >
+                                {% render 'icon-snapchat' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.snapchat' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_youtube_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_youtube_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="youtube"
+                              >
+                                {% render 'icon-youtube' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.youtube' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                          {% if settings.social_vimeo_link != blank %}
+                            <li class="list-social__item">
+                              <a
+                                href="{{ settings.social_vimeo_link }}"
+                                {% if settings.new_tab %}
+                                  target="_blank"
+                                {% endif %}
+                                class="link link--text list-social__link focus-inset"
+                                aria-describedby="a11y-external-message"
+                                aria-label="vimeo"
+                              >
+                                {% render 'icon-vimeo' %}
+                                <span class="visually-hidden">
+                                  {{ 'general.social.links.vimeo' | t }}
+                                </span>
+                              </a>
+                            </li>
+                          {% endif %}
+                        </ul>
+                      </div>
+                    {% endif %}
+                  {%- endif -%}
                 </div>
-				   {% comment %} new {% endcomment %}
+                {% comment %} new {% endcomment %}
               {%- when 'brand_info' -%}
                 <div class="footer-block footer-brand" {{ block.shopify_attributes }}>
                   <div class="footer-brand__tagline">
@@ -432,6 +431,15 @@
                           {{ block.settings.email }}
                         </a>
                       {%- endif -%}
+                      {%- if block.settings.email_2 != blank -%}
+                        <a
+                          href="mailto:{{- block.settings.email_2 -}}"
+                          class="footer-block__contacts-text"
+                          aria-label="{{ block.settings.email_2 }}"
+                        >
+                          {{ block.settings.email_2 }}
+                        </a>
+                      {%- endif -%}
                     </div>
                   {%- endif -%}
                   {%- if block.settings.working_hours != blank -%}
@@ -485,8 +493,8 @@
       assign grid = true
     endif
   %}
-
-  {% if localizations or payment or socials %}
+{% comment %} payment and social icon {% endcomment %}
+  {% comment %} {% if localizations or payment or socials %}
     <div class="footer__content-center">
       <div class="container">
         <div class="footer__content-center-container {% if grid %} footer__content-center-container_grid {% endif %}">
@@ -903,27 +911,35 @@
         </div>
       </div>
     </div>
-  {% endif %}
+  {% endif %} {% endcomment %}
 
   <div class="footer__content-bottom">
     <div class="container">
       <div class="footer__content-bottom-container">
         <div class="footer__content-bottom-main">
+          {% comment %}
+            <div class="footer__copyright">
+              <span class="copyright__content font-weight-medium">
+                {% if section.settings.enable_copyright_shopname %}
+                  &copy;
+                {% endif %}
+                {% if section.settings.enable_copyright_date %}
+                  {{ 'now' | date: '%Y' }}
+                {% endif %}
+                {% if section.settings.enable_copyright_shopname %}
+                  {{ shop.name | link_to: routes.root_url }}.
+                {% endif %}
+              </span>
+              <span class="copyright__content font-weight-medium">
+                {{- powered_by_link -}}
+              </span>
+            </div>
+          {% endcomment %}
           <div class="footer__copyright">
             <span class="copyright__content font-weight-medium">
-              {% if section.settings.enable_copyright_shopname %}
-                &copy;
-              {% endif %}
-              {% if section.settings.enable_copyright_date %}
-                {{ 'now' | date: '%Y' }}
-              {% endif %}
-              {% if section.settings.enable_copyright_shopname %}
-                {{ shop.name | link_to: routes.root_url }}.
-              {% endif %}
+              © 2026 Natural Performance LLC. All rights reserved.
             </span>
-            <span class="copyright__content font-weight-medium">
-              {{- powered_by_link -}}
-            </span>
+            <a href="{{ routes.root_url }}" class="copyright__content font-weight-medium"> PHASIS </a>
           </div>
           {%- if section.settings.show_policy -%}
             <ul class="footer__policies list-unstyled">
@@ -1041,8 +1057,12 @@
         {
           "type": "text",
           "id": "email",
-          "default": "info@themex.com",
           "label": "t:sections.footer.blocks.contacts.settings.email.label"
+        },
+        {
+          "type": "text",
+          "id": "email_2",
+          "label": "Second Email"
         },
         {
           "type": "text",

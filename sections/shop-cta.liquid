@@ -1,0 +1,305 @@
+{% style %}
+.shop-cta {
+  background: var(--surface, #18191C);
+  border-top: 1px solid var(--border, #2a2b2f);
+    padding: 40px 16px;
+  text-align: center;
+}
+
+.shop-cta__tag {
+  display: block;
+  font-family: 'Conthrax', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  font-style: italic;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+  color: #E8482A;
+  margin-bottom: 12px;
+}
+
+.shop-cta__heading {
+  font-family: 'Sora', sans-serif;
+  font-weight: 700;
+  font-size: clamp(22px, 4vw, 32px);
+  letter-spacing: -.02em;
+  margin-bottom: 10px;
+}
+
+.shop-cta__highlight {
+  color: #E8482A;
+  font-style: normal;
+}
+
+.shop-cta__desc {
+  font-size: 15px;
+  color: #d0d0d0;
+  margin-bottom: 24px;
+  line-height: 1.65;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shop-cta__buttons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  max-width: 360px;
+  margin: 0 auto;
+}
+
+.shop-cta__btn-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #E8482A;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 15px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  min-height: 52px;
+  width: 100%;
+}
+.shop-cta .shop-cta__btn-secondary {
+    display: none;
+}
+.shop-cta__btn-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: #d0d0d0;
+  font-family: 'Sora', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 8px;
+  min-height: 44px;
+}
+
+
+.quiz-cta {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 16px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.quiz-cta__tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #E8482A;
+  margin-bottom: 8px;
+}
+
+.quiz-cta__heading {
+  font-family: 'Sora', sans-serif;
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+
+.quiz-cta__heading .highlight_text {
+    color: #e8482a;
+}
+
+.quiz-cta__desc {
+  font-size: 15px;
+  color: #d0d0d0;
+  margin-bottom: 16px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-cta__btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #E8482A;
+    color: #fff;
+    font-family: 'Sora', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    padding: 14px 24px;
+    border-radius: 6px;
+    text-decoration: none;
+    min-height: 48px;
+    width: 100%;
+    max-width: 360px;
+    justify-content: center;
+}
+
+.cst-parent-div {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.cst-parent-div .shop-cta, .cst-parent-div .quiz-cta {
+    border: 1px solid #5c271f;
+}
+
+@media screen and (max-width:991px){
+  .cst-parent-div {
+    grid-template-columns: 100%;
+  }
+}
+{% endstyle %}
+<div class="cst-parent-div">
+<div class="shop-cta {{ section.settings.custom_css }}">
+  <span class="shop-cta__tag">
+    {{ section.settings.tagline }}
+  </span>
+
+  <h2 class="shop-cta__heading">
+    {{ section.settings.heading }}
+    <em class="shop-cta__highlight">
+      {{ section.settings.highlight_text }}
+    </em>
+  </h2>
+
+  <p class="shop-cta__desc">
+    {{ section.settings.description }}
+  </p>
+
+  <div class="shop-cta__buttons">
+    <a href="{{ section.settings.primary_link }}" class="shop-cta__btn-primary">
+      {{ section.settings.primary_text }}
+    </a>
+
+    <a href="{{ section.settings.secondary_link }}" class="shop-cta__btn-secondary">
+      {{ section.settings.secondary_text }}
+    </a>
+  </div>
+
+</div>
+<div class="quiz-cta {{ section.settings.custom_css }}">
+  <div class="quiz-cta__tag">
+    {{ section.settings.tagline_cta }}
+  </div>
+
+  <div class="quiz-cta__heading">
+   {{ section.settings.heading_new | replace: 'Starting Point', '<span class="highlight_text">Starting Point</span>' }}
+  </div>
+
+  <p class="quiz-cta__desc">
+    {{ section.settings.description_id }}
+  </p>
+
+  <a href="{{ section.settings.button_link_new }}" class="quiz-cta__btn">
+    {{ section.settings.button_text_new }}
+  </a>
+</div>
+</div>
+{% schema %}
+{
+  "name": "Shop CTA",
+  "settings": [
+        {
+      "type": "text",
+      "id": "custom_css",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "Questions Answered. Ready to Go?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Shop the"
+    },
+    {
+      "type": "text",
+      "id": "highlight_text",
+      "label": "Highlight Text",
+      "default": "PHASIS System"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Max Relief. Electro+. Perform+. All third-party tested, clinically informed, backed by a 30-day guarantee."
+    },
+    {
+      "type": "text",
+      "id": "primary_text",
+      "label": "Primary Button Text",
+      "default": "● SHOP ALL PRODUCTS"
+    },
+    {
+      "type": "url",
+      "id": "primary_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "secondary_text",
+      "label": "Secondary Button Text",
+      "default": "🧬 Not sure where to start? Take the scan →"
+    },
+    {
+      "type": "url",
+      "id": "secondary_link",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "text",
+      "id": "tagline_cta",
+      "label": "Tagline",
+      "default": "🧬 Want to improve your health but not sure where to start?"
+    },
+    {
+      "type": "text",
+      "id": "heading_new",
+      "label": "Heading",
+      "default": "Find Your Starting Point"
+    },
+    {
+      "type": "textarea",
+      "id": "description_id",
+      "label": "Description",
+      "default": "23 questions. A clear picture of where to focus first. Your starting point — not a sales funnel."
+    },
+    {
+      "type": "text",
+      "id": "button_text_new",
+      "label": "Button Text",
+      "default": "● FIND YOUR PROTOCOL"
+    },
+    {
+      "type": "url",
+      "id": "button_link_new",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop CTA New"
+    }
+  ]
+}
+{% endschema %}

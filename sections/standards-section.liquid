@@ -1,45 +1,94 @@
-<section class="standards-sec section {{ section.settings.custom_css_class}}">
-
+<section class="standards-sec section {{ section.settings.custom_css_class }}">
   <div class="standards-top">
     <span class="eyebrow">{{ section.settings.eyebrow }}</span>
 
     <h2>
-      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line1 -}}
+      <br>
       <em>{{ section.settings.heading_em }}</em>
     </h2>
 
-    <p class="standards-sub mt-4">
+    <div class="standards-sub mt-4">
       {{ section.settings.subtext }}
-    </p>
+    </div>
   </div>
 
   <div class="standards-grid">
     {% for block in section.blocks %}
       <div class="std-card">
-
         <div class="std-num">
           {{ forloop.index | prepend: '0' | slice: -2, 2 }}
         </div>
 
-        <div class="std-title">
+        <h3 class="std-title">
           {{ block.settings.title }}
-        </div>
+        </h3>
 
         <div class="std-desc">
           {{ block.settings.desc }}
         </div>
-
       </div>
     {% endfor %}
   </div>
-
 </section>
+<style>
+    /* ── OUR STANDARDS ───────────────────────────────── */
+  .standards-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+  .standards-top{text-align:center;margin-bottom:24px}
+  .standards-top h2{margin-bottom:12px}
+  .standards-sub p{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7; margin-top: 16px;}
 
+  .standards-grid{display:grid;grid-template-columns:1fr;gap:12px}
+  @media(min-width:600px){.standards-grid{grid-template-columns:1fr 1fr}}
+  @media(min-width:1024px){.standards-grid{grid-template-columns:repeat(3,1fr)}}
+
+  .std-card{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:20px 16px;position:relative;overflow:hidden}
+  .std-card::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:var(--coral);opacity:.6}
+  .std-num {
+      font-family: var(--f-dis);
+      font-size: 32px;
+      font-weight: 800;
+      color: var(--coral);
+      opacity: .8;
+      line-height: 1;
+      margin-bottom: 12px;
+  }
+  .std-title{font-family:var(--f-dis);font-size:15px;font-weight:700;margin-bottom:10px}
+  .std-desc{font-size:13px;color:var(--muted-l);line-height:1.7}
+  .std-desc p{
+    font-size:16px;
+    color:#d0d0d0;
+  }
+  .std-desc strong{color:var(--off-white);font-weight:600}
+
+  .standards-top .eyebrow {
+      margin-bottom: 14px;
+  }
+
+  .standards-sec h2 {
+      font-family: var(--f-dis);
+      font-weight: 700;
+      font-size: 26px;
+      letter-spacing: -0.02em;
+      line-height: 1.05;
+  }
+
+  @media (min-width: 768px) {
+      .standards-sec h2 {
+          font-size: 36px;
+      }
+  }
+  @media (min-width: 1024px) {
+      .standards-sec h2 {
+          font-size: 44px;
+      }
+  }
+</style>
 {% schema %}
 {
   "name": "Standards Section",
   "settings": [
-     {
+    {
       "type": "text",
       "id": "custom_css_class",
       "label": "Custom CSS Class"
@@ -63,10 +112,10 @@
       "default": "Every Formula. Every Batch."
     },
     {
-      "type": "textarea",
+      "type": "richtext",
       "id": "subtext",
       "label": "Subtext",
-      "default": "There are six things we commit to for every product we make. Non-negotiable."
+      "default": "<p>There are six things we commit to for every product we make. Non-negotiable.</p>"
     }
   ],
   "blocks": [
@@ -81,10 +130,10 @@
           "default": "Clinical Dose or Above"
         },
         {
-          "type": "textarea",
+          "type": "richtext",
           "id": "desc",
           "label": "Description",
-          "default": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results."
+          "default": "<p>We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results.</p>"
         }
       ]
     }
@@ -97,42 +146,42 @@
           "type": "standard",
           "settings": {
             "title": "Clinical Dose or Above",
-            "desc": "We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. <strong>Perform+ delivers 25% above the WADA study dose.</strong>"
+            "desc": "<p>We don't pixie-dust. Every active ingredient is at or above the dose shown to produce results in published human research. <strong>Perform+ delivers 25% above the WADA study dose.</strong></p>"
           }
         },
         {
           "type": "standard",
           "settings": {
             "title": "Third-Party Tested",
-            "desc": "Every batch of every product is independently tested for purity, potency, and label accuracy before it ships."
+            "desc": "<p>Every batch of every product is independently tested for purity, potency, and label accuracy before it ships.</p>"
           }
         },
         {
           "type": "standard",
           "settings": {
             "title": "Transparent Labels",
-            "desc": "No proprietary blends. Every ingredient, every dose, visible on the label."
+            "desc": "<p>No proprietary blends. Every ingredient, every dose, visible on the label.</p>"
           }
         },
         {
           "type": "standard",
           "settings": {
             "title": "Peer-Reviewed Foundations",
-            "desc": "Every formula is built around human clinical research — not trends."
+            "desc": "<p>Every formula is built around human clinical research — not trends.</p>"
           }
         },
         {
           "type": "standard",
           "settings": {
             "title": "No Banned Substances",
-            "desc": "Every product is safe for competitive athletes and tested for contamination."
+            "desc": "<p>Every product is safe for competitive athletes and tested for contamination.</p>"
           }
         },
         {
           "type": "standard",
           "settings": {
             "title": "Fair Pricing",
-            "desc": "Premium ingredients don't require premium gouging."
+            "desc": "<p>Premium ingredients don't require premium gouging.</p>"
           }
         }
       ]

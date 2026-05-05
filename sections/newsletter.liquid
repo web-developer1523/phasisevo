@@ -10,9 +10,9 @@
 %}
 
 <div
-	class="newsletter color-{{ section.settings.color_scheme }}"
+	class="newsletter color-{{ section.settings.color_scheme }} {{ section.settings.custom_css_class }}"
 >
-	<div class="container section-{{ section.id }}-padding">
+	<div class="container section-{{ section.id }}-padding ">
 		<div class="newsletter__wrapper {{ v_align }}">
 			{% if section.settings.heading != blank
 				or section.settings.newsletter_text != blank
@@ -20,7 +20,7 @@
 				<div class="newsletter-heading-text-wrapper">
 					{%- if section.settings.heading != blank -%}
 						{% assign heading_tag = section.settings.section_heading_tag %}
-						<{{ heading_tag }} class="newsletter__title {{ section.settings.heading_size }}">
+						<{{ heading_tag }} class="newsletter__title cst-newsletter-head {{ section.settings.heading_size }}>
 							{{ section.settings.heading }}
 						</{{ heading_tag }}>
 					{%- endif -%}
@@ -126,6 +126,11 @@
 		"templates": ["*"]
 	},
 	"settings": [
+		{
+			"type": "text",
+			"id": "custom_css_class",
+			"label": "Custom Class Css"
+		},
 		{
 			"type": "paragraph",
 			"content": "t:sections.newsletter.settings.paragraph.content"

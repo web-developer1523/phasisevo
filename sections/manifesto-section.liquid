@@ -12,7 +12,7 @@
 
     <div class="manifesto-body mt-4">
 
-      {% for block in section.blocks %}
+      {% comment %} {% for block in section.blocks %}
         {% if block.type == 'paragraph' %}
           <p class="mb-p">
             {{ block.settings.text }}
@@ -24,13 +24,88 @@
         <div class="pq-text">
           {{ section.settings.pull_quote }}
         </div>
-      </div>
+      </div> {% endcomment %}
+      {% for block in section.blocks %}
+  {% if block.type == 'paragraph' %}
+    <p class="mb-p">{{ block.settings.text }}</p>
 
+    {% if forloop.index == 1 and section.settings.pull_quote != blank %}
+      <div class="pull-quote">
+        <div class="pq-text">{{ section.settings.pull_quote }}</div>
+      </div>
+    {% endif %}
+
+  {% endif %}
+{% endfor %}
     </div>
 
   </div>
 </section>
+<style>
+  /* ── MANIFESTO ───────────────────────────────────── */
+.manifesto-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.manifesto-inner{max-width:760px}
+.manifesto-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:20px}
+.manifesto-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.manifesto-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.manifesto-sec h2{margin-bottom:20px}
+.manifesto-body{display:flex;flex-direction:column;gap:16px}
+.manifesto-body p{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.8}
+.manifesto-body p strong{color:var(--off-white);font-weight:600}
+.manifesto-body p em{color:var(--coral);font-style:normal;font-weight:600}
+.manifesto-body p em strong {
+    color: inherit;
+}
 
+/* Pull quote */
+.pull-quote{border-left:4px solid var(--coral);padding:16px 20px;background:rgba(232,72,42,.04);border-radius:4px;margin:8px 0}
+.pq-text{font-family:var(--f-dis);font-size:clamp(15px,2.5vw,20px);font-weight:700;line-height:1.35;letter-spacing:-0.01em}
+.pq-text em{color:var(--coral);font-style:normal}
+
+
+
+
+
+
+
+.manifesto-sec h2 {
+    font-family: var(--f-dis);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+  .manifesto-sec h2{
+      font-size: 36px;
+  }
+}
+
+@media (min-width: 1024px) {
+    .manifesto-sec h2 {
+        font-size: 44px;
+    }
+}
+
+.section {
+    padding: 48px var(--pad);
+}
+
+@media (min-width: 768px) {
+    .section {
+        padding: 64px var(--pad-md);
+    }
+}
+
+@media (min-width: 1024px) {
+    .section {
+        padding: 80px var(--pad-lg);
+    }
+}
+
+</style>
 {% schema %}
 {
   "name": "Manifesto Section",

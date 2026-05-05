@@ -1,5 +1,5 @@
 <!-- ============================================ -->
-<!-- PAGE HEADER SECTION                          -->
+<!-- PAGE HEADER SECTION -->
 <!-- ============================================ -->
 {% comment %}
   Page Header Section
@@ -7,154 +7,185 @@
   - All text and colors are customizable via schema.
 {% endcomment %}
 
-<div class="page-header">
-    <div class="ph-breadcrumb">
-      <a href="{{ section.settings.breadcrumb_home_link }}">{{ section.settings.breadcrumb_home_text }}</a>
-      <span>/</span>
-      <span style="color:var(--off-white)">{{ section.settings.breadcrumb_current_text }}</span>
+<div class="page-header {{section.settings.custom_css_class }}">
+     <!-- LEFT -->
+    <div class="ph-content">
+  <div class="ph-breadcrumb">
+    <a href="{{ section.settings.breadcrumb_home_link }}">{{ section.settings.breadcrumb_home_text }}</a>
+    <span>/</span>
+    <span style="color:var(--off-white)">{{ section.settings.breadcrumb_current_text }}</span>
+  </div>
+  <h1 class="ph-title">{{ section.settings.heading }}</h1>
+  <p class="ph-sub">{{ section.settings.subheading }}</p>
+  <div class="ph-stats">
+    <div>
+      <div class="ph-stat-val coral">{{ section.settings.stat1_value }}</div>
+      <div class="ph-stat-lbl">{{ section.settings.stat1_label }}</div>
     </div>
-    <h1 class="ph-title">{{ section.settings.heading }}</h1>
-    <p class="ph-sub">{{ section.settings.subheading }}</p>
-    <div class="ph-stats">
-      <div><div class="ph-stat-val coral">{{ section.settings.stat1_value }}</div><div class="ph-stat-lbl">{{ section.settings.stat1_label }}</div></div>
-      <div><div class="ph-stat-val teal">{{ section.settings.stat2_value }}</div><div class="ph-stat-lbl">{{ section.settings.stat2_label }}</div></div>
-      <div><div class="ph-stat-val amber">{{ section.settings.stat3_value }}</div><div class="ph-stat-lbl">{{ section.settings.stat3_label }}</div></div>
+    <div>
+      <div class="ph-stat-val teal">{{ section.settings.stat2_value }}</div>
+      <div class="ph-stat-lbl">{{ section.settings.stat2_label }}</div>
+    </div>
+    <div>
+      <div class="ph-stat-val amber">{{ section.settings.stat3_value }}</div>
+      <div class="ph-stat-lbl">{{ section.settings.stat3_label }}</div>
     </div>
   </div>
-  <style>
-    :root {
-        --coral:#E8482A; --coral-h:#f05236;
-        --teal:#00BFA8; --teal-h:#00d4bb;
-        --amber:#D4831A; --amber-h:#e8941f; --orange:#D4831A;
-        --page-bg:#080808;
-        --surface:#18191C; --surface2:#1e1f23;
-        --border:#2a2b2f; --border2:#383a3e;
-        --off-white:#F4F3F0; --muted:#68717A; --muted-l:#9aa0a8;
-        --pad:16px; --pad-md:32px; --pad-lg:80px;
-        --f-dis:'Sora',sans-serif;
-        --f-mark:'Conthrax',sans-serif; --f-body:'DM Sans',sans-serif;
-      }
-      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-      html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-      body{background:var(--page-bg);color:var(--off-white);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-      a{text-decoration:none;color:inherit}
-      ul{list-style:none}
-      
-      .eyebrow{display:inline-block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
-      h1{font-family:var(--f-dis);font-weight:800;font-size:36px;letter-spacing:-0.025em;line-height:.95}
-      h2{font-family:var(--f-dis);font-weight:700;font-size:26px;letter-spacing:-0.02em;line-height:1.05}
-      h1 em,h2 em{color:var(--coral);font-style:normal}
-      @media(min-width:768px){h1{font-size:48px}h2{font-size:36px}}
-      @media(min-width:1024px){h1{font-size:58px}h2{font-size:44px}}
-      
-      .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-dis);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:13px 20px;min-height:48px;border-radius:5px;border:none;cursor:pointer;transition:all .18s;white-space:nowrap;width:100%}
-      .btn::before{content:'●';font-size:6px;flex-shrink:0}
-      .btn-p{background:var(--coral);color:#fff}.btn-p:hover{background:var(--coral-h)}
-      .btn-t{background:var(--teal);color:#000}.btn-t:hover{background:var(--teal-h)}
-      .btn-a{background:var(--amber);color:#fff}.btn-a:hover{background:var(--amber-h)}
-      .btn-s{background:transparent;color:var(--off-white);border:1px solid var(--border2)}.btn-s:hover{background:rgba(255,255,255,.04)}
-      @media(min-width:768px){.btn{width:auto}.btn-full{width:100%}}
-      
-      .globe-line{height:3px;background:linear-gradient(90deg,#FF5577,#FF9999,#FF9140,#FFE899,#8AC88A,#8AF2D3,#1CA8D8,#5271FF,#8C52FF)}
-      .section{padding:48px var(--pad)}
-      @media(min-width:768px){.section{padding:64px var(--pad-md)}}
-      @media(min-width:1024px){.section{padding:80px var(--pad-lg)}}
-      .mt-4{margin-top:16px}.mt-6{margin-top:24px}
-       /* ── PAGE HEADER ─────────────────────────────────── */
-    .page-header{background:var(--surface);border-bottom:1px solid var(--border);padding:32px var(--pad);position:relative;overflow:hidden}
-    .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,rgba(232,72,42,.04) 0%,transparent 60%);pointer-events:none}
-    .ph-breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);margin-bottom:16px;font-family:var(--f-dis);letter-spacing:.06em;text-transform:uppercase}
-    .ph-breadcrumb a{color:var(--muted);transition:color .15s}
-    .ph-breadcrumb a:hover{color:var(--off-white)}
-    .ph-breadcrumb span{color:var(--border2)}
-    .ph-title{margin-bottom:12px;position:relative}
-    .ph-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7;max-width:480px;position:relative}
-    .ph-stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;position:relative}
-    .ph-stat-val{font-family:var(--f-dis);font-size:20px;font-weight:800;line-height:1;margin-bottom:3px}
-    .ph-stat-val.coral{color:var(--coral)}
-    .ph-stat-val.teal{color:var(--teal)}
-    .ph-stat-val.amber{color:var(--amber)}
-    .ph-stat-lbl{font-size:10px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase}
-    @media(min-width:768px){.page-header{padding:48px var(--pad-md)}}
-    @media(min-width:1024px){.page-header{padding:64px var(--pad-lg)}.ph-stats{gap:48px}}   
+</div>
+ <!-- RIGHT IMAGE -->
+    <div class="ph-image">
+      {% if section.settings.header_image != blank %}
+        <img 
+          src="{{ section.settings.header_image | image_url: width: 1200 }}" 
+          alt="{{ section.settings.heading | strip_html }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+</div>
+<style>
+  :root {
+      --coral:#E8482A; --coral-h:#f05236;
+      --teal:#00BFA8; --teal-h:#00d4bb;
+      --amber:#D4831A; --amber-h:#e8941f; --orange:#D4831A;
+      --page-bg:#080808;
+      --surface:#18191C; --surface2:#1e1f23;
+      --border:#2a2b2f; --border2:#383a3e;
+      --off-white:#F4F3F0; --muted:#68717A; --muted-l:#9aa0a8;
+      --pad:16px; --pad-md:32px; --pad-lg:80px;
+      --f-dis:'Sora',sans-serif;
+      --f-mark:'Conthrax',sans-serif; --f-body:'DM Sans',sans-serif;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+    body{background:var(--page-bg);color:var(--off-white);font-family:var(--f-body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{text-decoration:none;color:inherit}
+    ul{list-style:none}
 
-    </style>
+    .eyebrow{display:inline-block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:14px}
+    h1{font-family:var(--f-dis);font-weight:800;font-size:36px;letter-spacing:-0.025em;line-height:.95}
+    h2{font-family:var(--f-dis);font-weight:700;font-size:26px;letter-spacing:-0.02em;line-height:1.05}
+    h1 em,h2 em{color:var(--coral);font-style:normal}
+    @media(min-width:768px){h1{font-size:48px}h2{font-size:36px}}
+    @media(min-width:1024px){h1{font-size:58px}h2{font-size:44px}}
 
-  {% schema %}
-  {
-    "name": "Shop Header",
-    "settings": [
-      {
-        "type": "text",
-        "id": "breadcrumb_home_text",
-        "label": "Home text",
-        "default": "Home"
-      },
-      {
-        "type": "url",
-        "id": "breadcrumb_home_link",
-        "label": "Home link",
-        "default": "/"
-      },
-      {
-        "type": "text",
-        "id": "breadcrumb_current_text",
-        "label": "Current page text",
-        "default": "Shop All"
-      },
-      {
-        "type": "textarea",
-        "id": "heading",
-        "label": "Heading",
-        "default": "Recovery.<br>Hydration.<br><em>Performance.</em>"
-      },
-      {
-        "type": "textarea",
-        "id": "subheading",
-        "label": "Subheading",
-        "default": "One system. Whether you're an athlete, staying active, or simply want to feel your best — PHASIS is built around your goals."
-      },
-      {
-        "type": "text",
-        "id": "stat1_value",
-        "label": "Stat 1 value",
-        "default": "4.9★"
-      },
-      {
-        "type": "text",
-        "id": "stat1_label",
-        "label": "Stat 1 label",
-        "default": "Avg. Rating"
-      },
-      {
-        "type": "text",
-        "id": "stat2_value",
-        "label": "Stat 2 value",
-        "default": "3rd Party"
-      },
-      {
-        "type": "text",
-        "id": "stat2_label",
-        "label": "Stat 2 label",
-        "default": "Lab Tested"
-      },
-      {
-        "type": "text",
-        "id": "stat3_value",
-        "label": "Stat 3 value",
-        "default": "Made in USA"
-      },
-      {
-        "type": "text",
-        "id": "stat3_label",
-        "label": "Stat 3 label",
-        "default": "Every product"
-      }
-    ],
-    "presets": [
-      {
-        "name": "Shop Header"
-      }
-    ]
-  }
-  {% endschema %}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font-family:var(--f-dis);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:13px 20px;min-height:48px;border-radius:5px;border:none;cursor:pointer;transition:all .18s;white-space:nowrap;width:100%}
+    .btn::before{content:'●';font-size:6px;flex-shrink:0}
+    .btn-p{background:var(--coral);color:#fff}.btn-p:hover{background:var(--coral-h)}
+    .btn-t{background:var(--teal);color:#000}.btn-t:hover{background:var(--teal-h)}
+    .btn-a{background:var(--amber);color:#fff}.btn-a:hover{background:var(--amber-h)}
+    .btn-s{background:transparent;color:var(--off-white);border:1px solid var(--border2)}.btn-s:hover{background:rgba(255,255,255,.04)}
+    @media(min-width:768px){.btn{width:auto}.btn-full{width:100%}}
+
+    .globe-line{height:3px;background:linear-gradient(90deg,#FF5577,#FF9999,#FF9140,#FFE899,#8AC88A,#8AF2D3,#1CA8D8,#5271FF,#8C52FF)}
+    .section{padding:48px var(--pad)}
+    @media(min-width:768px){.section{padding:64px var(--pad-md)}}
+    @media(min-width:1024px){.section{padding:80px var(--pad-lg)}}
+    .mt-4{margin-top:16px}.mt-6{margin-top:24px}
+     /* ── PAGE HEADER ─────────────────────────────────── */
+  .page-header{background:var(--surface);border-bottom:1px solid var(--border);padding:32px var(--pad);position:relative;overflow:hidden;text-align: left;margin: 0;}
+  .page-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 100% at 100% 50%,rgba(232,72,42,.04) 0%,transparent 60%);pointer-events:none}
+  .ph-breadcrumb{display:flex;align-items:center;gap:8px;font-size:11px;color:var(--muted);margin-bottom:16px;font-family:var(--f-dis);letter-spacing:.06em;text-transform:uppercase}
+  .ph-breadcrumb a{color:var(--muted);transition:color .15s}
+  .ph-breadcrumb a:hover{color:var(--off-white)}
+  .ph-breadcrumb span{color:var(--border2)}
+  .ph-title{margin-bottom:12px;position:relative}
+  .ph-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7;max-width:480px;position:relative}
+  .ph-stats{display:flex;gap:24px;margin-top:20px;flex-wrap:wrap;position:relative}
+  .ph-stat-val{font-family:var(--f-dis);font-size:20px;font-weight:800;line-height:1;margin-bottom:3px}
+  .ph-stat-val.coral{color:var(--coral)}
+  .ph-stat-val.teal{color:var(--teal)}
+  .ph-stat-val.amber{color:var(--amber)}
+  .ph-stat-lbl{font-size:10px;color:#d0d0d0;letter-spacing:.06em;text-transform:uppercase}
+  @media(min-width:768px){.page-header{padding:48px var(--pad-md)}}
+  @media(min-width:1024px){.page-header{padding:64px var(--pad-lg)}.ph-stats{gap:48px}}
+</style>
+
+{% schema %}
+{
+  "name": "Shop Header",
+  "settings": [
+        {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_home_text",
+      "label": "Home text",
+      "default": "Home"
+    },
+    {
+      "type": "url",
+      "id": "breadcrumb_home_link",
+      "label": "Home link",
+      "default": "/"
+    },
+    {
+      "type": "text",
+      "id": "breadcrumb_current_text",
+      "label": "Current page text",
+      "default": "Shop All"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Recovery.<br>Hydration.<br><em>Performance.</em>"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "One system. Whether you're an athlete, staying active, or simply want to feel your best — PHASIS is built around your goals."
+    },
+    {
+      "type": "text",
+      "id": "stat1_value",
+      "label": "Stat 1 value",
+      "default": "4.9★"
+    },
+    {
+      "type": "text",
+      "id": "stat1_label",
+      "label": "Stat 1 label",
+      "default": "Avg. Rating"
+    },
+    {
+      "type": "text",
+      "id": "stat2_value",
+      "label": "Stat 2 value",
+      "default": "3rd Party"
+    },
+    {
+      "type": "text",
+      "id": "stat2_label",
+      "label": "Stat 2 label",
+      "default": "Lab Tested"
+    },
+    {
+      "type": "text",
+      "id": "stat3_value",
+      "label": "Stat 3 value",
+      "default": "Made in USA"
+    },
+    {
+      "type": "text",
+      "id": "stat3_label",
+      "label": "Stat 3 label",
+      "default": "Every product"
+    },
+    {
+      "type": "image_picker",
+      "id": "header_image",
+      "label": "Header Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Shop Header"
+    }
+  ]
+}
+{% endschema %}

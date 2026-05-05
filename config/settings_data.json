@@ -57,6 +57,7 @@
     "image_2": "",
     "button_link_2": "",
     "overlay_opacity_2": 0.3,
+    "cart_type": "page",
     "cart_color_scheme": "background-1",
     "cart_drawer_subtitle": "We've gathered here all the fantastic products you've chosen during your shopping journey",
     "currency_code_enabled": false,

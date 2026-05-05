@@ -1,0 +1,182 @@
+<section class="science-sec section">
+
+  <div class="science-inner">
+
+    <!-- LEFT CONTENT -->
+    <div>
+      <div class="science-eyebrow-row">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <h2>
+        {{ section.settings.heading_line1 }}<br>
+        <em>{{ section.settings.heading_line2 }}</em>
+      </h2>
+
+      <p class="sci-p mt-4">
+        {{ section.settings.description }}
+      </p>
+
+      <div class="mechanism-steps">
+        {% for block in section.blocks %}
+          {% if block.type == 'step' %}
+            <div class="ms">
+              <div class="ms-num">{{ block.settings.number }}</div>
+              <div>
+                <div class="ms-title">{{ block.settings.title }}</div>
+                <div class="ms-desc">{{ block.settings.desc }}</div>
+              </div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+
+    <!-- RIGHT CONTENT -->
+    <div>
+
+      <!-- STUDY CARD -->
+      <div class="study-card">
+        <div class="sc-label">{{ section.settings.study_label }}</div>
+
+        <div class="sc-finding">
+          {{ section.settings.study_finding }}
+        </div>
+
+        <div class="sc-detail">
+          {{ section.settings.study_detail }}
+        </div>
+
+        <div class="sc-source">
+          {{ section.settings.study_source }}
+        </div>
+      </div>
+
+      <!-- COMPARISON TABLE -->
+      <div class="vs-scroll">
+        <div class="vs-block">
+
+          <div class="vs-head">
+            <div class="vh">{{ section.settings.comp_col1 }}</div>
+            <div class="vh ours">{{ section.settings.comp_col2 }}</div>
+            <div class="vh">{{ section.settings.comp_col3 }}</div>
+          </div>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'comparison' %}
+              <div class="vr">
+                <div class="vc feat">{{ block.settings.feature }}</div>
+                <div class="vc yes hl">{{ block.settings.ours }}</div>
+                <div class="vc no">{{ block.settings.other }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<style>
+.vs-head .vh:first-child {
+    text-align: left;
+}
+    /* ── SCIENCE MECHANISM ───────────────────────────── */
+.science-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.science-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.science-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--amber);flex-shrink:0}
+.science-eyebrow-row span{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)}
+.science-sec h2{margin-bottom:14px}
+.sci-p{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.75;margin-bottom:20px}
+.sci-p strong{color:var(--off-white);font-weight:600}
+
+.mechanism-steps{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.ms{display:flex;align-items:flex-start;gap:14px;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid var(--border);border-left:3px solid var(--amber);border-radius:4px}
+.ms-num{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--amber);opacity:.7;line-height:1;flex-shrink:0;width:22px}
+.ms-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:3px}
+.ms-desc{font-size:14px;color:#d0d0d0;line-height:1.55}
+/* VS table — scroll on mobile */
+.vs-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 calc(-1 * var(--pad))}
+@media(min-width:768px){.vs-scroll{overflow-x:visible;margin:0}}
+.vs-block{background:var(--surface);border:1px solid var(--border);border-radius:8px;overflow:hidden;min-width:480px}
+@media(min-width:768px){.vs-block{min-width:0}}
+.vs-head{display:grid;grid-template-columns:1.2fr 1fr 1fr;background:rgba(255,255,255,.03);border-bottom:1px solid var(--border); text-align:center;}
+.vh{padding:18px 14px;font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#d0d0d0;}
+.vh.ours{color:var(--amber);background:rgba(212,131,26,.05)}
+.vr{display:grid;grid-template-columns:1.2fr 1fr 1fr;border-bottom:1px solid var(--border);align-items:center}
+.vr:last-child{border-bottom:none}
+.vc{padding:18px 14px;font-size:16px}
+.vc.feat{color:var(--off-white);font-weight:500}
+.vc.yes{color:var(--amber);font-weight:600;text-align:center}.vc.yes::after{content:' ✓'}
+.vc.no{color:#d0d0d0;text-align:center;font-size:16px}.vc.no::after{content:' ✗';color:#c04040}
+.vc.hl{background:rgba(212,131,26,.04)}
+
+@media(min-width:1024px){
+  .science-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+}
+
+</style>
+{% schema %}
+{
+  "name": "Mobile Science Mechanism",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "The Mechanism" },
+
+    { "type": "text", "id": "heading_line1", "label": "Heading Line 1", "default": "How It Actually" },
+    { "type": "text", "id": "heading_line2", "label": "Heading Line 2", "default": "Builds Muscle." },
+
+    { "type": "textarea", "id": "description", "label": "Description", "default": "β-Ecdysterone directly activates..." },
+
+    { "type": "text", "id": "study_label", "label": "Study Label", "default": "WADA-Funded · 10-Week Double-Blind · n=46" },
+    { "type": "richtext", "id": "study_finding", "label": "Study Finding" },
+    { "type": "textarea", "id": "study_detail", "label": "Study Detail", "default": "46 resistance-trained men..." },
+    { "type": "text", "id": "study_source", "label": "Study Source", "default": "JISSN 2019" },
+
+    { "type": "text", "id": "comp_col1", "label": "Column 1", "default": "Comparison" },
+    { "type": "text", "id": "comp_col2", "label": "Column 2", "default": "Perform+" },
+    { "type": "text", "id": "comp_col3", "label": "Column 3", "default": "Steroids / SARMs" }
+  ],
+
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Mechanism Step",
+      "settings": [
+        { "type": "text", "id": "number", "label": "Step Number", "default": "1" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Step title" },
+        { "type": "textarea", "id": "desc", "label": "Description", "default": "Step description" }
+      ]
+    },
+    {
+      "type": "comparison",
+      "name": "Comparison Row",
+      "settings": [
+        { "type": "text", "id": "feature", "label": "Feature", "default": "Feature" },
+        { "type": "text", "id": "ours", "label": "Your Product", "default": "Yes" },
+        { "type": "text", "id": "other", "label": "Other", "default": "No" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": " Mobile Science Mechanism",
+      "blocks": [
+        { "type": "step" },
+        { "type": "step" },
+        { "type": "step" },
+        { "type": "step" },
+
+        { "type": "comparison" },
+        { "type": "comparison" },
+        { "type": "comparison" },
+        { "type": "comparison" },
+        { "type": "comparison" }
+      ]
+    }
+  ]
+}
+{% endschema %}

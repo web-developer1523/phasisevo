@@ -7,352 +7,607 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
-    "sections": {
-      "banner": {
-        "type": "main-collection-banner",
-        "disabled": true,
-        "settings": {
-          "collection_list": [],
-          "section_heading_tag": "h1",
-          "header_overlay": true,
-          "full_width": true,
-          "color_scheme": "",
-          "overlay_opacity": 0,
-          "show_collection_description": false,
-          "show_collection_image": true,
-          "image_ratio": "21/9",
-          "margin_top": "no-indent",
-          "margin_bottom": "no-indent"
-        }
-      },
-      "slideshow_BhDRYW": {
-        "type": "slideshow",
-        "blocks": {
-          "slideshow_item_NFnL3h": {
-            "type": "slideshow_item",
-            "settings": {
-              "desktop_image": "shopify://shop_images/shop_banner.jpg",
-              "color_scheme": "background-2",
-              "heading": "Explore Products",
-              "text": "<p>Shop the essentials built for recovery and performance.</p>",
-              "text_width": "small",
-              "button_label": "",
-              "button_link": "",
-              "button_dot": true,
-              "button_style": "primary",
-              "overlay_enable": true,
-              "overlay_opacity": 0,
-              "overlay_opacity_mobile": 0
-            }
-          }
-        },
-        "block_order": [
-          "slideshow_item_NFnL3h"
-        ],
-        "custom_css": [
-          ".slideshow-slide__img img {object-position: center top !important;}",
-          ".slideshow-slide__text {max-width: 640px; width: 100%;}",
-          ".slideshow-slide__text * {max-width: 100%;}"
-        ],
-        "name": "t:sections.slideshow.presets.name",
-        "settings": {
-          "header_overlay": false,
-          "header_transparent": false,
-          "color_scheme_header": "background-2",
-          "light_logo": true,
-          "section_layout": "full",
-          "text_position": "left",
-          "pagination_position": "center",
-          "image_size": "21/9",
-          "heading_tag": "h1",
-          "image_size_mobile": "3/4",
-          "text_position_mobile": "bottom-left",
-          "is_autoplay": false,
-          "is_hover_stop_autoplay": false,
-          "slideshow_speed": 0.8,
-          "slideshow_delay": 3,
-          "slide_effects": "custom",
-          "text_animation": false,
-          "margin_top": "no-indent",
-          "margin_bottom": "no-indent"
-        }
-      },
-      "media_FKMXaG": {
-        "type": "media",
-        "blocks": {
-          "media_card_WJngQB": {
-            "type": "media_card",
-            "settings": {
-              "color_scheme": "background-1",
-              "image": "shopify://shop_images/BananaProAI_com-202631723107.jpg",
-              "overlay_enable": true,
-              "overlay_opacity": 0.5,
-              "show_video": false,
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "autoplay_video": true,
-              "muted_video": true,
-              "loop_video": true,
-              "show_icon_play": true,
-              "show_icon_sound": true,
-              "description_video": "",
-              "subheading": "",
-              "heading": "Topicals",
-              "heading_size": "h3",
-              "text": "Fast-acting relief for sore muscles and joints.",
-              "primary_button_label": "Shop Now",
-              "primary_button_link": "#shop_products",
-              "klaviyo_popup": "none",
-              "primary_button_dot": true,
-              "primary_button_style": "secondary",
-              "secondary_button_label": "",
-              "secondary_button_link": "",
-              "secondary_button_dot": true,
-              "secondary_button_style": "secondary",
-              "full_link": false
-            }
-          },
-          "media_card_JHPYLR": {
-            "type": "media_card",
-            "settings": {
-              "color_scheme": "background-1",
-              "image": "shopify://shop_images/BananaProAI_com-2026317231623.jpg",
-              "overlay_enable": true,
-              "overlay_opacity": 0.4,
-              "show_video": false,
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "autoplay_video": true,
-              "muted_video": true,
-              "loop_video": true,
-              "show_icon_play": true,
-              "show_icon_sound": true,
-              "description_video": "",
-              "subheading": "",
-              "heading": "Apparel (Coming Soon)",
-              "heading_size": "h3",
-              "text": "Athlete-inspired lifestyle wear",
-              "primary_button_label": "Join the waitlist",
-              "primary_button_link": "#",
-              "klaviyo_popup": "apparel_waitlist",
-              "primary_button_dot": true,
-              "primary_button_style": "secondary",
-              "secondary_button_label": "",
-              "secondary_button_link": "#",
-              "secondary_button_dot": true,
-              "secondary_button_style": "secondary",
-              "full_link": false
-            }
-          },
-          "media_card_NdMR9W": {
-            "type": "media_card",
-            "settings": {
-              "color_scheme": "background-1",
-              "image": "shopify://shop_images/BananaProAI_com-2026317233426.jpg",
-              "overlay_enable": true,
-              "overlay_opacity": 0.5,
-              "show_video": false,
-              "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-              "autoplay_video": true,
-              "muted_video": true,
-              "loop_video": true,
-              "show_icon_play": true,
-              "show_icon_sound": true,
-              "description_video": "",
-              "subheading": "",
-              "heading": "Future Products (Coming Soon)",
-              "heading_size": "h3",
-              "text": "Pets, Gut, Sleep, Muscle",
-              "primary_button_label": "Join the waitlist",
-              "primary_button_link": "#",
-              "klaviyo_popup": "future_products_waitlist",
-              "primary_button_dot": true,
-              "primary_button_style": "secondary",
-              "secondary_button_label": "",
-              "secondary_button_link": "#",
-              "secondary_button_dot": true,
-              "secondary_button_style": "secondary",
-              "full_link": false
-            }
-          }
-        },
-        "block_order": [
-          "media_card_WJngQB",
-          "media_card_JHPYLR",
-          "media_card_NdMR9W"
-        ],
-        "custom_css": [
-          "{background: #e9e9e9b2;}",
-          ".simple-media-card {background: transparent; border-radius: 0; display: flex; flex-direction: column;}",
-          ".simple-media-list .simple-media-card__content {justify-content: space-between;}"
-        ],
-        "name": "t:sections.media.name",
-        "settings": {
-          "columns_per_row": 3,
-          "content_alignment": "center",
-          "indent_value": "1.6rem",
-          "swipe_on_mobile": false,
-          "image_ratio": "3/4",
-          "section_heading": "",
-          "section_heading_tag": "h2",
-          "section_heading_size": "h2",
-          "subheading": "",
-          "dot": false,
-          "line": false,
-          "margin_top": "m",
-          "margin_bottom": "m"
-        }
-      },
-      "rich_text_36V6Fj": {
-        "type": "rich-text",
-        "custom_css": [
-          ".rich-text__wrapper .rich-text__heading {max-width: unset;}"
-        ],
-        "name": "t:sections.rich-text.presets.name",
-        "settings": {
-          "section_layout": "column",
-          "subheading": "",
-          "heading": "Fuel your next phase",
-          "section_heading_tag": "h2",
-          "heading_size": "h2",
-          "dot": false,
-          "text": "<p>Clean, science-backed products designed for recovery now and every phase to come</p>",
-          "button_label": "",
-          "button_link": "",
-          "button_style": "primary",
-          "button_dot": true,
-          "margin_top": "m",
-          "margin_bottom": "xs",
-          "section_id": "shop_products"
-        }
-      },
-      "product-grid": {
-        "type": "main-collection-product-grid",
-        "settings": {
-          "products_per_page": 12,
-          "columns_mobile": "1",
-          "image_ratio": "square",
-          "image_fit": "contain",
-          "show_secondary_image": true,
-          "show_vendor": false,
-          "show_sku": false,
-          "show_collection": false,
-          "show_desc": false,
-          "product_heading_tag": "h3",
-          "enable_filtering": false,
-          "enable_sorting": false,
-          "image_filter_ratio": "1/1",
-          "image_filter_fit": "cover",
-          "image_filter_columns": 4,
-          "margin_top": "no-indent",
-          "margin_bottom": "m"
-        }
-      },
-      "testimonials_k7wwtW": {
-        "type": "testimonials",
-        "blocks": {
-          "testimonials_slide_MAALAt": {
-            "type": "testimonials_slide",
-            "settings": {
-              "image": "shopify://shop_images/Avatar_Image.png",
-              "text": "FASE Max Relief changed my recovery routine. It works fast and helps me get back to training without the usual soreness.",
-              "author_name": "Isabelle M.",
-              "position_name": "Athlete",
-              "enable_stars": true,
-              "rating": 5
-            }
-          },
-          "testimonials_slide_6eh33J": {
-            "type": "testimonials_slide",
-            "settings": {
-              "image": "shopify://shop_images/Avatar_Image.png",
-              "text": "FASE Max Relief changed my recovery routine. It works fast and helps me get back to training without the usual soreness.",
-              "author_name": "Isabelle M.",
-              "position_name": "Athlete",
-              "enable_stars": true,
-              "rating": 5
-            }
-          }
-        },
-        "block_order": [
-          "testimonials_slide_MAALAt",
-          "testimonials_slide_6eh33J"
-        ],
-        "disabled": true,
-        "custom_css": [
-          "{background: #e9e9e9b2;}",
-          ".slider-container {margin-top: 0;}"
-        ],
-        "name": "t:sections.testimonials.presets.name",
-        "settings": {
-          "section_heading": "",
-          "heading_tag": "h2",
-          "section_heading_size": "h2",
-          "subheading": "",
-          "dot": false,
-          "is_autoplay": true,
-          "is_hover_stop_autoplay": true,
-          "slideshow_speed": 1.1,
-          "slideshow_delay": 4,
-          "button_style": "tertiary",
-          "margin_top": "xs",
-          "margin_bottom": "xs"
-        }
-      },
-      "1764841678be5e1777": {
-        "type": "apps",
-        "blocks": {
-          "judge_me_reviews_testimonials_carousel_BhHeAD": {
-            "type": "shopify://apps/judge-me-reviews/blocks/testimonials_carousel/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
-            "settings": {
-              "show_sample_reviews": false,
-              "reviews_selection": "all",
-              "products": [],
-              "star_rating": "5_star",
-              "max_reviews": 20,
-              "quote_marks_size": "small",
-              "product_name_text_size": "small",
-              "verified_badge_style": "icon",
-              "card_height": "medium",
-              "text_size": "small",
-              "stars_size": "medium",
-              "arrows_position": "bottom",
-              "max_width": 1100,
-              "corner_styling": "soft",
-              "quote_marks_style": "serif",
-              "card_color": "#f9f9f9",
-              "stars_and_quote_marks_color": "#e36a4c",
-              "text_color": "#171717",
-              "arrows_color": "#171717",
-              "show_border": false,
-              "border_color": "#108474",
-              "show_drop_shadow": false,
-              "transition_speed": 5,
-              "header_text": "",
-              "show_average_rating": false
-            }
-          }
-        },
-        "block_order": [
-          "judge_me_reviews_testimonials_carousel_BhHeAD"
-        ],
-        "custom_css": [
-          "{background: #e9e9e9b2; padding: 50px 0;}",
-          "@media (max-width: 749px) {{padding: 20px 0; }}"
-        ],
-        "settings": {
-          "include_margins": true,
-          "custom_class": ""
-        }
+{
+  "sections": {
+    "banner": {
+      "type": "main-collection-banner",
+      "disabled": true,
+      "settings": {
+        "collection_list": [],
+        "section_heading_tag": "h1",
+        "header_overlay": true,
+        "full_width": true,
+        "color_scheme": "",
+        "overlay_opacity": 0,
+        "show_collection_description": false,
+        "show_collection_image": true,
+        "image_ratio": "21/9",
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
       }
     },
-    "order": [
-      "banner",
-      "slideshow_BhDRYW",
-      "media_FKMXaG",
-      "rich_text_36V6Fj",
-      "product-grid",
-      "testimonials_k7wwtW",
-      "1764841678be5e1777"
-    ]
-  }
-  
+    "product-grid": {
+      "type": "main-collection-product-grid",
+      "disabled": true,
+      "settings": {
+        "products_per_page": 12,
+        "columns_mobile": "1",
+        "image_ratio": "square",
+        "image_fit": "contain",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_sku": false,
+        "show_collection": false,
+        "show_desc": false,
+        "product_heading_tag": "h3",
+        "enable_filtering": false,
+        "enable_sorting": false,
+        "image_filter_ratio": "1/1",
+        "image_filter_fit": "cover",
+        "image_filter_columns": 4,
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "shop_header_LMndAc": {
+      "type": "shop-header",
+      "name": "Shop Header",
+      "settings": {
+        "custom_css_class": "cst-shophero-sec",
+        "breadcrumb_home_text": "Home",
+        "breadcrumb_home_link": "/",
+        "breadcrumb_current_text": "Shop All",
+        "heading": "Recovery.<br>Hydration.<br><em>Performance.</em>",
+        "subheading": "One system. Whether you're an athlete, staying active, or simply want to feel your best — PHASIS is built around your goals.",
+        "stat1_value": "4.9★",
+        "stat1_label": "Avg. Rating",
+        "stat2_value": "3rd Party",
+        "stat2_label": "Lab Tested",
+        "stat3_value": "Made in USA",
+        "stat3_label": "Every product",
+        "header_image": "shopify://shop_images/BananaProAI_com-2026430211756.jpg"
+      }
+    },
+    "shop_trust_bar_A6LrTW": {
+      "type": "shop-trust-bar",
+      "blocks": {
+        "item_D6Ktaz": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z\"></path></svg>",
+            "text": "3RD PARTY TESTED"
+          }
+        },
+        "item_AUCF9w": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"2\"></rect><path d=\"M3 9h18M9 21V9\"></path></svg>",
+            "text": "MADE IN USA"
+          }
+        },
+        "item_jd64Ya": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>",
+            "text": "30-DAY GUARANTEE"
+          }
+        },
+        "item_DAFjin": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><line x1=\"22\" y1=\"2\" x2=\"11\" y2=\"13\"></line><polygon points=\"22 2 15 22 11 13 2 9 22 2\"></polygon></svg>",
+            "text": "FREE SHIPPING $75+"
+          }
+        },
+        "item_YPDCGE": {
+          "type": "item",
+          "settings": {
+            "icon_svg": "<svg viewbox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"9 11 12 14 22 4\"></polyline><path d=\"M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11\"></path></svg>",
+            "text": "SPORT SAFE"
+          }
+        }
+      },
+      "block_order": [
+        "item_D6Ktaz",
+        "item_AUCF9w",
+        "item_jd64Ya",
+        "item_DAFjin",
+        "item_YPDCGE"
+      ],
+      "name": "Shop Trust Bar",
+      "settings": {}
+    },
+    "shop_filters_DktYbf": {
+      "type": "shop-filters",
+      "blocks": {
+        "tab_BUQWLe": {
+          "type": "tab",
+          "settings": {
+            "tab_text": "All",
+            "filter_key": "all",
+            "show_count": true,
+            "count_value": "3"
+          }
+        },
+        "tab_76Ribt": {
+          "type": "tab",
+          "settings": {
+            "tab_text": "Recovery",
+            "filter_key": "recovery",
+            "show_count": false,
+            "count_value": "3"
+          }
+        },
+        "tab_jmweHD": {
+          "type": "tab",
+          "settings": {
+            "tab_text": "Hydration",
+            "filter_key": "hydration",
+            "show_count": false,
+            "count_value": "3"
+          }
+        },
+        "tab_ajtmRB": {
+          "type": "tab",
+          "settings": {
+            "tab_text": "Performance",
+            "filter_key": "performance",
+            "show_count": false,
+            "count_value": "3"
+          }
+        },
+        "tab_x77VUp": {
+          "type": "tab",
+          "settings": {
+            "tab_text": "The Stack",
+            "filter_key": "stack",
+            "show_count": false,
+            "count_value": "3"
+          }
+        }
+      },
+      "block_order": [
+        "tab_BUQWLe",
+        "tab_76Ribt",
+        "tab_jmweHD",
+        "tab_ajtmRB",
+        "tab_x77VUp"
+      ],
+      "name": "Filter Bar",
+      "settings": {
+        "sort_options": "Featured\nPrice: Low to High\nBest Reviewed"
+      }
+    },
+    "shop_quiz_banner_iwQKn9": {
+      "type": "shop-quiz-banner",
+      "name": "Shop Quiz Banner",
+      "settings": {
+        "custom_css_class": "cst-improve-protocol",
+        "bg_color": "#18191c",
+        "icon": "🧬",
+        "title": "Want to improve your health but not sure where to begin?",
+        "description": "The PHASIS Protocol Scan identifies your starting point in 3 minutes-holistic-first, product recommendations second",
+        "button_text": "● FIND YOUR PROTOCOL",
+        "button_link": "shopify://pages/quiz",
+        "button_bg_color": "#e8482a",
+        "button_text_color": "#ffffff"
+      }
+    },
+    "shop_product_grid_WCBV4x": {
+      "type": "shop-product-grid",
+      "blocks": {
+        "product_fm8VAb": {
+          "type": "product",
+          "settings": {
+            "category": "recovery",
+            "product": "max-relief-balm",
+            "featured": false,
+            "coming_soon": false,
+            "badge_text": "★ Best Seller",
+            "badge_type": "bestseller",
+            "bg_gradient": "linear-gradient(135deg,#1c1212,#18191c)",
+            "show_gradient": false,
+            "glow_color": "#e8482a",
+            "show_glow": true,
+            "emoji": "🧴",
+            "category_text": "Recovery · CBD Topical",
+            "category_color": "#e8482a",
+            "product_name": "Max Relief Balm",
+            "tagline": "4-pathway formula. Pharmaceutical nerve block + full spectrum CBD at 20mg/ml + botanical anti-inflammatories.",
+            "feature_1": "Lidocaine HCl — pharmaceutical nerve block",
+            "feature_2": "20mg/ml full spectrum CBD",
+            "feature_3": "Arnica + Turmeric anti-inflammatory stack",
+            "feature_4": "Non-intoxicating · No drug test impact",
+            "feature_color_class": "coral",
+            "price": "$30–$60",
+            "price_sub": "",
+            "button_text": "ADD TO CART",
+            "button_link": "shopify://pages/max-relief",
+            "button_style": "p",
+            "cs_title": "Launching Soon",
+            "cs_subtext": "Join the waitlist for early access",
+            "cs_button_text": "GET EARLY ACCESS",
+            "cs_link": "shopify://pages/max-relief",
+            "cs_button_style": "p"
+          }
+        },
+        "product_WJyeCN": {
+          "type": "product",
+          "settings": {
+            "category": "recovery",
+            "product": "electro-drops",
+            "featured": false,
+            "coming_soon": false,
+            "badge_text": "★New",
+            "badge_type": "new",
+            "bg_gradient": "linear-gradient(135deg,#060e0c,#0a1614)",
+            "show_gradient": true,
+            "glow_color": "#00bfa8",
+            "show_glow": true,
+            "emoji": "💧",
+            "category_text": "Recovery · CBD Topical",
+            "category_color": "#00bfa8",
+            "product_name": "Electro+ Drops",
+            "tagline": "Liquid mineral concentrate. Drop into any drink. No powder, no sugar, no sweeteners. 50+ trace minerals",
+            "feature_1": "Liquid drops — not powder, no mess",
+            "feature_2": "50+ trace minerals per serving",
+            "feature_3": "Zero sugar · Zero sweeteners · Ever",
+            "feature_4": "~75% less per serving vs LMNT",
+            "feature_color_class": "teal",
+            "price": "From $25",
+            "price_sub": "",
+            "button_text": "ADD TO CART",
+            "button_link": "shopify://pages/electro-plus",
+            "button_style": "t",
+            "cs_title": "Launching Soon",
+            "cs_subtext": "Join the waitlist for early access",
+            "cs_button_text": "GET EARLY ACCESS",
+            "cs_link": "shopify://pages/electro-plus",
+            "cs_button_style": "t"
+          }
+        },
+        "product_LHkf73": {
+          "type": "product",
+          "settings": {
+            "category": "recovery",
+            "product": "perform",
+            "featured": false,
+            "coming_soon": true,
+            "badge_text": "Coming Soon",
+            "badge_type": "soon",
+            "bg_gradient": "linear-gradient(135deg,#0e0a04,#141008)",
+            "show_gradient": true,
+            "glow_color": "#d4831a",
+            "show_glow": true,
+            "emoji": "💊",
+            "category_text": "Performance · β-Ecdysterone",
+            "category_color": "#d4831a",
+            "product_name": "Perform+",
+            "tagline": "250mg β-Ecdysterone per capsule — 25% above the WADA study dose. Non-hormonal. Safe for men and women.",
+            "feature_1": "250mg ecdysterone — above clinical study dose",
+            "feature_2": "WADA study: +2kg lean muscle in 10 weeks",
+            "feature_3": "Non-hormonal · No PCT · Sport safe",
+            "feature_4": "1:4 cyclodextrin complex for max absorption",
+            "feature_color_class": "amber",
+            "price": "From $49",
+            "price_sub": "30 or 60 caps",
+            "button_text": "NOTIFY ME",
+            "button_link": "",
+            "button_style": "a",
+            "cs_title": "Launching Soon",
+            "cs_subtext": "Join the waitlist for early access",
+            "cs_button_text": "PRE-Order",
+            "cs_link": "shopify://pages/perform-plus",
+            "cs_button_style": "a"
+          }
+        },
+        "product_GrcpAE": {
+          "type": "product",
+          "settings": {
+            "category": "",
+            "product": "relief-balm",
+            "featured": false,
+            "coming_soon": false,
+            "badge_text": "",
+            "badge_type": "bestseller",
+            "bg_gradient": "linear-gradient(135deg,#1c1212,#18191c)",
+            "show_gradient": true,
+            "glow_color": "#e8482a",
+            "show_glow": true,
+            "emoji": "🧴",
+            "category_text": "Recovery · CBD Topical",
+            "category_color": "#2ab8cf",
+            "product_name": "Relief Balm",
+            "tagline": "All-natural recovery balm. Organic hemp + 12 plant oils. Clean, plant-based formula — gentle enough for daily use, smooth enough for massage.",
+            "feature_1": "Organic hemp · full spectrum CBD",
+            "feature_2": "12 plant oils — Arnica, Turmeric, Ginger, Peppermint",
+            "feature_3": "Smooth texture, absorbs easily",
+            "feature_4": "Athlete-tested · safe for daily use",
+            "feature_color_class": "coral",
+            "price": "$30–$60",
+            "price_sub": "",
+            "button_text": "ADD TO CART",
+            "button_link": "shopify://pages/relief",
+            "button_style": "t",
+            "cs_title": "",
+            "cs_subtext": "",
+            "cs_button_text": "",
+            "cs_link": "",
+            "cs_button_style": "a"
+          }
+        }
+      },
+      "block_order": [
+        "product_fm8VAb",
+        "product_WJyeCN",
+        "product_LHkf73",
+        "product_GrcpAE"
+      ],
+      "name": "Shop Product Grid",
+      "settings": {}
+    },
+    "shop_stack_section_krdepn": {
+      "type": "shop-stack-section",
+      "blocks": {
+        "stack_item_kKMNtx": {
+          "type": "stack_item",
+          "settings": {
+            "emoji": "🧴",
+            "name": "Max Relief Balm",
+            "description": "4-pathway recovery formula · Jar 60ml",
+            "price": "$60",
+            "product_id": "max-relief-balm"
+          }
+        },
+        "stack_item_dQB8Be": {
+          "type": "stack_item",
+          "settings": {
+            "emoji": "💧",
+            "name": "Electro+ Drops",
+            "description": "Mineral hydration · 4oz / 120 servings",
+            "price": "$45",
+            "product_id": "electro-drops"
+          }
+        },
+        "stack_item_LEVEYa": {
+          "type": "stack_item",
+          "settings": {
+            "emoji": "💊",
+            "name": "Perform+",
+            "description": "β-Ecdysterone · 60 caps / 60-day supply",
+            "price": "$85",
+            "product_id": "perform"
+          }
+        },
+        "stat_Jd3DMV": {
+          "type": "stat",
+          "settings": {
+            "value": "4.9★",
+            "label": "Average rating"
+          }
+        },
+        "stat_q6VGD4": {
+          "type": "stat",
+          "settings": {
+            "value": "3×",
+            "label": "Products. One system."
+          }
+        },
+        "stat_DxFHXn": {
+          "type": "stat",
+          "settings": {
+            "value": "$28",
+            "label": "Stack savings"
+          }
+        }
+      },
+      "block_order": [
+        "stack_item_kKMNtx",
+        "stack_item_dQB8Be",
+        "stack_item_LEVEYa",
+        "stat_Jd3DMV",
+        "stat_q6VGD4",
+        "stat_DxFHXn"
+      ],
+      "name": "Shop Stack",
+      "settings": {
+        "eyebrow": "The PHASIS System",
+        "heading": "Everything your body needs.<br><em>Nothing it doesn't.</em>",
+        "description": "Max Relief for recovery, aches, and soreness. Electro+ to replenish what you sweat out and keep you going. Perform+ to build lean muscle and elevate performance — without the hormones. One system. Built to help you feel and perform better.",
+        "total_label": "The PHASIS Stack",
+        "original_price_text": "$190 separately",
+        "sale_price": "$162",
+        "save_text": "— Save $28",
+        "button_text": "BUILD MY STACK",
+        "button_link": "",
+        "visual_img_1": "shopify://shop_images/max-relief-1200mg-60ml.png",
+        "visual_img_2": "shopify://shop_images/electro-drop-plus-1oz.png",
+        "visual_img_3": "shopify://shop_images/Perform_60cap_a3584ab1-53e3-4ec2-aa93-11ec46b5e7d4.png",
+        "visual_emojis": "🧴 💧 💊",
+        "visual_title": "The Complete Recovery System",
+        "visual_subtitle": "Recovery & soreness · Mineral hydration · Muscle performance"
+      }
+    },
+    "shop_benefits_M6PDkz": {
+      "type": "shop-benefits",
+      "blocks": {
+        "benefit_3rG3b6": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🔬",
+            "title": "Clinically Informed",
+            "description": "Every formula is built around peer-reviewed research. We cite the studies."
+          }
+        },
+        "benefit_btyTjR": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🧪",
+            "title": "3rd Party Tested",
+            "description": "Every batch tested for purity, potency, and label accuracy. COA available."
+          }
+        },
+        "benefit_XzCiwA": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🌱",
+            "title": "Clean Formulas",
+            "description": "No proprietary blends. No pixie-dusting. No banned substances."
+          }
+        },
+        "benefit_JrjiGn": {
+          "type": "benefit",
+          "settings": {
+            "icon": "🛡️",
+            "title": "30-Day Guarantee",
+            "description": "Doesn't work for you? Full refund within 30 days. No questions asked."
+          }
+        }
+      },
+      "block_order": [
+        "benefit_3rG3b6",
+        "benefit_btyTjR",
+        "benefit_XzCiwA",
+        "benefit_JrjiGn"
+      ],
+      "name": "Shop Benefits",
+      "settings": {}
+    },
+    "shop_reviews_yKUqKK": {
+      "type": "shop-reviews",
+      "blocks": {
+        "review_4zhxBG": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "I have been using the max relief for the last year on my back and neck for degenerative disc disease. It is the only product that provides me with relief and helps with my flare ups. I have tried everything from bio freeze to medicinal products to try and manage my pain, but this is the only product I will use now! 1000% recommend! I have multiple family members that now use the product for pain management as well.",
+            "name": "Megan T.",
+            "meta": "Max Relief · Recovery & Soreness"
+          }
+        },
+        "review_4YLTyF": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "This stuff feels amazing. The way it numbs and relaxes my muscle and joint aches is unmatched. I have tried a lot of CBD products but the additions here really bring it together. It also smells great which adds some aromatherapy and makes it overall a pleasant experience.",
+            "name": "Cliff",
+            "meta": "Electro plus · Recovery & Soreness"
+          }
+        },
+        "review_FBmzrA": {
+          "type": "review",
+          "settings": {
+            "stars": "★★★★★",
+            "quote": "Absolute lifesaver! After flipping my ATV and getting a contusion on my rib, this is the only thing that's giving me any relief! Extremely great product, very highly recommended! It's worth every penny!",
+            "name": "Sean Ferdowsian",
+            "meta": "Perform Plus· Recovery & Soreness"
+          }
+        }
+      },
+      "block_order": [
+        "review_4zhxBG",
+        "review_4YLTyF",
+        "review_FBmzrA"
+      ],
+      "name": "Shop Reviews",
+      "settings": {
+        "rating_value": "4.9",
+        "star_rating": "★★★★★",
+        "rating_label": "Verified buyers · All products",
+        "all_reviews_text": "ALL REVIEWS",
+        "all_reviews_link": ""
+      }
+    },
+    "shop_faqs_wxNUzr": {
+      "type": "shop-faqs",
+      "blocks": {
+        "faq_UXNYH3": {
+          "type": "faq",
+          "settings": {
+            "question": "Do all products ship together?",
+            "answer": "<p>Yes — multiple products ship in one package. Orders over $75 ship free. We ship within 1–3 business days with full tracking on every order.</p>"
+          }
+        },
+        "faq_7eyL3E": {
+          "type": "faq",
+          "settings": {
+            "question": "Can I use all three products together?",
+            "answer": "<p>Yes — they're designed to complement each other. Max Relief is topical. Electro+ is an oral mineral supplement. Perform+ is an oral ecdysterone capsule. Three different systems with no interaction.</p>"
+          }
+        },
+        "faq_jV9Ldh": {
+          "type": "faq",
+          "settings": {
+            "question": "Are these safe for drug-tested athletes?",
+            "answer": "<p>Yes. Max Relief CBD is topical and doesn't produce a positive drug test. Electro+ is minerals only. Perform+ contains β-Ecdysterone which is not on the WADA prohibited list and is legal in all major organizations including UFC and USADA-tested events. Every product is 3rd party tested for banned substance contamination.</p>"
+          }
+        },
+        "faq_CHEFAh": {
+          "type": "faq",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "<p>30-day satisfaction guarantee on all products. Contact us within 30 days of purchase for a full refund — no questions asked.</p>"
+          }
+        },
+        "faq_6nfNB6": {
+          "type": "faq",
+          "settings": {
+            "question": "Which product should I start with?",
+            "answer": "<p>Dealing with pain or injury — start with Max Relief. Priority is hydration and recovery — start with Electro+. Goal is muscle building and performance — start with Perform+. Want the full system — the PHASIS Stack covers all three at a discount.</p>"
+          }
+        },
+        "faq_YNYjk8": {
+          "type": "faq",
+          "settings": {
+            "question": "Is there a subscription option?",
+            "answer": "<p>Not currently — all products are one-time purchases. We're building a subscription and rewards program. Join the Rewards waitlist for early access to subscriber pricing.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_UXNYH3",
+        "faq_7eyL3E",
+        "faq_jV9Ldh",
+        "faq_CHEFAh",
+        "faq_6nfNB6",
+        "faq_YNYjk8"
+      ],
+      "name": "Shop FAQ",
+      "settings": {
+        "eyebrow": "Quick Answers",
+        "heading": "Common Questions",
+        "subheading": "Everything you need to know before ordering."
+      }
+    },
+    "phasis_electro_final_cta_kKXQUz": {
+      "type": "phasis-electro-final-cta",
+      "name": "Phasis Electro Final CTA",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "One System. Built For You.",
+        "heading": "Not sure where to <em>start?</em>",
+        "text": "The PHASIS Protocol Scan identifies your starting point in 3 minutes-holistic first, product recommendations 2nd.",
+        "button_text": "Take the 3-Minute Scan",
+        "button_url": "shopify://pages/quiz",
+        "section_id": "",
+        "trust_1": "3 minutes",
+        "trust_2": "Holistic-first",
+        "trust_3": "Personalized protocol"
+      }
+    }
+  },
+  "order": [
+    "banner",
+    "product-grid",
+    "shop_header_LMndAc",
+    "shop_trust_bar_A6LrTW",
+    "shop_filters_DktYbf",
+    "shop_quiz_banner_iwQKn9",
+    "shop_product_grid_WCBV4x",
+    "shop_stack_section_krdepn",
+    "shop_benefits_M6PDkz",
+    "shop_reviews_yKUqKK",
+    "shop_faqs_wxNUzr",
+    "phasis_electro_final_cta_kKXQUz"
+  ]
+}

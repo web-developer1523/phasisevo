@@ -1,0 +1,106 @@
+<section class="all-section">
+  <div class="section-label">{{ section.settings.heading }}</div>
+
+  <div class="all-grid">
+    {% for block in section.blocks %}
+      {% assign article = block.settings.article %}
+
+      {% if article != blank %}
+        <a href="{{ article.url }}" class="jcard-sm" style="text-decoration:none;display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--border);align-items:flex-start">
+
+          <div style="width:72px;height:72px;border-radius:6px;overflow:hidden;flex-shrink:0;background:var(--surface2)">
+            {% if article.image %}
+              <img src="{{ article.image | image_url: width: 300 }}" alt="{{ article.title }}" style="width:100%;height:100%;object-fit:cover;display:block">
+            {% endif %}
+          </div>
+
+          <div style="flex:1;min-width:0">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px" class="cst-post">
+              
+              {% if article.tags.size > 0 %}
+                <span style="font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--coral)">
+                  {{ article.tags.first }}
+                </span>
+              {% endif %}
+
+              <span style="font-size:12px;color:#d0d0d0">
+                {{ article.published_at | date: "%b %d, %Y" }}
+              </span>
+            </div>
+
+            <div style="font-family:var(--f-dis);font-size:16px;font-weight:700;letter-spacing:-.01em;line-height:1.35;color:var(--off-white);margin-bottom:6px">
+              {{ article.title }}
+            </div>
+
+            <div style="font-family:var(--f-dis);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--coral)">
+              READ →
+            </div>
+          </div>
+        </a>
+      {% endif %}
+    {% endfor %}
+  </div>
+</section>
+<style>
+    /* ── ALL POSTS SECTION ──────────────────────────────────── */
+.all-section {
+  padding:48px var(--pad);
+}
+@media(min-width:768px){.all-section{padding:64px var(--pad-md)}}
+@media(min-width:1024px){.all-section{padding:72px var(--pad-lg)}}
+
+.all-grid {
+  display:grid;
+  grid-template-columns:1fr;
+  gap:0;
+  max-width:720px;
+}
+
+.jcard-sm:last-child {
+  border-bottom:none;
+}
+
+.jcard-sm:hover h3,
+.jcard-sm:hover div[style*="font-family:var(--f-dis)"] {
+  color:var(--coral);
+  transition:color .15s;
+}
+
+</style>
+{% schema %}
+{
+  "name": "Journal Article List",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Section Heading",
+      "default": "All Journal Posts"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "article_block",
+      "name": "Article",
+      "settings": [
+        {
+          "type": "article",
+          "id": "article",
+          "label": "Select Article"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 12,
+  "presets": [
+    {
+      "name": "Journal Article List",
+      "blocks": [
+        { "type": "article_block" },
+        { "type": "article_block" },
+        { "type": "article_block" }
+      ]
+    }
+  ]
+}
+{% endschema %}

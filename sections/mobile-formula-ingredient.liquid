@@ -1,0 +1,220 @@
+<section class="formula-sec section">
+
+  <!-- TOP -->
+  <div class="formula-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      <em>{{ section.settings.heading_line2 }}</em>
+    </h2>
+
+    <div class="formula-sub mt-4">
+      {{ section.settings.subtext }}
+    </div>
+  </div>
+
+  <div class="formula-inner">
+
+    <!-- LEFT -->
+    <div>
+      <div class="ingr-spotlight">
+
+        <div class="is-label">{{ section.settings.label }}</div>
+        <div class="is-name">{{ section.settings.name }}</div>
+        <div class="is-dose">{{ section.settings.dose }}</div>
+
+        <div class="is-desc">
+          {{ section.settings.description }}
+        </div>
+
+        <div class="is-facts">
+          {% for block in section.blocks %}
+            {% if block.type == 'fact' %}
+              <div class="isf">
+                <div class="isf-val">{{ block.settings.value }}</div>
+                <div class="isf-lbl">{{ block.settings.label }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+    </div>
+
+    <!-- RIGHT -->
+    <div>
+
+      <!-- CLEAN LABEL -->
+      <div class="clean-card">
+        <div class="cc-title">{{ section.settings.clean_title }}</div>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'clean' %}
+            <div class="cc-item {{ block.settings.type }}">
+              {{ block.settings.text }}
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      <!-- PRODUCT DETAILS -->
+      <div class="capsule-facts">
+        <div class="cf-title">{{ section.settings.details_title }}</div>
+
+        <div class="cf-grid">
+          {% for block in section.blocks %}
+            {% if block.type == 'detail' %}
+              <div>
+                <div class="cf-val">{{ block.settings.value }}</div>
+                <div class="cf-lbl">{{ block.settings.label }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
+<style>
+    /* ── FORMULA / INGREDIENTS ───────────────────────── */
+.formula-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.formula-top{text-align:center;margin-bottom:24px}
+.formula-top h2{margin-bottom:12px}
+.formula-sub{font-size:15px;font-weight:300;color:var(--muted-l);line-height:1.7}
+/* Spotlight ingredient */
+.formula-inner > div {
+    height: 100%;
+}
+.ingr-spotlight{background:var(--surface);border:1px solid rgba(212,131,26,.3);border-radius:10px;padding:20px 16px;margin-bottom:12px;position:relative;overflow:hidden; height:100%;}
+.ingr-spotlight::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 0%,rgba(212,131,26,.07) 0%,transparent 65%);pointer-events:none}
+.is-label{font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--amber);margin-bottom:12px;display:flex;align-items:center;gap:6px}
+.is-label::before{content:'★';font-size:10px}
+.is-name{font-family:var(--f-dis);font-size:22px;font-weight:800;margin-bottom:4px;letter-spacing:-0.01em}
+.is-dose{font-family:var(--f-dis);font-size:16px;color:var(--amber);font-weight:700;margin-bottom:12px}
+.is-desc{font-size:13px;color:var(--muted-l);line-height:1.7;margin-bottom:16px}
+.is-facts{display:grid;grid-template-columns:100% ;gap:16px; margin-top: 24px}
+.isf{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:10px 12px}
+.isf-val{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--amber);line-height:1;margin-bottom:3px}
+.isf-lbl{font-size:14px;color:#d0d0d0;line-height:1.4}
+
+/* Clean label */
+.clean-card{background:var(--surface);border:1px solid rgba(212,131,26,.2);border-radius:10px;padding:20px 16px;margin-bottom:12px}
+.cc-title{font-family:var(--f-dis);font-size:13px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.cc-title::before{content:'🔬';font-size:16px}
+.cc-item{display:flex;align-items:center;gap:10px;font-size:14px;padding:8px 0;border-bottom:1px solid var(--border)}
+.cc-item:last-child{border-bottom:none}
+.cc-item.yes{color:var(--off-white)}.cc-item.yes::before{content:'✓';color:var(--amber);font-weight:700;font-size:11px;flex-shrink:0;font-family:var(--f-dis)}
+.cc-item.no{color:#d0d0d0;}.cc-item.no::before{content:'✗';color:#c04040;font-weight:700;font-size:11px;flex-shrink:0;font-family:var(--f-dis)}
+
+.capsule-facts{background:var(--surface);border:1px solid var(--border);border-radius:8px;padding:16px}
+.cf-title{font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
+.cf-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.cf-val{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--amber);margin-bottom:2px}
+.cf-lbl{font-size:14px;color:#d0d0d0;line-height:1.4}
+
+@media(min-width:1024px){
+  .formula-inner{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start}
+}
+
+</style>
+{% schema %}
+{
+  "name": "Formula Ingredient",
+  "settings": [
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "What's In It" },
+
+    { "type": "text", "id": "heading_line1", "label": "Heading Line 1", "default": "One Ingredient." },
+    { "type": "text", "id": "heading_line2", "label": "Heading Line 2", "default": "Done Right." },
+
+    {
+      "type": "richtext",
+      "id": "subtext",
+      "label": "Subtext",
+      "default": "<p>No proprietary blends. No pixie-dusting. 250mg β-Ecdysterone per capsule.</p>"
+    },
+
+    { "type": "text", "id": "label", "label": "Ingredient Label", "default": "Primary Active · Above Clinical Dose" },
+    { "type": "text", "id": "name", "label": "Ingredient Name", "default": "β-Ecdysterone" },
+    { "type": "text", "id": "dose", "label": "Dose", "default": "250mg per capsule" },
+
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Detailed ingredient explanation here...</p>"
+    },
+
+    { "type": "text", "id": "clean_title", "label": "Clean Label Title", "default": "Clean Label Promise" },
+    { "type": "text", "id": "details_title", "label": "Product Details Title", "default": "Product Details" }
+  ],
+
+  "blocks": [
+    {
+      "type": "fact",
+      "name": "Ingredient Fact",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "250mg" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Fact label" }
+      ]
+    },
+    {
+      "type": "clean",
+      "name": "Clean Label Item",
+      "settings": [
+        {
+          "type": "select",
+          "id": "type",
+          "label": "Type",
+          "options": [
+            { "value": "yes", "label": "Yes (Positive)" },
+            { "value": "no", "label": "No (Negative)" }
+          ],
+          "default": "yes"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Clean label point"
+        }
+      ]
+    },
+    {
+      "type": "detail",
+      "name": "Product Detail",
+      "settings": [
+        { "type": "text", "id": "value", "label": "Value", "default": "30" },
+        { "type": "text", "id": "label", "label": "Label", "default": "Detail label" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Formula Ingredient",
+      "blocks": [
+        { "type": "fact" },
+        { "type": "fact" },
+        { "type": "fact" },
+        { "type": "fact" },
+
+        { "type": "clean" },
+        { "type": "clean" },
+        { "type": "clean" },
+        { "type": "clean" },
+        { "type": "clean" },
+
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "detail" },
+        { "type": "detail" }
+      ]
+    }
+  ]
+}
+{% endschema %}

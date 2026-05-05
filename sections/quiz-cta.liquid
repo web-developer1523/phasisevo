@@ -1,0 +1,119 @@
+{% style %}
+.quiz-cta {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 40px 16px;
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.quiz-cta__tag {
+  font-family: 'Sora', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #E8482A;
+  margin-bottom: 8px;
+}
+
+.quiz-cta__heading {
+  font-family: 'Sora', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 10px;
+  letter-spacing: -.01em;
+}
+
+.quiz-cta__desc {
+  font-size: 15px;
+  color: #d0d0d0;
+  margin-bottom: 16px;
+  max-width: 380px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.quiz-cta__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #E8482A;
+  color: #fff;
+  font-family: 'Sora', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  min-height: 48px;
+}
+{% endstyle %}
+
+<div class="quiz-cta {{ section.settings.custom_css }}">
+  <div class="quiz-cta__tag">
+    {{ section.settings.tagline }}
+  </div>
+
+  <div class="quiz-cta__heading">
+   {{ section.settings.heading | replace: 'Starting Point', '<span class="highlight_text">Starting Point</span>' }}
+  </div>
+
+  <p class="quiz-cta__desc">
+    {{ section.settings.description }}
+  </p>
+
+  <a href="{{ section.settings.button_link }}" class="quiz-cta__btn">
+    {{ section.settings.button_text }}
+  </a>
+</div>
+
+{% schema %}
+{
+  "name": "Quiz CTA",
+  "settings": [
+       {
+      "type": "text",
+      "id": "custom_css",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "🧬 Want to improve your health but not sure where to start?"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Find Your Starting Point"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "23 questions. A clear picture of where to focus first. Your starting point — not a sales funnel."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "● FIND YOUR PROTOCOL"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Quiz CTA NEW"
+    }
+  ]
+}
+{% endschema %}

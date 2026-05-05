@@ -9,7 +9,7 @@
   {% if section.settings.section_id != blank %}
     id="{{ section.settings.section_id }}"
   {% endif %}
-  class="rich-text container {{ section.settings.custom_css_class }}"
+  class="rich-text container  cst-utm-new {{ section.settings.custom_css_class }} cst-new-spc"
 >
   <div class="rich-text__wrapper rich-text__wrapper--{{ section.settings.section_layout }}">
     <div class="rich-text__title">
@@ -18,12 +18,36 @@
           {{ section.settings.subheading | escape }}
         </div>
       {% endif %}
-      {% if section.settings.heading != blank %}
-        {% assign section_heading_tag = section.settings.section_heading_tag %}
-        <{{ section_heading_tag }} class="rich-text__heading {{ section.settings.heading_size }} {% if section.settings.subheading == blank %}margin-none{% endif %}">
-          {{ section.settings.heading }}
-        </{{ section_heading_tag }}>
-      {% endif %}
+      {% comment %}
+        {% if section.settings.heading != blank %}
+          {% assign section_heading_tag = section.settings.section_heading_tag %}
+          <{{ section_heading_tag }} class="rich-text__heading {{ section.settings.heading_size }} {% if section.settings.subheading == blank %}margin-none{% endif %}">
+            {{ section.settings.heading }}
+          </{{ section_heading_tag }}>
+        {% endif %}
+      {% endcomment %}
+     {% comment %} {% if section.settings.heading != blank %}
+  {% assign section_heading_tag = section.settings.section_heading_tag %}
+  <{{ section_heading_tag }} class="rich-text__heading {{ section.settings.heading_size }} {% if section.settings.subheading == blank %}margin-none{% endif %}">
+    
+   {{ section.settings.heading | replace: "fast", '<span class="new_txt">fast.</span>' }}
+
+  </{{ section_heading_tag }}>
+{% endif %} {% endcomment %}
+ {% if section.settings.heading != blank %}
+  {% assign section_heading_tag = section.settings.section_heading_tag %}
+  <{{ section_heading_tag }} class="rich-text__heading {{ section.settings.heading_size }} {% if section.settings.subheading == blank %}margin-none{% endif %}">
+
+    {% assign heading_html = section.settings.heading | replace: "fast", '<span class="new_txt">fast.</span>' %}
+
+     {% if template.name == 'index' %}
+      {% assign heading_html = heading_html | replace: "Evolve.", '<span class="home_txt">Evolve.</span>' %}
+    {% endif %}
+
+    {{ heading_html }}
+
+  </{{ section_heading_tag }}>
+{% endif %}
       {% if section.settings.heading_2 != blank %}
         <div class="rich-text__heading {{ section.settings.heading_size }}">
           {{ section.settings.heading_2 }}
@@ -36,36 +60,50 @@
       </div>
     {% endif %}
     {% if section.settings.button_label != blank or section.settings.button_label_2 != blank %}
-  <div class="rich-text__buttons">
-    {% if section.settings.button_label != blank %}
-      {% render 'button',
-        btn_label: section.settings.button_label,
-        btn_link: section.settings.button_link,
-        btn_style: section.settings.button_style,
-        button_dot: section.settings.button_dot,
-        add_classes: 'rich-text__button focus-inset'
-      %}
+      <div class="rich-text__buttons">
+        {% if section.settings.button_label != blank %}
+         {%- assign first_link = '' -%}
+
+    {%- if section.settings.button_link != blank -%}
+      {%- assign first_link = section.settings.button_link -%}
+    {%- elsif section.settings.first_section_id != blank -%}
+      {%- assign first_link = '#' | append: section.settings.first_section_id -%}
     {%- endif -%}
-    {% if section.settings.button_label_2 != blank %}
-      {% render 'button',
-        btn_label: section.settings.button_label_2,
-        btn_link: section.settings.button_link_2,
-        btn_style: section.settings.button_style_2,
-        button_dot: section.settings.button_dot_2,
-        add_classes: 'rich-text__button focus-inset'
-      %}
-    {%- endif -%}
+          {% render 'button',
+            btn_label: section.settings.button_label,
+            btn_link: first_link,
+            btn_style: section.settings.button_style,
+            button_dot: section.settings.button_dot,
+            add_classes: 'rich-text__button focus-inset glow-cta'
+          %}
+        {%- endif -%}
+        {% if section.settings.button_label_2 != blank %}
+             {%- assign second_link = '' -%}
+
+    {%- if section.settings.button_link_2 != blank -%}
+      {%- assign second_link = section.settings.button_link_2 -%}
+    {%- elsif section.settings.second_section_id != blank -%}
+      {%- assign second_link = '#' | append: section.settings.second_section_id -%}
+    {%- endif -%} 
+          {% render 'button',
+            btn_label: section.settings.button_label_2,
+            btn_link: second_link,
+            btn_style: section.settings.button_style_2,
+            button_dot: section.settings.button_dot_2,
+            add_classes: 'rich-text__button focus-inset'
+          %}
+        {%- endif -%}
       </div>
-{% endif %}
+    {% endif %}
     {% if section.blocks.size > 0 %}
-  <div class="rich-text__text">
-    {% for block in section.blocks %}
-      {% if block.type == 'guarantee' %}
-        <p>✔ {{ block.settings.text }}</p>
-      {% endif %}
-    {% endfor %}
-  </div>
-{% endif %}
+      <div class="rich-text__text cst-item">
+        {% for block in section.blocks %}
+          {% if block.type == 'guarantee' %}
+            <p><span class="highlight_tick">✔</span> {{ block.settings.text }}</p>
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
   </div>
 </div>
 
@@ -216,6 +254,12 @@
       "label": "t:sections.all.button.button_link.label"
     },
     {
+  "type": "text",
+  "id": "first_section_id",
+  "label": "First Button Section ID",
+  "default": "purchase"
+},
+    {
       "type": "select",
       "id": "button_style",
       "options": [
@@ -255,6 +299,12 @@
       "id": "button_link_2",
       "label": "Second Button Link"
     },
+    {
+  "type": "text",
+  "id": "second_section_id",
+  "label": "Second Button ID",
+  "default": "purchase"
+},
     {
       "type": "select",
       "id": "button_style_2",
@@ -348,27 +398,27 @@
     }
   ],
   "blocks": [
-      {
-    "type": "guarantee",
-    "name": "Guarantee Item",
-    "settings": [
-      {
-        "type": "text",
-        "id": "text",
-        "label": "Text",
-        "default": "30-day guarantee"
-      }
-    ]
-  }
+    {
+      "type": "guarantee",
+      "name": "Guarantee Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "30-day guarantee"
+        }
+      ]
+    }
   ],
   "presets": [
     {
       "name": "t:sections.rich-text.presets.name",
-       "blocks": [
-      { "type": "guarantee", "settings": { "text": "30-day guarantee" } },
-      { "type": "guarantee", "settings": { "text": "Free shipping $75+" } },
-      { "type": "guarantee", "settings": { "text": "No subscription" } }
-    ]
+      "blocks": [
+        { "type": "guarantee", "settings": { "text": "30-day guarantee" } },
+        { "type": "guarantee", "settings": { "text": "Free shipping $75+" } },
+        { "type": "guarantee", "settings": { "text": "No subscription" } }
+      ]
     }
   ]
 }

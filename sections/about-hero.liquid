@@ -1,11 +1,13 @@
-<div class="about-hero {{section.settings.custom_css_class }}">
+<div class="about-hero">
   <div class="ah-eyebrow-row">
     <span>{{ section.settings.eyebrow }}</span>
   </div>
 
   <h1>
-    {{ section.settings.heading_line1 }}<br>
-    {{ section.settings.heading_line2 }}<br>
+    {{ section.settings.heading_line1 -}}
+    <br>
+    {{ section.settings.heading_line2 -}}
+    <br>
     <em>{{ section.settings.heading_em }}</em>
   </h1>
 
@@ -22,16 +24,55 @@
     </div>
   </div>
 </div>
+<style>
+    /* ── HERO ─────────────────────────────────────────── */
+.about-hero h1 {
+    margin: 0;
+    font-family: var(--f-dis);
+    font-weight: 800;
+    font-size: 36px;
+    letter-spacing: -0.025em;
+    line-height: .95;
+}
 
+h1 em, h2 em {
+    color: var(--coral);
+    font-style: normal;
+}
+
+
+  .about-hero{background:var(--surface);border-bottom:1px solid var(--border);padding:48px var(--pad) 0;position:relative;overflow:hidden}
+  .about-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 90% 50% at 0% 50%,rgba(232,72,42,.06) 0%,transparent 55%);pointer-events:none}
+  .ah-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px;position:relative}
+  .ah-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+  .ah-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+  .ah-sub{font-size:16px;font-weight:300;color:#d0d0d0;line-height:1.75;margin-top:14px;max-width:560px;position:relative}
+  .ah-sub strong{color:#d0d0d0;font-weight:600}
+  /* Tagline big */
+  .tagline-block{margin-top:32px;padding:24px 0;border-top:1px solid var(--border);position:relative}
+  .tagline-text{font-family:var(--f-dis);font-size:clamp(24px,5vw,44px);font-weight:800;letter-spacing:-0.02em;line-height:1;color:var(--coral)}
+  .tagline-sub{font-size:13px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-family:var(--f-dis);margin-top:8px}
+
+
+
+  @media (min-width: 768px) {
+    .about-hero h1 {
+        font-size: 52px;
+    }
+  }
+    @media (min-width: 1024px) {
+    .about-hero h1 {
+        font-size: 64px;
+     }
+  }
+
+  @media(min-width:768px){.about-hero{padding:64px var(--pad-md) 0}}
+  @media(min-width:1024px){.about-hero{padding:80px var(--pad-lg) 0}}
+</style>
 {% schema %}
 {
   "name": "About Hero",
   "settings": [
-     {
-      "type": "text",
-      "id": "custom_css_class",
-      "label": "Custom CSS Class"
-    },
     {
       "type": "text",
       "id": "eyebrow",

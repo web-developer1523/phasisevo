@@ -8,6 +8,16 @@
           <span class="tb-icon">
             {{ block.settings.icon_svg }}
           </span>
+            {% elsif block.settings.icon_image != blank %}
+    <span class="tb-icon">
+      <img 
+        src="{{ block.settings.icon_image | image_url: width: 40 }}" 
+        alt="icon" 
+        width="20" 
+        height="20"
+        loading="lazy"
+      >
+    </span>
         {% endif %}
 
         <span class="tb-text">
@@ -96,6 +106,11 @@
           "id": "icon_svg",
           "label": "SVG Icon"
         },
+          {
+    "type": "image_picker",
+    "id": "icon_image",
+    "label": "Fallback Image"
+  },
         {
           "type": "text",
           "id": "text",

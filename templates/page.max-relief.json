@@ -1,0 +1,1061 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "phasis_electro_hero_dYnm9F": {
+      "type": "phasis-electro-hero",
+      "name": "Phasis Electro Hero",
+      "settings": {
+        "custom_css_class": "cst-maxmain-sec",
+        "eyebrow": "If Nothing Has Worked — Read This",
+        "title": "Built for<br>Fighters.<br><em>Built for<br>\nAches,<br>Soreness<br>\n& Recovery.</em>",
+        "hook": "Voltaren. IcyHot. CBD creams. They sit on the surface — masking the signal, wearing off in 30 minutes. <strong>Max Relief works differently.</strong> It works with the systems your body already has to manage tension and recovery. Not over them.",
+        "pill_1": "",
+        "pill_2": "",
+        "pill_3": "",
+        "pill_4": "",
+        "pill_5": "",
+        "pill_no_1": "",
+        "pill_no_2": "",
+        "trust_1_bold": "4.9",
+        "trust_1_text": "reviews",
+        "trust_2_bold": "3rd Party",
+        "trust_2_text": "Tested",
+        "trust_3_bold": "Made",
+        "trust_3_text": "in USA",
+        "cta_text": "GET MAX RELIEF+ — FROM $25",
+        "cta_url": "",
+        "section_id": "purchase",
+        "micro_1": "Free shipping $75+",
+        "micro_2": "30-day guarantee",
+        "micro_3": "No subscription",
+        "bg_word": "MINERALS",
+        "product": "max-relief-balm",
+        "emoji": "🧴",
+        "review_quote": "\"I train BJJ and tried Voltaren, IcyHot, everything else. PHASIS is the only thing that actually gets deep enough. Non-negotiable part of my recovery.",
+        "review_name": "Marcus D.",
+        "review_meta": "BJJ Competitor · Verified Buyer",
+        "sn_url": "shopify://pages/electro-plus",
+        "sn_icon": "💧",
+        "sn_label": "Stack With · Electro+",
+        "sn_desc": "Add mineral hydration to your recovery",
+        "sn_arrow": "→"
+      }
+    },
+    "mobile_trust_bar_iYkJhM": {
+      "type": "mobile-trust-bar",
+      "blocks": {
+        "item_kkMRLC": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "3RD PARTY TESTED"
+          }
+        },
+        "item_C9gz3H": {
+          "type": "item",
+          "settings": {
+            "icon": "circle",
+            "text": "ORGANIC HEMP"
+          }
+        },
+        "item_tUzWdj": {
+          "type": "item",
+          "settings": {
+            "icon": "grid",
+            "text": "MADE IN USA"
+          }
+        },
+        "item_aHaUBp": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "text": "30-DAY GUARANTEE"
+          }
+        },
+        "item_bidfnK": {
+          "type": "item",
+          "settings": {
+            "icon": "plane",
+            "text": "FREE SHIPPING $75+"
+          }
+        }
+      },
+      "block_order": [
+        "item_kkMRLC",
+        "item_C9gz3H",
+        "item_tUzWdj",
+        "item_aHaUBp",
+        "item_bidfnK"
+      ],
+      "name": " Mobile Trust Bar",
+      "settings": {
+        "custom_css": "cstmaxtrust-sec"
+      }
+    },
+    "relief_problem_section_iAqADb": {
+      "type": "relief-problem-section",
+      "blocks": {
+        "item_VmEniC": {
+          "type": "item",
+          "settings": {
+            "icon": "🧊",
+            "name": "IcyHot",
+            "description": "Counterirritant only. Wears off in 30 minutes. No anti-inflammatory action."
+          }
+        },
+        "item_pBGB3c": {
+          "type": "item",
+          "settings": {
+            "icon": "💊",
+            "name": "Voltaren",
+            "description": "Anti-inflammatory only. No nerve block. No CBD. Limited penetration."
+          }
+        },
+        "item_pQVaPA": {
+          "type": "item",
+          "settings": {
+            "icon": "🌿",
+            "name": "CBD Cream",
+            "description": "Underdosed. No pharmaceutical actives. Wellness product dressed as pain relief."
+          }
+        },
+        "item_jGRDcE": {
+          "type": "item",
+          "settings": {
+            "icon": "💉",
+            "name": "Injections",
+            "description": "Invasive. Short-term. Degrades tissue. Not a daily solution."
+          }
+        }
+      },
+      "block_order": [
+        "item_VmEniC",
+        "item_pBGB3c",
+        "item_pQVaPA",
+        "item_jGRDcE"
+      ],
+      "name": " Relief Problem Section",
+      "settings": {
+        "eyebrow": "The Problem With Everything Else",
+        "heading_line1": "You've Tried Everything.",
+        "heading_line2": "Nothing Goes Deep Enough.",
+        "subtext": "Most pain products treat the surface. They mask the signal briefly — then the pain comes back.",
+        "transition_label": "The PHASIS Difference",
+        "transition_text": "Max Relief combines a <em>pharmaceutical nerve block </em>with full spectrum CBD, botanical anti-inflammatories, and circulation support — four pathways working simultaneously."
+      }
+    },
+    "relief_fighter_section_wf48TF": {
+      "type": "relief-fighter-section",
+      "blocks": {
+        "tag_k3Yc9P": {
+          "type": "tag",
+          "settings": {
+            "label": "🥋 ",
+            "active": true
+          }
+        },
+        "tag_nChj7T": {
+          "type": "tag",
+          "settings": {
+            "label": "🥊",
+            "active": false
+          }
+        },
+        "tag_dBVBJ3": {
+          "type": "tag",
+          "settings": {
+            "label": "",
+            "active": false
+          }
+        },
+        "pain_U6QQ6w": {
+          "type": "pain",
+          "settings": {
+            "icon": "",
+            "title": "",
+            "desc": ""
+          }
+        },
+        "pain_eJR9zj": {
+          "type": "pain",
+          "settings": {
+            "icon": "",
+            "title": "",
+            "desc": ""
+          }
+        },
+        "pain_xgXGxk": {
+          "type": "pain",
+          "settings": {
+            "icon": "",
+            "title": "",
+            "desc": ""
+          }
+        }
+      },
+      "block_order": [
+        "tag_k3Yc9P",
+        "tag_nChj7T",
+        "tag_dBVBJ3",
+        "pain_U6QQ6w",
+        "pain_eJR9zj",
+        "pain_xgXGxk"
+      ],
+      "name": " Relief Fighter Section",
+      "settings": {
+        "eyebrow": "Who Uses Max Relief",
+        "heading_line1": "Built for the people who",
+        "heading_line2": "train through real pain.",
+        "description": "",
+        "stars": "★★★★★",
+        "review_text": "",
+        "reviewer_name": "",
+        "reviewer_meta": ""
+      }
+    },
+    "relief_fighter_section_94bwgt": {
+      "type": "relief-fighter-section",
+      "blocks": {
+        "tag_j8REG3": {
+          "type": "tag",
+          "settings": {
+            "label": ".🥋 BJJ",
+            "active": true
+          }
+        },
+        "tag_PjJE3p": {
+          "type": "tag",
+          "settings": {
+            "label": "🥊 Boxing / MMA",
+            "active": true
+          }
+        },
+        "tag_3iUWY3": {
+          "type": "tag",
+          "settings": {
+            "label": "🤼 Wrestling",
+            "active": true
+          }
+        },
+        "tag_rTcaqe": {
+          "type": "tag",
+          "settings": {
+            "label": "🏋️ Weightlifting",
+            "active": false
+          }
+        },
+        "tag_xcH3YC": {
+          "type": "tag",
+          "settings": {
+            "label": "🏃 Running",
+            "active": false
+          }
+        },
+        "tag_xw3HRH": {
+          "type": "tag",
+          "settings": {
+            "label": "🧓 Chronic Pain",
+            "active": false
+          }
+        },
+        "tag_t86NGe": {
+          "type": "tag",
+          "settings": {
+            "label": "🏥  Post-Surgery",
+            "active": false
+          }
+        },
+        "pain_rzcFCt": {
+          "type": "pain",
+          "settings": {
+            "icon": "🦵",
+            "title": "Post-Workout Soreness & DOMS",
+            "desc": "Fast-acting relief for muscle soreness after training."
+          }
+        },
+        "pain_9G69b9": {
+          "type": "pain",
+          "settings": {
+            "icon": "🦷",
+            "title": "Joint Pain — Knees, Shoulders, Elbows",
+            "desc": "Deep penetration targets joint inflammation at the source."
+          }
+        },
+        "pain_cPFWLT": {
+          "type": "pain",
+          "settings": {
+            "icon": "🔄",
+            "title": "Chronic Stiffness — Neck, Lower Back",
+            "desc": "Daily use desensitizes pain receptors over time."
+          }
+        },
+        "pain_DnrKrD": {
+          "type": "pain",
+          "settings": {
+            "icon": "⚡",
+            "title": "Nerve Discomfort & Overuse Injuries",
+            "desc": "Lidocaine HCl blocks the nerve signal directly."
+          }
+        },
+        "pain_TxRn3J": {
+          "type": "pain",
+          "settings": {
+            "icon": "🏥",
+            "title": "Post-Surgery Rehabilitation",
+            "desc": "Multi-pathway approach supports recovery at every level."
+          }
+        }
+      },
+      "block_order": [
+        "tag_j8REG3",
+        "tag_PjJE3p",
+        "tag_3iUWY3",
+        "tag_rTcaqe",
+        "tag_xcH3YC",
+        "tag_xw3HRH",
+        "tag_t86NGe",
+        "pain_rzcFCt",
+        "pain_9G69b9",
+        "pain_cPFWLT",
+        "pain_DnrKrD",
+        "pain_TxRn3J"
+      ],
+      "name": " Relief Fighter Section",
+      "settings": {
+        "eyebrow": "Who Uses Max Relief",
+        "heading_line1": "Built for the people who",
+        "heading_line2": "train through real pain.",
+        "description": "Combat sports athletes don't stop training because something hurts. They need relief that's <strong>fast, deep, and lasts through a full session.</strong>",
+        "stars": "★★★★★",
+        "review_text": "\"Post rotator cuff surgery, the pain is relentless. Max Relief sinks deep and relieves the stiffness in my traps and upper scapulary muscles. A genuine game changer.\"",
+        "reviewer_name": "Sharon Cook",
+        "reviewer_meta": "· Post-Surgery Recovery · Verified Buyer"
+      }
+    },
+    "relief_solution_section_jwmxj8": {
+      "type": "relief-solution-section",
+      "blocks": {
+        "pathway_4hRfTw": {
+          "type": "pathway",
+          "settings": {
+            "number": "01",
+            "title": "Nerve Block",
+            "ingredient": "Lidocaine HCl — Pharmaceutical Grade",
+            "description": "Blocks sodium channels, stopping pain signals before they register. Fast onset, targeted numbing."
+          }
+        },
+        "pathway_9XDaPy": {
+          "type": "pathway",
+          "settings": {
+            "number": "02",
+            "title": "Counterirritant",
+            "ingredient": "Menthol + Capsaicin",
+            "description": "Immediate cooling → sustained warming → desensitizes TRPV1 pain receptors over repeated use."
+          }
+        },
+        "pathway_widNVN": {
+          "type": "pathway",
+          "settings": {
+            "number": "03",
+            "title": "20mg/ml CBD + Arnica + Turmeric",
+            "ingredient": "20mg/ml CBD + Arnica + Turmeric",
+            "description": "20mg of CBD per ml — every size, every application. Binds to CB2 receptors in muscle and connective tissue, part of the endocannabinoid system your body uses to regulate tension and recovery. Works with that system, not over it. Arnica reduces swelling. Turmeric + Black Pepper increases bioavailability by up to 2000%. Builds over time."
+          }
+        },
+        "pathway_3gLe4A": {
+          "type": "pathway",
+          "settings": {
+            "number": "04",
+            "title": "Circulation",
+            "ingredient": "Clary Sage Extract",
+            "description": "Promotes blood flow and muscle relaxation. Accelerates tissue recovery — the stage most products miss entirely."
+          }
+        },
+        "comparison_YyR7Hh": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Pain pathways",
+            "ours": "4 simultaneous",
+            "others": "1–2 only",
+            "highlight": true,
+            "warning": false
+          }
+        },
+        "comparison_EgMYg6": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Pharmaceutical nerve block",
+            "ours": "Lidocaine HCl",
+            "others": "None",
+            "highlight": true,
+            "warning": false
+          }
+        },
+        "comparison_9NXx4L": {
+          "type": "comparison",
+          "settings": {
+            "feature": "CBD type",
+            "ours": "Full spectrum",
+            "others": "Isolate or broad spectrum",
+            "highlight": true,
+            "warning": false
+          }
+        },
+        "comparison_94CzgP": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Entourage effect",
+            "ours": "Yes — full plant profile",
+            "others": "Partial or none",
+            "highlight": true,
+            "warning": true
+          }
+        },
+        "comparison_4iUjHk": {
+          "type": "comparison",
+          "settings": {
+            "feature": "CBD concentration",
+            "ours": "20mg/ml every size",
+            "others": "3–5mg/ml typical",
+            "highlight": true,
+            "warning": false
+          }
+        },
+        "comparison_AytEe4": {
+          "type": "comparison",
+          "settings": {
+            "feature": "Duration of relief",
+            "ours": "Hours. Improves over time",
+            "others": "30–60 mins",
+            "highlight": true,
+            "warning": false
+          }
+        },
+        "comparison_YTnAKD": {
+          "type": "comparison",
+          "settings": {
+            "feature": "3rd party tested",
+            "ours": "Every batch",
+            "others": "Rarely",
+            "highlight": true,
+            "warning": false
+          }
+        }
+      },
+      "block_order": [
+        "pathway_4hRfTw",
+        "pathway_9XDaPy",
+        "pathway_widNVN",
+        "pathway_3gLe4A",
+        "comparison_YyR7Hh",
+        "comparison_EgMYg6",
+        "comparison_9NXx4L",
+        "comparison_94CzgP",
+        "comparison_4iUjHk",
+        "comparison_AytEe4",
+        "comparison_YTnAKD"
+      ],
+      "name": " Relief Solution Section",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "How It Actually Works",
+        "heading_line1": "Not All CBD",
+        "heading_line2": "Is the Same.",
+        "subtext": "Most CBD topicals use isolate — the cheapest, most processed form. Some use broad spectrum. Max Relief uses full spectrum — the complete hemp plant — because the research is clear: when all cannabinoids and terpenes work together, the result is measurably more effective than any single compound alone.",
+        "ours_label": "Max Relief",
+        "others_label": "Others"
+      }
+    },
+    "relief_ecs_education_mjWU74": {
+      "type": "relief-ecs-education",
+      "blocks": {
+        "text_xCTebU": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Most people think CBD is just a wellness ingredient. What it actually is: a compound that interacts directly with your endocannabinoid system — a network of receptors (CB1 and CB2) found throughout your muscle tissue, joints, and connective tissue. But not all CBD is the same. The form it comes in changes everything.<br/></p>",
+            "spacing": false
+          }
+        },
+        "text_cMNhc8": {
+          "type": "text",
+          "settings": {
+            "content": "<p>This system plays a direct role in how your body regulates physical tension and the recovery process after exertion or injury. CB2 receptors in particular are densely concentrated in areas of inflammation.</p>",
+            "spacing": false
+          }
+        },
+        "text_hUMLkW": {
+          "type": "text",
+          "settings": {
+            "content": "<p>The majority of CBD topicals on the market use <strong>isolate</strong>— pure, isolated CBD with every other compound stripped away. It's the cheapest form to produce and the most common. Some use <strong>broad spectrum</strong>, which adds terpenes and minor cannabinoids but removes all THC.</p>",
+            "spacing": false
+          }
+        },
+        "text_dJFLdM": {
+          "type": "text",
+          "settings": {
+            "content": "<p>Max Relief uses <strong>full spectrum</strong>— the complete hemp plant profile. CBD, CBG, CBN, CBC, terpenes, flavonoids, and trace THC (&lt;0.3%). Research shows full spectrum produces up to 21% greater bioavailability than isolate or broad spectrum. The reason: the entourage effect — when all cannabinoids and terpenes work together, they enhance each other's absorption and effectiveness in ways that no single compound can replicate alone.</p>",
+            "spacing": false
+          }
+        },
+        "text_gYap4f": {
+          "type": "text",
+          "settings": {
+            "content": "<p><strong>And the concentration: </strong>Most topical CBD products deliver 3–5mg per ml. Max Relief delivers 20mg per ml — every size, every application. Full spectrum. Six times the concentration. Working with the system designed to manage it.</p>",
+            "spacing": false
+          }
+        },
+        "card_CeKrBN": {
+          "type": "card",
+          "settings": {
+            "icon": "⚡",
+            "title": "Immediate — Lidocaine nerve block",
+            "description": "Stops pain signals at the source while the deeper work begins underneath."
+          }
+        },
+        "card_n4iaTk": {
+          "type": "card",
+          "settings": {
+            "icon": "🌱",
+            "title": "Over time — CBD + endocannabinoid system",
+            "description": "20mg/ml CBD binding to CB2 receptors in your tissue — consistent across every size. Builds with repeated use. Not just relief — recovery."
+          }
+        },
+        "card_ygFB8r": {
+          "type": "card",
+          "settings": {
+            "icon": "🔄",
+            "title": "Sustained — Botanicals + circulation",
+            "description": "Arnica, Turmeric, and Clary Sage keep the recovery process moving after the immediate relief fades."
+          }
+        }
+      },
+      "block_order": [
+        "text_xCTebU",
+        "text_cMNhc8",
+        "text_hUMLkW",
+        "text_dJFLdM",
+        "text_gYap4f",
+        "card_CeKrBN",
+        "card_n4iaTk",
+        "card_ygFB8r"
+      ],
+      "name": " Relief ECS Education",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "Why CBD Works Differently Here",
+        "heading_line1": "Your Body Has a",
+        "heading_line2": "Recovery System.",
+        "heading_line3": "CBD Activates It."
+      }
+    },
+    "relief_ingredients_section_h9A9nh": {
+      "type": "relief-ingredients-section",
+      "blocks": {
+        "ingredient_6jDKYw": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "⚡",
+            "tag": "Pharmaceutical",
+            "tag_class": "tp2",
+            "title": "Lidocaine HCL",
+            "description": "Blocks sodium channels. Immediate, targeted numbing at the source."
+          }
+        },
+        "ingredient_WV9Vef": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "❄️",
+            "tag": "Pharmaceutical",
+            "tag_class": "tp2",
+            "title": "Menthol",
+            "description": "Cold-sensitive receptor activation. Analgesic effect within minutes."
+          }
+        },
+        "ingredient_8qAKCX": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌶️",
+            "tag": "Pharmaceutical",
+            "tag_class": "tp2",
+            "title": "Capsaicin",
+            "description": "Desensitizes TRPV1 pain receptors. Gets more effective with repeated use."
+          }
+        },
+        "ingredient_JLYd3i": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌿",
+            "tag": "Full Spectrum Cannabinoid",
+            "tag_class": "tc2",
+            "title": "Full Spectrum CBD",
+            "description": "20mg/ml — consistent across all sizes. Full spectrum means the complete hemp plant: CBD, minor cannabinoids (CBG, CBN, CBC), terpenes, and trace THC (<0.3%). Not isolate. Not broad spectrum. The whole plant — because that's what actually works."
+          }
+        },
+        "ingredient_f6Rgmf": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌼",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Arnica Montana",
+            "description": "Reduces swelling and bruising. Most studied botanical anti-inflammatory."
+          }
+        },
+        "ingredient_V3V66t": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🧄",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Turmeric + Black Pepper",
+            "description": "Curcumin anti-inflammatory. Piperine increases bioavailability by up to 2000%."
+          }
+        },
+        "ingredient_4LarfH": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "🌾",
+            "tag": "Botanical",
+            "tag_class": "tb2",
+            "title": "Clary Sage",
+            "description": "Supports circulation and muscle relaxation. Accelerates tissue recovery."
+          }
+        },
+        "ingredient_ncbxbC": {
+          "type": "ingredient",
+          "settings": {
+            "icon": "✨",
+            "tag": "Delivery",
+            "tag_class": "td2",
+            "title": "Vitamin E",
+            "description": "Antioxidant protection. Supports cell regeneration for sustained release."
+          }
+        }
+      },
+      "block_order": [
+        "ingredient_6jDKYw",
+        "ingredient_WV9Vef",
+        "ingredient_8qAKCX",
+        "ingredient_JLYd3i",
+        "ingredient_f6Rgmf",
+        "ingredient_V3V66t",
+        "ingredient_4LarfH",
+        "ingredient_ncbxbC"
+      ],
+      "name": " Relief Ingredients Section",
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "Ingredient Breakdown",
+        "heading_line1": "Everything In It.",
+        "heading_line2": "Nothing You Don't Need.",
+        "subtext": "No fillers. No proprietary blends. Every ingredient is there for a specific, proven reason."
+      }
+    },
+    "relief_reviews_section_mahUHP": {
+      "type": "relief-reviews-section",
+      "blocks": {
+        "rating_bar_KdxiHT": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "5★",
+            "percent": 88
+          }
+        },
+        "rating_bar_77trH3": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "4★",
+            "percent": 15
+          }
+        },
+        "rating_bar_MjkgCD": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "3★",
+            "percent": 0
+          }
+        },
+        "rating_bar_KKC6NM": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "2★",
+            "percent": 0
+          }
+        },
+        "rating_bar_MQMXi8": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "1★",
+            "percent": 0
+          }
+        },
+        "review_yCQTN7": {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "stars": "★★★★★",
+            "text": "\"I have disc disease and have tried everything on the market. This is the only thing that actually works. The relief is almost immediate and lasts for hours.\"",
+            "name": "Megan T",
+            "meta": "Max Relief · Recovery & Soreness",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_qJHPqP": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": "★★★★★",
+            "text": "\"I train BJJ and tried Voltaren, IcyHot, everything else. PHASIS is the only thing that actually gets deep enough. Non-negotiable part of my training recovery.\"",
+            "name": "Marcus D.",
+            "meta": "Max Relief · BJJ Competitor",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_y7kGLm": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": "★★★★★",
+            "text": "\"Post rotator cuff surgery, the pain is relentless. Max Relief sinks deep and relieves the stiffness. Genuinely a game changer for my recovery.\"",
+            "name": "Sharon Cook",
+            "meta": "Max Relief · Post-Surgery",
+            "tag": "Verified purchase"
+          }
+        }
+      },
+      "block_order": [
+        "rating_bar_KdxiHT",
+        "rating_bar_77trH3",
+        "rating_bar_MjkgCD",
+        "rating_bar_KKC6NM",
+        "rating_bar_MQMXi8",
+        "review_yCQTN7",
+        "review_qJHPqP",
+        "review_y7kGLm"
+      ],
+      "name": " Max Reviews Section",
+      "settings": {
+        "custom_css_class": "cst-reliefrev-sec",
+        "eyebrow": "Verified Reviews",
+        "heading_line1": "Real People.",
+        "heading_line2": "Real Results.",
+        "button_text": "All Reviews",
+        "button_link": "",
+        "rating_score": "4.9",
+        "rating_stars": "★★★★★",
+        "review_count": "8 verified reviews"
+      }
+    },
+    "relief_purchase_section_m9i8nr": {
+      "type": "relief-purchase-section",
+      "blocks": {
+        "variant_H4VVBP": {
+          "type": "variant",
+          "settings": {
+            "name": "Stick — 20ml",
+            "description": "Travel size. Same concentration. 400mg CBD.",
+            "price": "$20",
+            "note": "No subscription required · Ships in 1–3 business days",
+            "badge": "",
+            "variant_product": "",
+            "default": false
+          }
+        },
+        "variant_nmFzYw": {
+          "type": "variant",
+          "settings": {
+            "name": "Stick — 30ml",
+            "description": "Targeted application. On-the-go. 600mg CBD.",
+            "price": "$30",
+            "note": "",
+            "badge": "",
+            "variant_product": "",
+            "default": true
+          }
+        },
+        "variant_JxKP8Y": {
+          "type": "variant",
+          "settings": {
+            "name": "Jar — 60ml",
+            "description": "Full coverage. 2× the product. 1200mg CBD.",
+            "price": "$60",
+            "note": "",
+            "badge": "BEST VALUE",
+            "variant_product": "",
+            "default": false
+          }
+        },
+        "guarantee_DTPtJ3": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🛡️",
+            "title": "30-Day Guarantee",
+            "description": "Full refund. No questions."
+          }
+        },
+        "guarantee_9WHqG9": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "description": "Orders over $75."
+          }
+        },
+        "guarantee_7F7w6J": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🧪",
+            "title": "Lab Tested",
+            "description": "Every batch."
+          }
+        },
+        "trust_Y4b3JK": {
+          "type": "trust",
+          "settings": {
+            "text": "Every batch."
+          }
+        },
+        "trust_PTri7j": {
+          "type": "trust",
+          "settings": {
+            "text": "SSL encrypted"
+          }
+        },
+        "trust_cWttFB": {
+          "type": "trust",
+          "settings": {
+            "text": "Made in USA"
+          }
+        }
+      },
+      "block_order": [
+        "variant_H4VVBP",
+        "variant_nmFzYw",
+        "variant_JxKP8Y",
+        "guarantee_DTPtJ3",
+        "guarantee_9WHqG9",
+        "guarantee_7F7w6J",
+        "trust_Y4b3JK",
+        "trust_PTri7j",
+        "trust_cWttFB"
+      ],
+      "name": " Relief Purchase Section",
+      "settings": {
+        "custom_css_class": "",
+        "select_product": "max-relief-balm",
+        "product_visual": "🧴",
+        "eyebrow": "Max Relief Balm · CBD Topical",
+        "product_name": "Max Relief Balm",
+        "tagline": "A pharmaceutical nerve block for immediate relief. 20mg/ml CBD — the same concentration in every size — working with your endocannabinoid system for lasting recovery. Botanicals that go deeper over time. Four mechanisms. One formula.",
+        "size_label": "Choose Your Size",
+        "default_price": "$30",
+        "price_note": "One-time purchase",
+        "shipping_note": "No subscription required · Ships in 1–3 business days",
+        "button_text": "ADD TO CART — GET RELIEF TODAY",
+        "button_link": ""
+      }
+    },
+    "phasis_electro_faq_zTrMJ4": {
+      "type": "phasis-electro-faq",
+      "blocks": {
+        "faq_item_BcVAnr": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will the CBD show up on a drug test?",
+            "answer": "No. Max Relief is a topical — it does not enter the bloodstream in meaningful amounts. Full spectrum CBD in topical form does not produce a positive drug test under standard testing protocols."
+          }
+        },
+        "faq_item_LNGgqD": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How fast does it work?",
+            "answer": "Most users feel the cooling and nerve block effect within 5–10 minutes. The anti-inflammatory benefits build over 20–30 minutes. With repeated use the capsaicin component desensitizes pain receptors — it becomes more effective over time."
+          }
+        },
+        "faq_item_Gka37Y": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What makes this different from Voltaren or IcyHot?",
+            "answer": "Voltaren is anti-inflammatory only. IcyHot is counterirritant only. Neither has a nerve block, neither has CBD. Max Relief combines all four mechanisms: nerve block (Lidocaine), counterirritant (Menthol + Capsaicin), anti-inflammatory (CBD + Arnica + Turmeric), and circulation (Clary Sage)."
+          }
+        },
+        "faq_item_NVeTaW": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is it safe for daily use?",
+            "answer": "Yes. Max Relief is formulated for daily use. The Lidocaine HCl is at OTC-safe concentrations. The CBD is non-intoxicating and topical. We recommend applying to the affected area 2–3 times daily or as needed."
+          }
+        },
+        "faq_item_WgabwB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Jar or Stick — which should I get?",
+            "answer": "The Stick is great for targeted application — precise, no mess, on-the-go. The Jar gives you more product for larger areas like lower back, quads, or shoulders. For daily use on a larger area, the Jar is the better value."
+          }
+        },
+        "faq_item_PM8mQU": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What's your return policy?",
+            "answer": "30-day satisfaction guarantee. If Max Relief doesn't work for you, contact us within 30 days for a full refund — no questions asked."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_BcVAnr",
+        "faq_item_LNGgqD",
+        "faq_item_Gka37Y",
+        "faq_item_NVeTaW",
+        "faq_item_WgabwB",
+        "faq_item_PM8mQU"
+      ],
+      "name": "Phasis Electro FAQ",
+      "settings": {
+        "custom_css_class": "cst-relieffq-sec",
+        "eyebrow": "Common Questions",
+        "heading": "Everything You<br><em>Need to Know</em>",
+        "subheading": "Answers to the questions we get asked most."
+      }
+    },
+    "mobile_final_cta_HqXdxC": {
+      "type": "mobile-final-cta",
+      "blocks": {
+        "trust_etBdRY": {
+          "type": "trust",
+          "settings": {
+            "text": "30-day money back guarantee"
+          }
+        },
+        "trust_HXTytb": {
+          "type": "trust",
+          "settings": {
+            "text": "Free shipping $75+"
+          }
+        }
+      },
+      "block_order": [
+        "trust_etBdRY",
+        "trust_HXTytb"
+      ],
+      "name": " Mobile Final CTA",
+      "settings": {
+        "custom_css_class": "cst-relibtn-sec",
+        "eyebrow": "Built Different. Works Different.",
+        "heading_line1": "Done Trying Things",
+        "heading_line2": "That <em>Don't Work.</em>",
+        "heading_emphasis": "",
+        "description": "30-day guarantee. Real ingredients. Real mechanisms. A formula that works with your body — not just over it.",
+        "button_text": "GET MAX RELIEF — FROM $20",
+        "button_link": "",
+        "section_id": "purchase"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "phasis_electro_hero_dYnm9F",
+    "mobile_trust_bar_iYkJhM",
+    "relief_problem_section_iAqADb",
+    "relief_fighter_section_wf48TF",
+    "relief_fighter_section_94bwgt",
+    "relief_solution_section_jwmxj8",
+    "relief_ecs_education_mjWU74",
+    "relief_ingredients_section_h9A9nh",
+    "relief_reviews_section_mahUHP",
+    "relief_purchase_section_m9i8nr",
+    "phasis_electro_faq_zTrMJ4",
+    "mobile_final_cta_HqXdxC"
+  ]
+}

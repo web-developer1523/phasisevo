@@ -1,0 +1,151 @@
+<section class="journal-hero {{section.settings.custom_css_class }}">
+
+  <div class="hero-inner">
+
+    <!-- EYEBROW -->
+    <div class="hero-eyebrow">
+      <span>{{ section.settings.eyebrow }}</span>
+    </div>
+
+    <!-- HEADING -->
+    <h1>
+      {{ section.settings.heading_line1 }} <em>{{ section.settings.heading_em1 }}</em><br>
+      {{ section.settings.heading_line2 }}<br>
+      {{ section.settings.heading_line3 }} <em>{{ section.settings.heading_em2 }}</em>
+    </h1>
+
+    <!-- TAGLINE -->
+    <p class="hero-tag">
+      {{ section.settings.tagline }}
+    </p>
+
+  </div>
+
+</section>
+<style>
+  /* ── JOURNAL SPECIFIC ───────────────────────────────────── */
+.journal-hero {
+  padding:64px var(--pad) 48px;
+  border-bottom:1px solid var(--border);
+  position:relative;
+  overflow:hidden;
+}
+@media(min-width:768px){.journal-hero{padding:80px var(--pad-md) 60px}}
+@media(min-width:1024px){.journal-hero{padding:96px var(--pad-lg) 72px}}
+
+.journal-hero::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(232,72,42,.06) 0%,transparent 60%);
+  pointer-events:none;
+}
+
+.hero-inner {
+  position:relative;
+  max-width:600px;
+}
+
+.hero-eyebrow {
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:16px;
+}
+.hero-eyebrow::before {
+  content:'';
+  width:20px;
+  height:2px;
+  background:var(--coral);
+  flex-shrink:0;
+}
+.hero-eyebrow span {
+  font-family:var(--f-mark);
+  font-size:10px;
+  font-weight:500;
+  font-style:italic;
+  letter-spacing:.22em;
+  text-transform:uppercase;
+  color:var(--coral);
+}
+
+.journal-hero h1 {
+  font-family:var(--f-dis);
+  font-size:clamp(42px,8vw,72px);
+  font-weight:800;
+  letter-spacing:-.03em;
+  line-height:.95;
+  margin-bottom:16px;
+}
+.journal-hero h1 em {
+  color:var(--coral);
+  font-style:normal;
+}
+
+.hero-tag {
+  font-size:15px;
+  font-weight:300;
+  color:#d0d0d0;
+  line-height:1.65;
+}
+
+</style>
+{% schema %}
+{
+  "name": "Journal Hero",
+  "settings": [
+         {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "PHASIS Journal"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "The"
+    },
+    {
+      "type": "text",
+      "id": "heading_em1",
+      "label": "Emphasis Word 1",
+      "default": "thinking"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "behind"
+    },
+    {
+      "type": "text",
+      "id": "heading_line3",
+      "label": "Heading Line 3",
+      "default": "the"
+    },
+    {
+      "type": "text",
+      "id": "heading_em2",
+      "label": "Emphasis Word 2",
+      "default": "training."
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Tagline",
+      "default": "What works. Why it works. How to apply it."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Journal Hero"
+    }
+  ]
+}
+{% endschema %}

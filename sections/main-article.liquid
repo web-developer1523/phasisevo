@@ -70,12 +70,12 @@
                     {%- endif -%}
                   </div>
                 {%- endif -%}
-                {% assign section_heading_tag = block.settings.section_heading_tag %}
+                {% comment %} {% assign section_heading_tag = block.settings.section_heading_tag %}
                 <{{section_heading_tag}} class="article-template__header-title {{ block.settings.heading_size }}"
                   id="Article-{{ article.id }}"
                 >
                   {{ article.title | escape }}
-                </{{section_heading_tag}}>
+                </{{section_heading_tag}}> {% endcomment %}
                 {%- if block.settings.blog_show_excerpt
                   and article.excerpt.size > 0
                 -%}
@@ -229,6 +229,13 @@
                   </div>
                 </div>
               {% endif %}
+              {% comment %} title {% endcomment %}
+               {% assign section_heading_tag = block.settings.section_heading_tag %}
+              <{{section_heading_tag}} class="article-template__header-title {{ block.settings.heading_size }}"
+                id="Article-{{ article.id }}"
+              >
+                {{ article.title | escape }}
+              </{{section_heading_tag}}>
             </header>
           {%- when 'content' -%}
             <div

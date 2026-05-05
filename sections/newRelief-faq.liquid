@@ -1,0 +1,136 @@
+<section class="faq-sec section">
+
+  <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+  <h2>
+    {{ section.settings.heading_line1 }}<br>
+    <em>{{ section.settings.heading_line2 }}</em>
+  </h2>
+
+  <p class="faq-top-sub">
+    {{ section.settings.subtext }}
+  </p>
+
+  {% for block in section.blocks %}
+    <div class="faq-item {% if forloop.first and section.settings.open_first %}open{% endif %}">
+
+      <div class="faq-q">
+        <span class="faq-q-text">{{ block.settings.question }}</span>
+        <span class="faq-icon">+</span>
+      </div>
+
+      <div class="faq-a">
+        {{ block.settings.answer }}
+      </div>
+
+    </div>
+  {% endfor %}
+
+</section>
+<style>
+    /* ── FAQ ────────────────────────────────────────── */
+.faq-sec{background:var(--page-bg);border-top:1px solid var(--border)}
+.faq-sec h2{margin-bottom:8px}
+.faq-sec h2 em{color:var(--coral);font-style:normal}
+.faq-top-sub{font-size:15px;color:var(--muted);margin-bottom:28px}
+.faq-item{border-bottom:1px solid var(--border)}
+.faq-item:first-of-type{border-top:1px solid var(--border)}
+.faq-q{display:flex;align-items:center;justify-content:space-between;padding:16px 0;cursor:pointer;gap:16px;min-height:52px}
+.faq-q-text{font-family:var(--f-dis);font-size:16px;font-weight:600;line-height:1.3}
+.faq-icon{color:var(--coral);font-size:20px;flex-shrink:0;transition:transform .2s;font-weight:300;line-height:1;min-width:24px;text-align:center}
+.faq-item.open .faq-icon{transform:rotate(45deg)}
+.faq-a{font-size:14px;color:var(--muted-l);line-height:1.75;padding-bottom:16px;display:none}
+.faq-item.open .faq-a {
+    display: block;
+    font-size: 15px;
+    color: #d0d0d0;
+}
+</style>
+<script>
+document.querySelectorAll('.faq-q').forEach(function(q) {
+  q.addEventListener('click', function() {
+    var item = q.closest('.faq-item');
+    var answer = item.querySelector('.faq-a');
+    var isOpen = item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(function(i) {
+      i.classList.remove('open');
+      var a = i.querySelector('.faq-a');
+      if (a) { a.style.maxHeight = null; a.style.paddingTop = '0'; a.style.paddingBottom = '0'; }
+    });
+    if (!isOpen) {
+      item.classList.add('open');
+      if (answer) { answer.style.maxHeight = answer.scrollHeight + 'px'; answer.style.paddingTop = '16px'; answer.style.paddingBottom = '16px'; }
+    }
+  });
+});
+</script>
+{% schema %}
+{
+  "name": " Phasis FAQ",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Common Questions"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Everything You"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Need to Know"
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Answers to the questions we get asked most."
+    },
+    {
+      "type": "checkbox",
+      "id": "open_first",
+      "label": "Open First FAQ by Default",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "faq",
+      "name": "FAQ Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "question",
+          "label": "Question",
+          "default": "Your question here?"
+        },
+        {
+          "type": "textarea",
+          "id": "answer",
+          "label": "Answer",
+          "default": "Your answer here..."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " Phasis FAQ",
+      "blocks": [
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" },
+        { "type": "faq" }
+      ]
+    }
+  ]
+}
+{% endschema %}

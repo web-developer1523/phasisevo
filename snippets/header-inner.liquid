@@ -61,9 +61,12 @@
                   {% if link.current %}
                     aria-current="page"
                   {% endif %}
-                  aria-label="{{ link.title | escape }}"
+                   aria-label="{{ link.title | escape }}" 
                 >
-                  <span title="{{ link.title | escape }}">
+                  {% comment %} <span title="{{ link.title | escape }}">
+                    {{ link.title | escape }}
+                  </span> {% endcomment %}
+                   <span>
                     {{ link.title | escape }}
                   </span>
                 </a>
@@ -88,7 +91,7 @@
                   {% endif %}
                   aria-label="{{ link.title | escape }}"
                 >
-                  <span title="{{ link.title | escape }}">
+                  <span>
                     {{ link.title | escape }}
                   </span>
                 </a>
@@ -104,7 +107,7 @@
                   {% endif %}
                   aria-label="{{ link.title | escape }}"
                 >
-                  <span title="{{ link.title | escape }}">
+                  <span>
                     {{ link.title | escape }}
                   </span>
                 </a>
@@ -114,8 +117,56 @@
         </ul>
       </nav>
     {%- endif -%}
+    {% comment %} mobile ssearch bar {% endcomment %}
+     <div class="mobile-icons-wrapper">
+      {% if section.settings.enable_search_mobile %}
+  <div class="mobile-only-search-container">
+    <details-modal class="header__search">
+      <details>
+        <summary class="header__icon header__icon--search link focus-inset modal__toggle" aria-haspopup="dialog" role="button">
+          <span>
+            {% render 'icon-search-header' %}
+          </span>
+        </summary>
+        <div class="header__search-inner search color-background-1" role="dialog" aria-modal="true">
+          <div class="search__content">
+            <form action="{{ routes.search_url }}" method="get" role="search" class="search search__form">
+              <div class="field">
+                <input class="search__input field__input" type="search" name="q" value="{{ search.terms | escape }}" placeholder="Search...">
+                <button class="search__button button focus-inset" aria-label="Search">
+                  {% render 'icon-search' %}
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </details>
+    </details-modal>
+  </div>
+{% endif %}
+    {% comment %} mobile search bar {% endcomment %}
+     {% comment %} --- START: MOBILE ACCOUNT ICON --- {% endcomment %}
+{%- if section.settings.enable_account_mobile and shop.customer_accounts_enabled -%}
+  <div class="mobile-only-account-container">
+    <a href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}" 
+       class="header__icon header__icon--account link focus-inset">
+      {% render 'icon-account' %}
+      <span class="visually-hidden">
+        {%- liquid
+          if customer
+            echo 'customer.account_fallback' | t
+          else
+            echo 'customer.log_in' | t
+          endif
+        -%}
+      </span>
+    </a>
+  </div>
+{%- endif -%}
+</div>
+{% comment %} --- END: MOBILE ACCOUNT ICON --- {% endcomment %}
+     {%- if section.settings.header_type == 'bottom-menu' and section.settings.enable_search  -%} 
 
-    {%- if section.settings.header_type == 'bottom-menu' and section.settings.enable_search  -%}
       {% if request.page_type != 'search' %}
         <details-modal class="header__search header__search_desktop">
           <details>
@@ -578,6 +629,8 @@
       {%- endif -%}
 
       {%- if shop.customer_accounts_enabled -%}
+      {% assign login_url = "https://af.uppromote.com/btcsyr-rw/login" %}
+      {% assign account_url = routes.account_url %}
         <details-disclosure class="header__account">
           <details>
             <summary
@@ -634,8 +687,21 @@
                   </a>
                 </div>
               {%- else -%}
-                <a
+               <a
                   href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="button button--primary button--primary-size button header__account__login link focus-inset"
+                  {%- if customer -%}
+                    data-button-text="{{ 'customer.account_fallback' | t }}"
+                    aria-label="{{ 'customer.account_fallback' | t }}"
+                  {%- else -%}
+                    data-button-text="{{ 'customer.log_in' | t }}"
+                    aria-label="{{ 'customer.log_in' | t }}"
+                  {%- endif -%}
+                >
+                  <span>User Login</span>
+                </a>
+                <a
+                  href="{%- if customer -%}{{ account_url }}{%- else -%}{{ login_url }}{%- endif -%}"
                   class="button button--primary button--primary-size button header__account__login link focus-inset"
                   {%- if customer -%}
                     data-button-text="{{ 'customer.account_fallback' | t }}"
@@ -678,10 +744,13 @@
 					{% if section.settings.buttons_type == 'icon' or section.settings.buttons_type == 'text_and_icon'%}
 						<span class="header__top_icon">
 							{%- render 'icon-cart-header' -%}
+              <span class="header__top_text">CART</span>
 						</span>
+
 					{% endif %}
 					{% if section.settings.buttons_type == 'text' or section.settings.buttons_type == 'text_and_icon'%}	
-						<span class="header__top_text">{{ 'templates.cart.cart' | t }}</span>
+						{% comment %} <span class="header__top_text">{{ 'templates.cart.cart' | t }}</span> {% endcomment %}
+           
 					{% endif %}
           <div class="cart-count-bubble">
             {%- if cart.item_count < 100 -%}
@@ -692,6 +761,16 @@
             </span>
           </div>
         </a>
+                 {% if page.handle == 'phasis-electro-mobile' %}
+    <a href="/pages/electro" class="electro-btn nav-cta-btn">
+      + GET ELECTRO+
+    </a>
+  {% endif %}
+               {% if page.handle == 'phasis-perfrom-mobile' %}
+    <a href="/pages/perform" class="electro-btn nav-cta-btn">
+      + GET PERFORM+
+    </a>
+  {% endif %}
       </div>
     </div>
   </div>
@@ -743,9 +822,9 @@
               {% endif %}
               aria-label="{{ link.title | escape }}"
             >
-              <span title="{{ link.title | escape }}">
+             <span>
                 {{ link.title | escape }}
-              </span>
+              </span> 
             </a>
             <div class="header__mega-menu mega-menu color-background-1">
               {% render 'mega-menu', link: link, blocks: section.blocks %}
@@ -764,9 +843,9 @@
               {% endif %}
               aria-label="{{ link.title | escape }}"
             >
-              <span title="{{ link.title | escape }}">
+               <span>
                 {{ link.title | escape }}
-              </span>
+              </span> 
             </a>
             {% render 'submenu', link: link, simple_mega_menu: simple_mega_menu %}
           </li>
@@ -780,7 +859,7 @@
               {% endif %}
               aria-label="{{ link.title | escape }}"
             >
-              <span title="{{ link.title | escape }}">
+              <span>
                 {{ link.title | escape }}
               </span>
             </a>

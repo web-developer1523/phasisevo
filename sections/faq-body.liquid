@@ -1,0 +1,427 @@
+<div class="faq-body {{ section.settings.custom_css }}">
+  <!-- SIDEBAR -->
+  <div class="faq-sidebar">
+    <div class="sidebar-title">
+      {{ section.settings.sidebar_title }}
+    </div>
+
+    <div class="sidebar-nav">
+      {% for block in section.blocks %}
+        {% if block.type == 'category' %}
+          <button
+            class="snav-btn {% if forloop.first %}active{% endif %}"
+            {% comment %} onclick="scrollToSection('{{ block.settings.category_id }}')" {% endcomment %}
+            onclick="scrollToSection('{{ block.settings.category_id }}', this)"
+          >
+            {{ block.settings.category_name }}
+          </button>
+        {% endif %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="faq-content" id="faq-content">
+    <div class="no-results" id="no-results">
+      <p>
+        {{ section.settings.no_result_text }}
+        {% if section.settings.support_email != blank %}
+          <a href="mailto:{{ section.settings.support_email }}">
+            {{ section.settings.support_email }}
+          </a>
+        {% endif %}
+      </p>
+    </div>
+
+    {% for block in section.blocks %}
+      {% if block.type == 'category' %}
+        <div class="faq-category" id="{{ block.settings.category_id }}">
+          <div class="fcat-header">
+            <div class="fcat-icon">{{ block.settings.icon }}</div>
+            <div class="fcat-title">{{ block.settings.category_name }}</div>
+            <div class="fcat-count">{{ block.settings.question_count }} questions</div>
+          </div>
+
+          {% for i in (1..10) %}
+            {% assign q = 'q_' | append: i %}
+            {% assign a = 'a_' | append: i %}
+
+            {% if block.settings[q] != blank %}
+              <div class="faq-item {% if i == 1 and block.settings.open_first %}open{% endif %}">
+                <div class="faq-q">
+                  <span class="faq-q-text">
+                    {{ block.settings[q] }}
+                  </span>
+                  <span class="faq-icon">+</span>
+                </div>
+                <div class="faq-a">
+                  {{ block.settings[a] }}
+                </div>
+              </div>
+            {% endif %}
+          {% endfor %}
+          <!-- Promo Card Start -->
+          {% if block.settings.promo_title != blank %}
+            <div style="background:{{block.settings.promo_bg_color}};border:1px solid {{block.settings.promo_border_color}};border-radius:8px;padding:14px 16px;margin:12px 0;display:flex;align-items:center;justify-content:space-between;gap:14px">
+              <div>
+                <div style="font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:{{block.settings.promo_title_color}};margin-bottom:3px">
+                  {{ block.settings.promo_title }}
+                </div>
+                <div style="font-size:11px;color:#9aa0a8">
+                  {{ block.settings.promo_subtitle }}
+                </div>
+              </div>
+              {% if block.settings.promo_shop_link != blank %}
+                <a
+                  href="{{ block.settings.promo_shop_link }}"
+                  style="flex-shrink:0;display:flex;align-items:center;gap:5px;background:{{ block.settings.promo_button_bg }};color:#000;font-family:'Sora',sans-serif;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:10px 14px;border-radius:5px;text-decoration:none;white-space:nowrap"
+                >
+                  ● {{ block.settings.promo_button_text | default: 'SHOP' }}
+                </a>
+              {% endif %}
+            </div>
+          {% endif %}
+          <!-- Promo Card End -->
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+</div>
+<style>
+      /* ── FAQ LAYOUT ──────────────────────────────────── */
+  .faq-body{padding:32px var(--pad);display:flex;flex-direction:column;gap:0}
+  @media(min-width:768px){.faq-body{padding:40px var(--pad-md)}}
+  @media(min-width:1024px){
+    .faq-body{padding:48px var(--pad-lg);flex-direction:row;gap:48px;align-items:flex-start}
+    .faq-sidebar{width:220px;flex-shrink:0;position:sticky;top:76px}
+    .faq-content{flex:1}
+  }
+
+  /* Sidebar nav */
+  .faq-sidebar{margin-bottom:28px}
+  .sidebar-title{font-family:var(--f-dis);font-size:14px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#d0d0d0;margin-bottom:14px}
+  .sidebar-nav{display:flex;gap:8px;flex-wrap:wrap}
+  @media(min-width:1024px){.sidebar-nav{flex-direction:column;gap:4px}}
+  .snav-btn{background:none;border:none;color:#d0d0d0;font-family:var(--f-dis);font-size:15px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:5px;cursor:pointer;text-align:left;transition:all .15s;white-space:nowrap;min-height:36px}
+  .snav-btn.active,.snav-btn:hover{background:rgba(232,72,42,.1);color:var(--coral)}
+
+  /* FAQ categories */
+  .faq-category{margin-bottom:40px}
+  .faq-category:last-child{margin-bottom:0}
+  /* FAQ items */
+  .faq-item{border-bottom:1px solid var(--border)}
+  .faq-item:first-of-type{border-top:1px solid var(--border)}
+  .faq-q{display:flex;align-items:center;justify-content:space-between;padding:14px 0;cursor:pointer;gap:14px;min-height:52px}
+  .faq-q-text{font-family:var(--f-dis);font-size:16px;font-weight:600;line-height:1.3}
+  .faq-icon{color:var(--coral);font-size:18px;flex-shrink:0;transition:transform .2s;font-weight:300;line-height:1;min-width:22px;text-align:center}
+  .faq-item.open .faq-icon{transform:rotate(45deg)}
+  .faq-a{font-size:14px;color:var(--muted-l);line-height:1.75;padding-bottom:14px;display:none;}
+  .faq-a p{font-size:15px; color:#d0d0d0;}
+  .faq-item.open .faq-a{display:block}
+  .faq-a a{color:var(--coral);text-decoration:underline}
+  .faq-a strong{color:var(--off-white);font-weight:600}
+
+  /* No results */
+  .no-results{display:none;text-align:center;padding:40px 20px}
+  .no-results p{font-size:14px;color:var(--muted-l)}
+
+  /* Highlight match */
+  .search-match{background:rgba(232,72,42,.2);border-radius:2px;padding:1px 2px}
+
+  /* ── STILL HAVE QUESTIONS ────────────────────────── */
+  .contact-strip{background:var(--surface);border-top:1px solid var(--border);padding:40px var(--pad);text-align:center}
+  .cs-title{font-family:var(--f-dis);font-weight:700;font-size:clamp(20px,3vw,28px);letter-spacing:-0.01em;margin-bottom:10px}
+  .cs-title em{color:var(--coral);font-style:normal}
+  .cs-sub{font-size:14px;color:var(--muted-l);margin-bottom:24px;line-height:1.65}
+  .cs-options{display:flex;flex-direction:column;gap:10px;align-items:center}
+  @media(min-width:600px){.cs-options{flex-direction:row;justify-content:center}}
+  .cs-btn{display:flex;align-items:center;justify-content:center;gap:10px;background:var(--page-bg);border:1px solid var(--border);border-radius:6px;padding:14px 20px;min-height:52px;cursor:pointer;transition:border-color .15s;font-family:var(--f-dis);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--off-white);min-width:200px}
+  .cs-btn:hover{border-color:var(--coral);color:var(--coral)}
+  .cs-btn-icon{font-size:18px}
+  @media(min-width:768px){.contact-strip{padding:48px var(--pad-md)}}
+  @media(min-width:1024px){.contact-strip{padding:64px var(--pad-lg)}}
+  .site-footer{background:#060606;border-top:1px solid var(--border);padding:48px 20px 28px}
+  @media(min-width:768px){.site-footer{padding:56px 32px 32px}}
+  @media(min-width:1024px){.site-footer{padding:64px 48px 36px}}
+  .site-footer-grid{display:grid;grid-template-columns:1fr;gap:36px;margin-bottom:40px}
+  @media(min-width:640px){.site-footer-grid{grid-template-columns:1.4fr 1fr 1fr}}
+  @media(min-width:1024px){.site-footer-grid{grid-template-columns:1.6fr 1fr 1fr 1fr}}
+  .sf-brand .sf-logo-row{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+  .sf-brand .sf-tagline{font-family:var(--f-mark);font-size:9px;font-weight:400;font-style:italic;letter-spacing:.2em;text-transform:uppercase;color:#d0d0d0;margin-bottom:10px;display:block}
+  .sf-brand p{font-size:12px;color:#d0d0d0;line-height:1.65;margin-bottom:16px;max-width:260px}
+  .sf-socials{display:flex;gap:8px}
+  .sf-social{width:32px;height:32px;border-radius:6px;background:var(--surface);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:#d0d0d0;text-decoration:none;transition:all .15s}
+  .sf-social:hover{border-color:var(--border2);color:var(--off-white)}
+  .sf-col h5{font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#d0d0d0;margin-bottom:14px}
+  .sf-col ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+  .sf-col ul li a{font-size:13px;color:var(--muted-l);text-decoration:none;transition:color .15s}
+  .sf-col ul li a:hover{color:var(--off-white)}
+  .sf-bot{border-top:1px solid var(--border);padding-top:20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .sf-legal{font-size:11px;color:#d0d0d0}
+  .sf-phasis-link{font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#d0d0d0;text-decoration:none}
+  .sf-phasis-link:hover{color:var(--coral)}
+</style>
+<script>
+  // FAQ accordion toggle
+  document.querySelectorAll('.faq-q').forEach(function (q) {
+    q.addEventListener('click', function () {
+      var item = q.closest('.faq-item');
+      if (!item) return;
+      var isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(function (i) {
+        i.classList.remove('open');
+      });
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // scrollToSection function - add below accordion toggle
+  window.scrollToSection = function (id, el) {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+      });
+    }
+
+    // Update active button
+    document.querySelectorAll('.snav-btn').forEach((btn) => {
+      btn.classList.remove('active');
+    });
+    if (el) el.classList.add('active');
+  };
+</script>
+{% schema %}
+{
+  "name": "FAQ Body",
+  "tag": "section",
+  "class": "faq-body-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_css",
+      "label": "Custom CSS"
+    },
+    {
+      "type": "text",
+      "id": "sidebar_title",
+      "label": "Sidebar Title",
+      "default": "Categories"
+    },
+    {
+      "type": "text",
+      "id": "no_result_text",
+      "label": "No Result Text",
+      "default": "No questions match your search. Try different keywords or contact us at"
+    },
+    {
+      "type": "text",
+      "id": "support_email",
+      "label": "Support Email",
+      "default": "support@example.com"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category",
+      "name": "FAQ Category",
+      "settings": [
+        {
+          "type": "text",
+          "id": "category_id",
+          "label": "Category ID (unique, no spaces)",
+          "default": "ordering"
+        },
+        {
+          "type": "text",
+          "id": "category_name",
+          "label": "Category Name",
+          "default": "Ordering"
+        },
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Icon (emoji or text)",
+          "default": "🛒"
+        },
+        {
+          "type": "number",
+          "id": "question_count",
+          "label": "Question Count",
+          "default": 5
+        },
+        {
+          "type": "checkbox",
+          "id": "open_first",
+          "label": "Open First Question",
+          "default": false
+        },
+
+        {
+          "type": "text",
+          "id": "q_1",
+          "label": "Question 1"
+        },
+        {
+          "type": "richtext",
+          "id": "a_1",
+          "label": "Answer 1"
+        },
+        {
+          "type": "text",
+          "id": "q_2",
+          "label": "Question 2"
+        },
+        {
+          "type": "richtext",
+          "id": "a_2",
+          "label": "Answer 2"
+        },
+        {
+          "type": "text",
+          "id": "q_3",
+          "label": "Question 3"
+        },
+        {
+          "type": "richtext",
+          "id": "a_3",
+          "label": "Answer 3"
+        },
+        {
+          "type": "text",
+          "id": "q_4",
+          "label": "Question 4"
+        },
+        {
+          "type": "richtext",
+          "id": "a_4",
+          "label": "Answer 4"
+        },
+        {
+          "type": "text",
+          "id": "q_5",
+          "label": "Question 5"
+        },
+        {
+          "type": "richtext",
+          "id": "a_5",
+          "label": "Answer 5"
+        },
+        {
+          "type": "text",
+          "id": "q_6",
+          "label": "Question 6"
+        },
+        {
+          "type": "richtext",
+          "id": "a_6",
+          "label": "Answer 6"
+        },
+        {
+          "type": "text",
+          "id": "q_7",
+          "label": "Question 7"
+        },
+        {
+          "type": "richtext",
+          "id": "a_7",
+          "label": "Answer 7"
+        },
+        {
+          "type": "text",
+          "id": "q_8",
+          "label": "Question 8"
+        },
+        {
+          "type": "richtext",
+          "id": "a_8",
+          "label": "Answer 8"
+        },
+        {
+          "type": "text",
+          "id": "q_9",
+          "label": "Question 9"
+        },
+        {
+          "type": "richtext",
+          "id": "a_9",
+          "label": "Answer 9"
+        },
+        {
+          "type": "text",
+          "id": "q_10",
+          "label": "Question 10"
+        },
+        {
+          "type": "richtext",
+          "id": "a_10",
+          "label": "Answer 10"
+        },
+        {
+          "type": "text",
+          "id": "promo_title",
+          "label": "Promo Card Title"
+        },
+        {
+          "type": "text",
+          "id": "promo_subtitle",
+          "label": "Promo Card Subtitle"
+        },
+        {
+          "type": "url",
+          "id": "promo_shop_link",
+          "label": "Promo Card Shop Link"
+        },
+        {
+          "type": "text",
+          "id": "promo_button_text",
+          "label": "Promo Card Button Text",
+          "default": "SHOP"
+        },
+        {
+          "type": "color",
+          "id": "promo_bg_color",
+          "label": "Promo Background Color"
+        },
+        {
+          "type": "color",
+          "id": "promo_border_color",
+          "label": "Promo Border Color"
+        },
+        {
+          "type": "color",
+          "id": "promo_title_color",
+          "label": "Promo Title Color"
+        },
+        {
+          "type": "color",
+          "id": "promo_subtitle_color",
+          "label": "Promo Subtitle Color"
+        },
+        {
+          "type": "color",
+          "id": "promo_button_bg",
+          "label": "Button Background"
+        },
+        {
+          "type": "color",
+          "id": "promo_button_text_color",
+          "label": "Button Text Color"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "FAQ Body",
+      "blocks": [
+        {
+          "type": "category"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

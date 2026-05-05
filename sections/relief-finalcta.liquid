@@ -1,0 +1,123 @@
+<section class="final-cta section">
+
+  <span class="fc-eyebrow">
+    {{ section.settings.eyebrow }}
+  </span>
+
+  <h2 class="fc-h">
+    {{ section.settings.heading_line1 }}<br>
+    <em>{{ section.settings.heading_line2 }}</em>
+  </h2>
+
+  <p class="fc-p">
+    {{ section.settings.subtext }}
+  </p>
+
+  <div class="fc-cta">
+
+       <a
+      href="
+        {% if section.settings.button_url != blank %}
+            {{ section.settings.button_url }}
+        {% elsif section.settings.section_id != blank %}
+            #{{ section.settings.section_id }}
+        {% else %}
+            #
+        {% endif %}
+      "
+      class="btn btn-p btn-full fc-btn"
+    >
+      {{ section.settings.button_text }}
+    </a>
+
+    <div class="fc-trust">
+      {% for block in section.blocks %}
+        <span>{{ block.settings.text }}</span>
+      {% endfor %}
+    </div>
+
+  </div>
+
+</section>
+<style>
+.final-cta{background:var(--surface);border-top:1px solid var(--border);text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 50% at 50% 100%,rgba(42,184,207,.08) 0%,transparent 55%);pointer-events:none}
+.fc-eyebrow{display:block;font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:16px}
+.fc-h{font-family:var(--f-dis);font-size:clamp(32px,6vw,52px);font-weight:800;letter-spacing:-.025em;line-height:1;margin-bottom:16px}
+.fc-h em{color:var(--coral);font-style:normal}
+.fc-p{font-size:15px;font-weight:300;color:var(--muted);line-height:1.7;max-width:500px;margin:0 auto 28px}
+.fc-cta{display:flex;flex-direction:column;align-items:center;gap:12px}
+.fc-btn{max-width:360px}
+.fc-trust{display:flex;align-items:center;gap:20px;flex-wrap:wrap;justify-content:center}
+.fc-trust span{font-size:14px;color:var(--muted)}
+</style>
+{% schema %}
+{
+  "name": "ReliFinal CTA",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Built Different. Works Different."
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "Done Trying Things"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "That Don't Work."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "30-day guarantee. Real ingredients. Real mechanisms."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "GET RELIEF — FROM $25"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+     "type": "text",
+      "id": "section_id",
+      "label": "Section Id Button"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "trust",
+      "name": "Trust Line",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "30-day money back guarantee"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": " ReliFinal CTA",
+      "blocks": [
+        { "type": "trust" },
+        { "type": "trust" }
+      ]
+    }
+  ]
+}
+{% endschema %}

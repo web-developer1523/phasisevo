@@ -1,16 +1,674 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
-    "hero": { "type": "phasis-electro-hero", "settings": {} },
-    "trust": { "type": "phasis-electro-trust", "settings": {} },
-    "problem": { "type": "phasis-electro-problem", "settings": {} },
-    "what_it_is": { "type": "phasis-electro-what-it-is", "settings": {} },
-    "versus_competitors": { "type": "phasis-electro-versus-competitors", "settings": {} },
-    "science": { "type": "phasis-electro-science", "settings": {} },
-    "social_proof": { "type": "phasis-electro-reviews", "settings": {} },
-    "purchase": { "type": "phasis-electro-purchase", "settings": {} },
-    "faq": { "type": "phasis-electro-faq", "settings": {} },
-    "final_cta": { "type": "phasis-electro-final-cta", "settings": {} },
-    "footer": { "type": "phasis-electro-footer", "settings": {} }
+    "hero": {
+      "type": "phasis-electro-hero",
+      "settings": {
+        "custom_css_class": "cst-green-banner",
+        "eyebrow": "Mineral-First · No Sugar · No Powder · No Mess",
+        "title": "Water Isn't<br>Enough.<br><em>Better Minerals.<br>Half the Price.</em>",
+        "hook": "Every workout, your body loses minerals water can't replace. <strong>Electro+ is a liquid concentrate</strong> — 20 drops into any drink. No powder. No packets. No mess. 50+ trace minerals. Zero sugar. From $0.50 per serving.",
+        "pill_1": "Liquid drops",
+        "pill_2": "Any beverage",
+        "pill_3": "~75% less vs LMNT",
+        "pill_4": "Utah Mineral Source",
+        "pill_5": "50+ minerals",
+        "pill_no_1": "No powder",
+        "pill_no_2": "No sugar",
+        "trust_1_bold": "4.9",
+        "trust_1_text": "reviews",
+        "trust_2_bold": "Made",
+        "trust_2_text": "in USA",
+        "trust_3_bold": "3rd Party",
+        "trust_3_text": "Tested",
+        "cta_text": "GET ELECTRO+ — FROM $25",
+        "cta_url": "",
+        "section_id": "purchase",
+        "micro_1": "Free shipping $75+",
+        "micro_2": "30-day guarantee",
+        "micro_3": "No subscription",
+        "bg_word": "MINERALS",
+        "product": "electro-drops",
+        "emoji": "💧",
+        "review_quote": "\"No taste, works in my coffee. I've tried LMNT and Liquid IV — Electro+ is cleaner and way cheaper. Using it daily now.\"",
+        "review_name": "Alex T.",
+        "review_meta": "CrossFit Athlete · Verified Buyer",
+        "sn_url": "shopify://pages/max-relief",
+        "sn_icon": "🧴",
+        "sn_label": "Stack With · Max Relief",
+        "sn_desc": "Pair with our CBD pain balm for complete recovery",
+        "sn_arrow": "→"
+      }
+    },
+    "trust": {
+      "type": "phasis-electro-trust",
+      "blocks": {
+        "item_yKanTf": {
+          "type": "item",
+          "settings": {
+            "icon": "shield",
+            "text": "3RD PARTY TESTED"
+          }
+        },
+        "item_gGQDdk": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "text": "ZERO SUGAR EVER"
+          }
+        },
+        "item_C8jPcL": {
+          "type": "item",
+          "settings": {
+            "icon": "grid",
+            "text": "MADE IN USA"
+          }
+        },
+        "item_YgKwGw": {
+          "type": "item",
+          "settings": {
+            "icon": "clock",
+            "text": "30-DAY GUARANTEE"
+          }
+        },
+        "item_HdJEPD": {
+          "type": "item",
+          "settings": {
+            "icon": "plane",
+            "text": "FREE SHIPPING $75+"
+          }
+        }
+      },
+      "block_order": [
+        "item_yKanTf",
+        "item_gGQDdk",
+        "item_C8jPcL",
+        "item_YgKwGw",
+        "item_HdJEPD"
+      ],
+      "settings": {}
+    },
+    "problem": {
+      "type": "phasis-electro-problem",
+      "blocks": {
+        "problem_point_4p8arB": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Powder packets — messy, single-use, committed to one drink"
+          }
+        },
+        "problem_point_bpGBri": {
+          "type": "problem_point",
+          "settings": {
+            "text": "$1.00–$1.50 per serving adds up fast for daily use"
+          }
+        },
+        "problem_point_ByYaCy": {
+          "type": "problem_point",
+          "settings": {
+            "text": "34g sugar per serving spikes insulin and crashes energy"
+          }
+        },
+        "problem_point_FPtgJK": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Only replace 3–5 minerals, ignore 45+ others your body needs"
+          }
+        },
+        "problem_point_7cVf6V": {
+          "type": "problem_point",
+          "settings": {
+            "text": "Artificial sweeteners alter the taste of your drink"
+          }
+        },
+        "approach_point_h7Fydp": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Liquid dropper.</b> No powder. No mess. No packets. 3 seconds."
+          }
+        },
+        "approach_point_hz4Mae": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>From $0.50 per serving.</b> — up to 75% less than powder brands"
+          }
+        },
+        "approach_point_qHpqtF": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Zero sugar</b> not reduced, not substituted. Eliminated"
+          }
+        },
+        "approach_point_gVK4if": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>50+ trace minerals</b> drawn from Utah's ancient mineral deposits — not synthetic"
+          }
+        },
+        "approach_point_Qeg9fJ": {
+          "type": "approach_point",
+          "settings": {
+            "text": "<b>Unflavored</b>  works in anything without changing the taste"
+          }
+        }
+      },
+      "block_order": [
+        "problem_point_4p8arB",
+        "problem_point_bpGBri",
+        "problem_point_ByYaCy",
+        "problem_point_FPtgJK",
+        "problem_point_7cVf6V",
+        "approach_point_h7Fydp",
+        "approach_point_hz4Mae",
+        "approach_point_qHpqtF",
+        "approach_point_gVK4if",
+        "approach_point_Qeg9fJ"
+      ],
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "Why Water Isn't Enough",
+        "heading": "You're Hydrated.<br><em>But Still Depleted.</em>",
+        "subheading": "Modern water treatment strips trace minerals. Sports drinks add them back - buried under 34g of sugar. There's a better way.",
+        "button_text": "",
+        "button_link": "",
+        "extra_text": "",
+        "problem_label": "The Problem",
+        "problem_title": "What most products get wrong",
+        "approach_label": "The Electro+ Approach",
+        "approach_title": "Minerals first. Everything else removed.",
+        "depletion_label": "The Depletion Problem",
+        "depletion_stat": "In a 60-minute training session, your body loses <em>sodium, potassium, magnesium,</em> and up to <em>48 trace minerals</em> through sweat.",
+        "depletion_sub": "Water replaces fluid volume. It doesn't replace mineral density. That gap is what causes cramping, fatigue, poor sleep, and slow recovery."
+      }
+    },
+    "what_it_is": {
+      "type": "phasis-electro-what-it-is",
+      "blocks": {
+        "step_6gyGzy": {
+          "type": "step",
+          "settings": {
+            "number": "01",
+            "title": "Daily Hydration - 20 drops into 16oz",
+            "desc": "1oz bottle: count 20 drops. 4oz bottle: fill to the 1mL mark on the graduated dropper."
+          }
+        },
+        "step_gq47Tf": {
+          "type": "step",
+          "settings": {
+            "number": "02",
+            "title": "Hard Training — 40–60 drops into 2L",
+            "desc": "Higher sweat output means more mineral loss. Scale up to 2–3mL for intense training sessions."
+          }
+        },
+        "step_fCRF4r": {
+          "type": "step",
+          "settings": {
+            "number": "03",
+            "title": "Endurance / Extreme Sweat — up to 5mL per gallon",
+            "desc": "Extended training or all-day events — up to 100 drops throughout the day. No sweeteners means no palatability ceiling."
+          }
+        },
+        "mineral_QWGdpt": {
+          "type": "mineral",
+          "settings": {
+            "icon": "🧂",
+            "name": "Sodium + Potassium",
+            "role": "Fluid retention · Muscle contraction · Nerve signaling",
+            "fill": 95
+          }
+        },
+        "mineral_iYgyWr": {
+          "type": "mineral",
+          "settings": {
+            "icon": "⚡",
+            "name": "Magnesium",
+            "role": "Recovery + sleep + 300+ enzymatic reactions",
+            "fill": 95
+          }
+        },
+        "mineral_iEmEtc": {
+          "type": "mineral",
+          "settings": {
+            "icon": "🌊",
+            "name": "50+ Trace Minerals",
+            "role": "Micronutrients stripped from modern water — restored",
+            "fill": 95
+          }
+        },
+        "mineral_pxB4n4": {
+          "type": "mineral",
+          "settings": {
+            "icon": "🟡",
+            "name": "Sulfate + Chloride",
+            "role": "Detoxification · pH balance · Cellular hydration",
+            "fill": 95
+          }
+        }
+      },
+      "block_order": [
+        "step_6gyGzy",
+        "step_gq47Tf",
+        "step_fCRF4r",
+        "mineral_QWGdpt",
+        "mineral_iYgyWr",
+        "mineral_iEmEtc",
+        "mineral_pxB4n4"
+      ],
+      "settings": {
+        "eyebrow": "What Is Electro+",
+        "heading": "Liquid drops.<br><em>Any drink. Anywhere.</em>",
+        "description": "Electro+ is a <strong>liquid mineral concentrate in a dropper bottle.</strong> No powder to mix. No packet to tear. No powder to mix. No packet to tear. No clumping at the bottom of your shaker. A few drops directly into whatever you're already drinking — water, coffee, a shake, juice. The taste is barely there — a very slight saltiness. Most people can't detect it at all. The sodium and minerals are drawn from <strong>Utah's ancient mineral deposits </strong>— one of the most mineral-dense natural sources on earth, naturally concentrated over millennia and purified before bottling.",
+        "card_label": "What's Inside",
+        "card_title": "Full-Spectrum Mineral Profile",
+        "card_intro": "Minerals drawn from <strong style=\"color:var(--teal)\">Utah's ancient mineral deposits</strong> - naturally concentrated, filtered, and purified.Not synthetic. Not ocean water. One of the most mineral-dense natural sources on earth.",
+        "stat_1_val": "50+",
+        "stat_1_lbl": "Trace minerals",
+        "stat_2_val": "0g",
+        "stat_2_lbl": "Sugar ever",
+        "stat_3_val": "1mL",
+        "stat_3_lbl": "Per serving - 20 drops"
+      }
+    },
+    "versus_competitors": {
+      "type": "phasis-electro-versus-competitors",
+      "blocks": {
+        "row_PwqEff": {
+          "type": "row",
+          "settings": {
+            "feature": "Cost per serving",
+            "col_1_text": "From $0.50",
+            "col_1_state": "yes",
+            "col_2_text": "~$1.50",
+            "col_2_state": "no",
+            "col_3_text": "$0.50-$2.00",
+            "col_3_state": "no"
+          }
+        },
+        "row_QKUtAw": {
+          "type": "row",
+          "settings": {
+            "feature": "Format",
+            "col_1_text": "Liquid drops",
+            "col_1_state": "yes",
+            "col_2_text": "Powder packets",
+            "col_2_state": "no",
+            "col_3_text": "Pre-mixed",
+            "col_3_state": "no"
+          }
+        },
+        "row_PeaC9C": {
+          "type": "row",
+          "settings": {
+            "feature": "Sugar content",
+            "col_1_text": "0g — none ever",
+            "col_1_state": "yes",
+            "col_2_text": "0g (stevia)",
+            "col_2_state": "partial",
+            "col_3_text": "21–34g",
+            "col_3_state": "no"
+          }
+        },
+        "row_aXNVxx": {
+          "type": "row",
+          "settings": {
+            "feature": "Sweeteners",
+            "col_1_text": "None",
+            "col_1_state": "yes",
+            "col_2_text": "Stevia",
+            "col_2_state": "no",
+            "col_3_text": "Multiple",
+            "col_3_state": "no"
+          }
+        },
+        "row_JCxywV": {
+          "type": "row",
+          "settings": {
+            "feature": "Mineral spectrum",
+            "col_1_text": "50+ minerals",
+            "col_1_state": "yes",
+            "col_2_text": "4 minerals",
+            "col_2_state": "no",
+            "col_3_text": "2–3 minerals",
+            "col_3_state": "no"
+          }
+        },
+        "row_BmeQ6M": {
+          "type": "row",
+          "settings": {
+            "feature": "Works in any drink",
+            "col_1_text": "Yes — no taste change",
+            "col_1_state": "yes",
+            "col_2_text": "No — strong flavor",
+            "col_2_state": "no",
+            "col_3_text": "Standalone only",
+            "col_3_state": "no"
+          }
+        },
+        "row_4gB79m": {
+          "type": "row",
+          "settings": {
+            "feature": "3rd party tested",
+            "col_1_text": "Every batch",
+            "col_1_state": "yes",
+            "col_2_text": "Varies",
+            "col_2_state": "partial",
+            "col_3_text": "Rarely",
+            "col_3_state": "no"
+          }
+        }
+      },
+      "block_order": [
+        "row_PwqEff",
+        "row_QKUtAw",
+        "row_PeaC9C",
+        "row_aXNVxx",
+        "row_JCxywV",
+        "row_BmeQ6M",
+        "row_4gB79m"
+      ],
+      "settings": {
+        "eyebrow": "How It Compares",
+        "heading": "Why <em>Mineral-First</em><br>Changes Everything",
+        "subheading": "Most electrolyte products are sugar delivery systems. Electro+ flips the formula entirely.",
+        "col_feature": "Feature",
+        "col_1": "Electro+",
+        "col_2": "LMNT",
+        "col_3": "Sports Drinks"
+      }
+    },
+    "science": {
+      "type": "phasis-electro-science",
+      "blocks": {
+        "science_point_MNBDQN": {
+          "type": "science_point",
+          "settings": {
+            "icon": "🏋️",
+            "title": "Pre-Workout — Prime Your Cells",
+            "desc": "Mineral loading before training improves cellular hydration and nerve conduction from rep one."
+          }
+        },
+        "science_point_Bifb4X": {
+          "type": "science_point",
+          "settings": {
+            "icon": "⚡",
+            "title": "Intra-Training — Sustain Output",
+            "desc": "Replace what you lose in real time. Delay fatigue and cramping mid-session."
+          }
+        },
+        "science_point_jz7aYH": {
+          "type": "science_point",
+          "settings": {
+            "icon": "🌙",
+            "title": "Pre-Sleep — Recover Deeper",
+            "desc": "Magnesium drives 300+ enzymatic reactions including muscle repair and sleep regulation."
+          }
+        },
+        "who_card_ddcPd6": {
+          "type": "who_card",
+          "settings": {
+            "icon": "🥋",
+            "title": "Combat Sports Athletes",
+            "sub": "BJJ · MMA · Boxing · Wrestling",
+            "benefit_1": "Prevents cramping during extended grappling sessions",
+            "benefit_2": "Faster recovery between hard training days",
+            "benefit_3": "Supports weight cutting and rehydration protocols"
+          }
+        },
+        "who_card_zTK8GR": {
+          "type": "who_card",
+          "settings": {
+            "icon": "🏃",
+            "title": "Endurance Athletes",
+            "sub": "Runners · Cyclists · Triathletes",
+            "benefit_1": "Scalable dosing for long vs short efforts",
+            "benefit_2": "No sugar crash mid-race or mid-ride",
+            "benefit_3": "Compatible with any nutrition strategy"
+          }
+        },
+        "who_card_wDnmqm": {
+          "type": "who_card",
+          "settings": {
+            "icon": "💼",
+            "title": "Daily High-Performance",
+            "sub": "Anyone who wants to perform at their best",
+            "benefit_1": "Morning mineral load for mental clarity",
+            "benefit_2": "Stress depletes magnesium — Electro+ restores it",
+            "benefit_3": "Better sleep, better recovery, better output"
+          }
+        }
+      },
+      "block_order": [
+        "science_point_MNBDQN",
+        "science_point_Bifb4X",
+        "science_point_jz7aYH",
+        "who_card_ddcPd6",
+        "who_card_zTK8GR",
+        "who_card_wDnmqm"
+      ],
+      "settings": {
+        "eyebrow": "Who It's Built For",
+        "heading": "Anyone who sweats.<br><em>Anyone who trains.</em>",
+        "description": "Mineral depletion doesn't care if you're a professional athlete or someone who goes to the gym three times a week. <strong>Every time you sweat, you lose minerals.</strong>Electro+ is for anyone who takes performance and recovery seriously."
+      }
+    },
+    "social_proof": {
+      "type": "phasis-electro-reviews",
+      "blocks": {
+        "review_tELPnq": {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "quote": "\"Less cramping, better endurance, and I actually wake up feeling recovered. The no-sugar thing is a game changer for my diet.\"",
+            "name": "Jordan R.",
+            "meta": "Electro+ · Endurance Runner",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_pRXNaH": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "quote": "\"Tried LMNT and Liquid IV. Both taste too sweet. Electro+ has no taste, works in my coffee, and I don't feel that sugar crash anymore.\"",
+            "name": "Alex T.",
+            "meta": "Electro+ · CrossFit Athlete",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_ibbW3k": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "quote": "\"Sleep quality went up noticeably after two weeks. I tracked it — HRV improved, resting heart rate dropped. Credit the magnesium more than anything.\"",
+            "name": "David K.",
+            "meta": "Electro+ · BJJ Black Belt",
+            "tag": "Verified purchase"
+          }
+        }
+      },
+      "block_order": [
+        "review_tELPnq",
+        "review_pRXNaH",
+        "review_ibbW3k"
+      ],
+      "settings": {
+        "eyebrow": "Verified Reviews",
+        "heading": "Real Athletes.<br><em>Real Results.</em>",
+        "all_reviews_text": "ALL REVIEWS",
+        "all_reviews_url": "",
+        "score": "4.9",
+        "score_label": "Verified reviews",
+        "bar_5": 90,
+        "bar_4": 10,
+        "bar_3": 0,
+        "bar_2": 0,
+        "bar_1": 0
+      }
+    },
+    "purchase": {
+      "type": "phasis-electro-purchase",
+      "blocks": {
+        "size_option_GAzxW6": {
+          "type": "size_option",
+          "settings": {
+            "badge": "STANDARD",
+            "name": "1oz — 30 Servings",
+            "desc": "20 drops = 1 serving. Count your drops.",
+            "price": "$25",
+            "serving_note": "$0.83/serving vs $1.50 LMNT",
+            "product": ""
+          }
+        },
+        "size_option_rcc6Nr": {
+          "type": "size_option",
+          "settings": {
+            "badge": "BEST VALUE",
+            "name": "4oz — 120 Servings",
+            "desc": "Graduated 1mL dropper. No counting — just fill to the line.",
+            "price": "$45",
+            "serving_note": "$0.38/serving vs $1.50 LMNT",
+            "product": ""
+          }
+        },
+        "guarantee_YWTJrQ": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🛡️",
+            "title": "30-Day Guarantee",
+            "desc": "Full refund. No questions."
+          }
+        },
+        "guarantee_wt8L3Y": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🚚",
+            "title": "Free Shipping",
+            "desc": "Orders over $75."
+          }
+        },
+        "guarantee_c6RycW": {
+          "type": "guarantee",
+          "settings": {
+            "icon": "🧪",
+            "title": "Lab Tested",
+            "desc": "Every batch."
+          }
+        }
+      },
+      "block_order": [
+        "size_option_GAzxW6",
+        "size_option_rcc6Nr",
+        "guarantee_YWTJrQ",
+        "guarantee_wt8L3Y",
+        "guarantee_c6RycW"
+      ],
+      "custom_css": [],
+      "settings": {
+        "custom_css_class": "cst-electro-sec",
+        "visual_emoji": "💧",
+        "eyebrow": "Electro+ · Mineral-First Electrolytes",
+        "heading": "Electro+ Drops",
+        "tagline": "Liquid mineral concentrate. No powder. No sugar. No sweeteners. Drop it in anything. 50+ trace minerals per serving.",
+        "size_label": "Choose Your Size",
+        "price_main": "$25",
+        "price_note": "· $0.50 per serving",
+        "price_sub": "No subscription · Ships in 1-3 business days",
+        "cta_text": "ADD TO CART — GET ELECTRO+",
+        "cta_url": "",
+        "secure_1": "Secure checkout",
+        "secure_2": "SSL encrypted",
+        "secure_3": "Made in USA",
+        "upsell_label": "Complete Your Recovery Stack",
+        "upsell_title": "Max Relief Balm",
+        "upsell_desc": "Electro+ handles hydration. Max Relief handles pain relief. From $30.",
+        "upsell_product": "max-relief-balm",
+        "upsell_btn_text": "ADD",
+        "upsell_url": "",
+        "upsell_title_2": "Electro+ Drops",
+        "upsell_desc_2": "Electro+ handles hydration. Replenish minerals · From $25",
+        "upsell_product_2": "electro-drops",
+        "upsell_btn_text_2": "ADD",
+        "use_product": true,
+        "product": "electro-drops",
+        "use_image": false,
+        "gallery_type": "thumbs_bottom"
+      }
+    },
+    "faq": {
+      "type": "phasis-electro-faq",
+      "blocks": {
+        "faq_item_tUErTY": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Does it taste like anything?",
+            "answer": "Barely. At the recommended dose you will notice a very slight saltiness at the back of your palate. That is it. It will not change the taste of your coffee, water, or shake. No sweetness, no bitterness, no chemical aftertaste — just a trace of the natural mineral profile."
+          }
+        },
+        "faq_item_Pqr8Tf": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How is this different from LMNT or Liquid IV?",
+            "answer": "Three big differences. First, price — LMNT is about $1.50 per packet. Electro+ is $0.50 per serving on the 4oz — about 75% less. Second, format — LMNT and Liquid IV are powder packets. Electro+ is a liquid dropper — 20 drops into anything in seconds, no mess, adjustable dose. Third, mineral spectrum — LMNT has 4 electrolytes. Electro+ delivers 50+. More minerals, better format, fraction of the cost."
+          }
+        },
+        "faq_item_xiK8AT": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How much should I take?",
+            "answer": "It depends on your activity level. Daily hydration — 20 drops (1mL) into 16oz of water. Hard training — 40 to 60 drops (2 to 3mL) into a 2L bottle. Endurance or extreme sweat days — up to 100 drops (5mL) per gallon throughout the day. The 4oz bottle comes with a graduated dropper marked at 1mL so there is no counting required. Because there are no sweeteners, you can scale up freely without it tasting overwhelming."
+          }
+        },
+        "faq_item_zcWHWd": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Is the 4oz worth it vs the 1oz?",
+            "answer": "The math is straightforward. The 4oz is $45 for 120 servings — $0.38 per serving. LMNT is roughly $1.50 per packet. For 120 servings of LMNT you would pay $180. If you plan to use it daily, the 4oz is the obvious value. If you have never tried it, start with the 1oz. The 30-day guarantee means you risk nothing."
+          }
+        },
+        "faq_item_QwAhjU": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Can I stack this with Max Relief?",
+            "answer": "Yes — and we recommend it. Max Relief handles topical pain and inflammation at the tissue level. Electro+ handles internal mineral replenishment. They work on completely different systems with no interaction."
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_tUErTY",
+        "faq_item_Pqr8Tf",
+        "faq_item_xiK8AT",
+        "faq_item_zcWHWd",
+        "faq_item_QwAhjU"
+      ],
+      "settings": {
+        "custom_css_class": "",
+        "eyebrow": "Common Questions",
+        "heading": "Everything You<br><em>Need to Know</em>",
+        "subheading": "The questions we get asked most about Electro+."
+      }
+    },
+    "final_cta": {
+      "type": "phasis-electro-final-cta",
+      "settings": {
+        "custom_css_class": "cst-relectro-tick",
+        "eyebrow": "Start Hydrating Right",
+        "heading": "Your Water Isn't<br><em>Working Hard Enough.</em>",
+        "text": "50+ trace minerals. Zero sugar. Liquid drops - works in any drink. <strong>70%</strong> less per serving than leading powders. Backed by a 30-day guarantee.",
+        "button_text": "GET ELECTRO+ — FROM $25",
+        "button_url": "",
+        "section_id": "purchase",
+        "trust_1": "30-day money back guarantee",
+        "trust_2": "Free shipping $75+",
+        "trust_3": "No subscription"
+      }
+    }
   },
   "order": [
     "hero",
@@ -22,7 +680,6 @@
     "social_proof",
     "purchase",
     "faq",
-    "final_cta",
-    "footer"
+    "final_cta"
   ]
 }

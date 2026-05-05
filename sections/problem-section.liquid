@@ -18,7 +18,7 @@
       <div class="prob-item">
         <div class="pi-icon">{{ block.settings.icon }}</div>
         <div>
-          <div class="pi-title">{{ block.settings.title }}</div>
+          <h3 class="pi-title">{{ block.settings.title }}</h3>
           <div class="pi-desc">{{ block.settings.desc }}</div>
         </div>
       </div>
@@ -33,7 +33,60 @@
   </div>
 
 </section>
+<style>
+  /* ── THE PROBLEM WE SOLVE ────────────────────────── */
 
+.problem-sec{background:var(--surface);border-top:1px solid var(--border)}
+.ps-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+.ps-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
+.ps-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+.problem-sec h2{margin-bottom:14px}
+.problem-sec h2 em{color:var(--coral);font-style:normal}
+.problem-sec p{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.75;margin-bottom:24px; margin-top:14px}
+.problem-sec p strong{color:var(--off-white);font-weight:600}
+
+.problems-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
+.prob-item{display:flex;align-items:flex-start;gap:14px;padding:16px;background:var(--page-bg);border:1px solid var(--border);border-radius:6px}
+.pi-icon{font-size:22px;flex-shrink:0;margin-top:1px}
+.pi-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:4px}
+.pi-desc{font-size:15px;color:var(--muted);line-height:1.55}
+
+.resolution{background:rgba(232,72,42,.06);border:1px solid rgba(232,72,42,.2);border-radius:8px;padding:20px 16px}
+.res-label{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral);margin-bottom:12px;display:block}
+.res-text{font-family:var(--f-dis);font-size:clamp(14px,2.5vw,18px);font-weight:700;line-height:1.35;letter-spacing:-0.01em}
+.res-text em{color:var(--coral);font-style:normal}
+.res-text p {
+    font: inherit;
+    color: inherit;
+    margin:0;
+}
+.res-text em strong {
+    color: inherit;
+}
+.problem-sec p.ps-intro.mt-4 {
+    display: none;
+}
+
+.problem-sec h2 {
+    font-family: var(--f-dis);
+    font-weight: 700;
+    font-size: 26px;
+    letter-spacing: -0.02em;
+    line-height: 1.05;
+}
+
+@media (min-width: 768px) {
+    .problem-sec h2 {
+        font-size: 36px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .problem-sec h2 {
+        font-size: 44px;
+    }
+}
+</style>
 {% schema %}
 {
   "name": "Problem Section",

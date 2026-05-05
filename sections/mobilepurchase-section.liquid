@@ -1,0 +1,719 @@
+<section class="purchase-sec section {{section.settings.custom_css_class }}" id="{{ section.settings.section_id }}">
+  <div class="purchase-inner">
+    <div class="purchase-gallery-wrapper gallery-type-{{ section.settings.gallery_type_layout }}">
+      <!-- PRODUCT VISUAL -->
+      <div class="purchase-visual swiper main-swiper">
+        {% if section.settings.use_product and section.settings.product != blank %}
+          <div class="swiper-wrapper">
+            {% for image in section.settings.product.images %}
+              <div class="swiper-slide" data-index="{{ forloop.index0 }}">
+                <img
+                  src="{{ image | image_url: width: 600 }}"
+                  alt="{{ section.settings.product.title }}"
+                  loading="lazy"
+                >
+              </div>
+            {% endfor %}
+          </div>
+
+          {% comment %}
+            {% if section.settings.product.featured_image %}
+              <img
+                id="main-product-image"
+                src="{{ section.settings.product.featured_image | image_url: width: 500 }}"
+                alt="{{ section.settings.product.title }}"
+                loading="lazy"
+              >
+            {% endif %}
+          {% endcomment %}
+
+        {% elsif section.settings.use_image and section.settings.custom_image != blank %}
+          <div class="swiper-slide">
+            <img
+              src="{{ section.settings.custom_image | image_url: width: 500 }}"
+              alt="Custom Image"
+              loading="lazy"
+            >
+          </div>
+        {% else %}
+          {{ section.settings.visual }}
+        {% endif %}
+      </div>
+      {% comment %} thumbnail {% endcomment %}
+      {% if section.settings.use_product
+        and section.settings.product != blank
+        and section.settings.gallery_type_layout == 'thumbs_bottom'
+      %}
+        <div class="custom-product-thumbnails thumbs-bottom swiper">
+          <div class="swiper-wrapper">
+            {% for image in section.settings.product.images %}
+              {% assign image_variant_id = image.variants.first.id %}
+              <div
+                class="thumb-box swiper-slide {% if forloop.first %}active{% endif %}"
+                data-src="{{ image | image_url: width: 600 }}"
+                {% if image_variant_id %}
+                  data-variant-id="{{ image_variant_id }}"
+                {% endif %}
+              >
+                <img src="{{ image | image_url}}" alt="thumb" loading="lazy">
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+      {% endif %}
+      <!-- UPSELL -->
+      <div class="stack-upsell">
+        <div class="su-label">{{ section.settings.upsell_label }}</div>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'upsell' %}
+            {% assign upsell_product = block.settings.product %}
+            {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+            <div class="su-item">
+              <div class="su-item-l">
+                <div class="su-icon">
+                  {% if upsell_product != blank and upsell_product.featured_image %}
+                    <img
+                      src="
+                        {% if upsell_product.handle == 'electro-drops' %}
+                          {% assign ed_variant = upsell_product.variants | where: 'title', '120ml' | first %}
+                          {% if ed_variant and ed_variant.featured_image %}
+                            {{ ed_variant.featured_image | image_url: width: 80 }}
+                          {% else %}
+                            {{ upsell_product.featured_image | image_url: width: 80 }}
+                          {% endif %}
+                        {% else %}
+                          {{ upsell_product.featured_image | image_url: width: 80 }}
+                        {% endif %}
+                      "
+                      alt="{{ upsell_product.title }}"
+                      style="width:40px;height:40px;object-fit:cover;border-radius:6px;"
+                    >
+                  {% else %}
+                    {{ block.settings.icon }}
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="su-name">
+                    {% if upsell_product != blank %}
+                      {{ upsell_product.title }}
+                    {% else -%}
+                      {{- block.settings.name }}
+                    {% endif %}
+                  </div>
+                  <div class="su-desc">{{ block.settings.desc }}</div>
+                </div>
+              </div>
+              {% comment %} {% assign upsell_product = block.settings.product %} {% endcomment %}
+              {% assign upsell_product = block.settings.product %}
+
+              {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+
+              {% if upsell_product.handle == 'max-relief-balm' %}
+                {% assign upsell_variant = upsell_product.variants | where: 'title', 'Jar — 60ml' | first %}
+              {% endif %}
+
+              {% if upsell_product.handle == 'electro-drops' %}
+                {% assign upsell_variant = upsell_product.variants | where: 'title', '120ml' | first %}
+              {% endif %}
+              <a
+                href="{{ block.settings.link }}"
+                class="su-btn glow-cta {{ block.settings.color }}"
+                data-variant-id="{{ upsell_variant.id }}"
+                data-img="{{ upsell_variant.featured_image | image_url: width: 300 }}"
+              >
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+      {% comment %} end {% endcomment %}
+    </div>
+    {% comment %} end {% endcomment %}
+    <div>
+      <div class="pi-eyebrow-row">
+        <span>{{ section.settings.eyebrow }}</span>
+      </div>
+
+      <!-- TITLE -->
+      <h2 class="pi-h">
+        {% if section.settings.use_product and section.settings.product != blank %}
+          {{ section.settings.product.title }}
+        {% else %}
+          {{ section.settings.heading }}
+        {% endif %}
+      </h2>
+
+      <!-- TAGLINE -->
+      <p class="pi-tagline">
+        {% if section.settings.use_product and section.settings.product != blank %}
+          {{ section.settings.product.description | strip_html | truncate: 120 }}
+        {% else %}
+          {{ section.settings.tagline }}
+        {% endif %}
+      </p>
+
+      <span class="size-label">{{ section.settings.size_label }}</span>
+
+      <!-- VARIANTS -->
+
+      <div class="size-opts">
+        {% for block in section.blocks %}
+          {% if block.type == 'variant' %}
+            {% assign variant_index = forloop.index0 %}
+            {% assign current_variant = section.settings.product.variants[variant_index] %}
+
+            {% comment %}
+              {% assign current_variant = section.settings.product.variants
+                | where: 'id', block.settings.variant_id
+                | first
+              %}
+            {% endcomment %}
+            <div
+              class="sopt {% if forloop.first %}sel{% endif %}"
+              {% comment %} data-price="{{ block.settings.price }}" {% endcomment %}
+              data-price="{{ current_variant.price | money | replace: '.00', '' }}"
+              data-note="{{ block.settings.note }}"
+              data-variant-id="{{ current_variant.id }}"
+              data-img="{{ current_variant.featured_image | image_url: width:600 }}"
+              data-slide-index="{{ forloop.index0 }}"
+            >
+              {% if block.settings.badge != blank %}
+                <div class="sopt-badge">{{ block.settings.badge }}</div>
+              {% endif %}
+
+              <div class="sopt-name">{{ block.settings.name }}</div>
+              <div class="sopt-desc">{{ block.settings.desc }}</div>
+
+              <div class="sopt-price">
+                {% comment %} {{ block.settings.price }} {% endcomment %}
+                {{ current_variant.price | money | replace: '.00', '' }}
+                {% comment %}
+                  {% if block.settings.compare_price != blank %}
+                    <span style="text-decoration:line-through;font-size:12px;">
+                      {{ block.settings.compare_price }}
+                    </span>
+                  {% endif %}
+                {% endcomment %}
+
+                {% if current_variant.compare_at_price > current_variant.price %}
+                  <span style="text-decoration:line-through;font-size:12px;">
+                    {{ current_variant.compare_at_price | money | replace: '.00', '' }}
+                  </span>
+                {% endif %}
+              </div>
+
+              <div class="sopt-sub">{{ block.settings.sub }}</div>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+
+      {% comment %}
+        <div class="size-opts">
+          {% for block in section.blocks %}
+            {% if block.type == 'variant' %}
+              <div
+                class="sopt {% if forloop.first %}sel{% endif %}"
+                data-price="{{ block.settings.price }}"
+                data-note="{{ block.settings.note }}"
+                data-variant-id="{{ block.settings.variant_id }}"
+              >
+                {% if block.settings.badge != blank %}
+                  <div class="sopt-badge">{{ block.settings.badge }}</div>
+                {% endif %}
+
+                <div class="sopt-name">{{ block.settings.name }}</div>
+                <div class="sopt-desc">{{ block.settings.desc }}</div>
+
+                <div class="sopt-price">
+                  {{ block.settings.price }}
+                  {% if block.settings.compare_price != blank %}
+                    <span style="text-decoration:line-through;font-size:12px;">
+                      {{ block.settings.compare_price }}
+                    </span>
+                  {% endif %}
+                </div>
+
+                <div class="sopt-sub">{{ block.settings.sub }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endcomment %}
+      <!-- PRICE DISPLAY -->
+
+      <div class="price-row">
+        <div class="price-main" id="price-display">
+          {% comment %}
+            {% assign first_variant = section.blocks | where: 'type', 'variant' | first %}
+            {{ first_variant.settings.price }}
+          {% endcomment %}
+          {% comment %}
+            new {% assign first_variant_block = section.blocks | where: 'type', 'variant' | first %}
+            {% assign first_variant = section.settings.product.variants
+              | where: 'id', first_variant_block.settings.variant
+              | first
+            %}
+            {{ first_variant.price | money | replace: '.00', '' }}
+          {% endcomment %}
+          {% if section.settings.product != blank %}
+            {{ section.settings.product.variants[0].price | money | replace: '.00', '' }}
+          {% else %}
+            {{ section.settings.price }}
+          {% endif %}
+        </div>
+        <div class="price-note" id="note-display">
+          {% comment %} {{ first_variant.settings.note }} {% endcomment %}
+          {% assign first_v_block = section.blocks | where: 'type', 'variant' | first %}
+          {{ first_v_block.settings.note }}
+        </div>
+      </div>
+
+      {% comment %}
+        <div class="price-row">
+          <div class="price-main" id="price-display">
+            {% assign first_variant_block = section.blocks | where: 'type', 'variant' | first %}
+            {{ first_variant_block.settings.price }}
+          </div>
+          <div class="price-note" id="note-display">
+            {{ first_variant_block.settings.note }}
+          </div>
+        </div>
+      {% endcomment %}
+      <div class="price-sub">{{ section.settings.price_sub }}</div>
+
+      <!-- BUY -->
+      <div class="buy-block">
+        {% comment %}
+          <a href="{{ section.settings.button_link }}" class="btn btn-a btn-full">
+            {{ section.settings.button_text }}
+          </a>
+        {% endcomment %}
+
+        {% assign product = section.settings.product %}
+        {% assign variant_id = product.selected_or_first_available_variant.id %}
+
+        <button
+          type="button"
+          id="ajax-add-to-cart"
+          class="btn btn-a btn-full 	glow-cta"
+          value="{{ section.settings.product.selected_or_first_available_variant.id }}"
+        >
+          {{ section.settings.button_text }}
+        </button>
+        <!-- GUARANTEES -->
+        <div class="guarantees mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'guarantee' %}
+              <div class="g-item">
+                <div class="g-icon">{{ block.settings.icon }}</div>
+                <div class="g-title">{{ block.settings.title }}</div>
+                <div class="g-desc">{{ block.settings.desc }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+
+        <!-- SECURE -->
+        <div class="secure-row mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'secure' %}
+              <span class="secure-item">{{ block.settings.text }}</span>
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <!-- UPSELL -->
+      {% comment %}
+        <div class="stack-upsell">
+          <div class="su-label">{{ section.settings.upsell_label }}</div>
+
+          {% for block in section.blocks %}
+            {% if block.type == 'upsell' %}
+              {% assign upsell_product = block.settings.product %}
+              {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+              <div class="su-item">
+                <div class="su-item-l">
+                  <div class="su-icon">
+                    {% if upsell_product != blank and upsell_product.featured_image %}
+                      <img
+                        src="{{ upsell_product.featured_image | image_url: width: 80 }}"
+                        alt="{{ upsell_product.title }}"
+                        style="width:40px;height:40px;object-fit:cover;border-radius:6px;"
+                      >
+                    {% else %}
+                      {{ block.settings.icon }}
+                    {% endif %}
+                  </div>
+                  <div>
+                    <div class="su-name">
+                      {% if upsell_product != blank %}
+                        {{ upsell_product.title }}
+                      {% else -%}
+                        {{- block.settings.name }}
+                      {% endif %}
+                    </div>
+                    <div class="su-desc">{{ block.settings.desc }}</div>
+                  </div>
+                </div>
+                {% comment %} {% assign upsell_product = block.settings.product %} {% endcomment %}
+                {% assign upsell_product = block.settings.product %}
+
+                {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+
+                {% if upsell_product.handle == 'max-relief-balm' %}
+                  {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+                {% endif %}
+
+                {% if upsell_product.handle == 'electro-drops' %}
+                  {% assign upsell_variant = upsell_product.variants | where: 'title', '30ml' | first %}
+                {% endif %}
+                <a
+                  href="{{ block.settings.link }}"
+                  class="su-btn {{ block.settings.color }}"
+                  data-variant-id="{{ upsell_variant.id }}"
+                  data-img="{{ upsell_variant.featured_image | image_url: width: 300 }}"
+                >
+                  {{ block.settings.button_text }}
+                </a>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+      {% endcomment %}
+    </div>
+  </div>
+</section>
+<style>
+          /* ── PURCHASE ────────────────────────────────────── */
+      .purchase-sec{background:var(--surface);border-top:1px solid var(--border)}
+      .purchase-visual{height:220px;background:linear-gradient(135deg,#0e0a04,#141008);border:1px solid rgba(212,131,26,.18);display:flex;align-items:center;justify-content:center;font-size:90px;position:relative;overflow:hidden;border-radius:8px;margin-bottom:24px}
+      .purchase-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(212,131,26,.08) 0%,transparent 70%)}
+      @media(min-width:1024px){
+        .purchase-inner{display:grid;grid-template-columns:50% 1fr;gap:64px;align-items:start}
+        .purchase-visual{height:300px;margin-bottom:0}
+      }
+      .pi-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
+      .pi-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--amber);flex-shrink:0}
+      .pi-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)}
+      .pi-h{font-family:var(--f-dis);font-weight:700;font-size:27px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px}
+      .pi-tagline{font-size:15px;color:#d0d0d0;line-height:1.65;margin-bottom:24px}
+      @media(min-width:768px){.pi-h{font-size:36px}}
+      .size-label{font-family:var(--f-dis);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d0d0d0;margin-bottom:10px;display:block}
+      .size-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
+      .sopt{background:var(--page-bg);border:2px solid var(--border);border-radius:6px;padding:14px 12px;cursor:pointer;transition:all .15s;position:relative;min-height:110px}
+      .sopt.sel{border-color:var(--amber);background:rgba(212,131,26,.06)}
+      .sopt-name{font-family:var(--f-dis);font-size:13px;font-weight:700;margin-bottom:2px}
+      .sopt-desc{font-size:14px;color:#d0d0d0;margin-bottom:8px;line-height:1.4}
+      .sopt-price{font-family:var(--f-dis);font-size:18px;font-weight:700}
+      .sopt-sub{font-size:12px;color:var(--amber);margin-top:3px}
+      .sopt-badge{position:absolute;top:-8px;right:10px;background:var(--amber);color:#fff;font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border-radius:10px}
+      .price-row{display:flex;align-items:baseline;gap:12px;margin-bottom:4px}
+      .price-main{font-family:var(--f-dis);font-size:36px;font-weight:800;line-height:1}
+      .price-note{font-size:13px;color:#d0d0d0}
+      .price-sub{font-size:12px;color:#d0d0d0;margin-bottom:20px}
+      .buy-block .btn-a{font-size:15px;padding:18px 24px;margin-bottom:12px}
+      .guarantees{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+      .g-item{background:rgba(255,255,255,.03);border:1px solid var(--border);border-radius:6px;padding:12px 10px;text-align:center}
+      .g-icon{font-size:18px;margin-bottom:4px}
+      .g-title{font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:2px}
+      .g-desc{font-size:13px;color:#d0d0d0;line-height:1.4}
+      .secure-row{display:flex;align-items:center;justify-content:center;gap:16px;padding-top:14px;border-top:1px solid var(--border);flex-wrap:wrap}
+      .secure-item{font-size:14px;color:#d0d0d0;display:flex;align-items:center;gap:4px}
+      .secure-item::before{content:'🔒';font-size:10px}
+
+      /* Stack upsell */
+      .stack-upsell{background:var(--page-bg);border:1px solid var(--border);border-radius:8px;padding:16px;margin-top:16px}
+      .su-label{font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#d0d0d0;margin-bottom:12px}
+      .su-item{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:var(--surface);border:1px solid var(--border);border-radius:6px;margin-bottom:8px}
+      .su-item:last-child{margin-bottom:0}
+      .su-item-l{display:flex;align-items:center;gap:12px}
+      .su-icon{font-size:18px;flex-shrink:0}
+      .su-name{font-family:var(--f-dis);font-size:12px;font-weight:700}
+      .su-desc{font-size:12px;color:#d0d0d0;margin-top:1px}
+      .su-btn{flex-shrink:0;display:flex;align-items:center;gap:4px;font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:4px;border:none;cursor:pointer;min-height:36px;white-space:nowrap}
+      .su-btn.coral{background:rgba(232,72,42,.15);color:var(--coral);border:1px solid rgba(232,72,42,.25)}
+      .su-btn.teal{background:rgba(0,191,168,.12);color:var(--teal);border:1px solid rgba(0,191,168,.25)}
+
+
+      .custom-product-thumbnails {
+      margin-top: 10px;
+    }
+
+    .custom-product-thumbnails .swiper-slide {
+      height: 70px;
+    }
+
+    .custom-product-thumbnails img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .swiper-wrapper .swiper-slide {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+</style>
+<!-- JS -->
+
+{% comment %}
+  <script>
+    document.querySelectorAll('.sopt').forEach((opt) => {
+      opt.addEventListener('click', function () {
+        document.querySelectorAll('.sopt').forEach((o) => o.classList.remove('sel'));
+        this.classList.add('sel');
+
+        document.getElementById('price-display').innerText = this.dataset.price;
+        document.getElementById('note-display').innerText = this.dataset.note;
+      });
+    });
+  </script>
+{% endcomment %}
+<script>
+   document.addEventListener("DOMContentLoaded", function () {
+      //min swiper for main image swipe
+      const thumbSwiper = new Swiper('.thumbs-bottom', {
+      slidesPerView: 4,
+      spaceBetween: 10,
+      watchSlidesProgress: true,
+    });
+        const mainSwiper = new Swiper('.main-swiper', {
+          slidesPerView: 1,
+          speed: 400,
+           thumbs: {
+            swiper: thumbSwiper
+          }
+        });
+  let selectedVariantId = null;
+  const btn = document.getElementById('ajax-add-to-cart');
+  const mainImgElement = document.getElementById('main-product-image');
+
+  // Handle variant selection
+  document.querySelectorAll('.sopt').forEach((opt) => {
+    opt.addEventListener('click', function () {
+      // Toggle Classes
+      document.querySelectorAll('.sopt').forEach((o) => o.classList.remove('sel'));
+      this.classList.add('sel');
+
+      // Update Price and Note
+      document.getElementById('price-display').innerText = this.dataset.price;
+      document.getElementById('note-display').innerText = this.dataset.note;
+
+      // FIX 1: Update Image
+      {% comment %} const newImgUrl = this.getAttribute('data-img');
+      if (newImgUrl && mainImgElement) {
+         mainImgElement.src = newImgUrl;
+      } {% endcomment %}
+      const slideIndex = this.dataset.slideIndex;
+      if (slideIndex !== undefined) {
+        mainSwiper.slideTo(parseInt(slideIndex));
+      }
+
+      // FIX 2: Update Variant ID
+      selectedVariantId = this.dataset.variantId;
+      btn.value = selectedVariantId;
+      btn.disabled = false;
+    });
+  });
+
+  // Default Select on Load
+  document.addEventListener('DOMContentLoaded', () => {
+    const firstSel = document.querySelector('.sopt.sel');
+    if (firstSel) {
+      selectedVariantId = firstSel.dataset.variantId;
+      btn.value = selectedVariantId;
+      btn.disabled = false;
+      
+      // Load initial image if exists
+      if(firstSel.dataset.img && mainImgElement) {
+        mainImgElement.src = firstSel.dataset.img;
+      }
+    }
+  });
+
+  // Ajax Add to Cart (Main Button)
+  btn.addEventListener('click', function () {
+    const idToAdd = this.value || selectedVariantId;
+    if (!idToAdd) {
+      alert('Please select a variant');
+      return;
+    }
+
+
+    btn.disabled = true;
+
+    let formData = {
+     'items': [{ 'id': idToAdd, 'quantity': 1 }]
+    };
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    })
+     .then(() => {
+    updateCartCount();
+  })
+    {% comment %} .then(response => {
+      window.location.href = '/cart';
+    }) {% endcomment %}
+    .catch((error) => {
+      console.error('Error:', error);
+      btn.innerText = 'ADD TO CART';
+      btn.disabled = false;
+    });
+  });
+//update counter
+function updateCartCount() {
+  fetch('/cart.js')
+    .then(res => res.json())
+    .then(cart => {
+      const count = cart.item_count;
+
+      const visibleCount = document.querySelector('.cart-count-bubble span[aria-hidden="true"]');
+      const hiddenText = document.querySelector('.cart-count-bubble .visually-hidden');
+      const bubble = document.querySelector('.cart-count-bubble');
+
+      if (visibleCount) visibleCount.innerText = count;
+      if (hiddenText) hiddenText.innerText = `${count} items`;
+      if (bubble) bubble.style.display = count > 0 ? 'flex' : 'none';
+    });
+}
+  // Upsell add button for  Add to Cart functionality
+  document.querySelectorAll('.su-btn').forEach((upsellBtn) => {
+    upsellBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      const vId = this.getAttribute('data-variant-id');
+      if (!vId) return;
+
+      let formData = {
+       'items': [{ 'id': vId, 'quantity': 1 }]
+      };
+
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      })
+      .then(() => {
+        updateCartCount();
+      })
+      .catch(() => {
+        alert('Error adding upsell');
+        this.innerText = 'ADD';
+      });
+    });
+  });
+});
+</script>
+{% schema %}
+{
+  "name": "Purchase Section",
+  "settings": [
+    { "type": "text", "id": "custom_css_class", "label": "Custom CSS Class" },
+    { "type": "text", "id": "section_id", "label": "Section ID", "default": "purchase" },
+
+    { "type": "checkbox", "id": "use_product", "label": "Use Shopify Product", "default": false },
+    { "type": "product", "id": "product", "label": "Select Product" },
+
+    { "type": "checkbox", "id": "use_image", "label": "Use Custom Image", "default": false },
+    { "type": "image_picker", "id": "custom_image", "label": "Custom Image" },
+
+    { "type": "text", "id": "visual", "label": "Fallback Emoji", "default": "💊" },
+
+    { "type": "text", "id": "eyebrow", "label": "Eyebrow", "default": "Perform+ · β-Ecdysterone Formula" },
+
+    { "type": "text", "id": "heading", "label": "Heading", "default": "Perform+" },
+
+    { "type": "textarea", "id": "tagline", "label": "Tagline", "default": "250mg ecdysterone per capsule..." },
+
+    { "type": "text", "id": "size_label", "label": "Size Label", "default": "Choose Your Supply" },
+
+    { "type": "textarea", "id": "price_sub", "label": "Price Subtext", "default": "Ships in 1–3 business days" },
+
+    { "type": "text", "id": "button_text", "label": "Button Text", "default": "ADD TO CART — GET PERFORM+" },
+    { "type": "url", "id": "button_link", "label": "Button Link" },
+
+    { "type": "text", "id": "upsell_label", "label": "Upsell Label", "default": "Complete The Stack" },
+    {
+      "type": "select",
+      "id": "gallery_type_layout",
+      "label": "Gallery Layout",
+      "options": [
+        { "value": "slideshow", "label": "Slideshow" },
+        { "value": "thumbs_aside", "label": "Thumbnails Aside" },
+        { "value": "thumbs_bottom", "label": "Thumbnails Bottom" }
+      ],
+      "default": "slideshow"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "variant",
+      "name": "Variant",
+      "settings": [
+        { "type": "text", "id": "name", "label": "Name", "default": "30 Capsules" },
+        { "type": "text", "id": "desc", "label": "Description", "default": "30-day supply" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$49" },
+        { "type": "text", "id": "compare_price", "label": "Compare Price" },
+        { "type": "text", "id": "sub", "label": "Subtext", "default": "1 per day" },
+        { "type": "text", "id": "badge", "label": "Badge" },
+        { "type": "text", "id": "note", "label": "Note", "default": "30-day supply" },
+        {
+          "type": "text",
+          "id": "variant",
+          "label": "Select Variant"
+        }
+      ]
+    },
+
+    {
+      "type": "guarantee",
+      "name": "Guarantee",
+      "settings": [
+        { "type": "text", "id": "icon", "default": "🛡️", "label": "Icon" },
+        { "type": "text", "id": "title", "default": "Guarantee", "label": "Title" },
+        { "type": "text", "id": "desc", "default": "Description", "label": "Description" }
+      ]
+    },
+
+    {
+      "type": "secure",
+      "name": "Secure",
+      "settings": [{ "type": "text", "id": "text", "default": "Secure checkout", "label": "Text" }]
+    },
+
+    {
+      "type": "upsell",
+      "name": "Upsell",
+      "settings": [
+        { "type": "text", "id": "icon", "default": "🧴", "label": "Icon" },
+        { "type": "text", "id": "name", "default": "Product", "label": "Name" },
+        { "type": "text", "id": "desc", "default": "Description", "label": "Description" },
+        { "type": "url", "id": "link", "label": "Link" },
+        { "type": "text", "id": "button_text", "default": "ADD", "label": "Button Text" },
+        { "type": "text", "id": "color", "default": "coral", "label": "Button Color Class" },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Select Product"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": " Mobile Purchase Section",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

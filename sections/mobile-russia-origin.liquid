@@ -1,0 +1,153 @@
+<section class="russia-sec section">
+
+  <div class="russia-top">
+    <span class="eyebrow">{{ section.settings.eyebrow }}</span>
+
+    <h2>
+      {{ section.settings.heading_line1 }}<br>
+      {{ section.settings.heading_line2 }}
+      <em>{{ section.settings.heading_em }}</em>
+    </h2>
+
+    <p class="russia-sub mt-4">
+      {{ section.settings.subtext }}
+    </p>
+  </div>
+
+  <div class="russia-timeline">
+    {% for block in section.blocks %}
+      <div class="rt-item">
+        <div class="rt-year">{{ block.settings.year }}</div>
+        <div>
+          <h3 class="rt-title">{{ block.settings.title }}</h3>
+          <div class="rt-desc">{{ block.settings.description }}</div>
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+
+  <div class="russia-quote">
+    <div class="rq-mark">{{ section.settings.quote_icon }}</div>
+    <div class="rq-text">{{ section.settings.quote_text }}</div>
+    <div class="rq-cite">{{ section.settings.quote_cite }}</div>
+  </div>
+
+</section>
+<style>
+    /* ── RUSSIAN SECRET ──────────────────────────────── */
+.russia-sec{background:var(--surface);border-top:1px solid var(--border)}
+.russia-top{text-align:center;margin-bottom:24px}
+.russia-top h2{margin-bottom:12px}
+.russia-sub{font-size:15px;font-weight:300;color:#d0d0d0;line-height:1.7}
+
+.russia-timeline{display:flex;flex-direction:column;gap:0;margin-bottom:24px;position:relative}
+.russia-timeline::before{content:'';position:absolute;left:50px;top:0;bottom:0;width:1px;background:linear-gradient(to bottom,transparent,var(--amber),var(--amber),transparent);opacity:.25}
+.rt-item{display:grid;grid-template-columns:50px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--border);position:relative}
+.rt-item:last-child{border-bottom:none}
+.rt-item::before{content:'';position:absolute;left:46px;top:calc(16px + 2px);width:9px;height:9px;background:var(--amber);border-radius:50%;border:2px solid var(--surface);z-index:1}
+.rt-year{font-family:var(--f-dis);font-size:11px;font-weight:700;color:var(--amber);letter-spacing:.08em;text-transform:uppercase;padding-top:2px;line-height:1.3;text-align:right;padding-right:16px}
+.rt-title{font-family:var(--f-dis);font-size:16px;font-weight:700;margin-bottom:6px}
+.rt-desc{font-size:15px;color:#d0d0d0;line-height:1.65}
+.rt-desc strong{color:var(--off-white);font-weight:600}
+
+.russia-quote{background:rgba(212,131,26,.06);border:1px solid rgba(212,131,26,.25);border-left:4px solid var(--amber);border-radius:6px;padding:20px 16px}
+.rq-mark{font-size:28px;color:var(--amber);opacity:.5;line-height:1;margin-bottom:10px}
+.rq-text{font-family:var(--f-dis);font-size:clamp(14px,2vw,18px);font-weight:600;line-height:1.4;letter-spacing:-0.01em;margin-bottom:10px}
+.rq-cite{font-size:15px;color:#d0d0d0;letter-spacing:.04em}
+</style>
+{% schema %}
+{
+  "name": "Russia Origin Story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "The Origin Story"
+    },
+    {
+      "type": "text",
+      "id": "heading_line1",
+      "label": "Heading Line 1",
+      "default": "The West Is 40 Years"
+    },
+    {
+      "type": "text",
+      "id": "heading_line2",
+      "label": "Heading Line 2",
+      "default": "Behind Soviet"
+    },
+    {
+      "type": "text",
+      "id": "heading_em",
+      "label": "Highlighted Text",
+      "default": "Sports Science."
+    },
+    {
+      "type": "textarea",
+      "id": "subtext",
+      "label": "Sub Text",
+      "default": "Ecdysterone didn't start in a supplement company's lab..."
+    },
+
+    {
+      "type": "text",
+      "id": "quote_icon",
+      "label": "Quote Icon",
+      "default": "❝"
+    },
+    {
+      "type": "textarea",
+      "id": "quote_text",
+      "label": "Quote Text",
+      "default": "Ecdysterone has long been called the Russian Secret..."
+    },
+    {
+      "type": "text",
+      "id": "quote_cite",
+      "label": "Quote Citation",
+      "default": "Professor Maria Parr · Co-Author"
+    }
+  ],
+
+  "blocks": [
+    {
+      "type": "timeline",
+      "name": "Timeline Item",
+      "settings": [
+        {
+          "type": "text",
+          "id": "year",
+          "label": "Year",
+          "default": "1970s–80s"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Timeline title"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Timeline description..."
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Russia Origin Story",
+      "blocks": [
+        { "type": "timeline" },
+        { "type": "timeline" },
+        { "type": "timeline" },
+        { "type": "timeline" },
+        { "type": "timeline" }
+      ]
+    }
+  ]
+}
+{% endschema %}

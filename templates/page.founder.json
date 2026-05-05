@@ -1,0 +1,115 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "section_heading_tag": "h1",
+        "heading_size": "h3",
+        "margin_top": "no-indent",
+        "margin_bottom": "m"
+      }
+    },
+    "slideshow_UQx4mh": {
+      "type": "slideshow",
+      "blocks": {
+        "slideshow_item_WJDLEn": {
+          "type": "slideshow_item",
+          "settings": {
+            "desktop_image": "shopify://shop_images/blog_banner.jpg",
+            "color_scheme": "background-2",
+            "heading": "Blog",
+            "text": "<p>We’re redefining recovery and performance through science-backed formulations and a modern health system.</p>",
+            "text_width": "large",
+            "button_label": "",
+            "button_link": "",
+            "button_dot": true,
+            "button_style": "primary",
+            "overlay_enable": true,
+            "overlay_opacity": 0,
+            "overlay_opacity_mobile": 0
+          }
+        }
+      },
+      "block_order": [
+        "slideshow_item_WJDLEn"
+      ],
+      "disabled": true,
+      "custom_css": [
+        ".slideshow-slide__img img {object-position: center top !important;}",
+        ".slideshow-slide__text {max-width: 640px; width: 100%;}",
+        ".slideshow-slide__text * {max-width: 100%;}"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "custom_css_class": "",
+        "header_overlay": false,
+        "header_transparent": false,
+        "color_scheme_header": "background-2",
+        "light_logo": true,
+        "section_layout": "full",
+        "text_position": "left",
+        "pagination_position": "center",
+        "image_size": "21/9",
+        "heading_tag": "h1",
+        "image_size_mobile": "3/4",
+        "text_position_mobile": "bottom-left",
+        "is_autoplay": true,
+        "is_hover_stop_autoplay": false,
+        "slideshow_speed": 0.8,
+        "slideshow_delay": 3,
+        "slide_effects": "custom",
+        "text_animation": false,
+        "margin_top": "no-indent",
+        "margin_bottom": "no-indent"
+      }
+    },
+    "custom_blog_grid_EA6geK": {
+      "type": "custom-blog-grid",
+      "disabled": true,
+      "name": "Custom Blog Grid",
+      "settings": {
+        "enable_colored_tags": true,
+        "recent_posts_title": "Recent Posts",
+        "recent_posts_heading_tag": "h2",
+        "recent_posts_heading_size": "h1",
+        "number_of_recent_posts": 3,
+        "all_posts_title": "All Blog Posts",
+        "all_posts_heading_tag": "h2",
+        "all_posts_heading_size": "h1",
+        "posts_per_page": 9,
+        "margin_top": "m",
+        "margin_bottom": "m"
+      }
+    },
+    "founder_story_wy7PgB": {
+      "type": "founder-story",
+      "name": "Founder Story",
+      "settings": {
+        "eyebrow": "— THE FOUNDER",
+        "headline": "You can be physically disciplined — and still feel mentally <span class=\"accent\">out of control</span>.",
+        "founder_story": "<p>I was always drawn to health and performance — sports, training, lifting. I believed that discipline in the gym would naturally translate into mental clarity.</p>\n\n        <p>It doesn't.</p>\n\n        <p>In my late teens and early twenties, I dealt with anxiety and constant overthinking. I was stuck in my head — ruminating, questioning everything, struggling to stay present.</p>\n\n        <blockquote>\n          <p>No one teaches you how to train your mind.</p>\n        </blockquote>\n\n        <p>When I moved to California, I was introduced to meditation. At the time, I didn't buy into it. But I was willing to try anything.</p>\n\n        <p>During my first real session, I sat for 20 minutes — and when it ended, I felt something I hadn't felt in a long time: clarity, calm, and control.</p>\n\n        <p>That moment changed how I saw everything. If something that simple could shift your mental state, what else is out there that people aren't being taught?</p>\n\n        <p>Years later, I started training jiu-jitsu in my late 20s. Three months in, I entered my first tournament.</p>\n\n        <p>Match after match, I was caught in guillotines, triangles — constant pressure on my neck. I refused to tap. I fought through everything.</p>\n\n        <p>By the final match, my neck was cramping badly. I was ready to forfeit. I went to my bag looking for anything that could help. The only thing I had was a CBD balm — just CBD extract and beeswax.</p>\n\n        <p>I used it. Within minutes, the pain started to fade. The cramp eased. Then it was gone.</p>\n\n        <p>Another moment that connected. If a natural compound that simple could have that kind of effect on the body, how many others are out there that people don't understand?</p>\n\n        <p>Mental tools that can shift your state. Physical compounds that can support your body. Most people don't know they exist, don't understand how they work, or don't know how to use them correctly.</p>\n\n        <p>PHASIS was built to bridge that gap. Not just as a supplement brand, but as a system.</p>\n\n        <blockquote>\n          <p>Train your mind without medication. Support your body with natural compounds.</p>\n        </blockquote>\n\n        <p>Whether you're simply trying to feel better or chasing an edge in your sport, the goal is the same: to evolve.</p>\n\n        <p>The body keeps adapting. The mind keeps adapting. At any age. You're taught that getting older means getting worse — it doesn't. You shouldn't decline. You should keep evolving.</p>\n\n        <p>That's what PHASIS is for. Real tools, real compounds, for every phase of becoming who you're capable of being.</p>\n\n        <p>Made to Evolve.</p>",
+        "founder_signature": "shopify://shop_images/phasis-founder-signature.png",
+        "founder_name": "Jonathan Ross-Turcios",
+        "founder_meta": "Founder, PHASIS",
+        "cta_text": "Take the phase scan",
+        "cta_link": "shopify://pages/quiz"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "slideshow_UQx4mh",
+    "custom_blog_grid_EA6geK",
+    "founder_story_wy7PgB"
+  ]
+}
