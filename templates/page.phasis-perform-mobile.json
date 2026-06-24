@@ -997,6 +997,27 @@
         "button_link": ""
       }
     },
+    "apps_PJa9WR": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_dG946H": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "perform",
+            "review_data": "no_reviews",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_dG946H"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true,
+        "custom_class": "pro-review-sub"
+      }
+    },
     "mobilepurchase_section_cy9ibj": {
       "type": "mobilepurchase-section",
       "blocks": {
@@ -1244,6 +1265,7 @@
     "phasis_electro_problem_WKqiXV",
     "peptide_comparison_CUUykA",
     "mobile_social_proof_JkHeGV",
+    "apps_PJa9WR",
     "mobilepurchase_section_cy9ibj",
     "mobile_faq_section_RrH67K",
     "mobile_final_cta_j7FNyi"

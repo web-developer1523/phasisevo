@@ -161,9 +161,139 @@
         -%}
       </span>
     </a>
+                <div
+              class="header__account-modal modal__toggle color-background-1"
+              role="dialog"
+              aria-modal="true"
+            >
+              {%- if customer -%}
+                <div class="header__account__account">
+                  <div class="header__account__name">{{ customer.name }}</div>
+                  <ul class="header__account__body">
+                    <li class="header__account__link">
+                      <a
+                        href="{{ routes.account_url }}"
+                        aria-label="{{ 'customer.account_fallback' | t }}"
+                      >
+                        {{ 'customer.account_fallback' | t }}
+                      </a>
+                    </li>
+                    <li class="header__account__address">
+                      <a
+                        href="{{ routes.account_addresses_url }}"
+                        aria-label="{{ 'customer.addresses.book' | t }}"
+                      >
+                        {{- 'customer.addresses.book' | t -}}
+                      </a>
+                    </li>
+                  </ul>
+                  <a
+                    class="header__account__logout button button--primary button--primary-size focus-inset"
+                    href="{{ routes.account_logout_url }}"
+                    data-button-text="{{ 'customer.log_out' | t }}"
+                    aria-label="{{ 'customer.log_out' | t }}"
+                  >
+                    <span>
+                      {{ 'customer.log_out' | t }}
+                    </span>
+                  </a>
+                </div>
+              {%- else -%}
+               <a
+                  href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                  class="button button--primary button--primary-size button header__account__login link focus-inset"
+                  {%- if customer -%}
+                    data-button-text="{{ 'customer.account_fallback' | t }}"
+                    aria-label="{{ 'customer.account_fallback' | t }}"
+                  {%- else -%}
+                    data-button-text="{{ 'customer.log_in' | t }}"
+                    aria-label="{{ 'customer.log_in' | t }}"
+                  {%- endif -%}
+                >
+                  <span>User Login</span>
+                </a>
+                <a
+                  href="https://af.uppromote.com/btcsyr-rw/login"
+                  class="button button--primary button--primary-size button header__account__login link focus-inset"
+                  {%- if customer -%}
+                    data-button-text="{{ 'customer.account_fallback' | t }}"
+                    aria-label="{{ 'customer.account_fallback' | t }}"
+                  {%- else -%}
+                    data-button-text="{{ 'customer.log_in' | t }}"
+                    aria-label="{{ 'customer.log_in' | t }}"
+                  {%- endif -%}
+                >
+                  <span>
+                    {% if customer %}
+                      {{ 'customer.account_fallback' | t }}
+                    {% else %}
+                      {{ 'customer.log_in' | t }}
+                    {% endif %}
+                  </span>
+                </a>
+
+                <a
+                  class="header__account__register button--arrow"
+                  href="{{ routes.account_register_url }}"
+                  aria-label="{{ 'customer.login_page.create_account' | t }}"
+                >
+                  {{ 'customer.login_page.create_account' | t }}
+                  {% render 'icon-caret' %}
+                </a>
+              {%- endif -%}
+            </div>
   </div>
 {%- endif -%}
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  // Detect mobile devices
+  function isMobile() {
+    return /Android|iPhone|iPad|iPod|Mobile|Opera Mini|IEMobile/i.test(navigator.userAgent);
+  }
+
+  if (!isMobile()) return;
+
+  const container = document.querySelector(".mobile-only-account-container");
+  if (!container) return;
+
+  const anchor = container.querySelector("a.header__icon--account");
+  const modal = container.querySelector(".header__account-modal");
+
+  if (!anchor || !modal) return;
+
+  // Initially hide modal
+  modal.style.display = "none";
+
+  anchor.addEventListener("click", function (e) {
+    e.preventDefault(); // stop redirect
+
+    // Toggle modal
+    if (modal.style.display === "none") {
+      modal.style.display = "block";
+    } else {
+      modal.style.display = "none";
+    }
+  });
+
+  // Optional: close when clicking outside
+  document.addEventListener("click", function (e) {
+    if (!container.contains(e.target)) {
+      modal.style.display = "none";
+    }
+  });
+});
+</script>
+<style>
+  .mobile-only-account-container .header__account-modal{
+    left:75%;
+  }
+  .mobile-only-account-container a.header__account__register svg {
+    width: 1rem;
+    color: #000;
+}
+</style>
+
 {% comment %} --- END: MOBILE ACCOUNT ICON --- {% endcomment %}
      {%- if section.settings.header_type == 'bottom-menu' and section.settings.enable_search  -%} 
 

@@ -10,9 +10,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
+    <meta name="facebook-domain-verification" content="oztcibvif0br4xnc787bxu2xvw5noh" />
     <link rel="canonical" href="{{ canonical_url }}">
     <link rel="preconnect" href="https://cdn.shopify.com" crossorigin>
-  
+
     <!-- Open Graph / Social Meta for Quiz Page -->
     {% if template == 'page' and page.handle == 'quiz' %}
       <meta property="og:title" content="What Supplements Should I Take? Free Quiz — PHASIS">
@@ -21,10 +22,21 @@
         content="Answer a few questions about your goals and get a personalised wellness protocol. Free. Takes a few minutes."
       >
     {% endif %}
-     <!-- collecton/all -->
+    <!-- collecton/all -->
     {% if template == 'collection' and collection.handle == 'all' %}
-  <meta name="description" content="Shop PHASIS — CBD pain balm, mineral electrolyte drops, and ecdysterone capsules. Third-party tested. 30-day guarantee. Free shipping over $75.">
-{% endif %}
+      <meta
+        name="description"
+        content="Shop PHASIS — CBD pain balm, mineral electrolyte drops, and ecdysterone capsules. Third-party tested. 30-day guarantee. Free shipping over $75."
+      >
+    {% endif %}
+
+   {% if template.name == 'cart' or request.path == '/cart' %}
+      <meta
+        name="description"
+        content="Review your PHASIS order - CBD topicals, mineral electrolytes, and ecdysterone capsules. Free shipping on orders $100+. 30-day guarantee. Secure checkout."
+      >
+    {% endif %}
+
     {%- if settings.favicon != blank -%}
       <link
         rel="icon"
@@ -42,7 +54,12 @@
     {% if page_description %}
       <meta name="description" content="{{ page_description | escape }}">
     {% endif %}
+   
+     {% if template.name == 'cart' or template.name == 'search' or request.path == '/cart' or request.path == '/search' %}
+    <meta name="robots" content="noindex, follow">
+  {% endif %}
 
+   
     {% render 'meta-tags' %}
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
@@ -90,153 +107,417 @@
     <!-- pages script -->
     {% if template == 'index' %}
       <script type="application/ld+json">
-        {
-          "@context": "https://schema.org",
-          "@graph": [
-            {
-              "@type": "Organization",
-              "@id": "https://phasisevo.com/#organization",
-              "name": "PHASIS",
-              "url": "https://phasisevo.com",
-              "logo": "https://phasisevo.com/cdn/shop/files/phasis-logo.png",
-              "sameAs": ["https://www.instagram.com/phasisevo"],
-              "contactPoint": {
-                "@type": "ContactPoint",
-                "contactType": "customer support",
-                "email": "admin@naturalperformance.co"
-              }
-            },
-            {
-              "@type": "WebSite",
-              "@id": "https://phasisevo.com/#website",
-              "url": "https://phasisevo.com",
-              "name": "PHASIS",
-              "publisher": { "@id": "https://phasisevo.com/#organization" },
-              "potentialAction": {
-                "@type": "SearchAction",
-                "target": "https://phasisevo.com/search?q={search_term_string}",
-                "query-input": "required name=search_term_string"
-              }
-            }
-          ]
-        }
-      </script>
-      <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "Do all products ship together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, multiple products ship in one package. Orders over $75 ship free. We ship within 1–3 business days with full tracking on every order."
+      "@type": "WebPage",
+      "@id": "https://phasisevo.com/#webpage",
+      "url": "https://phasisevo.com/",
+      "name": "Science-Backed CBD Balm, Electrolytes & Ecdysterone | PHASIS",
+      "description": "CBD balm with Lidocaine nerve block. Mineral-first electrolytes, 50+ trace minerals. Plant-derived ecdysterone — WADA-funded research. 3rd party tested. Free shipping $75+.",
+      "isPartOf": {
+        "@id": "https://phasisevo.com/#website"
+      },
+      "about": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "@id": "https://phasisevo.com/#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://phasisevo.com/"
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Can I use all three products together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, they're designed to complement each other. Max Relief is topical. Electro+ is an oral mineral supplement. Perform+ is an oral ecdysterone capsule. Three different systems with no interaction."
+      "@type": "WebSite",
+      "@id": "https://phasisevo.com/#website",
+      "url": "https://phasisevo.com",
+      "name": "PHASIS",
+      "description": "Science-backed recovery supplements and topicals. CBD balm, trace mineral electrolytes, and plant-derived ecdysterone. 3rd party tested. Made in USA.",
+      "publisher": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://phasisevo.com/search?q={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
       }
     },
     {
-      "@type": "Question",
-      "name": "Are these safe for drug-tested athletes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Max Relief CBD is topical and doesn't produce a positive drug test. Electro+ is minerals only. Perform+ contains β-Ecdysterone which is not on the WADA prohibited list and is legal in all major organizations including UFC and USADA-tested events. Every product is 3rd party tested for banned substance contamination."
-      }
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization",
+      "name": "PHASIS",
+      "legalName": "Natural Performance LLC",
+      "url": "https://phasisevo.com",
+      "logo": {
+        "@type": "ImageObject",
+        "@id": "https://phasisevo.com/#logo",
+        "url": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "contentUrl": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "width": 180,
+        "height": 40,
+        "caption": "PHASIS"
+      },
+      "image": {
+        "@id": "https://phasisevo.com/#logo"
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jonathan Ross-Turcios"
+      },
+      "foundingDate": "2025",
+      "description": "Natural Performance LLC makes science-backed recovery products under the PHASIS brand. Products are 3rd party tested, made in the USA, and designed for athletes and active adults.",
+      "email": "Admin@naturalperformance.co",
+      "areaServed": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "knowsAbout": [
+        "CBD topicals",
+        "trace mineral electrolytes",
+        "ecdysterone supplements",
+        "sports recovery",
+        "natural pain relief"
+      ],
+      "sameAs": [
+        "https://www.instagram.com/phasisevo/",
+        "https://www.tiktok.com/@phasisevo",
+        "https://x.com/PhasisEvo",
+        "https://www.facebook.com/Phasisevo",
+        "https://www.linkedin.com/company/natural-performance-llc/"
+      ]
     },
     {
-      "@type": "Question",
-      "name": "What's your return policy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "30-day satisfaction guarantee on all products. Contact us within 30 days of purchase for a full refund no questions asked."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which product should I start with?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dealing with pain or injury start with Max Relief. Priority is hydration and recovery starts with Electro+. Goal is muscle building and performance starting with Perform+. Want the full system the PHASIS Stack covers all three at a discount."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a subscription option?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not currently all products are one-time purchases. We're building a subscription and rewards program. Join the Rewards waitlist for early access to subscriber pricing."
-      }
+      "@type": "ItemList",
+      "@id": "https://phasisevo.com/#product-lineup",
+      "name": "PHASIS Recovery Products",
+      "description": "The complete PHASIS line — CBD topical, trace mineral electrolytes, and plant-derived ecdysterone. Designed to complement each other for full-spectrum recovery.",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Max Relief",
+          "description": "Maximum strength CBD topical with Lidocaine nerve block. 4-pathway relief system for deep muscle and joint recovery.",
+          "url": "https://phasisevo.com/pages/max-relief",
+          "image": "https://phasisevo.com/cdn/shop/files/max-relief-1200mg-60ml_500x_97ae76ed-8fb9-4491-ae23-44b93262b1cc.png?v=1776329684"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Electro+ Trace Mineral Drops",
+          "description": "Mineral-first electrolyte drops with 50+ trace minerals. Zero sugar, unflavored. Add 20 drops to any drink.",
+          "url": "https://phasisevo.com/pages/electro-plus",
+          "image": "https://phasisevo.com/cdn/shop/files/30ml-new.png?v=1776836547"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Perform+",
+          "description": "250mg HPβCD ecdysterone per capsule. Plant-derived, non-hormonal, WADA-compliant. Sourced from Cyanotis arachnoidea root.",
+          "url": "https://phasisevo.com/pages/perform-plus",
+          "image": "https://phasisevo.com/cdn/shop/files/Perform_30cap_3e70045b-383e-4ec4-a9f5-b20d4ec477bf.png?v=1775624091"
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "name": "Relief CBD Balm",
+          "description": "Full-spectrum CBD balm with 13 botanicals. Gentle for sensitive skin and daily use. 3rd party tested.",
+          "url": "https://phasisevo.com/pages/relief",
+          "image": "https://phasisevo.com/cdn/shop/files/ReleifJarRender_579c709d-c2c5-47cd-b599-d80f273624d8.jpg?v=1775624217"
+        }
+      ]
     }
   ]
 }
 </script>
+    {% endif %}
+
+
+
+{% if page.handle == 'relief' %}
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Max Relief"
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization",
+      "name": "PHASIS",
+      "legalName": "Natural Performance LLC",
+      "url": "https://phasisevo.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "width": 140,
+        "height": 40
       },
-      "author": {
+      "founder": {
         "@type": "Person",
-        "name": "Megan T."
+        "name": "Jonathan Ross-Turcios"
       },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "I have disc disease and have tried everything on the market. This is the only thing that actually works. The relief is almost immediate and lasts for hours."
+      "foundingDate": "2025",
+      "email": "Admin@naturalperformance.co",
+      "areaServed": "US",
+      "sameAs": [
+        "https://www.instagram.com/phasisevo/",
+        "https://www.tiktok.com/@phasisevo",
+        "https://x.com/PhasisEvo",
+        "https://www.facebook.com/Phasisevo",
+        "https://www.linkedin.com/company/natural-performance-llc/"
+      ]
     },
     {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Max Relief"
-      },
-      "author": {
-        "@type": "Person",
-        "name": "Marcus D."
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "I train BJJ and tried Voltaren, IcyHot, everything else. PHASIS is the only thing that actually gets deep enough to help. Non-negotiable part of my recovery."
+      "@type": "BreadcrumbList",
+      "@id": "https://phasisevo.com/pages/relief#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://phasisevo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://phasisevo.com/collections/all"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Relief CBD Balm",
+          "item": "https://phasisevo.com/pages/relief"
+        }
+      ]
     },
     {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Max Relief"
+      "@type": "Product",
+      "@id": "https://phasisevo.com/products/relief#product",
+      "name": "Relief CBD Balm",
+      "description": "Full-spectrum CBD balm with 13 botanicals. Gentle formula for sensitive skin and daily use. Soothes everyday muscle soreness, joint fatigue, and tension. USDA organic hemp. 3rd party tested. Made in USA.",
+      "url": "https://phasisevo.com/pages/relief",
+      "mainEntityOfPage": "https://phasisevo.com/pages/relief",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/ReleifJarRender_579c709d-c2c5-47cd-b599-d80f273624d8.jpg?v=1775624217",
+          "name": "Relief CBD Balm — 60ml Jar"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/ReleifSalve30ML_f842596d-646d-4510-ad90-234ec03cb60e.jpg?v=1775624217",
+          "name": "Relief CBD Balm — 30ml Stick"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/Relief_20ml_Salve_dec35d19-ba1d-4c79-9f73-491c5804ff7e.jpg?v=1775624217",
+          "name": "Relief CBD Balm — 20ml Stick"
+        }
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "PHASIS"
       },
-      "author": {
-        "@type": "Person",
-        "name": "Sharon Cook"
+      "manufacturer": {
+        "@id": "https://phasisevo.com/#organization"
       },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "4",
-        "bestRating": "5"
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "US"
       },
-      "reviewBody": "Post rotator cuff surgery the pain is relentless. Max Relief sinks deep and relieves the stiffness in my traps and upper scapulary muscles. A genuine game changer."
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Formula",
+          "value": "13 botanicals, full-spectrum CBD"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Skin Type",
+          "value": "Suitable for sensitive skin"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Hemp Source",
+          "value": "USDA organic hemp"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Testing",
+          "value": "3rd party tested"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "8",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "@id": "https://phasisevo.com/#returnpolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "merchantReturnLink": "https://phasisevo.com/pages/privacy-policy-1#returns"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Relief CBD Balm — 20ml Stick",
+          "description": "Travel size. Same concentration. 400mg CBD. 3rd party tested. Made in USA.",
+          "price": "25.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/relief?variant=46145484226732",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "USD"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              }
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Relief CBD Balm — 30ml Stick",
+          "description": "Targeted application. On-the-go. 600mg CBD. 3rd party tested. Made in USA.",
+          "price": "30.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/relief?variant=46145484259500",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "USD"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              }
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Relief CBD Balm — 60ml Jar",
+          "description": "Best value. Full coverage. 1200mg CBD. 3rd party tested. Made in USA.",
+          "price": "50.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/relief?variant=46145484292268",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": 0,
+              "currency": "USD"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 2,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              }
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            }
+          }
+        }
+      ]
     }
   ]
 }
 </script>
+{% endif %}
 
-    {% endif %}
+
     {% if page.handle == 'about' %}
       <script type="application/ld+json">
         {
@@ -257,275 +538,1095 @@
         }
       </script>
     {% endif %}
-{% if  page.handle == 'quiz' %}
-	<script type="application/ld+json">
+    {% if page.handle == 'quiz' %}
+     <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "PHASIS Protocol Quiz",
-  "url": "https://phasisevo.com/pages/quiz",
-  "applicationCategory": "HealthApplication",
-  "description": "Free personalised supplement quiz. Answer questions about your health goals, training, and lifestyle to get a protocol tailored to your needs.",
-  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-  "publisher": { "@type": "Organization", "name": "PHASIS" }
-}
-</script>
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How long does the PHASIS quiz take?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The quiz takes a few minutes to complete. It covers 6 health and wellness domains across 24 questions." }
+      "@type": "WebPage",
+      "@id": "https://phasisevo.com/pages/quiz#webpage",
+      "url": "https://phasisevo.com/pages/quiz",
+      "name": "What Supplements Should I Take? Free Quiz | PHASIS",
+      "description": "Answer a few questions about your pain, energy, sleep, and training goals. Get a personalised supplement protocol — free. Takes a few minutes.",
+      "isPartOf": { "@id": "https://phasisevo.com/#website" },
+      "about": { "@id": "https://phasisevo.com/#organization" },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "@id": "https://phasisevo.com/pages/quiz#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://phasisevo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Supplement Quiz",
+            "item": "https://phasisevo.com/pages/quiz"
+          }
+        ]
+      }
     },
     {
-      "@type": "Question",
-      "name": "Is the PHASIS Protocol Quiz free?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes, completely free. No account required. You receive your personalised protocol at the end." }
-    },
-    {
-      "@type": "Question",
-      "name": "What do I get from the quiz?",
-      "acceptedAnswer": { "@type": "Answer", "text": "You receive a personalised wellness protocol tailored to your top health domains — including supplement recommendations, natural remedies, and daily routine tips based on your specific goals and lifestyle." }
-    },
-    {
-      "@type": "Question",
-      "name": "What supplements should I take?",
-      "acceptedAnswer": { "@type": "Answer", "text": "The right supplements depend on your health goals, training intensity, sleep, stress levels, and diet. Our free quiz assesses 6 health domains and builds a personalised protocol based on your answers rather than a generic recommendation." }
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization"
     }
   ]
 }
 </script>
-{%endif %}
-{% if  page.handle == 'faq' %}
-<script type="application/ld+json">
+    {% endif %}
+
+
+    {% if page.handle == 'faq' %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "How do I place an order?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Browse our products on the Shop page, select your size or quantity, and click Add to Cart. Proceed to checkout to enter your shipping information and payment details. You'll receive an order confirmation email immediately after purchase."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will the CBD show up on a drug test?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. Max Relief is a topical it doesn't enter the bloodstream in meaningful amounts. Full spectrum CBD in topical form does not produce a positive drug test under standard testing protocols. If you have specific concerns about testing for a competition or employer, consult your testing authority directly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Does it taste like anything?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Does it taste like anything? +Barely. At the recommended dose you'll notice a very slight saltiness that's it. No sweetness, no bitterness, no chemical aftertaste. It won't change the taste of your coffee, water, or shake. This is the biggest feedback we get from people who've switched from LMNT or Liquid IV those products have a strong, sweet flavor that dominates your drink. Electro+ doesn't."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Will Perform+ get me banned from sport?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. β-Ecdysterone is not on the WADA prohibited list and is not banned by USADA, UFC, or any major sports organization. WADA added it to their monitoring list in 2021 but monitoring is distinct from prohibited. Athletes are only sanctioned for substances on the prohibited list. Every batch of Perform+ is 3rd party tested to confirm zero contamination with banned substances."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I use all three products together?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Yes , they're designed to complement each other. Max Relief is a topical targeting pain and inflammation at the tissue level. Electro+ is an oral mineral supplement supporting cellular hydration and recovery. Perform+ is an oral ecdysterone capsule supporting muscle protein synthesis. Three different systems, zero overlap, no interaction between them."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How long does shipping take?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Orders are processed within 1–3 business days. Standard shipping (free over $75) takes 3–7 business days. Expedited shipping (2–3 business days) is $12.99. Overnight shipping is $24.99 for orders placed before 12pm EST. You'll receive a tracking number via email once your order ships."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's your return policy?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "30-day satisfaction guarantee on all products. If you're not satisfied for any reason within 30 days of delivery, email with your order number and we'll issue a full refund to your original payment method. You don't need to return the product. No questions asked we mean that."
+              }
+            }
+          ]
+        }
+      </script>
+    {% endif %}
+
+    {% if page.handle == 'partner' %}
+      <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Is there a minimum follower count for affiliate partners?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No. We care about authentic fit, not follower count. A BJJ coach with 2,000 highly engaged followers in the right community is worth more to us than 50,000 generic fitness followers. Apply and tell us about your audience we'll evaluate fit honestly."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "What's the minimum wholesale order?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Opening orders start at 24 units minimum, mix and match products. Reorders can be smaller once an account is established. We'll discuss specific terms during the application process based on your location and expected volume."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does affiliate tracking and payment work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You'll receive a unique tracking link and a personal discount code from day one. Commission tiers are calculated on your total monthly referred sales 15% up to $499, 20% from $500–$1,999, and 25% at $2,000 and above. Tiers reset monthly. You'll have access to a real-time dashboard showing clicks, conversions, and earnings. We pay monthly via direct bank transfer or PayPal with no minimum payout threshold."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does athlete sponsorship work at this stage?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "We're honest about where we are as a brand. Right now sponsorship means product supply every month the full PHASIS stack plus a 20% affiliate commission that scales to 25% on top of that. No cash deals yet, but that changes as the brand grows and we'll reward the athletes who were with us early. What we ask for in return is authentic representation, use the product, post about it honestly, tag us at competitions. No scripts, no forced content. If you're someone who'd use this anyway, it's a natural fit."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How does Brand Collaboration work?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Brand Collaboration isn't an open program, we take on a small number of partnerships each year with gyms, academies, and organizations that are a genuine fit for what PHASIS is building. If you think that's you, tell us who your community is, what you do, and why PHASIS belongs in it. We'll take it from there."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Can I stock only one product or do I need to carry all three?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can start with any single product. Many wholesale partners begin with Max Relief because it's the most universal, it works for everyone in pain regardless of training background. We don't require you to carry the full line, though most partners do once they see the sell-through rates."
+              }
+            }
+          ]
+        }
+      </script>
+    {% endif %}
+
+    {% if page.handle == 'phasis-shop' %}
+      <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
+  "@graph": [
     {
-      "@type": "Question",
-      "name": "How do I place an order?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Browse our products on the Shop page, select your size or quantity, and click Add to Cart. Proceed to checkout to enter your shipping information and payment details. You'll receive an order confirmation email immediately after purchase."
+      "@type": "CollectionPage",
+      "@id": "https://phasisevo.com/pages/phasis-shop#webpage",
+      "url": "https://phasisevo.com/pages/phasis-shop",
+      "name": "CBD Topicals & Performance Supplements | PHASIS",
+      "description": "CBD pain balm, mineral electrolyte drops, ecdysterone capsules. One complete recovery system. 3rd party tested. 30-day guarantee. Free shipping $75+.",
+      "isPartOf": {
+        "@id": "https://phasisevo.com/#website"
+      },
+      "about": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "@id": "https://phasisevo.com/pages/phasis-shop#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://phasisevo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Shop",
+            "item": "https://phasisevo.com/pages/phasis-shop"
+          }
+        ]
       }
     },
     {
-      "@type": "Question",
-      "name": "Will the CBD show up on a drug test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. Max Relief is a topical it doesn't enter the bloodstream in meaningful amounts. Full spectrum CBD in topical form does not produce a positive drug test under standard testing protocols. If you have specific concerns about testing for a competition or employer, consult your testing authority directly."
-      }
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization"
     },
     {
-      "@type": "Question",
-      "name": "Does it taste like anything?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Does it taste like anything? +Barely. At the recommended dose you'll notice a very slight saltiness that's it. No sweetness, no bitterness, no chemical aftertaste. It won't change the taste of your coffee, water, or shake. This is the biggest feedback we get from people who've switched from LMNT or Liquid IV those products have a strong, sweet flavor that dominates your drink. Electro+ doesn't."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Will Perform+ get me banned from sport?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. β-Ecdysterone is not on the WADA prohibited list and is not banned by USADA, UFC, or any major sports organization. WADA added it to their monitoring list in 2021 but monitoring is distinct from prohibited. Athletes are only sanctioned for substances on the prohibited list. Every batch of Perform+ is 3rd party tested to confirm zero contamination with banned substances."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use all three products together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes , they're designed to complement each other. Max Relief is a topical targeting pain and inflammation at the tissue level. Electro+ is an oral mineral supplement supporting cellular hydration and recovery. Perform+ is an oral ecdysterone capsule supporting muscle protein synthesis. Three different systems, zero overlap, no interaction between them."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How long does shipping take?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Orders are processed within 1–3 business days. Standard shipping (free over $75) takes 3–7 business days. Expedited shipping (2–3 business days) is $12.99. Overnight shipping is $24.99 for orders placed before 12pm EST. You'll receive a tracking number via email once your order ships."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's your return policy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "30-day satisfaction guarantee on all products. If you're not satisfied for any reason within 30 days of delivery, email with your order number and we'll issue a full refund to your original payment method. You don't need to return the product. No questions asked we mean that."
-      }
+      "@type": "ItemList",
+      "@id": "https://phasisevo.com/pages/phasis-shop#product-list",
+      "name": "PHASIS Recovery Products",
+      "description": "The complete PHASIS product line \u2014 CBD topical, trace mineral electrolytes, and plant-derived ecdysterone. Designed to work together for full-spectrum recovery.",
+      "numberOfItems": 4,
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "Product",
+            "@id": "https://phasisevo.com/products/max-relief#product",
+            "name": "Max Relief",
+            "description": "Maximum strength CBD topical with Lidocaine nerve block. 4-pathway relief system \u2014 Lidocaine, full-spectrum CBD, arnica, and menthol. 3rd party tested. Made in USA.",
+            "url": "https://phasisevo.com/pages/max-relief",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://phasisevo.com/cdn/shop/files/max-relief-1200mg-60ml_3866ddf1-b197-4a7b-a66a-cae4f45fb828.png",
+              "name": "Max Relief CBD Balm"
+            },
+            "brand": {
+              "@type": "Brand",
+              "name": "PHASIS"
+            },
+            "manufacturer": {
+              "@id": "https://phasisevo.com/#organization"
+            },
+            "countryOfOrigin": {
+              "@type": "Country",
+              "name": "US"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "8",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "20.00",
+              "highPrice": "60.00",
+              "priceCurrency": "USD",
+              "offerCount": 3,
+              "availability": "https://schema.org/InStock",
+              "url": "https://phasisevo.com/pages/max-relief",
+              "seller": {
+                "@id": "https://phasisevo.com/#organization"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "item": {
+            "@type": "Product",
+            "@id": "https://phasisevo.com/products/electro-drops#product",
+            "name": "Electro+ Trace Mineral Drops",
+            "description": "Mineral-first electrolyte drops with 50+ trace minerals. Magnesium, Chloride, Sodium, Potassium, Sulfate per serving. Zero sugar, unflavored. 3rd party tested. Made in USA.",
+            "url": "https://phasisevo.com/pages/electro-plus",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://phasisevo.com/cdn/shop/files/30ml-new.png?v=1776836547",
+              "name": "Electro+ Trace Mineral Drops \u2014 30ml"
+            },
+            "brand": {
+              "@type": "Brand",
+              "name": "PHASIS"
+            },
+            "manufacturer": {
+              "@id": "https://phasisevo.com/#organization"
+            },
+            "countryOfOrigin": {
+              "@type": "Country",
+              "name": "US"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25.00",
+              "highPrice": "55.00",
+              "priceCurrency": "USD",
+              "offerCount": 2,
+              "availability": "https://schema.org/InStock",
+              "url": "https://phasisevo.com/pages/electro-plus",
+              "seller": {
+                "@id": "https://phasisevo.com/#organization"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "item": {
+            "@type": "Product",
+            "@id": "https://phasisevo.com/products/perform#product",
+            "name": "Perform+",
+            "description": "250mg HP\u03b2CD ecdysterone per capsule. Plant-derived, non-hormonal, WADA-compliant. Sourced from Cyanotis arachnoidea root, 95% purity. 3rd party tested. Made in USA.",
+            "url": "https://phasisevo.com/pages/perform-plus",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://phasisevo.com/cdn/shop/files/Perform_30cap_3e70045b-383e-4ec4-a9f5-b20d4ec477bf.png?v=1775624091",
+              "name": "Perform+ Ecdysterone \u2014 30 Capsules"
+            },
+            "brand": {
+              "@type": "Brand",
+              "name": "PHASIS"
+            },
+            "manufacturer": {
+              "@id": "https://phasisevo.com/#organization"
+            },
+            "countryOfOrigin": {
+              "@type": "Country",
+              "name": "US"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "49.00",
+              "highPrice": "85.00",
+              "priceCurrency": "USD",
+              "offerCount": 2,
+              "availability": "https://schema.org/InStock",
+              "url": "https://phasisevo.com/pages/perform-plus",
+              "seller": {
+                "@id": "https://phasisevo.com/#organization"
+              }
+            }
+          }
+        },
+        {
+          "@type": "ListItem",
+          "position": 4,
+          "item": {
+            "@type": "Product",
+            "@id": "https://phasisevo.com/products/relief#product",
+            "name": "Relief CBD Balm",
+            "description": "Full-spectrum CBD balm with 13 botanicals. Gentle formula for sensitive skin and daily use. Soothes everyday muscle soreness, joint fatigue, and tension. 3rd party tested. Made in USA.",
+            "url": "https://phasisevo.com/pages/relief",
+            "image": {
+              "@type": "ImageObject",
+              "url": "https://phasisevo.com/cdn/shop/files/ReleifJarRender_579c709d-c2c5-47cd-b599-d80f273624d8.jpg?v=1775624217",
+              "name": "Relief CBD Balm \u2014 60ml Jar"
+            },
+            "brand": {
+              "@type": "Brand",
+              "name": "PHASIS"
+            },
+            "manufacturer": {
+              "@id": "https://phasisevo.com/#organization"
+            },
+            "countryOfOrigin": {
+              "@type": "Country",
+              "name": "US"
+            },
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.9",
+              "reviewCount": "8",
+              "bestRating": "5",
+              "worstRating": "1"
+            },
+            "offers": {
+              "@type": "AggregateOffer",
+              "lowPrice": "25.00",
+              "highPrice": "50.00",
+              "priceCurrency": "USD",
+              "offerCount": 3,
+              "availability": "https://schema.org/InStock",
+              "url": "https://phasisevo.com/pages/relief",
+              "seller": {
+                "@id": "https://phasisevo.com/#organization"
+              }
+            }
+          }
+        }
+      ]
     }
   ]
 }
 </script>
 
-{%endif %}
-
-
-{% if  page.handle == 'partner' %}
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Is there a minimum follower count for affiliate partners?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. We care about authentic fit, not follower count. A BJJ coach with 2,000 highly engaged followers in the right community is worth more to us than 50,000 generic fitness followers. Apply and tell us about your audience we'll evaluate fit honestly."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's the minimum wholesale order?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Opening orders start at 24 units minimum, mix and match products. Reorders can be smaller once an account is established. We'll discuss specific terms during the application process based on your location and expected volume."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does affiliate tracking and payment work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You'll receive a unique tracking link and a personal discount code from day one. Commission tiers are calculated on your total monthly referred sales 15% up to $499, 20% from $500–$1,999, and 25% at $2,000 and above. Tiers reset monthly. You'll have access to a real-time dashboard showing clicks, conversions, and earnings. We pay monthly via direct bank transfer or PayPal with no minimum payout threshold."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does athlete sponsorship work at this stage?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "We're honest about where we are as a brand. Right now sponsorship means product supply every month the full PHASIS stack plus a 20% affiliate commission that scales to 25% on top of that. No cash deals yet, but that changes as the brand grows and we'll reward the athletes who were with us early. What we ask for in return is authentic representation, use the product, post about it honestly, tag us at competitions. No scripts, no forced content. If you're someone who'd use this anyway, it's a natural fit."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "How does Brand Collaboration work?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Brand Collaboration isn't an open program, we take on a small number of partnerships each year with gyms, academies, and organizations that are a genuine fit for what PHASIS is building. If you think that's you, tell us who your community is, what you do, and why PHASIS belongs in it. We'll take it from there."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I stock only one product or do I need to carry all three?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "You can start with any single product. Many wholesale partners begin with Max Relief because it's the most universal, it works for everyone in pain regardless of training background. We don't require you to carry the full line, though most partners do once they see the sell-through rates."
-      }
-    }
-  ]
-}
-</script>
-{%endif %}
-
-
-{% if page.handle == 'phasis-shop' %}
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "Do all products ship together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, multiple products ship in one package. Orders over $75 ship free. We ship within 1–3 business days with full tracking on every order."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What's your return policy?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "30-day satisfaction guarantee on all products. Contact us within 30 days of purchase for a full refund, no questions asked."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use all three products together?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes, they're designed to complement each other. Max Relief is topical. Electro+ is an oral mineral supplement. Perform+ is an oral ecdysterone capsule. Three different systems with no interaction."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Which product should I start with?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Dealing with pain or injury start with Max Relief. Priority is hydration and recovery start with Electro+. Goal is muscle building and performance start with Perform+. Want the full system the PHASIS Stack covers all three at a discount."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Are these safe for drug-tested athletes?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Max Relief CBD is topical and doesn't produce a positive drug test. Electro+ is minerals only. Perform+ contains β-Ecdysterone which is not on the WADA prohibited list and is legal in all major organizations including UFC and USADA-tested events. Every product is 3rd party tested for banned substance contamination."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is there a subscription option?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Not currently, all products are one-time purchases. We're building a subscription and rewards program. Join the Rewards waitlist for early access to subscriber pricing."
-      }
-    }
-  ]
-}
-</script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Max Relief Balm"
-      },
-      "author": { "@type": "Person", "name": "Megan T." },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "I have been using the max relief for the last year on my back and neck for degenerative disc disease. It is the only product that provides me with relief and helps with my flare ups. I have tried everything from bio freeze to medicinal products to try and manage my pain, but this is the only product I will use now! 1000% recommend! I have multiple family members that now use the product for pain management as well."
+      "@type": "WebPage",
+      "@id": "https://phasisevo.com/pages/quiz#webpage",
+      "url": "https://phasisevo.com/pages/quiz",
+      "name": "What Supplements Should I Take? Free Quiz | PHASIS",
+      "description": "Answer a few questions about your pain, energy, sleep, and training goals. Get a personalised supplement protocol — free. Takes a few minutes.",
+      "isPartOf": { "@id": "https://phasisevo.com/#website" },
+      "about": { "@id": "https://phasisevo.com/#organization" },
+      "inLanguage": "en-US",
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "@id": "https://phasisevo.com/pages/quiz#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://phasisevo.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Supplement Quiz",
+            "item": "https://phasisevo.com/pages/quiz"
+          }
+        ]
+      }
     },
     {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Electro+"
-      },
-      "author": { "@type": "Person", "name": "Cliff" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "This stuff feels amazing. The way it numbs and relaxes my muscle and joint aches is unmatched. I have tried a lot of CBD products but the additions here really bring it together. It also smells great which adds some aromatherapy and makes it overall a pleasant experience."
-    },
-    {
-      "@type": "Review",
-      "itemReviewed": {
-        "@type": "Product",
-        "name": "Perform+"
-      },
-      "author": { "@type": "Person", "name": "Sean Ferdowsian" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-      "reviewBody": "Absolute lifesaver! After flipping my ATV and getting a contusion on my rib, this is the only thing that's giving me any relief! Extremely great product, very highly recommended! It's worth every penny!"
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization"
     }
   ]
 }
 </script>
 
-{%endif %}
+    {% endif %}
 
+   {% if page.handle == 'electro-plus' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization",
+      "name": "PHASIS",
+      "legalName": "Natural Performance LLC",
+      "url": "https://phasisevo.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "width": 140,
+        "height": 40
+      },
+      "email": "Admin@naturalperformance.co",
+      "areaServed": "US",
+      "sameAs": [
+        "https://www.instagram.com/phasisevo/",
+        "https://www.tiktok.com/@phasisevo",
+        "https://x.com/PhasisEvo",
+        "https://www.facebook.com/Phasisevo",
+        "https://www.linkedin.com/company/natural-performance-llc/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://phasisevo.com/pages/electro-plus#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://phasisevo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://phasisevo.com/collections/all"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Electro+",
+          "item": "https://phasisevo.com/pages/electro-plus"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://phasisevo.com/pages/electro-plus#product",
+      "name": "Electro+ Drops",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/111111.png",
+          "name": "Electro+ Drops"
+        }
+      ],
+      "description": "Electro+ is a mineral-first liquid electrolyte concentrate designed for hydration, training, endurance, recovery, and daily performance. It delivers 50+ trace minerals from Utah mineral deposits with zero sugar, no powder, no packets, no artificial sweeteners, and works in any drink.",
+      "url": "https://phasisevo.com/pages/electro-plus",
+      "mainEntityOfPage": "https://phasisevo.com/pages/electro-plus",
+      "brand": {
+        "@type": "Brand",
+        "name": "PHASIS"
+      },
+      "manufacturer": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Product Type",
+          "value": "Liquid electrolyte mineral concentrate"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Mineral Profile",
+          "value": "50+ trace minerals"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Mineral Source",
+          "value": "Utah ancient mineral deposits"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Sugar Content",
+          "value": "0g sugar"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Format",
+          "value": "Liquid drops; no powder, no packets, no mess"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Serving Size",
+          "value": "20 drops or 1mL per serving"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Testing",
+          "value": "3rd party tested every batch"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "@id": "https://phasisevo.com/#returnpolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "merchantReturnLink": "https://phasisevo.com/pages/return-policy"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Electro+ Drops — 30ml",
+          "description": "Standard 30ml bottle. 20 drops equals 0.83 serving. From $0.83 per serving.",
+          "price": "25.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/pages/electro-plus",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Electro+ Drops — 120ml",
+          "description": "Best value 120ml bottle with graduated 1mL dropper. From $0.46 per serving.",
+          "price": "55.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/pages/electro-plus",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    {% endif %}
+{% if page.handle == 'perform-plus' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization",
+      "name": "PHASIS",
+      "legalName": "Natural Performance LLC",
+      "url": "https://phasisevo.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "width": 140,
+        "height": 40
+      },
+      "email": "Admin@naturalperformance.co",
+      "areaServed": "US",
+      "sameAs": [
+        "https://www.instagram.com/phasisevo/",
+        "https://www.tiktok.com/@phasisevo",
+        "https://x.com/PhasisEvo",
+        "https://www.facebook.com/Phasisevo",
+        "https://www.linkedin.com/company/natural-performance-llc/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://phasisevo.com/pages/perform-plus#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://phasisevo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://phasisevo.com/collections/all"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Perform+",
+          "item": "https://phasisevo.com/pages/perform-plus"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://phasisevo.com/pages/perform-plus#product",
+      "name": "Perform+",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/Perform_30cap_3e70045b-383e-4ec4-a9f5-b20d4ec477bf.png",
+          "name": "Perform+ 30 Capsules"
+        }
+      ],
+      "description": "Perform+ is a β-Ecdysterone performance formula designed to support muscle protein synthesis, lean muscle growth, strength, endurance, and recovery. Each capsule provides 250mg β-Ecdysterone in a 1:4 cyclodextrin complex. Plant-derived, non-hormonal, sport safe, 3rd party tested, and made in the USA.",
+      "url": "https://phasisevo.com/pages/perform-plus",
+      "mainEntityOfPage": "https://phasisevo.com/pages/perform-plus",
+      "brand": {
+        "@type": "Brand",
+        "name": "PHASIS"
+      },
+      "manufacturer": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Primary Ingredient",
+          "value": "β-Ecdysterone"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Dosage",
+          "value": "250mg β-Ecdysterone per capsule"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Formula",
+          "value": "1:4 Cyclodextrin Complex"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Capsule Size",
+          "value": "Size 000 vegan capsule"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Testing",
+          "value": "3rd party batch tested; COA available on request"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Key Features",
+          "value": "Plant-derived, non-hormonal, sport safe, no PCT required, no stimulants, no banned substances"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "@id": "https://phasisevo.com/#returnpolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "merchantReturnLink": "https://phasisevo.com/pages/return-policy"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Perform+ — 30 Capsules",
+          "description": "30-day supply. 30 capsules. 1 capsule per day. 250mg β-Ecdysterone per capsule.",
+          "price": "49.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/pages/perform-plus",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Perform+ — 60 Capsules",
+          "description": "60-day supply. 60 capsules. Matches research timeline. Save $13 vs buying two bottles.",
+          "price": "85.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/pages/perform-plus",
+          "seller": {
+            "@id": "https://phasisevo.com/#organization"
+          },
+          "hasMerchantReturnPolicy": {
+            "@id": "https://phasisevo.com/#returnpolicy"
+          },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": {
+              "@type": "MonetaryAmount",
+              "value": "0",
+              "currency": "USD"
+            },
+            "shippingDestination": {
+              "@type": "DefinedRegion",
+              "addressCountry": "US"
+            },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 3,
+                "unitCode": "DAY"
+              },
+              "transitTime": {
+                "@type": "QuantitativeValue",
+                "minValue": 1,
+                "maxValue": 5,
+                "unitCode": "DAY"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+{% endif %}
+    {% if page.handle == 'max-relief' %}
+      <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://phasisevo.com/#organization",
+      "name": "PHASIS",
+      "legalName": "Natural Performance LLC",
+      "url": "https://phasisevo.com",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://phasisevo.com/cdn/shop/files/PHASIS-logo.svg?v=1775135712",
+        "width": 140,
+        "height": 40
+      },
+      "founder": {
+        "@type": "Person",
+        "name": "Jonathan Ross-Turcios"
+      },
+      "foundingDate": "2025",
+      "email": "Admin@naturalperformance.co",
+      "areaServed": "US",
+      "sameAs": [
+        "https://www.instagram.com/phasisevo/",
+        "https://www.tiktok.com/@phasisevo",
+        "https://x.com/PhasisEvo",
+        "https://www.facebook.com/Phasisevo",
+        "https://www.linkedin.com/company/natural-performance-llc/"
+      ]
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://phasisevo.com/pages/max-relief#breadcrumb",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://phasisevo.com/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Shop",
+          "item": "https://phasisevo.com/collections/all"
+        },
+        {
+          "@type": "ListItem",
+          "position": 3,
+          "name": "Max Relief Balm",
+          "item": "https://phasisevo.com/pages/max-relief"
+        }
+      ]
+    },
+    {
+      "@type": "Product",
+      "@id": "https://phasisevo.com/products/max-relief#product",
+      "name": "Max Relief Balm",
+      "description": "Maximum-strength CBD topical pain balm. 4-pathway formula: Lidocaine HCl nerve block, Menthol + Capsaicin counterirritant, 1200mg full-spectrum CBD + Arnica + Turmeric anti-inflammatory, Clary Sage circulation support. USDA organic hemp. 3rd party tested. Made in USA.",
+      "url": "https://phasisevo.com/pages/max-relief",
+      "mainEntityOfPage": "https://phasisevo.com/pages/max-relief",
+      "image": [
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/max-relief-1200mg-60ml_3866ddf1-b197-4a7b-a66a-cae4f45fb828.png?v=1776151833",
+          "name": "Max Relief Balm — 60ml Jar"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/max-relief-30ml_e4ee37d7-712a-4265-8f25-3961d2abec.png?v=1776151833",
+          "name": "Max Relief Balm — 30ml Stick"
+        },
+        {
+          "@type": "ImageObject",
+          "url": "https://phasisevo.com/cdn/shop/files/max-relief-20ml_07d00112-713b-43ff-9469-cface7dc5e4c.png?v=1776151833",
+          "name": "Max Relief Balm — 20ml Stick"
+        }
+      ],
+      "brand": {
+        "@type": "Brand",
+        "name": "PHASIS"
+      },
+      "manufacturer": {
+        "@id": "https://phasisevo.com/#organization"
+      },
+      "countryOfOrigin": {
+        "@type": "Country",
+        "name": "US"
+      },
+      "additionalProperty": [
+        {
+          "@type": "PropertyValue",
+          "name": "Active Ingredients",
+          "value": "Lidocaine HCl 4%, Menthol 4%, Capsaicin 0.0375%"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "CBD Content",
+          "value": "1200mg Full-Spectrum CBD (60ml jar)"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Hemp Source",
+          "value": "USDA Organic Hemp"
+        },
+        {
+          "@type": "PropertyValue",
+          "name": "Testing",
+          "value": "3rd party tested"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.9",
+        "reviewCount": "8",
+        "bestRating": "5",
+        "worstRating": "1"
+      },
+      "hasMerchantReturnPolicy": {
+        "@type": "MerchantReturnPolicy",
+        "@id": "https://phasisevo.com/#returnpolicy",
+        "applicableCountry": "US",
+        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+        "merchantReturnDays": 30,
+        "returnMethod": "https://schema.org/ReturnByMail",
+        "returnFees": "https://schema.org/FreeReturn",
+        "returnPolicyLink": "https://phasisevo.com/pages/privacy-policy-1#returns"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Max Relief Balm — 20ml Stick",
+          "description": "Travel size. Same concentration. 400mg CBD. 3rd party tested. Made in USA.",
+          "price": "20.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/max-relief?variant=46095655534764",
+          "seller": { "@id": "https://phasisevo.com/#organization" },
+          "hasMerchantReturnPolicy": { "@id": "https://phasisevo.com/#returnpolicy" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" }
+            },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Max Relief Balm — 30ml Stick",
+          "description": "Targeted application. On-the-go. 600mg CBD. 3rd party tested. Made in USA.",
+          "price": "30.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/max-relief?variant=46095655567532",
+          "seller": { "@id": "https://phasisevo.com/#organization" },
+          "hasMerchantReturnPolicy": { "@id": "https://phasisevo.com/#returnpolicy" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" }
+            },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+          }
+        },
+        {
+          "@type": "Offer",
+          "name": "Max Relief Balm — 60ml Jar",
+          "description": "Full coverage. 2× the product. 1200mg CBD. Best value. 3rd party tested. Made in USA.",
+          "price": "60.00",
+          "priceCurrency": "USD",
+          "priceValidUntil": "2026-12-31",
+          "availability": "https://schema.org/InStock",
+          "itemCondition": "https://schema.org/NewCondition",
+          "url": "https://phasisevo.com/products/max-relief?variant=46095655600300",
+          "seller": { "@id": "https://phasisevo.com/#organization" },
+          "hasMerchantReturnPolicy": { "@id": "https://phasisevo.com/#returnpolicy" },
+          "shippingDetails": {
+            "@type": "OfferShippingDetails",
+            "shippingRate": { "@type": "MonetaryAmount", "value": "0", "currency": "USD" },
+            "deliveryTime": {
+              "@type": "ShippingDeliveryTime",
+              "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "DAY" },
+              "transitTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "DAY" }
+            },
+            "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+    {% endif %}
+    
+
+    
     {{ content_for_header }}
 
     {%- liquid
@@ -1093,29 +2194,23 @@
 
       }
     </style>
-  <script>
-document.addEventListener("DOMContentLoaded", function () {
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const params = new URLSearchParams(window.location.search);
 
-  const params = new URLSearchParams(window.location.search);
+        const hasUTM = Array.from(params.keys()).some((key) => key.startsWith('utm_'));
 
-  const hasUTM = Array.from(params.keys()).some(key => key.startsWith('utm_'));
+        const validPaths = ['/products/max-relief-balm', '/products/electro-drops', '/products/perform'];
 
-  const validPaths = [
-    '/products/max-relief-balm',
-    '/products/electro-drops',
-    '/products/perform'
-  ];
+        const currentPath = window.location.pathname.replace(/\/$/, '');
 
-  const currentPath = window.location.pathname.replace(/\/$/, '');
+        const isValidPage = validPaths.includes(currentPath);
 
-  const isValidPage = validPaths.includes(currentPath);
-
-  if (hasUTM && isValidPage) {
-    document.body.classList.add('landing-mode');
-    console.log("Landing mode ON");
-  }
-
-});
-</script>
+        if (hasUTM && isValidPage) {
+          document.body.classList.add('landing-mode');
+          console.log('Landing mode ON');
+        }
+      });
+    </script>
   </body>
 </html>

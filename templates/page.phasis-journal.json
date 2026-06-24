@@ -118,9 +118,9 @@
       "type": "journal-ctabtn",
       "name": "Journal CTA Section",
       "settings": {
-        "cta_label": "Dont Guess your supplements",
-        "cta_heading": "Start with your protocol",
-        "cta_text": "Get a personalized protocol in 3 minutes—built around what your body actually needs.",
+        "cta_label": "Start with your foundation",
+        "cta_heading": "Don't Guess your Supplements",
+        "cta_text": "Get a personalized protocol in under 10 minutes—built around what your body actually needs.",
         "cta_link": "shopify://pages/quiz",
         "cta_button": "START MY SCAN"
       }

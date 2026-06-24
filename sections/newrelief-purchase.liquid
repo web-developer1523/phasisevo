@@ -186,7 +186,78 @@
             {{ section.settings.button_text }}
           </button>
         </form>
+        {% comment %} upshell sec for mobile {% endcomment %}
+           <div class="upsell-block cst-upshell-mobile">
+        <div class="upsell-label">{{ section.settings.upsell_label }}</div>
+        {% assign upsell_product = section.settings.upsell_product %}
+        {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant.featured_image %}
+                    {{ upsell_variant.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc }}</div>
+            </div>
+          </div>
+          {% assign upsell_product = section.settings.upsell_product %}
+          {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn glow-cta red"
+            data-upsell-variant-id="{{ upsell_variant.id }}"
+            data-upsell-image="{{ upsell_variant.featured_image | image_url: width: 400 }}"
+          >
+            {{- section.settings.upsell_btn_text -}}
+          </a>
+        </div>
+        {% comment %} second upshell {% endcomment %}
+        {% assign upsell_product_2 = section.settings.upsell_product_2 %}
+        {% assign upsell_variant_2 = upsell_product_2.variants.first %}
 
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant_2.featured_image %}
+                    {{ upsell_variant_2.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product_2.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product_2.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title_2 }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc_2 }}</div>
+            </div>
+          </div>
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn su-btn teal"
+            data-upsell-variant-id="{{ upsell_variant_2.id }}"
+            data-upsell-image="{{ upsell_variant_2.featured_image | image_url: width: 400 }}"
+          >
+            {{ section.settings.upsell_btn_text_2 }}
+          </a>
+        </div>
+        {% comment %} end {% endcomment %}
+      </div>
+        {% comment %} upshell sec for mobile {% endcomment %}
        {% comment %} gurantee {% endcomment %}
           <div class="guarantees mt-4">
             {% for block in section.blocks %}

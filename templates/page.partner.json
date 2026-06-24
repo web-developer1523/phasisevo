@@ -95,7 +95,7 @@
       "type": "page-hero",
       "name": "Page Hero",
       "settings": {
-        "custom_css_class": "",
+        "custom_css_class": "cst-partnermain-sec",
         "eyebrow_text": "Wholesale · Affiliates · Collaborations",
         "heading_line_1": "Let's Grow",
         "heading_line_2": "Together.",
@@ -178,7 +178,7 @@
       ],
       "name": "Partner Types",
       "settings": {
-        "custom_css_class": "",
+        "custom_css_class": "cst-workp-sec",
         "eyebrow": "Partnership Programs",
         "heading_line_1": "Four Ways to",
         "heading_line_2": "Work With PHASIS.",
@@ -263,7 +263,7 @@
         "stat_Ltr8YW": {
           "type": "stat",
           "settings": {
-            "value": "3",
+            "value": "4",
             "label": "Products. One complete system. Growing."
           }
         }
@@ -311,13 +311,14 @@
       "type": "contact-form",
       "name": "t:sections.contact-form.presets.name",
       "settings": {
-        "content_align": "center",
+        "content_align": "left",
+        "after_form_custom_code": "<iframe\n    src=\"https://api.leadconnectorhq.com/widget/form/nqVaqpljHWb6evOzZ0wQ\"\n    style=\"width:100%; min-height:900px; border:none;\"\n    id=\"inline-nqVaqpljHWb6evOzZ0wQ\"\n    data-layout=\"{'id':'INLINE'}\"\n    data-form-id=\"nqVaqpljHWb6evOzZ0wQ\"\n    title=\"shopify partner page form\">\n  </iframe>\n</div>\n\n<script src=\"https://link.msgsndr.com/js/form_embed.js\"></script>",
         "heading": "Apply toPartner With Us.",
         "subheading": "Get In Touch",
         "heading_tag": "h2",
         "heading_size": "h2",
         "text": "Some text for your contact form. You can use multiple lines of text",
-        "additional_text": "By submitting you agree to our <a href=\"phasis-policies.html\">Privacy Policy</a>. We don't share your information and we won't spam you.",
+        "additional_text": "By submitting you agree to our <a href=\"https://phasisevo.com/pages/privacy-policy-1\" title=\"https://phasisevo.com/pages/privacy-policy-1\">Privacy Policy</a>. We don't share your information and we won't spam you.",
         "image_ratio": "16/9",
         "button_style": "primary",
         "margin_top": "m",

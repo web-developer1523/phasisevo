@@ -133,7 +133,7 @@
     <form method="post" action="/cart/add" class="perf-cta-form">
       <input type="hidden" name="id" value="{{ product.variants.first.id }}">
       <button type="submit" class="btn btn-a perf-cta-btn">
-        PRE-ORDER NOW
+        ADD TO CART
       </button>
     </form>
       <div class="product-benefits">
@@ -219,7 +219,7 @@ function setActive(btnEl) {
   .then(() => updateCartCount())
   .catch(err => console.log("Cart Error:", err))
   .finally(() => {
-    btn.innerText = "PRE-ORDER NOW";
+    {% comment %} btn.innerText = "PRE-ORDER NOW"; {% endcomment %}
     btn.disabled = false;
   });
 });

@@ -1,4 +1,4 @@
-
+  
 <style>
   @font-face{font-family:"Conthrax";src:url("Conthrax-BoldItalic.otf") format("opentype");font-weight:700;font-style:italic}
   @font-face{font-family:"Conthrax";src:url("Conthrax-SemiBold.otf") format("opentype");font-weight:600;font-style:normal}
@@ -20,13 +20,15 @@
     /* Domain colors */
     --purple: #6D28D9;
     --teal: #0D9488;
-    --system: #22D3EE;
     --orange: #EA580C;
     --green: #16A34A;
     --red: #DC2626 ;
     --coral: #E85C7A;
     --blue: #0284C7 ;
     --yellow: #F59E0B;
+
+    /* System / UI */
+    --system: #22D3EE;
   
     --f-dis: 'Sora', sans-serif;
     --f-mark:'Conthrax',sans-serif;
@@ -65,7 +67,7 @@
   @media(min-width: 1024px) { .nav-inner { padding: 0 48px; } }
   
   .nav-brand { display: flex; align-items: center; gap: 10px; }
-  .logo-mk { width: 30px; height: 30px; border-radius: 6px; background: var(--surface); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .logo-mk { height: 30px; border-radius: 6px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
   .nav-wm { font-family: var(--f-dis); font-size: 13px; font-weight: 800; font-style: italic; letter-spacing: .04em; text-transform: uppercase; }
   .nav-back { background: none; border: none; color: var(--muted-l); font-family: var(--f-dis); font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 0 8px; }
   .nav-back svg { width: 14px; height: 14px; }
@@ -100,7 +102,7 @@
   }
   .intro-badge {
     display: inline-flex; align-items: center; gap: 8px;
-    background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.3);
+    background: rgba(34,211,238,.08); border: 1px solid rgba(34,211,238,.25);
     border-radius: 20px; padding: 6px 14px;
     font-family: var(--f-dis); font-size: 10px; font-weight: 700;
     letter-spacing: .12em; text-transform: uppercase; color: var(--system);
@@ -136,7 +138,7 @@
   .intake-eyebrow {
     font-family: var(--f-body); font-size: 10px; font-weight: 400;
     font-style: italic; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--red); margin-bottom: 8px; display: block;
+    color: var(--system); margin-bottom: 8px; display: block;
   }
   .intake h2 {
     font-family: var(--f-dis); font-weight: 700;
@@ -153,7 +155,7 @@
     transition: all .15s; min-height: 60px;
   }
   .iopt:hover { border-color: var(--border2); background: var(--surface2); }
-  .iopt.sel { border-color: var(--red); background: rgba(232,72,42,.06); }
+  .iopt.sel { border-color: var(--system); background: rgba(34,211,238,.06); }
   .iopt-icon { font-size: 22px; flex-shrink: 0; width: 36px; text-align: center; }
   .iopt-label { font-family: var(--f-dis); font-size: 13px; font-weight: 700; margin-bottom: 2px; }
   .iopt-desc { font-size: 11px; color: var(--muted); line-height: 1.4; }
@@ -410,7 +412,7 @@
   .btn-next {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     width: 100%; padding: 16px; border-radius: 6px; border: none;
-    background: var(--red); color: #fff;
+    background: var(--system); color: #061418;
     font-family: var(--f-dis); font-size: 14px; font-weight: 700;
     letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
     transition: all .15s; min-height: 52px; margin-top: 16px;
@@ -418,17 +420,17 @@
     box-shadow: 0 -8px 24px rgba(8,8,8,.8);
   }
   .btn-next:disabled { opacity: .35; cursor: not-allowed; }
-  .btn-next:not(:disabled):hover { background: #f05236; }
+  .btn-next:not(:disabled):hover { background: #67e8f9; }
   .btn-primary {
     display: flex; align-items: center; justify-content: center; gap: 8px;
     padding: 16px 28px; border-radius: 6px; border: none;
-    background: var(--red); color: #fff;
+    background: var(--system); color: #061418;
     font-family: var(--f-dis); font-size: 14px; font-weight: 700;
     letter-spacing: .06em; text-transform: uppercase; cursor: pointer;
     transition: all .15s; min-height: 52px; width: 100%;
   }
   .btn-primary::before { content: '●'; font-size: 7px; }
-  .btn-primary:hover { background: #f05236; }
+  .btn-primary:hover { background: #67e8f9; }
   .btn-skip {
     background: none; border: none; color: var(--muted);
     font-family: var(--f-dis); font-size: 12px; font-weight: 600;
@@ -485,6 +487,37 @@
   </script>
   <script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=XB9Hts"></script>
   
+<!-- GHL Form Container (Hidden initially) -->
+<div id="ghl-form-container" style="display:none; margin-top:30px;">
+  <iframe
+    src="https://api.leadconnectorhq.com/widget/form/5CLKdrFuJVObnDMgN5aI"
+    style="width:100%;height:656px;border:none;border-radius:8px"
+    title="Quiz Form">
+  </iframe>
+</div>
+<script>
+document.addEventListener('click', function (e) {
+  const btn = e.target.closest('#dp-yes');
+  if (!btn) return;
+
+  // small delay to allow existing quiz logic to run
+  setTimeout(() => {
+    const quiz = document.getElementById('quiz-container');
+    if (quiz) quiz.style.display = 'none';
+
+    const form = document.getElementById('ghl-form-container');
+    if (form) {
+      form.style.display = 'block';
+      form.scrollIntoView({ behavior: 'smooth' });
+    }
+  }, 300);
+});
+</script>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
+<script src="https://link.msgsndr.com/js/form_embed.js"></script>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="nav-inner">
@@ -523,13 +556,13 @@
       <div class="intro-badge">PHASIS · PHASE ONE</div>
       <div class="globe-line"></div>
       <h1>Know Your<br><em>Foundation.</em></h1>
-      <p class="intro-sub"><strong>Phase One</strong> is a 3-minute foundation diagnostic. Answer 25 questions across 6 performance systems and we&rsquo;ll show you exactly where your foundation is leaking &mdash; and what to do about it.</p>
+      <p class="intro-sub">Your foundation is what every other protocol builds on. <strong>Phase One</strong> identifies the highest-leverage area to focus on first — in 3 minutes.</p>
       <div class="intro-meta">
         <span class="im">25 questions</span>
-        <span class="im">3–5 minutes</span>
-        <span class="im">Free &middot; No account needed</span>
+        <span class="im">Under 10 minutes</span>
+        <span class="im">Holistic-first approach</span>
       </div>
-      <button class="btn-primary" onclick="startQuiz()">START PHASE ONE</button>
+      <button class="btn-primary glow-cta" onclick="startQuiz()">START PHASE ONE</button>
     </div>
   </div>
   
@@ -560,6 +593,7 @@
           <div class="iopt-icon">💪</div>
           <div><div class="iopt-label">Muscle & Body Composition</div><div class="iopt-desc">I want to build lean muscle and optimize my physique</div></div>
         </div>
+      </div>
       </div>
       <button class="btn-next" id="intake-1-next" disabled onclick="nextScreen('screen-intake-2')">CONTINUE →</button>
     </div>
@@ -614,6 +648,7 @@
           <div class="iopt-icon">🔬</div>
           <div><div class="iopt-label">I research everything</div><div class="iopt-desc">Evidence-based, informed decisions — show me all my options</div></div>
         </div>
+      </div>
       </div>
       <button class="btn-next" id="intake-3-next" disabled onclick="nextScreen('screen-intake-diet')">CONTINUE →</button>
     </div>
@@ -771,7 +806,7 @@
   <div class="screen" id="screen-results">
     <div class="results" id="results-container"></div>
   </div>
-  <div class="klaviyo-form-VxBGxk quiz-form"></div>
+  {% comment %} <div class="klaviyo-form-VxBGxk quiz-form"></div> {% endcomment %}
   
   <script>
   // ══════════════════════════════════════════════════
@@ -1214,7 +1249,7 @@
     } else {
       const topDomain = getTopDomain();
       const topPriority = getDomainPriority(topDomain);
-      const shouldShowDeepDive = topDomain === 'sleep' && topPriority >= PRIORITY_THRESHOLDS.deep_dive_trigger;
+      const shouldShowDeepDive = topPriority >= PRIORITY_THRESHOLDS.deep_dive_trigger;
       state.deepDiveDomain = topDomain;
       if (shouldShowDeepDive) showDeepDivePrompt(topDomain);
       else showResults();
@@ -1260,7 +1295,7 @@
       el.textContent = p;
       pillsEl.appendChild(el);
     });
-    document.getElementById('dp-yes').style.background = 'var(--red)';
+    document.getElementById('dp-yes').style.background = 'var(--system)';
     state.history.push('screen-question');
     showScreen('screen-deep-prompt', 'forward');
     updateNav();
@@ -1586,41 +1621,43 @@
   function getHolisticProtocol(domain) {
     var protocols = {
       sleep: [
-        { title: 'Fixed wake time — non-negotiable', desc: 'Set a consistent wake time every day including weekends. This single habit anchors your circadian rhythm more powerfully than any other sleep intervention.' },
-        { title: 'Wind-down ritual — 45 to 60 minutes before bed', desc: 'Dim lights, stop screens, and choose one calming activity — reading, light stretching, breathwork, or journaling. The brain needs a transition signal, not an on/off switch.' },
-        { title: 'Breathwork for nervous system downshift', desc: '4-7-8 breathing — inhale 4 counts, hold 7, exhale 8 — activates the parasympathetic nervous system within minutes. Use this if your mind is active at bedtime.' },
-        { title: 'Cool dark sleep environment', desc: 'Core body temperature must drop to initiate sleep. Keep the room at 65-68F. Blackout curtains eliminate light that suppresses melatonin even through closed eyelids.' }
+        { title: 'Lock fixed wake AND sleep times — within 30 min, 7 days a week', desc: 'Wake at the same time daily, and start winding down at the same time too — including weekends. Wake-time consistency is the single strongest input to your circadian rhythm; bedtime consistency stabilizes when melatonin actually fires. Drift either by 2+ hours and you are effectively jet-lagging yourself weekly (Walker). <strong>Make it easy:</strong> Phone across the room, no snooze. Set a go-to-bed alarm 60 minutes before lights-out — not just a wake alarm.' },
+        { title: 'No caffeine after 2 PM — or 8 hours before bed', desc: 'Caffeine has a 6-hour half-life and a 12+ hour quarter-life — a 2 PM coffee is still ~25% active at 2 AM, suppressing adenosine and degrading deep sleep even when sleep onset feels normal (Walker). This single change improves sleep quality more than almost any habit other than wake-time consistency. <strong>Make it easy:</strong> Switch to decaf or herbal tea after lunch. Train the ritual, not the molecule.' },
+        { title: 'No alcohol within 3 hours of bed', desc: 'Alcohol fragments REM sleep by ~50% and suppresses deep sleep, even though it makes onset feel faster (Walker). The "I sleep great with a nightcap" feeling is sedation, not sleep. <strong>Make it easy:</strong> If you drink with dinner, keep dinner early. The 3-hour window does most of the work.' },
+        { title: 'No food 2–3 hours before bed', desc: 'Late digestion raises core body temperature (which has to drop to initiate sleep), spikes insulin (which fragments deep sleep), and shifts your gut clock out of sync with your central clock (Walker, Attia). <strong>Make it easy:</strong> Set a kitchen-close alarm 3 hours before bedtime. Water or herbal tea after.' },
+        { title: 'Engineer the evening — light, screens, room', desc: 'Dim primary lights 90 minutes before bed. Screens off 60 minutes before. Room cool (65–68°F), blackout dark, quiet. Bright overhead lighting after 8 PM suppresses melatonin onset independently of screens. Core body temperature must fall ~1°C to initiate sleep (Walker, Attia). <strong>Make it easy:</strong> Switch to lamps after dinner. Charge phone in another room. Blackout curtains + a $30 fan is a one-time spend with every-night benefit.' }
       ],
       stress: [
-        { title: 'Daily meditation — the highest-leverage stress intervention', desc: 'Even 10 minutes per day measurably reduces cortisol and rebuilds nervous system resilience. Waking Up (science-led), Headspace (beginner-friendly), or Insight Timer (free) — same time every day, consistency beats duration.' },
-        { title: 'Physiological sigh for acute stress', desc: 'Two quick inhales through the nose followed by one long exhale through the mouth. The fastest evidence-based technique to reduce acute stress in real time.' },
-        { title: 'Box breathing — daily nervous system reset', desc: '4 counts in, hold 4, out 4, hold 4. Activates the parasympathetic nervous system. Do this at the same time each day to build a cumulative effect on baseline stress levels.' },
-        { title: 'Zone-2 movement as your stress outlet', desc: 'Conversational pace cardio — walking, cycling, swimming — for 20-30 minutes reduces cortisol more effectively than high-intensity training on high-stress days.' },
-        { title: 'One structural boundary this week', desc: 'Name one recurring evening stressor and create a structural solution — a phone cutoff time, a dedicated wind-down transition, a communication boundary.' }
+        { title: 'Daily 10-minute meditation — same time, same place', desc: 'Ten minutes daily, ideally morning. Use Waking Up, Headspace, or a free timer. Daily meditation lowers baseline cortisol ~14% over 8 weeks (Davidson lab). Ten daily minutes outperforms one 70-minute weekly session — consistency beats duration. <strong>Make it easy:</strong> Stack onto an existing anchor — right after coffee, before email (Fogg).' },
+        { title: 'Physiological sigh in the moment', desc: 'Two quick inhales through the nose, one long exhale through the mouth. Repeat 2–3 times. Fastest evidence-based way to drop sympathetic activation in real time — under 60 seconds (Huberman). Use before meetings, in traffic, after hard news. <strong>Make it easy:</strong> Three phone reminders titled "sigh." Build muscle memory before you need it.' },
+        { title: 'Zone-2 cardio — 3x per week, 30 minutes', desc: 'Conversational pace — you can talk, not sing. Walking, cycling, swimming. Zone-2 reduces cortisol more effectively than HIIT on stressful days, and builds the mitochondrial density that makes you energy-stable (Attia). <strong>Make it easy:</strong> Walk during phone calls. Two payoffs in the same hour.' },
+        { title: 'End-of-day brain dump — 5 minutes before bed', desc: 'Write down everything still on your mind — open loops, tomorrow tasks, what is unresolved. Out of head, onto paper. Unfinished thoughts elevate sleep-onset cortisol; writing them down measurably reduces nighttime rumination (Newport, Allen). <strong>Make it easy:</strong> Notebook on the nightstand. Three lines is enough — you do not have to solve anything, just empty the buffer.' }
       ],
       mood: [
-        { title: 'Morning anchor — same time every day', desc: 'Before your phone, before email — one intentional thing. A glass of water, 5 minutes outside, 10 deep breaths. Start small and own it.' },
-        { title: 'Physical movement before reaching for anything else', desc: 'Even 5 minutes of movement in the morning changes the hormonal tone of your entire day.' },
-        { title: 'Expressive journaling — 10 minutes', desc: 'Unfiltered writing about what is on your mind. Reduces anxiety, improves problem-solving, creates psychological distance from stressors.' },
-        { title: 'Protect one hour of your evening', desc: 'No obligations, no screens, no work. Start with 30 minutes if an hour feels impossible.' }
+        { title: 'One meaningful social connection per day', desc: 'Text, call, or in-person — at least one substantive exchange daily. Not transactional ("can you grab milk"). Substantive. Social connection is the most-validated mood and longevity intervention in the literature — Harvard Study of Adult Development (~85 years longitudinal) found it more predictive of late-life wellbeing than diet, exercise, or income. Loneliness raises baseline cortisol and depression risk more than poor diet does. <strong>Make it easy:</strong> Keep a short list of 5–10 people. Pick one per day, send a real message — not a like.' },
+        { title: 'Move your body before opening your phone', desc: '5–10 minutes of any movement — walking, stretching, light bodyweight — before email, news, or scrolling. Movement first raises dopamine and BDNF, setting your motivational tone for the day. Reactive scrolling drops both (Huberman). <strong>Make it easy:</strong> Clothes laid out the night before. Reduce friction to under 30 seconds.' },
+        { title: '30g of protein at breakfast — within 90 min of waking', desc: 'Eggs, Greek yogurt, lean meat, or protein shake. Amino acids are precursors to dopamine and serotonin. Skipping protein at breakfast suppresses both — most "afternoon mood crashes" are blood-sugar crashes from a carb-only morning (Lyon). <strong>Make it easy:</strong> Same breakfast every weekday. Decision fatigue is mood drain.' },
+        { title: '5–10 minutes of morning sunlight outside', desc: 'No sunglasses. Cloudy days still work — outdoor cloud cover is 10x brighter than indoor lighting. Modulates serotonin synthesis and anchors the circadian system. People who get morning sunlight have measurably more stable mood than those who do not (Walker, Attia). <strong>Make it easy:</strong> Drink your coffee outside. This is the same habit that anchors Sleep — one trigger, multiple domain payoffs.' }
       ],
       digestion: [
-        { title: 'Consistent meal timing every day', desc: 'Your gut has its own circadian clock. Eating at consistent times primes digestive enzyme production and reduces bloating.' },
-        { title: 'Eat slowly — chew thoroughly, no screens', desc: 'Digestion begins in the mouth. Rushed eating bypasses the cephalic phase — the neurological preparation your gut does when you smell and see food.' },
-        { title: '30+ different plant foods per week', desc: 'Diversity feeds a diverse microbiome. Regularity and comfort follow.' },
-        { title: 'Stress management as a gut intervention', desc: 'Chronic stress directly disrupts gut motility. Addressing stress upstream often resolves digestive symptoms that supplements alone cannot.' }
+        { title: 'Same meal times every day — ±30 minutes', desc: 'Three consistent meal windows. Whatever they are, hold the schedule. Your gut runs on its own circadian clock — consistent timing primes enzyme release, optimizes motility, and reduces post-meal bloating (Hyman). <strong>Make it easy:</strong> Three repeating phone alarms — one per meal. Adjust until they fit your life, then hold.' },
+        { title: 'Slow chew, phone down — ~20 chews per bite', desc: 'Put the phone away. Chew until food is nearly liquid before swallowing. Digestion starts in the mouth (Hyman). Rushed eating bypasses the cephalic phase — the neurological prep that triggers stomach acid and enzyme release. Most bloating traces back here. <strong>Make it easy:</strong> Set the fork down between bites. The cue resets your pace automatically.' },
+        { title: 'Walk 10–15 minutes after each meal', desc: 'Light, easy pace within 30 minutes of finishing. Drops post-prandial glucose ~30%, accelerates gastric emptying, and engages the calf muscle pump that supports digestion (Attia, Lyon). Single highest-leverage digestion habit that has nothing to do with food itself. <strong>Make it easy:</strong> Walk while making a phone call after lunch. Stack utility on top.' },
+        { title: '30+ different plant foods per week + 1 fermented food daily', desc: 'Diversity, not volume — herbs, berries, olives, seeds each count. Fermented = kefir, yogurt, kimchi, sauerkraut, kombucha. Microbiome diversity tracks dietary plant diversity (ZOE PREDICT-1). The Stanford 2021 RCT showed 10 weeks of daily fermented foods increased microbiome diversity and reduced 19 inflammatory markers (Sonnenburg/Gardner). <strong>Make it easy:</strong> Tally plants on a kitchen sticky note, Sunday to Sunday. Default to one fermented food at the same meal daily — kefir at breakfast or sauerkraut at dinner.' }
       ],
       energy: [
-        { title: 'First meal within 60-90 minutes of waking', desc: 'Skipping breakfast delays metabolic activation and drives the afternoon crash. Protein and fat within the first hour stabilizes blood sugar for the rest of the day.' },
-        { title: 'Hydration before caffeine', desc: '16oz of water before your first coffee blunts cortisol-caffeine compounding and extends your effective energy window.' },
-        { title: 'Morning sunlight within 30 minutes of waking', desc: '5-10 minutes outside without sunglasses. Sets your circadian clock, boosts cortisol appropriately for wakefulness, and improves sleep quality that night.' },
-        { title: 'Zone-2 cardio 3 times per week', desc: 'Mitochondrial density — built through low-intensity sustained effort — is the single biggest driver of sustained daily energy.' }
+        { title: '16oz water before any caffeine', desc: 'Cortisol naturally peaks in the first hour of waking. Caffeine on top of that, before water, over-spikes cortisol and crashes you mid-afternoon (Huberman). <strong>Make it easy:</strong> Full glass on the nightstand. Drink before your feet hit the floor.' },
+        { title: 'Wait 90–120 minutes after waking before first caffeine', desc: 'Cortisol peaks naturally 30–45 minutes after waking. Caffeine before that peak blunts the natural cortisol curve and creates a mid-afternoon crash — and trains your system to rely on caffeine to wake up at all. Delaying caffeine lets cortisol do its job first, then caffeine extends the energy curve rather than replacing it (Huberman). <strong>Make it easy:</strong> Replace the wake-up coffee with a water + tea ritual. First coffee around 8:30–9 AM if you wake at 7. Two weeks in, the afternoon crash usually disappears.' },
+        { title: '5–10 minutes of morning sunlight — within 30 min of waking', desc: 'Outside, no sunglasses. Open sky is enough — direct sun is not required. Anchors cortisol to morning (where it belongs) and triggers melatonin onset 14–16 hours later — better sleep tonight, steadier energy today (Huberman). <strong>Make it easy:</strong> Walk while waiting for your first coffee window to open.' },
+        { title: '30g of protein within 90 minutes of waking', desc: 'Eggs, Greek yogurt, lean meat, protein shake. Skip the cereal. Early-day protein stabilizes blood sugar across the entire day (Lyon). Most afternoon crashes are blood-sugar crashes from a low-protein breakfast. <strong>Make it easy:</strong> Same breakfast every weekday. Decision-making is the energy leak.' },
+        { title: 'Zone-2 cardio — 3x per week, 30 minutes', desc: 'Conversational pace — you can talk, not sing. Mitochondrial density (your cells energy factories) is built only through low-intensity sustained effort (Attia). Zone-2 is the single biggest driver of sustained daily energy. <strong>Make it easy:</strong> Walking phone calls. Bike short errands instead of driving.' }
       ],
       physical: [
-        { title: 'Sleep is your primary recovery tool', desc: 'Most tissue repair happens in deep sleep. Poor sleep extends DOMS by up to 40% regardless of what else you do.' },
-        { title: 'Cold exposure for acute recovery', desc: 'Cold water immersion or contrast showers — 10-15 minutes at 50-59F — reduce post-exercise inflammation and accelerate recovery.' },
-        { title: 'Deliberate rest days — 2 per week minimum', desc: 'Adaptation happens during recovery, not training. Planned rest is not optional.' },
-        { title: '10 minutes of mobility work daily', desc: 'Prevents stiffness accumulation that becomes injury over time. Dynamic stretching before, static after.' }
+        { title: 'Strength training 3x per week — compound movements, progressive overload', desc: 'Squat, hinge, press, pull. Two to three working sets per movement. Add weight or reps each week. Muscle is the most metabolically active tissue you have — it determines glucose disposal, recovery capacity, injury resistance, and long-term mortality risk (Lyon, Attia). The single most important physical habit you can build. <strong>Make it easy:</strong> Same 3 days each week, same time. Decision fatigue kills training adherence faster than soreness does.' },
+        { title: 'VO2 max work — once weekly, brief and hard', desc: '4 rounds of 4 minutes hard / 4 minutes easy. About 30 minutes total. Bike, rower, hill running — anything that lets you hit ~85–95% effort. VO2 max is the single most predictive metric for all-cause mortality across populations (Attia). One high-intensity session per week measurably improves it. <strong>Make it easy:</strong> Pick a fixed day — Tuesday or Thursday work well. Do not do this within 24 hours of a heavy strength day.' },
+        { title: '8–10k steps per day — non-negotiable', desc: 'Daily walking, separate from your structured training. Walks count. Hiking counts. Stair climbing counts. Daily steps predict all-cause mortality independently of structured training (Attia, large epidemiological data). <strong>Make it easy:</strong> One 20–30 minute walk per day handles the gap most office workers have. Do it during a phone call. Walking after meals (Digestion habit) contributes here too.' },
+        { title: '30g+ protein per meal — especially within an hour post-training', desc: 'Eggs, lean meat, Greek yogurt, whey. Leucine is the trigger. Muscle protein synthesis fires for 3–4 hours after a meal containing 30g+ leucine-rich protein. Below threshold, the synthesis signal does not fire (Lyon). The most under-leveraged recovery input. <strong>Make it easy:</strong> Pre-portion the week protein on Sunday. Removes the daily decision.' },
+        { title: 'Two structured rest days + 10 min daily mobility', desc: 'Two full days per week with no resistance training. Active recovery (walks, mobility, sauna) is fine. Mobility daily — hips, thoracic, ankles. Adaptation happens during recovery, not training (Attia). Skipping rest accumulates microtrauma — train more, gain less. Daily mobility prevents injuries that cost 6 weeks. <strong>Make it easy:</strong> Schedule rest days like meetings. Do mobility during a podcast — it is stacking, not a workout.' }
       ]
     };
     return protocols[domain] || [];
@@ -1682,7 +1719,7 @@
     html += '<div style="background:rgba(0,191,168,.04);border:1px solid rgba(0,191,168,.2);border-radius:10px;padding:16px;margin-bottom:16px">';
     html += '<div style="font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#00BFA8;margin-bottom:8px">For Serious Athletes</div>';
     html += '<div style="font-family:var(--f-dis);font-size:15px;font-weight:700;margin-bottom:8px">Going Further — An Honest Note</div>';
-    html += '<p style="font-size:12px;color:var(--muted-l);line-height:1.7;margin-bottom:10px">Most physical recovery protocols never get the foundation right — sleep, hydration, mobility, and load management. If you have those dialed, the next layer is targeted supplementation. Perform+ is our plant-based anabolic — 250mg beta-ecdysterone per capsule, backed by a WADA-funded study showing up to 2kg lean muscle gain in 10 weeks.</p>';
+    html += '<p style="font-size:12px;color:var(--muted-l);line-height:1.7;margin-bottom:10px">Most physical recovery protocols never get the foundation right — sleep, hydration, mobility, and load management. If you have those dialed, the next layer is targeted supplementation. Perform+ is our plant-based anabolic — 250mg beta-ecdysterone per capsule, backed by a WADA-funded study showing up to 4.4 lbs (2 kg) lean muscle gain in 10 weeks.</p>';
     if (isTested) {
       html += '<div style="font-size:12px;color:#00BFA8;margin-bottom:10px"><strong style="color:#F4F3F0">Drug-tested athlete:</strong> Perform+ is not on the WADA prohibited list. 3rd party tested every batch.</div>';
     }
@@ -1897,6 +1934,111 @@
     };
     return (bp[domain] || []).slice(0, 3);
   }
+
+  function getDomainCoreAnswers(domain) {
+    return state.questionHistory
+      .filter(function(h) { return h.domain === domain; })
+      .map(function(h) { return h.selectedIndex; });
+  }
+
+  function getFoundationHabitsIntro(domain) {
+    var intros = {
+      sleep: 'Sleep quality is built in the hours before bed — supplements support what your routine establishes.',
+      stress: 'Nervous system regulation starts with daily practice — adaptogens work best on top of these habits.',
+      mood: 'Mood stability tracks sleep, movement, and connection — these habits address the upstream drivers.',
+      energy: 'Sustained energy is a hydration, light, and meal-timing problem before it is a supplement problem.',
+      digestion: 'Supplements amplify what you build with behaviour. These are the substrate.',
+      physical: 'Recovery is mostly sleep, nutrition, and load management — training supplements layer on top.'
+    };
+    return intros[domain] || 'Start with these free habits — they are the foundation your protocol builds on.';
+  }
+
+  function shouldShowFoodFirstCallout(domain) {
+    if (domain !== 'digestion') return false;
+    var core = getDomainCoreAnswers(domain);
+    var dd = state.deepDiveAnswers[domain] || [];
+    if (state.intake.diet === 'convenience') return true;
+    if (dd[2] === 2) return true;
+    return core.some(function(i) { return i >= 3; });
+  }
+
+  function getPersonalizedFoundationHabits(domain, isBeginner) {
+    var pool = (isBeginner ? getBeginnerQuickWins(domain) : getHolisticProtocol(domain)).slice();
+    var core = getDomainCoreAnswers(domain);
+    var dd = state.deepDiveAnswers[domain] || [];
+    var scores = pool.map(function() { return 1; });
+
+    function boost(i, pts) {
+      if (i >= 0 && i < scores.length) scores[i] += pts;
+    }
+    function elevated(idx) { return typeof core[idx] === 'number' && core[idx] >= 3; }
+    function severe(idx) { return typeof core[idx] === 'number' && core[idx] >= 4; }
+
+    if (domain === 'digestion') {
+      if (dd[0] === 0) {
+        pool.unshift({
+          title: 'Identifiable trigger foods — 4-week elimination trial',
+          desc: 'Remove your top suspects (often gluten, dairy, or high-FODMAP foods) for 4 weeks, then reintroduce one at a time. More targeted than adding supplements while triggers are still in rotation. <strong>Make it easy:</strong> Write the suspect list on your fridge — one column for remove, one for reintroduce.'
+        });
+        scores.unshift(6);
+      }
+      if (elevated(0) || severe(2)) { boost(1, 3); boost(2, 2); }
+      if (elevated(1) || severe(1)) { boost(0, 4); boost(3, 2); }
+      if (elevated(2)) boost(2, 4);
+      if (elevated(3) || severe(3)) { boost(1, 2); boost(3, 4); }
+      if (dd[1] === 2) boost(0, 3);
+      if (dd[2] === 2) boost(3, 5);
+      if (dd[3] === 2) { boost(2, 2); boost(3, 2); }
+      if (state.intake.diet === 'convenience') boost(3, 3);
+    } else if (domain === 'sleep') {
+      if (elevated(0) || dd[3] === 2) boost(0, 4);
+      if (elevated(1) || dd[0] === 0) { boost(4, 3); boost(3, 2); }
+      if (elevated(2)) { boost(0, 2); boost(3, 2); }
+      if (elevated(3) || dd[1] === 2) boost(4, 5);
+      if (dd[2] === 2) boost(4, 4);
+      if (state.intake.training === 'competitive' || state.intake.training === 'elite') boost(1, 2);
+    } else if (domain === 'stress') {
+      if (elevated(0) || dd[0] === 0) boost(0, 4);
+      if (elevated(3) || dd[0] === 1) boost(1, 5);
+      if (elevated(2)) boost(3, 4);
+      if (dd[1] === 2) boost(0, 2);
+      if (dd[3] === 2) boost(3, 3);
+      if (state.intake.training === 'casual' || state.intake.training === 'regular') boost(2, 2);
+    } else if (domain === 'energy') {
+      if (elevated(4) || dd[1] === 2) boost(0, 5);
+      if (dd[2] === 2) { boost(1, 4); boost(0, 2); }
+      if (elevated(1) || dd[3] === 0) { boost(0, 2); boost(3, 3); }
+      if (elevated(0) || elevated(2)) boost(2, 3);
+      if (elevated(3)) boost(3, 4);
+      if (state.intake.training !== 'newcomer') boost(4, 2);
+    } else if (domain === 'physical') {
+      if (dd[0] === 0 || elevated(1)) { boost(4, 2); }
+      if (dd[0] === 1 || severe(1)) boost(0, 2);
+      if (dd[2] === 2 || elevated(2)) boost(4, 3);
+      if (dd[3] === 2 || elevated(0)) boost(4, 5);
+      if (state.intake.training === 'newcomer' || isBeginner) {
+        boost(2, 4);
+        scores.forEach(function(_, i) { if (i === 0 || i === 1) scores[i] -= 2; });
+      }
+    } else if (domain === 'mood') {
+      if (elevated(0) || elevated(3)) boost(1, 3);
+      if (elevated(1) || dd[1] === 0) { boost(4, 3); boost(0, 2); }
+      if (elevated(2)) boost(0, 4);
+      if (dd[2] === 2) { boost(1, 3); boost(2, 3); boost(4, 2); }
+      if (dd[0] === 0) boost(2, 2);
+    }
+
+    var age = state.intake.age;
+    if (age === '60+' && domain === 'digestion') boost(0, 2);
+    if (age === '46-60' && domain === 'digestion') boost(isBeginner ? 2 : 3, 2);
+
+    var ranked = pool
+      .map(function(habit, i) { return { habit: habit, score: scores[i] }; })
+      .sort(function(a, b) { return b.score - a.score; });
+
+    var limit = isBeginner ? 3 : 4;
+    return ranked.slice(0, limit).map(function(item) { return item.habit; });
+  }
   
   function getAgeDose(doses) {
     // doses = { default, '18-30', '31-45', '46-60', '60+' }
@@ -1919,9 +2061,9 @@
     if (domain === 'sleep') {
       // Q0: Falling vs staying asleep
       if (answers[0] === 0) {
-        insights.push({ title: 'Sleep onset is your main challenge', body: 'Difficulty falling asleep is usually driven by an overactive nervous system in the evening. L-Theanine and Apigenin are your highest-priority supplements — both directly target GABA pathways that govern the wind-down process. Prioritise these before anything else.', priority: 'high' });
+        insights.push({ title: 'Sleep onset is your main challenge', body: 'Difficulty falling asleep is usually driven by an overactive nervous system in the evening. L-Theanine and Apigenin are your highest-priority supplements — both directly target GABA pathways that govern the wind-down process. Prioritize these before anything else.', priority: 'high' });
       } else if (answers[0] === 1) {
-        insights.push({ title: 'Sleep maintenance is your main challenge', body: 'Waking during the night or sleeping lightly suggests poor sleep architecture — less deep sleep, more arousals. Magnesium Threonate is specifically indicated here: it is the only form shown to cross the blood-brain barrier and support sleep cycle quality. Prioritise this over standard Magnesium Glycinate.', priority: 'high' });
+        insights.push({ title: 'Sleep maintenance is your main challenge', body: 'Waking during the night or sleeping lightly suggests poor sleep architecture — less deep sleep, more arousals. Magnesium Threonate is specifically indicated here: it is the only form shown to cross the blood-brain barrier and support sleep cycle quality. Prioritize this over standard Magnesium Glycinate.', priority: 'high' });
       }
       // Q1: Screens before bed
       if (answers[1] === 2) {
@@ -1929,7 +2071,7 @@
       }
       // Q2: Sleep environment
       if (answers[2] === 2) {
-        insights.push({ title: 'Environment optimisation should come first', body: 'An unoptimised sleep environment (light, noise, temperature) is one of the highest-leverage free interventions. Blackout curtains, a room temperature of 65–68°F (18–20°C), and white noise if needed will deliver more impact per dollar than any supplement. Address this before adding more products.', priority: 'medium' });
+        insights.push({ title: 'Environment optimization should come first', body: 'An unoptimized sleep environment (light, noise, temperature) is one of the highest-leverage free interventions. Blackout curtains, a room temperature of 65–68°F (18–20°C), and white noise if needed will deliver more impact per dollar than any supplement. Address this before adding more products.', priority: 'medium' });
       }
       // Q3: Wind-down routine
       if (answers[3] === 2) {
@@ -1967,7 +2109,7 @@
       }
       // Q3: Energy dip with meals/hydration
       if (answers[3] === 0) {
-        insights.push({ title: 'Your energy is closely tied to meal and hydration timing', body: 'This is a clear signal that blood sugar stability and mineral replenishment are your root issues — not a supplement deficiency. Consistent meal timing (every 4–5 hours), protein at each meal, and Electro+ throughout the day will stabilise your energy more effectively than any stimulant.', priority: 'high' });
+        insights.push({ title: 'Your energy is closely tied to meal and hydration timing', body: 'This is a clear signal that blood sugar stability and mineral replenishment are your root issues — not a supplement deficiency. Consistent meal timing (every 4–5 hours), protein at each meal, and Electro+ throughout the day will stabilize your energy more effectively than any stimulant.', priority: 'high' });
       }
     }
   
@@ -1976,7 +2118,7 @@
       if (answers[0] === 0) {
         insights.push({ title: 'Acute soreness — fast recovery protocol', body: 'Post-session soreness responds well to a combination of Tart Cherry Extract (best taken within 2 hours post-training) and creatine. Tart Cherry is one of the most evidence-supported natural compounds for reducing exercise-induced muscle damage. If you are applying a topical, Max Relief is most effective immediately post-session for acute soreness.', priority: 'high' });
       } else if (answers[0] === 1) {
-        insights.push({ title: 'Chronic soreness — anti-inflammatory foundation needed', body: 'Ongoing soreness between sessions indicates systemic inflammation that is not resolving between training days. Your protocol should prioritise the anti-inflammatory stack: Omega-3 (EPA/DHA), Turmeric/Curcumin with piperine, and full-spectrum CBD topical. These work over weeks, not days — consistency matters more than timing here.', priority: 'high' });
+        insights.push({ title: 'Chronic soreness — anti-inflammatory foundation needed', body: 'Ongoing soreness between sessions indicates systemic inflammation that is not resolving between training days. Your protocol should prioritize the anti-inflammatory stack: Omega-3 (EPA/DHA), Turmeric/Curcumin with piperine, and full-spectrum CBD topical. These work over weeks, not days — consistency matters more than timing here.', priority: 'high' });
       }
       // Q2: Joint stiffness
       if (answers[2] === 2) {
@@ -1999,7 +2141,7 @@
       }
       // Q2: Daily anchors
       if (answers[2] === 2) {
-        insights.push({ title: 'Lack of daily anchors is amplifying mood instability', body: 'Consistent morning routines, meal timing, and movement create physiological predictability that stabilises mood. Without these anchors, cortisol and blood sugar fluctuations drive emotional variability that supplements cannot fully compensate for. A simple 3-point morning anchor (wake same time, morning light, protein within an hour) costs nothing and works immediately.', priority: 'medium' });
+        insights.push({ title: 'Lack of daily anchors is amplifying mood instability', body: 'Consistent morning routines, meal timing, and movement create physiological predictability that stabilizes mood. Without these anchors, cortisol and blood sugar fluctuations drive emotional variability that supplements cannot fully compensate for. A simple 3-point morning anchor (wake same time, morning light, protein within an hour) costs nothing and works immediately.', priority: 'medium' });
       }
       // Q3: Missed training
       if (answers[3] === 2) {
@@ -2054,7 +2196,7 @@
         tier2: [
           { name: 'Melatonin',           dose: getAgeDose({'default':'0.5mg','18-30':'0.5mg','31-45':'0.5mg','46-60':'0.25–0.5mg (lower end — sensitivity increases with age)','60+':'0.25mg (start very low — high sensitivity at this age)'}), timing: '30 min before bed', tte: 'First use (circadian signal only)' , desc: "The body's primary sleep hormone. At low doses (0.5mg) it acts as a circadian signal — use it to shift your sleep timing, not as a sedative."},
           { name: 'Apigenin',            dose: '50mg',       timing: '60 min before bed', tte: '1–2 weeks' , desc: "A natural flavonoid found in chamomile that binds to GABA receptors to promote relaxation. Non-habit-forming with no next-day grogginess."},
-          { name: 'Creatine Monohydrate', dose: isFemale ? '3–5g daily — females may benefit more due to estrogen-dependent brain creatine fluctuations' : '5g daily (standard) — or 0.2–0.35g/kg acutely during sleep deprivation', timing: 'Morning with water', tte: '2–4 weeks (cognitive); acute effect within 3–4 hours at high dose', desc: "Beyond its physical performance benefits, creatine supports brain energy metabolism during sleep deprivation. A 2024 WADA-funded study found it partially reverses cognitive deterioration during sleep loss by replenishing phosphocreatine in the brain. Females may benefit more due to estrogen-dependent fluctuations in brain creatine levels across the menstrual cycle and into menopause. Standard daily dosing (5g) builds brain creatine over time. Acute high-dose use (20–25g) for sleep-deprived days is research-validated but should be used cautiously. If Creatine also appears in another of your protocols, one daily dose covers all uses."}
+          { name: 'Creatine Monohydrate', dose: isFemale ? '3–5g daily — females may benefit more due to estrogen-dependent brain creatine fluctuations' : '5g daily (standard) — or 0.09–0.16 g/lb body weight (0.2–0.35 g/kg) acutely during sleep deprivation', timing: 'Morning with water', tte: '2–4 weeks (cognitive); acute effect within 3–4 hours at high dose', desc: "Beyond its physical performance benefits, creatine supports brain energy metabolism during sleep deprivation. A 2024 WADA-funded study found it partially reverses cognitive deterioration during sleep loss by replenishing phosphocreatine in the brain. Females may benefit more due to estrogen-dependent fluctuations in brain creatine levels across the menstrual cycle and into menopause. Standard daily dosing (5g) builds brain creatine over time. Acute high-dose use (20–25g) for sleep-deprived days is research-validated but should be used cautiously. If Creatine also appears in another of your protocols, one daily dose covers all uses."}
         ],
         tier3: [
           { name: 'Magnesium Threonate', dose: '2g (144mg elemental)', timing: '60 min before bed', tte: '2–4 weeks' , desc: "The only form of magnesium clinically shown to cross the blood-brain barrier. Higher cost but superior cognitive and sleep-quality outcomes."}
@@ -2079,7 +2221,7 @@
           { name: 'Rhodiola Rosea',      dose: '300–400mg',         timing: 'Morning before meals',      tte: '3–7 days' , desc: "An adaptogen that improves stress resilience, mental endurance, and fatigue resistance. Best cycled — 5 days on, 2 days off. If this compound also appears in another of your protocols, one daily dose is sufficient."}
         ],
         botanical: [
-          { name: 'Holy Basil (Tulsi)',  dose: '400mg',             timing: 'Twice daily with meals',    tte: '2–4 weeks' , desc: "An Ayurvedic adaptogen that lowers cortisol and supports mental clarity. Mild flavour makes it well-suited as a daily tea."},
+          { name: 'Holy Basil (Tulsi)',  dose: '400mg',             timing: 'Twice daily with meals',    tte: '2–4 weeks' , desc: "An Ayurvedic adaptogen that lowers cortisol and supports mental clarity. Mild flavor makes it well-suited as a daily tea."},
           { name: 'Skullcap',           dose: '500mg',             timing: 'As needed or twice daily',  tte: '1–2 hours (acute)' , desc: "A nervine herb that calms an overactive nervous system. Particularly useful for stress-related tension and anxious rumination."},
           { name: 'Milky Oats',         dose: '2ml tincture',      timing: 'Three times daily',         tte: '4–8 weeks (tonic)' , desc: "A slow-acting tonic herb that rebuilds nervous system resilience over time. Best for chronic stress — not acute relief."}
         ]
@@ -2117,13 +2259,14 @@
           { name: 'Tart Cherry Extract', dose: '480mg',             timing: 'Post-training',    tte: '3–5 days' , desc: "Contains anthocyanins that reduce exercise-induced oxidative stress and muscle damage. One of the most effective natural compounds for DOMS reduction."}
         ],
         tier3: [
-          { name: 'Perform+',            dose: '250mg active ecdysterone (1 cap daily)',     timing: 'With protein meal', tte: '4–6 weeks' , desc: "PHASIS's own beta-ecdysterone formula — 250mg active ecdysterone in a 1:4 HPβCD cyclodextrin complex. WADA-funded study: up to +2kg lean muscle in 10 weeks. Non-hormonal."}
+          { name: 'Perform+',            dose: '250mg active ecdysterone (1 cap daily)',     timing: 'With protein meal', tte: '4–6 weeks' , desc: "PHASIS's own beta-ecdysterone formula — 250mg active ecdysterone in a 1:4 HPβCD cyclodextrin complex. WADA-funded study: up to +4.4 lbs (+2 kg) lean muscle in 10 weeks. Non-hormonal."}
         ],
         botanical: [
           { name: 'Turmeric/Curcumin',   dose: '1000mg + piperine', timing: 'With fat-containing meal', tte: '4–8 weeks' , desc: "Curcumin is a powerful anti-inflammatory that inhibits NF-κB — a key driver of exercise-induced inflammation. Piperine (black pepper) increases absorption by up to 2000%."},
           { name: "Devil's Claw",        dose: '600–800mg',         timing: 'Twice daily with food', tte: '4–6 weeks' , desc: "A traditional anti-inflammatory herb (Harpagophytum procumbens) with systematic-review-level evidence for chronic joint pain and lower back pain. The active compound harpagoside inhibits COX-2 and inflammatory cytokines through a mechanism distinct from NSAIDs. Particularly useful for cumulative joint wear and chronic stiffness." },
           { name: 'Boswellia Serrata (AKBA-standardized)', dose: getAgeDose({'default':'150mg AKBA-standardized','18-30':'100mg (preventative)','31-45':'150mg','46-60':'200mg (joint demands rise meaningfully in this decade)','60+':'250mg (cumulative joint wear is substantial — higher dose more effective)'}), timing: 'With meals', tte: '4–8 weeks', desc: "A 2020 meta-analysis (Yu et al., 7 RCTs, n=545) showed significant reductions in pain (VAS) and stiffness (WOMAC) in osteoarthritis. A 2024 meta-analysis in Phytotherapy Research (Dalmonte et al., 9 RCTs, n=712) confirmed. Mechanism: AKBA inhibits 5-LOX, the same pathway targeted by certain prescription anti-inflammatories. Dose scales up with age as cumulative joint wear becomes the limiting factor." },
-          { name: 'Pycnogenol (French Maritime Pine Bark)', dose: getTrainingDose({default:'150mg', newcomer:'100mg', casual:'100mg', regular:'150mg', competitive:'200mg', elite:'200mg'}), timing: 'With meals', tte: '4–12 weeks', desc: "Across 39 RCTs covering 2,009 subjects (2024 Frontiers review), Pycnogenol shows 43–55% reduction in osteoarthritis discomfort at 100–150mg. Vinciguerra (2006) demonstrated reduced muscle cramping in athletes at 200mg. Procyanidins inhibit MMP-3, MMP-13, and IL-1β — key drivers of cartilage breakdown and post-exercise inflammation. Dose scales with training intensity — competitive athletes benefit from the higher cramp-reduction dose. IMPORTANT: May lower blood pressure and blood glucose. Consult a practitioner if you take antihypertensive or antidiabetic medications." }
+          { name: 'Pycnogenol (French Maritime Pine Bark)', dose: getTrainingDose({default:'150mg', newcomer:'100mg', casual:'100mg', regular:'150mg', competitive:'200mg', elite:'200mg'}), timing: 'With meals', tte: '4–12 weeks', desc: "Across 39 RCTs covering 2,009 subjects (2024 Frontiers review), Pycnogenol shows 43–55% reduction in osteoarthritis discomfort at 100–150mg. Vinciguerra (2006) demonstrated reduced muscle cramping in athletes at 200mg. Procyanidins inhibit MMP-3, MMP-13, and IL-1β — key drivers of cartilage breakdown and post-exercise inflammation. Dose scales with training intensity — competitive athletes benefit from the higher cramp-reduction dose. IMPORTANT: May lower blood pressure and blood glucose. Consult a practitioner if you take antihypertensive or antidiabetic medications." },
+          { name: 'Topical Recovery (PHASIS Max Relief / Relief)', dose: 'Apply directly to affected areas', timing: 'Post-training or as needed for soreness', tte: 'Minutes to 1–2 days', desc: "PHASIS-formulated topicals built on Arnica, Turmeric, and Clary Sage in a botanical-rich base. Max Relief Balm adds Lidocaine HCl for fast-acting nerve-level relief during acute recovery; Relief Salve is the all-natural version for daily joint application. Both target affected tissue directly and bypass systemic absorption — ideal as the topical layer of a recovery protocol alongside the internal compounds above." }
         ]
       },
       mood: {
@@ -2213,7 +2356,7 @@
     var tierDescriptions = {
       tier1: 'Foundation compounds — address the most common deficiencies in this domain. Show to every user.',
       tier2: 'Targeted additions with specific mechanisms for this domain.',
-      tier3: 'Advanced compounds — higher cost or specialised. Not a starting point.',
+      tier3: 'Advanced compounds — higher cost or specialized. Not a starting point.',
       botanical: 'Clinical herbal protocols sourced to Mills & Bone (Principles and Practice of Phytotherapy) and Hoffmann (Medical Herbalism).'
     };
   
@@ -2310,7 +2453,7 @@
         mood:      ['You do not rise to the level of your goals. You fall to the level of your systems.', 'James Clear']
       },
       wellness: {
-        sleep:     ['Most optimisation is built on a broken foundation. Sleep is the foundation.', 'PHASIS'],
+        sleep:     ['Most optimization is built on a broken foundation. Sleep is the foundation.', 'PHASIS'],
         stress:    ['Recovery is not a reward for hard work. It is a requirement for it.', 'PHASIS'],
         energy:    ['When the system is no longer depleted, energy returns. That is not a metaphor.', 'PHASIS'],
         digestion: ['Mood, energy, focus, immunity. Most of it traces back to the gut. Most people never look.', 'PHASIS'],
@@ -2338,7 +2481,7 @@
       'stress+mood': ['Sustained stress and mood disruption are rarely independent — they share the same neurological and hormonal pathways.', 'When cortisol stays elevated chronically, serotonin and dopamine production are directly suppressed, which is why stress and low motivation tend to compound each other.'],
       'energy+sleep': ['Inconsistent energy throughout the day is often a signal that your overnight recovery isn\'t completing fully.', 'Sleep is where your cells replenish ATP, regulate blood sugar, and reset the hormonal signals that drive morning alertness — stimulants only mask the deficit.'],
       'energy+stress': ['Energy and stress are closely linked through your adrenal system — when you\'re running on stress hormones for sustained periods, the energy crash is biological, not a willpower issue.', 'Regulating your stress response is one of the fastest ways to stabilize energy throughout the day.'],
-      'energy+digestion': ['Your gut is responsible for absorbing the nutrients your cells use to produce energy — and poor digestion means poor nutrient uptake regardless of how well you eat.', 'Digestive support and energy support are more connected than most people realise.'],
+      'energy+digestion': ['Your gut is responsible for absorbing the nutrients your cells use to produce energy — and poor digestion means poor nutrient uptake regardless of how well you eat.', 'Digestive support and energy support are more connected than most people realize.'],
       'energy+physical': ['Low energy and slow physical recovery often share the same root cause: inadequate mitochondrial function and mineral depletion from training.', 'Your cells need the same inputs to produce energy that they need to repair tissue after exercise.'],
       'energy+mood': ['Energy and motivation are driven by overlapping neurochemical systems — dopamine in particular governs both how energised and how engaged you feel.', 'Chronically low energy almost always affects mood and motivation even when the underlying cause is physical.'],
       'digestion+sleep': ['Your gut does its most active repair work overnight — and disrupted sleep directly impairs the microbial activity and tissue restoration that digestive health depends on.', 'Improving sleep quality often produces measurable digestive improvements within weeks.'],
@@ -2482,20 +2625,25 @@
     }
   
     // ── Single accordion: foundation habits + full protocol ─────────────
-    html += '<div style="margin:10px 20px 0;border-radius:10px;overflow:hidden;border:1px solid var(--border)">';
-    html += '<div onclick="var b=document.getElementById(\'' + uid + '\');var ic=document.getElementById(\'' + uid + '-ic\');var open=b.style.display===\'block\';b.style.display=open?\'none\':\'block\';ic.textContent=open?\'+\':\'−\';" style="padding:12px 14px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;background:rgba(255,255,255,.02)">';
-    html += '<div style="font-family:var(--f-dis);font-size:12px;font-weight:600;color:var(--muted-l)">Foundation habits + full protocol</div>';
-    html += '<span id="' + uid + '-ic" style="color:var(--muted);font-size:18px;line-height:1;font-weight:300">+</span>';
+    html += '<div style="margin:10px 20px 0;border-radius:10px;overflow:hidden;border:1px solid ' + c + '33;background:linear-gradient(135deg,' + c + '0a,rgba(255,255,255,.02))">';
+    html += '<div onclick="var b=document.getElementById(\'' + uid + '\');var ic=document.getElementById(\'' + uid + '-ic\');var open=b.style.display===\'block\';b.style.display=open?\'none\':\'block\';ic.style.transform=open?\'rotate(0deg)\':\'rotate(180deg)\';" style="padding:14px 16px;display:flex;align-items:center;justify-content:space-between;cursor:pointer;gap:12px;transition:background .15s" onmouseover="this.style.background=\'rgba(255,255,255,.03)\'" onmouseout="this.style.background=\'transparent\'">';
+    html += '<div style="flex:1;min-width:0">';
+    html += '<div style="font-family:var(--f-dis);font-size:13px;font-weight:700;color:var(--off-white);margin-bottom:3px">Foundation habits + full protocol</div>';
+    html += '<div style="font-size:11px;color:' + c + ';font-weight:500">Tap to expand — habits, supplements + research notes</div>';
+    html += '</div>';
+    html += '<div style="background:' + c + '1a;border:1px solid ' + c + '4d;border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;flex-shrink:0">';
+    html += '<span id="' + uid + '-ic" style="color:' + c + ';font-size:13px;line-height:1;font-weight:700;transition:transform .25s ease;display:inline-block">▾</span>';
+    html += '</div>';
     html += '</div>';
   
     html += '<div id="' + uid + '" style="display:none;border-top:1px solid var(--border)">';
   
-    // Foundation habits inside accordion
-    var foundations = isBeginner ? getBeginnerQuickWins(domain) : getHolisticProtocol(domain);
-    foundations = foundations.slice(0, 5);
-  
+    // Foundation habits inside accordion — ranked by quiz + deep-dive answers
+    var foundations = getPersonalizedFoundationHabits(domain, isBeginner);
+
     html += '<div style="padding:14px 14px 10px">';
-    html += '<div style="font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Foundation habits — free, do first</div>';
+    html += '<div style="font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px">Foundation habits — free, do first</div>';
+    html += '<div style="font-size:11px;color:var(--muted-l);line-height:1.55;margin-bottom:12px">' + getFoundationHabitsIntro(domain) + '</div>';
     foundations.forEach(function(f, fi) {
       var isLast = fi === foundations.length - 1;
       html += '<div style="display:flex;align-items:flex-start;gap:9px;padding:8px 0;' + (isLast ? '' : 'border-bottom:1px solid rgba(255,255,255,.04)') + '">';
@@ -2505,11 +2653,19 @@
       html += '<div style="font-size:11px;color:var(--muted-l);line-height:1.55">' + f.desc + '</div>';
       html += '</div></div>';
     });
+
+    if (shouldShowFoodFirstCallout(domain)) {
+      html += '<div style="margin-top:12px;padding:12px;background:rgba(22,163,74,.06);border:1px solid rgba(22,163,74,.2);border-radius:8px">';
+      html += '<div style="font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:' + c + ';margin-bottom:6px">Food first — important for your digestion protocol</div>';
+      html += '<div style="font-size:11px;color:var(--muted-l);line-height:1.6">Diet quality is the highest-leverage variable here. No probiotic fully compensates for insufficient fiber — aim for 25–35g daily from vegetables, legumes, and whole grains before adding supplement complexity.</div>';
+      html += '</div>';
+    }
+
     html += '</div>';
-  
+
     // Divider between habits and supplement depth
     html += '<div style="height:1px;background:var(--border);margin:0 14px"></div>';
-  
+
     // Full supplement protocol depth
     html += '<div style="padding:14px 14px 6px">';
     html += '<div style="font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:12px">Supplement depth + research notes</div>';
@@ -2702,8 +2858,8 @@
       html += '</div></div>';
     }
   
-    // Holistic protocol
-    const protocols = getHolisticProtocol(domain);
+    // Holistic protocol — personalized order from quiz responses
+    const protocols = getPersonalizedFoundationHabits(domain, isBeginner);
     html += '<div class="protocol-section">';
     html += '<div class="ps-header" style="background:' + d.bg + ';border-color:' + d.border + '">';
     html += '<span class="ps-icon">' + d.emoji + '</span><div>';

@@ -1,4 +1,4 @@
-<section class="fighter-sec section">
+<section class="fighter-sec section {{section.settings.custom_css_class }}">
   <div class="fighter-inner">
     
     <!-- LEFT CONTENT -->
@@ -61,7 +61,7 @@
 .fighter-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
 .fighter-eyebrow-row span{font-family:var(--f-body);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
 .fighter-sec h2{margin-bottom:16px}
-.fighter-sec h2 em{color:var(--coral);font-style:normal}
+.fighter-sec h2 em{color:#DC2626;font-style:normal}
 .fighter-p{font-size:14px;font-weight:300;color:var(--muted-l);line-height:1.75;margin-bottom:20px}
 .fighter-p strong{color:var(--off-white);font-weight:600}
 
@@ -92,6 +92,11 @@
 {
   "name": "Fighter Section",
   "settings": [
+      {
+      "type": "text",
+      "id": "custom_css_class",
+      "label": "Custom CSS Class"
+    },
     {
       "type": "text",
       "id": "eyebrow",

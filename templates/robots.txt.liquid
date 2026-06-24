@@ -1,0 +1,219 @@
+# ================================================================
+# phasisevo.com — Custom robots.txt
+# Updated: June 2026
+# 
+# IMPLEMENTATION: Save as templates/robots.txt.liquid in Shopify
+# theme. This replaces the auto-generated Shopify default entirely.
+# ================================================================
+#
+# Shopify storefront. Public product, collection, page, blog,
+# policy, and localized HTML is crawlable.
+# Agent instructions: https://phasisevo.com/agents.md
+# UCP discovery: https://phasisevo.com/.well-known/ucp
+# UCP/MCP endpoint: https://phasisevo.com/api/ucp/mcp
+#
+# Terms of Service: https://www.shopify.com/legal/terms
+# Contact: bots@shopify.com
+#
+
+User-agent: *
+
+# ── ALLOW: Products with checkout-named slugs (Shopify default) ──
+Allow: /products/account
+Allow: /products/orders
+Allow: /products/checkout
+Allow: /*/products/account
+Allow: /*/products/orders
+Allow: /*/products/checkout
+Allow: /collections/account
+Allow: /collections/orders
+Allow: /collections/checkout
+Allow: /*/collections/account
+Allow: /*/collections/orders
+Allow: /*/collections/checkout
+Allow: /pages/checkout
+Allow: /*/pages/checkout
+Allow: /blogs/*account
+Allow: /blogs/*orders
+Allow: /blogs/*checkout
+Allow: /*/blogs/*account
+Allow: /*/blogs/*orders
+Allow: /*/blogs/*checkout
+Allow: /account/login
+Allow: /*/account/login
+
+# ── DISALLOW: Private / transactional pages ──
+Disallow: /admin
+Disallow: /cart
+Disallow: /cart/
+Disallow: /*/cart/
+Disallow: /checkout
+Disallow: /*/checkout
+Disallow: /checkouts/
+Disallow: /*/checkouts/
+Disallow: /orders
+Disallow: /*/orders
+Disallow: /account
+Disallow: /*/account
+Disallow: /70389629100
+Disallow: /cdn/wpm/*.js
+
+# ── DISALLOW: Shopify internal ──
+Disallow: /services
+Disallow: /sf_*
+
+# ── DISALLOW: AJAX (agents use UCP/MCP) ──
+Disallow: /cart.js
+Disallow: /*/cart.js
+Disallow: /recommendations/products
+Disallow: /*/recommendations/products
+
+# ── DISALLOW: Filter / sort crawl traps ──
+Disallow: /collections/*sort_by*
+Disallow: /*/collections/*sort_by*
+Disallow: /collections/*+*
+Disallow: /collections/*%2B*
+Disallow: /collections/*%2b*
+Disallow: /*/collections/*+*
+Disallow: /*/collections/*%2B*
+Disallow: /*/collections/*%2b*
+Disallow: /collections/*filter*&*filter*
+Disallow: /*/collections/*filter*&*filter*
+Disallow: /blogs/*+*
+Disallow: /blogs/*%2B*
+Disallow: /blogs/*%2b*
+Disallow: /*/blogs/*+*
+Disallow: /*/blogs/*%2B*
+Disallow: /*/blogs/*%2b*
+Disallow: /*?*ls=*&ls=*
+Disallow: /*?*ls%3*ls%3*
+Disallow: /*?*oseid=*
+Disallow: /*?*preview_theme_id=*
+Disallow: /*?*preview_script_id=*
+
+# ================================================================
+# PHASIS-SPECIFIC RULES — GSC + Semrush error cleanup
+# ================================================================
+
+# ── JUNK URL PARAMETERS (GSC: Discovered/indexed junk URLs) ──
+# ?kg= parameter is generating crawlable junk URLs.
+# Source: likely a third-party widget/app. Block all forms.
+Disallow: /*?kg=*
+Disallow: /*?*&kg=*
+Disallow: /*?*kg%3D*
+
+# ── VARIANT PARAMETER URLS (Duplicate content) ──
+# ?variant= creates thin duplicate pages per product variant.
+# Canonical product content lives on /products/[slug] and /pages/[product].
+Disallow: /*?*variant=*
+
+# ── THEME / VIEW PARAMETER URLS ──
+# ?view= switches templates and can expose unfinished pages.
+Disallow: /*?*view=*
+
+# ── EMPTY DEFAULT COLLECTION (Thin page, Semrush: Low word count) ──
+# /collections/frontpage = Shopify auto-created default. No products, no content.
+Disallow: /collections/frontpage
+Disallow: /*/collections/frontpage
+
+# ── SEARCH PAGE (Ghost page — Semrush: Duplicate title + meta) ──
+# Title "Search" is Shopify default. Meta pulls homepage description.
+# noindex,follow meta also added to theme for belt-and-suspenders.
+Disallow: /search
+
+# ── DUPLICATE PRIVACY POLICY (Semrush: Duplicate content) ──
+# /pages/privacy-policy duplicates /pages/privacy-policy-1.
+# Also in sitemap (error). Pending 301 redirect in Shopify admin.
+# REMOVE this rule once redirect → /pages/privacy-policy-1 is live.
+Disallow: /pages/privacy-policy
+
+# ── KNOWN 404 ORPHAN PAGES (Semrush: 4xx errors, crawl waste) ──
+# These return 404 and have no redirect yet. Temp block saves crawl budget.
+# REMOVE each rule once the corresponding 301 is set in Shopify admin:
+#   /products/max-relief-balm      → /products/max-relief
+#   /products/relief-balm          → /products/relief
+#   /pages/phasis-policies.html    → /pages/privacy-policy-1
+#   /pages/phasis-shop-mobile.html → /pages/phasis-shop
+Disallow: /products/max-relief-balm
+Disallow: /products/relief-balm
+Disallow: /pages/phasis-policies.html
+Disallow: /pages/phasis-shop-mobile.html
+
+# ── NOTE: /blogs/articles (Duplicate of /pages/journal) ──
+# Cannot block /blogs/articles via robots.txt without also blocking
+# all 4 article pages under it (/blogs/articles/[slug]). 
+# Fix is meta-only: add noindex to the blog index template.
+
+# ================================================================
+# ADS BOT — separate block required (ignores User-agent: *)
+# ================================================================
+User-agent: adsbot-google
+Allow: /products/
+Allow: /*/products/
+Allow: /collections/
+Allow: /*/collections/
+Allow: /pages/
+Allow: /*/pages/
+Allow: /blogs/
+Allow: /*/blogs/
+Allow: /pages/checkout
+Allow: /*/pages/checkout
+Allow: /blogs/*checkout
+Allow: /*/blogs/*checkout
+Disallow: /checkout
+Disallow: /*/checkout
+Disallow: /checkouts/
+Disallow: /*/checkouts/
+Disallow: /orders
+Disallow: /*/orders
+Disallow: /services
+Disallow: /sf_*
+Disallow: /70389629100
+Disallow: /cdn/wpm/*.js
+
+# ================================================================
+# AI / LLM CRAWLERS — GEO strategy: allow product + content pages
+# ================================================================
+
+# Google AI (Gemini, AI Overviews)
+User-agent: Google-Extended
+Allow: /
+
+# OpenAI (ChatGPT, SearchGPT)
+User-agent: GPTBot
+Allow: /products/
+Allow: /pages/
+Allow: /blogs/articles/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+Disallow: /admin
+
+# Anthropic (Claude)
+User-agent: anthropic-ai
+Allow: /products/
+Allow: /pages/
+Allow: /blogs/articles/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+
+# Perplexity
+User-agent: PerplexityBot
+Allow: /products/
+Allow: /pages/
+Allow: /blogs/articles/
+Disallow: /cart
+Disallow: /checkout
+Disallow: /account
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /products/
+Allow: /pages/
+Allow: /blogs/articles/
+Disallow: /cart
+Disallow: /checkout
+
+# ================================================================
+Sitemap: https://phasisevo.com/sitemap.xml

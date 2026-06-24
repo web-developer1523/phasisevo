@@ -8,11 +8,11 @@
   - Supports badges, images, features, and buttons.
 {% endcomment %}
 
-<div class="shop-main">
+<div class="shop-main {{section.settings.custom_Css_Class }}">
   <div class="products-grid" id="products-grid">
     {% for block in section.blocks %}
       {% if block.type == 'product' %}
-       {% assign product = block.settings.product %}
+        {% assign product = block.settings.product %}
         <div
           class="product-card {% if block.settings.featured %}featured{% endif %} {% if block.settings.coming_soon %}soon{% endif %}"
           data-cat="{{ block.settings.category }}"
@@ -22,11 +22,23 @@
               <span class="badge badge-{{ block.settings.badge_type }}">{{ block.settings.badge_text }}</span>
             {% endif %}
           </div>
-          <a  href="{{ block.settings.button_link }}"
+          <a
+            href="{{ block.settings.button_link }}"
             class="card-img"
             style="
               {% if product != blank and product.featured_image %}
+                {% if product.handle == 'electro-drops' %}
+                  {% assign electro_img = nil %}
+                  {% for variant in product.variants %}
+                    {% if variant.title contains '120ml' and variant.featured_image %}
+                      {% assign electro_img = variant.featured_image %}
+                      {% break %}
+                    {% endif %}
+                  {% endfor %}
+                  background-image:url({{ electro_img | default: product.featured_image | img_url: '500x' }});
+                {% else %}
                 background-image:url({{ product.featured_image | img_url: '500x' }});
+                {% endif %}
                 background-size:cover;
                 background-position:center;
               {% else %}
@@ -50,11 +62,11 @@
             </div>
             <div class="card-name">
               <a href="{{ block.settings.button_link }}">
-              {% if product != blank %}
-                {{ product.title }}
-              {% else -%}
-                {{- block.settings.product_name }}
-              {% endif %}
+                {% if product != blank %}
+                  {{ product.title }}
+                {% else -%}
+                  {{- block.settings.product_name }}
+                {% endif %}
               </a>
             </div>
             <div class="card-tagline">{{ block.settings.tagline }}</div>
@@ -75,7 +87,10 @@
                       {% assign prices = '' %}
 
                       {% for variant in product.variants %}
-                        {% if variant.title contains '20ml' or variant.title contains '30ml' or variant.title contains '60ml' %}
+                        {% if variant.title contains '20ml'
+                          or variant.title contains '30ml'
+                          or variant.title contains '60ml'
+                        %}
                           {% assign prices = prices | append: variant.price | append: ',' %}
                         {% endif %}
                       {% endfor %}
@@ -90,72 +105,94 @@
                         {{ min_price | money | replace: '.00', '' }} – {{ max_price | money | replace: '.00', '' }}
                       {% endif %}
                     {% else %}
-                      {{ product.price | money | replace: '.00', '' }}
+                      {% assign shown_price = product.price %}
+                      {% for variant in product.variants %}
+                        {% if variant.title contains '120ml'
+                          or variant.title contains '30 Capsules'
+                          or variant.title contains '60ml'
+                        %}
+                          {% assign shown_price = variant.price %}
+                          {% break %}
+                        {% endif %}
+                      {% endfor %}
+                      {{ shown_price | money | replace: '.00', '' }}
+                      {% comment %} {{ product.price | money | replace: '.00', '' }} {% endcomment %}
                     {% endif %}
                   {% else -%}
                     {{- block.settings.price -}}
                   {%- endif %}
                 </div>
                 {% if block.settings.price_sub != blank %}
-                <div class="card-price-sub pill variant cst-pill-btn  cst-pill-var cst-pillbalm-new">
-                  {{ block.settings.price_sub }}
-                </div>
-              {% else %}
-
-                {% assign default_size = "" %}
-
-                {% if product.handle == "max-relief-balm" %}
-                  {% assign default_size = "60ml" %}
-                  {% assign highlight_color = "#e8482a" %}
-                  {% elsif product.handle == "relief-balm" %}
-                  {% assign default_size = "60ml" %}
-                  {% assign highlight_color = "#00bfa8" %}
-                {% elsif product.handle == "electro-drops" %}
-                  {% assign default_size = "120ml" %}
-                  {% assign highlight_color = "#00bfa8" %}
-                {% endif %}
-
-                {% if product.variants.size > 0 %}
-                  {% assign sizes = "" %}
-
-                  {% for variant in product.variants %}
-                    {% assign size = variant.title | split: "—" | last | strip %}
-                    
-                    {% if sizes contains size %}
-                      {% continue %}
-                    {% endif %}
-
-                    {% if size == default_size %}
-                      {% assign sizes = size | append: "," | append: sizes %}
-                    {% else %}
-                      {% assign sizes = sizes | append: size | append: "," %}
-                    {% endif %}
-                  {% endfor %}
-
-                  <div class="card-price-sub pill variant" style="display: flex; gap: 4px; align-items: center; flex-wrap: wrap;">
-                  {% assign size_array = sizes | split: "," %}
-                  
-                  {% for final_size in size_array %}
-                    {% if final_size != blank %}
-                      {% assign stripped_size = final_size | strip %}
-                      
-                      {% comment %} Yahan logic check karega: Agar default size hai toh wahi color lagao jo upar set kiya tha {% endcomment %}
-                      <span style="{% if stripped_size == default_size %}color: {{ highlight_color }}; font-weight: 800;{% else %}color: #d0d0d0;{% endif %}">
-                        {{ stripped_size }}
-                      </span>
-
-                      {% unless forloop.last %}
-                        <span style="opacity: 0.4;">.</span>
-                      {% endunless %}
-                    {% endif %}
-                  {% endfor %}
+                  <div class="card-price-sub pill variant cst-pill-btn  cst-pill-var cst-pillbalm-new">
+                    {{ block.settings.price_sub }}
                   </div>
-                {% endif %}
+                {% else %}
+                  {% assign default_size = '' %}
 
-              {% endif %}
+                  {% if product.handle == 'max-relief-balm' %}
+                    {% assign default_size = '60ml' %}
+                    {% assign highlight_color = '#e8482a' %}
+                  {% elsif product.handle == 'relief-balm' %}
+                    {% assign default_size = '60ml' %}
+                    {% assign highlight_color = '#0284C7' %}
+                  {% elsif product.handle == 'electro-drops' %}
+                    {% assign default_size = '120ml' %}
+                    {% assign highlight_color = '#EA580C' %}
+                  {% elsif product.handle == 'perform' %}
+                    {% assign default_size = '30 Capsules' %}
+                    {% assign highlight_color = '#e8482a' %}
+                  {% endif %}
+
+                  {% if product.variants.size > 0 %}
+                    {% assign sizes = '' %}
+
+                    {% for variant in product.variants %}
+                      {% assign size = variant.title | split: '—' | last | strip %}
+
+                      {% if sizes contains size %}
+                        {% continue %}
+                      {% endif %}
+
+                      {% if size == default_size %}
+                        {% assign sizes = size | append: ',' | append: sizes %}
+                      {% else %}
+                        {% assign sizes = sizes | append: size | append: ',' %}
+                      {% endif %}
+                    {% endfor %}
+
+                    <div
+                      class="card-price-sub pill variant"
+                      style="display: flex; gap: 4px; align-items: center; flex-wrap: wrap;"
+                    >
+                      {% assign size_array = sizes | split: ',' %}
+
+                      {% for final_size in size_array %}
+                        {% if final_size != blank %}
+                          {% assign stripped_size = final_size | strip %}
+
+                          {% comment %} Yahan logic check karega: Agar default size hai toh wahi color lagao jo upar set kiya tha {% endcomment %}
+                          <span style="{% if stripped_size == default_size %}color: {{ highlight_color }}; font-weight: 800;{% else %}color: #d0d0d0;{% endif %}">
+                            {{ stripped_size }}
+                          </span>
+
+                          {% unless forloop.last %}
+                            <span style="opacity: 0.4;">.</span>
+                          {% endunless %}
+                        {% endif %}
+                      {% endfor %}
+                    </div>
+                  {% endif %}
+                {% endif %}
               </div>
               {% if product != blank %}
-                <form method="post" action="/cart/add" class="bundle-add-form" data-handle="{{ product.handle }}"  data-variants='{{ product.variants | json | escape }}'>
+                <form
+                  method="post"
+                  action="/cart/add"
+                  class="bundle-add-form"
+                  data-handle="{{ product.handle }}"
+                  data-variants="{{ product.variants | json | escape }}"
+                  data-default-size="{{ default_size }}"
+                >
                   <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
                   <button type="submit" class="btn btn-{{ block.settings.button_style }}">
                     {{ block.settings.button_text }}
@@ -199,9 +236,9 @@
 
    .card-badge{position:absolute;top:12px;left:12px;z-index:2;display:flex;gap:6px;flex-wrap:wrap}
    .badge{display:inline-flex;align-items:center;gap:4px;font-family:var(--f-dis);font-size:9px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
-   .badge-bestseller{background:var(--coral);color:#fff}
-   .badge-new{background:var(--teal);color:#000}
-   .badge-soon{background:rgba(212,131,26,.15);color:var(--amber);border:1px solid rgba(212,131,26,.3)}
+   .badge-bestseller{background:var(--red);color:#fff}
+   .badge-new{background:#EA580C;color:#000}
+   .badge-soon{background:#dc262638;color:var(--red);border:1px solid #dc262638};
    .badge-soon::before{content:'';width:5px;height:5px;background:var(--amber);border-radius:50%;animation:pa 2s ease-in-out infinite}
    @keyframes pa{0%,100%{opacity:1}50%{opacity:.4}}
 
@@ -219,8 +256,8 @@
    .card-features{display:flex;flex-direction:column;gap:5px;margin-bottom:16px}
    .cf{display:flex;align-items:flex-start;gap:6px;font-size:14px;color:#d0d0d0;line-height:1.45}
    .cf::before{content:'✓';font-weight:700;font-size:10px;flex-shrink:0;margin-top:1px;font-family:var(--f-dis)}
-   .cf.coral::before{color:var(--coral)}
-   .cf.teal::before{color:var(--teal)}
+   .cf.coral::before{color:var(--red)}
+   .cf.teal::before{color: #ea580c}
    .cf.amber::before{color:var(--amber)}
    .card-footer{border-top:1px solid var(--border);padding-top:14px;display:flex;align-items:center;justify-content:space-between;gap:12px}
    .card-price{font-family:var(--f-dis);font-size:20px;font-weight:800;line-height:1}
@@ -230,36 +267,82 @@
    /* Coming soon overlay */
    .cs-overlay{position:absolute;inset:0;background:rgba(8,8,8,.65);backdrop-filter:blur(3px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;z-index:3;opacity:0;transition:opacity .2s}
    .product-card.soon:hover .cs-overlay{opacity:1}
-   .cs-text{font-family:var(--f-dis);font-size:13px;font-weight:700;color:var(--amber);letter-spacing:.08em;text-transform:uppercase}
+   .cs-text{font-family:var(--f-dis);font-size:13px;font-weight:700;color:var(--red);letter-spacing:.08em;text-transform:uppercase}
    .cs-sub{font-size:11px;color:var(--muted-l)}
    .cs-overlay .btn{width:auto;padding:10px 18px;font-size:11px}
 </style>
- <script>
-document.addEventListener('submit', function(e) {
+<script>
+    document.addEventListener('submit', function(e) {
 
-  const form = e.target.closest('.bundle-add-form');
-  if (!form) return;
+      const form = e.target.closest('.bundle-add-form');
+      if (!form) return;
 
-  e.preventDefault();
+      e.preventDefault();
 
-  const handle = form.dataset.handle;
-  let items = [];
+      const handle = form.dataset.handle;
+      let items = [];
 
-  // get SAFE product variants from THIS card only
-  let variants = JSON.parse(form.dataset.variants || '[]');
+      // get SAFE product variants from THIS card only
+      let variants = JSON.parse(form.dataset.variants || '[]');
 
-  if (handle === "max-relief-balm") {
+      if (handle === "max-relief-balm") {
+         const defaultSize = form.dataset.defaultSize;
+
+          variants.forEach(function(v) {
+
+            let title = (v.title || '').trim();
+
+            if (title.includes(defaultSize)) {
+              items.push({
+                id: v.id,
+                quantity: 1
+              });
+            }
+
+          });
+
+        {% comment %} variants.forEach(function(v) {
+
+          let title = (v.title || '').trim();
+
+          // variant match
+          if (
+            title === "Stick — 30ml" ||
+            title === "Jar — 60ml"  ||
+             title === "Stick — 20ml"
+          ) {
+            items.push({
+              id: v.id,
+              quantity: 1
+            });
+          }
+
+        }); {% endcomment %}
+      }else if (handle === "electro-drops" || handle === "relief-balm") {
+
+      const defaultSize = form.dataset.defaultSize;
+
+      variants.forEach(function(v) {
+
+        let title = (v.title || '').trim();
+
+        if (title.includes(defaultSize)) {
+          items.push({
+            id: v.id,
+            quantity: 1
+          });
+        }
+
+      });
+
+    }else if (handle === "perform") {
+
+    const defaultSize = form.dataset.defaultSize;
 
     variants.forEach(function(v) {
 
       let title = (v.title || '').trim();
-
-      // variant match
-      if (
-        title === "Stick — 30ml" ||
-        title === "Jar — 60ml"  ||
-         title === "Stick — 20ml"
-      ) {
+      if (title.includes(defaultSize)) {
         items.push({
           id: v.id,
           quantity: 1
@@ -268,126 +351,117 @@ document.addEventListener('submit', function(e) {
 
     });
 
-  }else if (handle === "electro-drops") { 
-    variants.forEach(function(v) {
-      items.push({ id: v.id, quantity: 1 });
-    });
-  } else if (handle === "relief-balm") { 
-    variants.forEach(function(v) {
-      items.push({ id: v.id, quantity: 1 });
-    });
-  }else {
-
-    items.push({
-      id: form.querySelector('input[name="id"]').value,
-      quantity: 1
-    });
-
   }
+      console.log("FINAL ITEMS:", items);
 
-  console.log("FINAL ITEMS:", items);
-
-  if (!items.length) {
-    alert("No valid variants found");
-    return;
-  }
-
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items })
-  })
-  .then(() => updateCount())
-  .catch(err => console.log(err));
-
-});
-function updateCount() {
-  fetch('/cart.js')
-    .then(res => res.json())
-    .then(cart => {
-
-      const count = cart.item_count;
-
-      document.querySelectorAll('.cart-count-bubble span[aria-hidden="true"]')
-        .forEach(el => {
-          el.textContent = count;
-        });
-
-      document.querySelectorAll('.cart-count-bubble .visually-hidden')
-        .forEach(el => {
-          el.textContent = count + (count === 1 ? ' item' : ' items');
-        });
-
-    });
-}
-</script> 
-
-
- {% comment %} <script>
-document.addEventListener('submit', function(e) {
-
-  const form = e.target.closest('.bundle-add-form');
-  if (!form) return;
-
-  e.preventDefault();
-
-  const handle = form.dataset.handle;
-  let items = [];
-
-  // get SAFE product variants from THIS card only
-  let variants = JSON.parse(form.dataset.variants || '[]');
-
-  if (handle === "max-relief-balm") {
-
-    variants.forEach(function(v) {
-
-      let title = (v.title || '').trim();
-
-      //  MATCH ONLY (NO 20ML LEAK)
-      if (
-        title === "Stick — 30ml" ||
-        title === "Jar — 60ml"
-      ) {
-        items.push({
-          id: v.id,
-          quantity: 1
-        });
+      if (!items.length) {
+        alert("No valid variants found");
+        return;
       }
 
+      fetch('/cart/add.js', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ items })
+      })
+      .then(() => updateCount())
+      .catch(err => console.log(err));
+
     });
+    function updateCount() {
+      fetch('/cart.js')
+        .then(res => res.json())
+        .then(cart => {
 
-  } else {
+          const count = cart.item_count;
 
-    items.push({
-      id: form.querySelector('input[name="id"]').value,
-      quantity: 1
-    });
+          document.querySelectorAll('.cart-count-bubble span[aria-hidden="true"]')
+            .forEach(el => {
+              el.textContent = count;
+            });
 
-  }
+          document.querySelectorAll('.cart-count-bubble .visually-hidden')
+            .forEach(el => {
+              el.textContent = count + (count === 1 ? ' item' : ' items');
+            });
 
-  console.log("FINAL ITEMS:", items);
+        });
+    }
+</script>
 
-  if (!items.length) {
-    alert("No valid variants found");
-    return;
-  }
+{% comment %}
+  <script>
+  document.addEventListener('submit', function(e) {
 
-  fetch('/cart/add.js', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ items }),
-  })
- setTimeout(function() {
-    window.location.href = '/cart';
-  }, 100);
-  .catch(err => console.log(err));
+    const form = e.target.closest('.bundle-add-form');
+    if (!form) return;
 
-});
-</script>  {% endcomment %}
+    e.preventDefault();
+
+    const handle = form.dataset.handle;
+    let items = [];
+
+    // get SAFE product variants from THIS card only
+    let variants = JSON.parse(form.dataset.variants || '[]');
+
+    if (handle === "max-relief-balm") {
+
+      variants.forEach(function(v) {
+
+        let title = (v.title || '').trim();
+
+        //  MATCH ONLY (NO 20ML LEAK)
+        if (
+          title === "Stick — 30ml" ||
+          title === "Jar — 60ml"
+        ) {
+          items.push({
+            id: v.id,
+            quantity: 1
+          });
+        }
+
+      });
+
+    } else {
+
+      items.push({
+        id: form.querySelector('input[name="id"]').value,
+        quantity: 1
+      });
+
+    }
+
+    console.log("FINAL ITEMS:", items);
+
+    if (!items.length) {
+      alert("No valid variants found");
+      return;
+    }
+
+    fetch('/cart/add.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ items }),
+    })
+   setTimeout(function() {
+      window.location.href = '/cart';
+    }, 100);
+    .catch(err => console.log(err));
+
+  });
+  </script>
+{% endcomment %}
 {% schema %}
 {
   "name": "Shop Product Grid",
-  "settings": [],
+  "settings": [
+    {
+      "type": "text",
+      "id": "custom_Css_Class",
+      "label": "Custom CSS Class"
+    }
+  ],
   "blocks": [
     {
       "type": "product",
@@ -553,7 +627,9 @@ document.addEventListener('submit', function(e) {
             { "value": "p", "label": "Primary (Coral)" },
             { "value": "t", "label": "Teal" },
             { "value": "a", "label": "Amber" },
-            { "value": "s", "label": "Secondary" }
+            { "value": "s", "label": "Secondary" },
+            { "value": "o", "label": "Orange" },
+            { "value": "db", "label": "Dark Blue" }
           ],
           "default": "p"
         },
@@ -592,7 +668,9 @@ document.addEventListener('submit', function(e) {
             { "value": "p", "label": "Primary (Coral)" },
             { "value": "t", "label": "Teal" },
             { "value": "a", "label": "Amber" },
-            { "value": "s", "label": "Secondary" }
+            { "value": "s", "label": "Secondary" },
+            { "value": "o", "label": "Orange" },
+            { "value": "db", "label": "Dark Blue" }
           ],
           "default": "a"
         }
@@ -602,7 +680,7 @@ document.addEventListener('submit', function(e) {
   "presets": [
     {
       "name": "Shop Product Grid",
-      "blocks": [{ "type": "product" }, { "type": "product" }, { "type": "product" },{ "type": "product" }]
+      "blocks": [{ "type": "product" }, { "type": "product" }, { "type": "product" }, { "type": "product" }]
     }
   ]
 }

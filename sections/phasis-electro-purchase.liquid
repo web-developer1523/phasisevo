@@ -152,7 +152,7 @@
       <!-- TAGLINE -->
       <p class="pi-tagline">
         {% if section.settings.use_product and section.settings.product != blank %}
-          {{ section.settings.product.description | strip_html | truncate: 120 }}
+          {{ section.settings.product.description }}
         {% else %}
           {{ section.settings.tagline }}
         {% endif %}
@@ -219,24 +219,9 @@
         {% else %}
           <a href="{{ section.settings.cta_url }}" class="btn btn-t btn-full">{{ section.settings.cta_text }}</a>
         {%- endif %}
-        <div class="guarantees mt-4">
-          {% for block in section.blocks %}
-            {% if block.type == 'guarantee' %}
-              <div class="g-item" {{ block.shopify_attributes }}>
-                <div class="g-icon">{{ block.settings.icon }}</div>
-                <div class="g-title">{{ block.settings.title }}</div>
-                <div class="g-desc">{{ block.settings.desc }}</div>
-              </div>
-            {% endif %}
-          {% endfor %}
-        </div>
-        <div class="secure-row mt-4">
-          <span class="secure-item">{{ section.settings.secure_1 }}</span>
-          <span class="secure-item">{{ section.settings.secure_2 }}</span>
-          <span class="secure-item">{{ section.settings.secure_3 }}</span>
-        </div>
-      </div>
-      {% comment %} <div class="upsell-block">
+
+        {% comment %} upshell replace start for mbile {% endcomment %}
+           <div class="upsell-block cst-upshell-mobile">
         <div class="upsell-label">{{ section.settings.upsell_label }}</div>
         {% assign upsell_product = section.settings.upsell_product %}
         {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
@@ -304,8 +289,102 @@
             {{ section.settings.upsell_btn_text_2 }}
           </a>
         </div>
-        {% comment %} end {% endcomment %}
-      </div> {% endcomment %}
+      
+      </div> 
+         {% comment %} upshell end {% endcomment %}
+
+        {% comment %} guranterr {% endcomment %}
+        <div class="guarantees mt-4">
+          {% for block in section.blocks %}
+            {% if block.type == 'guarantee' %}
+              <div class="g-item" {{ block.shopify_attributes }}>
+                <div class="g-icon">{{ block.settings.icon }}</div>
+                <div class="g-title">{{ block.settings.title }}</div>
+                <div class="g-desc">{{ block.settings.desc }}</div>
+              </div>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <div class="secure-row mt-4">
+          <span class="secure-item">{{ section.settings.secure_1 }}</span>
+          <span class="secure-item">{{ section.settings.secure_2 }}</span>
+          <span class="secure-item">{{ section.settings.secure_3 }}</span>
+        </div>
+      </div>
+      {% comment %} end gurantee {% endcomment %}
+
+      {% comment %} upshell start {% endcomment %}
+       {% comment %} <div class="upsell-block">
+        <div class="upsell-label">{{ section.settings.upsell_label }}</div>
+        {% assign upsell_product = section.settings.upsell_product %}
+        {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant.featured_image %}
+                    {{ upsell_variant.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc }}</div>
+            </div>
+          </div>
+          {% assign upsell_product = section.settings.upsell_product %}
+          {% assign upsell_variant = upsell_product.variants | where: 'title', 'Stick — 30ml' | first %}
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn"
+            data-upsell-variant-id="{{ upsell_variant.id }}"
+            data-upsell-image="{{ upsell_variant.featured_image | image_url: width: 400 }}"
+          >
+            {{- section.settings.upsell_btn_text -}}
+          </a>
+        </div>
+        {% comment %} second upshell {% endcomment %}
+        {% assign upsell_product_2 = section.settings.upsell_product_2 %}
+        {% assign upsell_variant_2 = upsell_product_2.variants.first %}
+
+        <div class="upsell-inner">
+          <div class="upsell-content">
+            <div class="upsell-icon" bis_skin_checked="1">
+              <img
+                src="
+                  {% if upsell_variant_2.featured_image %}
+                    {{ upsell_variant_2.featured_image | image_url: width: 100 }}
+                  {% else %}
+                    {{ upsell_product_2.featured_image | image_url: width: 100 }}
+                  {% endif %}
+                "
+                alt="{{ upsell_product_2.title }}"
+                loading="lazy"
+              >
+            </div>
+            <div class="upsell-content-details">
+              <div class="upsell-title">{{ section.settings.upsell_title_2 }}</div>
+              <div class="upsell-desc">{{ section.settings.upsell_desc_2 }}</div>
+            </div>
+          </div>
+          <a
+            href="{{ section.settings.upsell_url }}"
+            class="upsell-btn su-btn teal"
+            data-upsell-variant-id="{{ upsell_variant_2.id }}"
+            data-upsell-image="{{ upsell_variant_2.featured_image | image_url: width: 400 }}"
+          >
+            {{ section.settings.upsell_btn_text_2 }}
+          </a>
+        </div>
+      
+      </div>  {% endcomment %}
+      {% comment %} upshell end {% endcomment %}
     </div>
   </div>
 </section>
@@ -317,7 +396,7 @@
   }
     /* ── PURCHASE ────────────────────────────────────── */
     .purchase-sec{background:var(--surface);border-top:1px solid var(--border)}
-    .purchase-visual{height:220px;background:linear-gradient(135deg,#060e0c,#0a1614);border:1px solid rgba(0,191,168,.15);display:flex;align-items:center;justify-content:center;font-size:90px;position:relative;overflow:hidden;border-radius:8px;margin-bottom:24px}
+    .purchase-visual{height:220px;background: #ea580c1a;border:1px solid var(--orange);display:flex;align-items:center;justify-content:center;font-size:90px;position:relative;overflow:hidden;border-radius:8px;margin-bottom:24px}
     .purchase-visual::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 70% at 50% 40%,rgba(0,191,168,.08) 0%,transparent 70%)}
     @media(min-width:1024px){
       .purchase-inner{display:grid;grid-template-columns:50% 1fr;gap:64px;align-items:start}
@@ -332,7 +411,7 @@
     .size-label{font-family:var(--f-dis);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#d0d0d0;margin-bottom:10px;display:block}
     .size-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:20px}
     .sopt{background:var(--page-bg);border:2px solid var(--border);border-radius:6px;padding:14px 12px;cursor:pointer;transition:all .15s;position:relative;min-height:100px}
-    .sopt.sel{border-color:var(--teal);background:rgba(0,191,168,.06)}
+    .sopt.sel{border-color:var(--teal);background: #ea580c1a}
     .sopt-name{font-family:var(--f-dis);font-size:13px;font-weight:700;margin-bottom:2px}
     .sopt-desc{font-size:14px;color:#d0d0d0;margin-bottom:8px;line-height:1.4}
     .sopt-price{font-family:var(--f-dis);font-size:18px;font-weight:700}

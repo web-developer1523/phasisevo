@@ -293,6 +293,7 @@
       ],
       "name": " Relief Fighter Section",
       "settings": {
+        "custom_css_class": "",
         "eyebrow": "Who Uses Max Relief",
         "heading_line1": "Built for the people who",
         "heading_line2": "train through real pain.",
@@ -412,6 +413,7 @@
       ],
       "name": " Relief Fighter Section",
       "settings": {
+        "custom_css_class": "cst-maxfighter-sec",
         "eyebrow": "Who Uses Max Relief",
         "heading_line1": "Built for the people who",
         "heading_line2": "train through real pain.",
@@ -836,6 +838,31 @@
         "review_count": "8 verified reviews"
       }
     },
+    "apps_GQR4Lm": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_9N3CXK": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "max-relief",
+            "review_data": "no_reviews",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_9N3CXK"
+      ],
+      "custom_css": [
+        ".jdgm-rev-widg__body {display: none;}",
+        ".jdgm-row-actions {display: none;}",
+        ".jdgm-histogram.jdgm-temp-hidden {display: none !important;}"
+      ],
+      "settings": {
+        "include_margins": true,
+        "custom_class": "pro-review-sub"
+      }
+    },
     "relief_purchase_section_m9i8nr": {
       "type": "relief-purchase-section",
       "blocks": {
@@ -931,7 +958,7 @@
       ],
       "name": " Relief Purchase Section",
       "settings": {
-        "custom_css_class": "",
+        "custom_css_class": "cst-maxreliefpro-sec",
         "select_product": "max-relief-balm",
         "product_visual": "🧴",
         "eyebrow": "Max Relief Balm · CBD Topical",
@@ -1054,6 +1081,7 @@
     "relief_ecs_education_mjWU74",
     "relief_ingredients_section_h9A9nh",
     "relief_reviews_section_mahUHP",
+    "apps_GQR4Lm",
     "relief_purchase_section_m9i8nr",
     "phasis_electro_faq_zTrMJ4",
     "mobile_final_cta_HqXdxC"

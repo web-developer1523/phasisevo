@@ -62,6 +62,16 @@
         "margin_bottom": "m"
       }
     },
+    "custom_liquid_9Hmxf3": {
+      "type": "custom-liquid",
+      "custom_css": [
+        "div {padding-top: 10px; padding-bottom: 10px;}"
+      ],
+      "name": "t:sections.custom-liquid.presets.name",
+      "settings": {
+        "custom_liquid": "<iframe\n    src=\"https://api.leadconnectorhq.com/widget/form/p2DFHKaBz7PbOtQdHsBi\"\n    style=\"width:100%;height:100%;border:none;border-radius:8px\"\n    id=\"inline-p2DFHKaBz7PbOtQdHsBi\" \n    data-layout=\"{'id':'INLINE'}\"\n    data-trigger-type=\"alwaysShow\"\n    data-trigger-value=\"\"\n    data-activation-type=\"alwaysActivated\"\n    data-activation-value=\"\"\n    data-deactivation-type=\"neverDeactivate\"\n    data-deactivation-value=\"\"\n    data-form-name=\"Lead Capture Form\"\n    data-height=\"745\"\n    data-layout-iframe-id=\"inline-p2DFHKaBz7PbOtQdHsBi\"\n    data-form-id=\"p2DFHKaBz7PbOtQdHsBi\"\n    title=\"Lead Capture Form\"\n    \n        >\n</iframe>\n<script src=\"https://link.msgsndr.com/js/form_embed.js\"></script>"
+      }
+    },
     "featured_blog": {
       "type": "featured-blog",
       "settings": {
@@ -97,6 +107,7 @@
   },
   "order": [
     "main_article",
+    "custom_liquid_9Hmxf3",
     "featured_blog"
   ]
 }

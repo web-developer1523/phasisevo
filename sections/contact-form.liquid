@@ -40,7 +40,7 @@
             </p>
           {%- endif -%}
 
-          {%- form 'contact', id: 'ContactForm' -%}
+          {% comment %} {%- form 'contact', id: 'ContactForm' -%}
             {%- if form.posted_successfully? -%}
               <div class="form-status form-status-list form__message" tabindex="-1" autofocus>
                 {% render 'icon-success' %}
@@ -160,7 +160,12 @@
                 </div>
               {% endif %}
             </div>
-          {%- endform -%}
+          {%- endform -%} {% endcomment %}
+          {%- if section.settings.after_form_custom_code != blank -%}
+  <div class="contact-form__custom-code">
+    {{ section.settings.after_form_custom_code }}
+  </div>
+{%- endif -%}
         </div>
           <!-- **Yahan niche right side contact info wala section add kar diya hai** -->
         <div class="contact-form__aside">
@@ -243,6 +248,12 @@
       ],
       "default": "center"
     },
+    {
+  "type": "liquid",
+  "id": "after_form_custom_code",
+  "label": "After Form – Custom Code",
+  "info": "Add custom HTML, JS, or tracking code that will appear below the contact form"
+},
     {
       "type": "header",
       "content": "t:sections.all.content_options.header.content"

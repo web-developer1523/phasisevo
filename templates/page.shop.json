@@ -186,10 +186,10 @@
         "bg_color": "#18191c",
         "icon": "🧬",
         "title": "Want to improve your health but not sure where to begin?",
-        "description": "The PHASIS Protocol Scan identifies your starting point in 3 minutes-holistic-first, product recommendations second",
+        "description": "The PHASIS Protocol Scan finds your starting point in under 10 minutes — lifestyle first, supplements second.",
         "button_text": "● FIND YOUR PROTOCOL",
         "button_link": "shopify://pages/quiz",
-        "button_bg_color": "#e8482a",
+        "button_bg_color": "#dc2626",
         "button_text_color": "#ffffff"
       }
     },
@@ -211,7 +211,7 @@
             "show_glow": true,
             "emoji": "🧴",
             "category_text": "Recovery · CBD Topical",
-            "category_color": "#e8482a",
+            "category_color": "#dc2626",
             "product_name": "Max Relief Balm",
             "tagline": "4-pathway formula. Pharmaceutical nerve block + full spectrum CBD at 20mg/ml + botanical anti-inflammatories.",
             "feature_1": "Lidocaine HCl — pharmaceutical nerve block",
@@ -238,7 +238,7 @@
             "product": "electro-drops",
             "featured": false,
             "coming_soon": false,
-            "badge_text": "★New",
+            "badge_text": "Best Seller",
             "badge_type": "new",
             "bg_gradient": "linear-gradient(135deg,#060e0c,#0a1614)",
             "show_gradient": true,
@@ -246,7 +246,7 @@
             "show_glow": true,
             "emoji": "💧",
             "category_text": "Recovery · CBD Topical",
-            "category_color": "#00bfa8",
+            "category_color": "#ea580c",
             "product_name": "Electro+ Drops",
             "tagline": "Liquid mineral concentrate. Drop into any drink. No powder, no sugar, no sweeteners. 50+ trace minerals",
             "feature_1": "Liquid drops — not powder, no mess",
@@ -256,12 +256,12 @@
             "feature_color_class": "teal",
             "price": "From $25",
             "price_sub": "",
-            "button_text": "ADD TO CART",
+            "button_text": "ADD To Cart",
             "button_link": "shopify://pages/electro-plus",
-            "button_style": "t",
+            "button_style": "o",
             "cs_title": "Launching Soon",
             "cs_subtext": "Join the waitlist for early access",
-            "cs_button_text": "GET EARLY ACCESS",
+            "cs_button_text": "PRE-Order",
             "cs_link": "shopify://pages/electro-plus",
             "cs_button_style": "t"
           }
@@ -272,8 +272,8 @@
             "category": "recovery",
             "product": "perform",
             "featured": false,
-            "coming_soon": true,
-            "badge_text": "Coming Soon",
+            "coming_soon": false,
+            "badge_text": "New",
             "badge_type": "soon",
             "bg_gradient": "linear-gradient(135deg,#0e0a04,#141008)",
             "show_gradient": true,
@@ -281,24 +281,24 @@
             "show_glow": true,
             "emoji": "💊",
             "category_text": "Performance · β-Ecdysterone",
-            "category_color": "#d4831a",
+            "category_color": "#dc2626",
             "product_name": "Perform+",
             "tagline": "250mg β-Ecdysterone per capsule — 25% above the WADA study dose. Non-hormonal. Safe for men and women.",
             "feature_1": "250mg ecdysterone — above clinical study dose",
             "feature_2": "WADA study: +2kg lean muscle in 10 weeks",
             "feature_3": "Non-hormonal · No PCT · Sport safe",
             "feature_4": "1:4 cyclodextrin complex for max absorption",
-            "feature_color_class": "amber",
+            "feature_color_class": "coral",
             "price": "From $49",
-            "price_sub": "30 or 60 caps",
-            "button_text": "NOTIFY ME",
-            "button_link": "",
-            "button_style": "a",
+            "price_sub": "",
+            "button_text": "Add To Cart",
+            "button_link": "shopify://pages/perform-plus",
+            "button_style": "p",
             "cs_title": "Launching Soon",
             "cs_subtext": "Join the waitlist for early access",
             "cs_button_text": "PRE-Order",
             "cs_link": "shopify://pages/perform-plus",
-            "cs_button_style": "a"
+            "cs_button_style": "p"
           }
         },
         "product_GrcpAE": {
@@ -316,7 +316,7 @@
             "show_glow": true,
             "emoji": "🧴",
             "category_text": "Recovery · CBD Topical",
-            "category_color": "#2ab8cf",
+            "category_color": "#0284c7",
             "product_name": "Relief Balm",
             "tagline": "All-natural recovery balm. Organic hemp + 12 plant oils. Clean, plant-based formula — gentle enough for daily use, smooth enough for massage.",
             "feature_1": "Organic hemp · full spectrum CBD",
@@ -328,12 +328,12 @@
             "price_sub": "",
             "button_text": "ADD TO CART",
             "button_link": "shopify://pages/relief",
-            "button_style": "t",
+            "button_style": "db",
             "cs_title": "",
             "cs_subtext": "",
             "cs_button_text": "",
             "cs_link": "",
-            "cs_button_style": "a"
+            "cs_button_style": "db"
           }
         }
       },
@@ -344,7 +344,9 @@
         "product_GrcpAE"
       ],
       "name": "Shop Product Grid",
-      "settings": {}
+      "settings": {
+        "custom_Css_Class": "cst-shopmain-sec"
+      }
     },
     "shop_stack_section_krdepn": {
       "type": "shop-stack-section",
@@ -411,14 +413,15 @@
       ],
       "name": "Shop Stack",
       "settings": {
+        "custom_Css_Class": "cst-nothing-sec",
         "eyebrow": "The PHASIS System",
         "heading": "Everything your body needs.<br><em>Nothing it doesn't.</em>",
         "description": "Max Relief for recovery, aches, and soreness. Electro+ to replenish what you sweat out and keep you going. Perform+ to build lean muscle and elevate performance — without the hormones. One system. Built to help you feel and perform better.",
         "total_label": "The PHASIS Stack",
         "original_price_text": "$190 separately",
-        "sale_price": "$162",
+        "sale_price": "$190",
         "save_text": "— Save $28",
-        "button_text": "BUILD MY STACK",
+        "button_text": "Add Phasis Stack",
         "button_link": "",
         "visual_img_1": "shopify://shop_images/max-relief-1200mg-60ml.png",
         "visual_img_2": "shopify://shop_images/electro-drop-plus-1oz.png",
@@ -574,6 +577,7 @@
       ],
       "name": "Shop FAQ",
       "settings": {
+        "custom_Css_Class": "cst-faqsh-sec",
         "eyebrow": "Quick Answers",
         "heading": "Common Questions",
         "subheading": "Everything you need to know before ordering."
@@ -586,11 +590,11 @@
         "custom_css_class": "",
         "eyebrow": "One System. Built For You.",
         "heading": "Not sure where to <em>start?</em>",
-        "text": "The PHASIS Protocol Scan identifies your starting point in 3 minutes-holistic first, product recommendations 2nd.",
-        "button_text": "Take the 3-Minute Scan",
+        "text": "The PHASIS Protocol Scan finds your starting point in under 10 minutes — lifestyle first, supplements second.",
+        "button_text": "Start Your PHASIS Scan",
         "button_url": "shopify://pages/quiz",
         "section_id": "",
-        "trust_1": "3 minutes",
+        "trust_1": "Under 10 minutes",
         "trust_2": "Holistic-first",
         "trust_3": "Personalized protocol"
       }

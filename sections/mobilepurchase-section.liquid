@@ -303,6 +303,75 @@
         >
           {{ section.settings.button_text }}
         </button>
+        {% comment %} mobile stack {% endcomment %}
+         <!-- UPSELL -->
+      <div class="stack-upsell cst-upshell-mobile">
+        <div class="su-label">{{ section.settings.upsell_label }}</div>
+
+        {% for block in section.blocks %}
+          {% if block.type == 'upsell' %}
+            {% assign upsell_product = block.settings.product %}
+            {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+            <div class="su-item">
+              <div class="su-item-l">
+                <div class="su-icon">
+                  {% if upsell_product != blank and upsell_product.featured_image %}
+                    <img
+                      src="
+                        {% if upsell_product.handle == 'electro-drops' %}
+                          {% assign ed_variant = upsell_product.variants | where: 'title', '120ml' | first %}
+                          {% if ed_variant and ed_variant.featured_image %}
+                            {{ ed_variant.featured_image | image_url: width: 80 }}
+                          {% else %}
+                            {{ upsell_product.featured_image | image_url: width: 80 }}
+                          {% endif %}
+                        {% else %}
+                          {{ upsell_product.featured_image | image_url: width: 80 }}
+                        {% endif %}
+                      "
+                      alt="{{ upsell_product.title }}"
+                      style="width:40px;height:40px;object-fit:cover;border-radius:6px;"
+                    >
+                  {% else %}
+                    {{ block.settings.icon }}
+                  {% endif %}
+                </div>
+                <div>
+                  <div class="su-name">
+                    {% if upsell_product != blank %}
+                      {{ upsell_product.title }}
+                    {% else -%}
+                      {{- block.settings.name }}
+                    {% endif %}
+                  </div>
+                  <div class="su-desc">{{ block.settings.desc }}</div>
+                </div>
+              </div>
+              {% comment %} {% assign upsell_product = block.settings.product %} {% endcomment %}
+              {% assign upsell_product = block.settings.product %}
+
+              {% assign upsell_variant = upsell_product.selected_or_first_available_variant %}
+
+              {% if upsell_product.handle == 'max-relief-balm' %}
+                {% assign upsell_variant = upsell_product.variants | where: 'title', 'Jar — 60ml' | first %}
+              {% endif %}
+
+              {% if upsell_product.handle == 'electro-drops' %}
+                {% assign upsell_variant = upsell_product.variants | where: 'title', '120ml' | first %}
+              {% endif %}
+              <a
+                href="{{ block.settings.link }}"
+                class="su-btn glow-cta {{ block.settings.color }}"
+                data-variant-id="{{ upsell_variant.id }}"
+                data-img="{{ upsell_variant.featured_image | image_url: width: 300 }}"
+              >
+                {{ block.settings.button_text }}
+              </a>
+            </div>
+          {% endif %}
+        {% endfor %}
+      </div>
+         {% comment %} mobile stack {% endcomment %}
         <!-- GUARANTEES -->
         <div class="guarantees mt-4">
           {% for block in section.blocks %}
@@ -398,7 +467,7 @@
       }
       .pi-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
       .pi-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--amber);flex-shrink:0}
-      .pi-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--amber)}
+      .pi-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:#DC2626}
       .pi-h{font-family:var(--f-dis);font-weight:700;font-size:27px;letter-spacing:-0.02em;line-height:1.1;margin-bottom:10px}
       .pi-tagline{font-size:15px;color:#d0d0d0;line-height:1.65;margin-bottom:24px}
       @media(min-width:768px){.pi-h{font-size:36px}}
@@ -435,8 +504,8 @@
       .su-name{font-family:var(--f-dis);font-size:12px;font-weight:700}
       .su-desc{font-size:12px;color:#d0d0d0;margin-top:1px}
       .su-btn{flex-shrink:0;display:flex;align-items:center;gap:4px;font-family:var(--f-dis);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:8px 12px;border-radius:4px;border:none;cursor:pointer;min-height:36px;white-space:nowrap}
-      .su-btn.coral{background:rgba(232,72,42,.15);color:var(--coral);border:1px solid rgba(232,72,42,.25)}
-      .su-btn.teal{background:rgba(0,191,168,.12);color:var(--teal);border:1px solid rgba(0,191,168,.25)}
+      .su-btn.coral{background:rgba(232,72,42,.15);color:var(--);border:1px solid rgba(232,72,42,.25)}
+      .su-btn.teal{background:rgba(232,72,42,.15);color:var(--red);border:1px solid rgba(232,72,42,.15)}
 
 
       .custom-product-thumbnails {

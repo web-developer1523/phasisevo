@@ -549,6 +549,122 @@
         "subtext": "Every ingredient is plant-derived and chosen for a specific role..."
       }
     },
+    "relief_reviews_section_dxbgw4": {
+      "type": "relief-reviews-section",
+      "blocks": {
+        "rating_bar_Cm8R7t": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "5★",
+            "percent": 88
+          }
+        },
+        "rating_bar_QdfALq": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "4★",
+            "percent": 15
+          }
+        },
+        "rating_bar_raX8jr": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "3★",
+            "percent": 0
+          }
+        },
+        "rating_bar_hj9rHD": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "2★",
+            "percent": 0
+          }
+        },
+        "rating_bar_qReAPd": {
+          "type": "rating_bar",
+          "settings": {
+            "label": "1★",
+            "percent": 0
+          }
+        },
+        "review_wfMtBQ": {
+          "type": "review",
+          "settings": {
+            "featured": true,
+            "stars": "★★★★★",
+            "text": "\"I have disc disease and have tried everything on the market. This is the only thing that actually works. The relief is almost immediate and lasts for hours.\"",
+            "name": "Megan T",
+            "meta": "Max Relief · Recovery & Soreness",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_LWfqmG": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": "★★★★★",
+            "text": "\"I train BJJ and tried Voltaren, IcyHot, everything else. PHASIS is the only thing that actually gets deep enough. Non-negotiable part of my training recovery.\"",
+            "name": "Marcus D.",
+            "meta": "Max Relief · BJJ Competitor",
+            "tag": "Verified purchase"
+          }
+        },
+        "review_BXky6L": {
+          "type": "review",
+          "settings": {
+            "featured": false,
+            "stars": "★★★★★",
+            "text": "\"Post rotator cuff surgery, the pain is relentless. Max Relief sinks deep and relieves the stiffness. Genuinely a game changer for my recovery.\"",
+            "name": "Sharon Cook",
+            "meta": "Max Relief · Post-Surgery",
+            "tag": "Verified purchase"
+          }
+        }
+      },
+      "block_order": [
+        "rating_bar_Cm8R7t",
+        "rating_bar_QdfALq",
+        "rating_bar_raX8jr",
+        "rating_bar_hj9rHD",
+        "rating_bar_qReAPd",
+        "review_wfMtBQ",
+        "review_LWfqmG",
+        "review_BXky6L"
+      ],
+      "name": " Max Reviews Section",
+      "settings": {
+        "custom_css_class": "cst-reliefrev-sec",
+        "eyebrow": "Verified Reviews",
+        "heading_line1": "Real People.",
+        "heading_line2": "Real Results.",
+        "button_text": "All Reviews",
+        "button_link": "",
+        "rating_score": "4.9",
+        "rating_stars": "★★★★★",
+        "review_count": "8 verified reviews"
+      }
+    },
+    "apps_Nfz9aV": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_6eVfex": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "relief-balm",
+            "review_data": "no_reviews",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_6eVfex"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true,
+        "custom_class": "pro-review-sub"
+      }
+    },
     "newrelief_purchase_xQP83L": {
       "type": "newrelief-purchase",
       "blocks": {
@@ -728,6 +844,8 @@
     "relief_fighter_aWVmAy",
     "relief_solution_custom_wLa7zf",
     "relief_ingred_FXQ6Wz",
+    "relief_reviews_section_dxbgw4",
+    "apps_Nfz9aV",
     "newrelief_purchase_xQP83L",
     "new_relief_faq_4NHEKP",
     "relief_finalcta_hgKwxq"

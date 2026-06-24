@@ -7,7 +7,7 @@
   - JavaScript for toggling is included in the theme or can be added.
 {% endcomment %}
 
-<section class="faq-sec section">
+<section class="faq-sec section {{section.settings.custom_Css_Class }}">
     <span class="eyebrow">{{ section.settings.eyebrow }}</span>
     <h2>{{ section.settings.heading }}</h2>
     <p class="faq-top-sub">{{ section.settings.subheading }}</p>
@@ -114,6 +114,11 @@
   {
     "name": "Shop FAQ",
     "settings": [
+        {
+        "type": "text",
+        "id": "custom_Css_Class",
+        "label": "Custom CSS Class"
+      },
       {
         "type": "text",
         "id": "eyebrow",

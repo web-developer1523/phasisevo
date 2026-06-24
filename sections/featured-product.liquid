@@ -1377,7 +1377,7 @@
       assign seo_media = product.featured_media
     endif
   -%}
-
+{% comment %} {% if product %}
   <script type="application/ld+json">
     {
     	"@context": "http://schema.org/",
@@ -1422,6 +1422,7 @@
     	]
     }
   </script>
+ {% endif %}  {% endcomment %}
 {% endif %}
 
 {%- if first_3d_model -%}

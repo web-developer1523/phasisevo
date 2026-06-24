@@ -7,7 +7,7 @@
   - Includes items, total savings, and visual representation.
 {% endcomment %}
 
-<section class="stack-sec section" id="stack">
+<section class="stack-sec section {{section.settings.custom_Css_Class }}" id="stack">
   <div class="stack-inner">
     <div>
       <div class="stack-eyebrow-row">
@@ -46,7 +46,7 @@
               {% assign total_price = total_price | plus: price %}
               {% assign total_compare_price = total_compare_price | plus: compare_price %}
             {% endif %}
-            <div class="si" data-variant-id="{% if product != blank %}{{ target_variant.id }}{% endif %}"  onclick="this.classList.toggle('active')">
+            <div class="si" data-variant-id="{% if product != blank %}{{ target_variant.id }}{% endif %}">
               <div class="si-emoji">
                 {% if product != blank %}
                   <img
@@ -105,7 +105,7 @@
           </div>
           <div class="st-sale">
             {% if has_product %}
-              {{ total_price | money | replace: '.00', '' }}
+              {{ total_price  |  minus: 2800  | money | replace: '.00', '' }}
             {% else %}
               {{ section.settings.sale_price }}
             {% endif %}
@@ -162,8 +162,8 @@
   /* ── STACK SECTION ───────────────────────────────── */
   .stack-sec{background:var(--surface);border-top:1px solid var(--border)}
   .stack-eyebrow-row{display:flex;align-items:center;gap:10px;margin-bottom:16px}
-  .stack-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--coral);flex-shrink:0}
-  .stack-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--coral)}
+  .stack-eyebrow-row::before{content:'';width:20px;height:2px;background:var(--red);flex-shrink:0}
+  .stack-eyebrow-row span{font-family:var(--f-mark);font-size:10px;font-weight:500;font-style:italic;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
   .stack-sec h2{margin-bottom:14px}
   .stack-p{font-size:14px;font-weight:300;color:#d0d0d0;line-height:1.75;margin-bottom:20px}
 
@@ -178,7 +178,7 @@
   .stack-total{display:flex;align-items:center;justify-content:space-between;padding:14px 14px;background:rgba(232,72,42,.07);border:1px solid rgba(232,72,42,.2);border-radius:6px;margin-bottom:16px}
   .st-label{font-family:var(--f-dis);font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
   .st-original{font-size:12px;color:var(--muted);text-decoration:line-through}
-  .st-sale{font-family:var(--f-dis);font-size:22px;font-weight:800;color:var(--coral)}
+  .st-sale{font-family:var(--f-dis);font-size:22px;font-weight:800;color:var(--red)}
   .st-save{font-size:11px;color:var(--coral);font-weight:600}
 
   /* Stack visual — desktop only */
@@ -193,7 +193,7 @@
     .sv-sub{font-size:14px;color:#d0d0d0;margin-bottom:24px;position:relative;z-index:1}
     .sv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;position:relative;z-index:1}
     .sv-stat{background:rgba(255,255,255,.04);border:1px solid var(--border);border-radius:6px;padding:12px}
-    .sv-stat-val{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--coral);display:block;margin-bottom:3px}
+    .sv-stat-val{font-family:var(--f-dis);font-size:18px;font-weight:800;color:var(--red);display:block;margin-bottom:3px}
     .sv-stat-lbl{font-size:14px;color:#d0d0d0}
   }
 .sv-emojis {
@@ -231,11 +231,28 @@ document.addEventListener('DOMContentLoaded', function () {
         });
       }
     });
+{% comment %} individually ad dproduct {% endcomment %}
+   if (itemsArray.length === 0) {
 
-    if (itemsArray.length === 0) {
+  const allItems = document.querySelectorAll('.si');
+
+  [...allItems].reverse().forEach((item) => {
+    const variantId = item.dataset.variantId;
+
+    if (variantId) {
+      itemsArray.push({
+        id: parseInt(variantId),
+        quantity: 1
+      });
+    }
+  });
+
+}
+{% comment %} end {% endcomment %}
+    {% comment %} if (itemsArray.length === 0) {
       alert('No products selected!');
       return;
-    }
+    } {% endcomment %}
 
     // Ek hi request mein saare products bhejna (Best Practice)
     fetch(window.Shopify.routes.root + 'cart/add.js', {
@@ -293,6 +310,11 @@ function updateCartCounter() {
 {
   "name": "Shop Stack",
   "settings": [
+     {
+      "type": "text",
+      "id": "custom_Css_Class",
+      "label": "Custm CSS Classt"
+    },
     {
       "type": "text",
       "id": "eyebrow",

@@ -15,7 +15,7 @@
         "custom_css_class": "cst-green-banner",
         "eyebrow": "Mineral-First · No Sugar · No Powder · No Mess",
         "title": "Water Isn't<br>Enough.<br><em>Better Minerals.<br>Half the Price.</em>",
-        "hook": "Every workout, your body loses minerals water can't replace. <strong>Electro+ is a liquid concentrate</strong> — 20 drops into any drink. No powder. No packets. No mess. 50+ trace minerals. Zero sugar. From $0.50 per serving.",
+        "hook": "Every workout, your body loses minerals water can't replace. <strong>Electro+ is a liquid concentrate</strong> — 20 drops into any drink. No powder. No packets. No mess. 50+ trace minerals. Zero sugar. From $0.46 per serving.",
         "pill_1": "Liquid drops",
         "pill_2": "Any beverage",
         "pill_3": "~75% less vs LMNT",
@@ -138,7 +138,7 @@
         "approach_point_hz4Mae": {
           "type": "approach_point",
           "settings": {
-            "text": "<b>From $0.50 per serving.</b> — up to 75% less than powder brands"
+            "text": "<b>From $0.46 per serving.</b> — up to 75% less than powder brands"
           }
         },
         "approach_point_qHpqtF": {
@@ -284,7 +284,7 @@
           "type": "row",
           "settings": {
             "feature": "Cost per serving",
-            "col_1_text": "From $0.50",
+            "col_1_text": "From $0.46",
             "col_1_state": "yes",
             "col_2_text": "~$1.50",
             "col_2_state": "no",
@@ -512,6 +512,27 @@
         "bar_1": 0
       }
     },
+    "178220861454b047ed": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_3aGDFN": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "electro-drops",
+            "review_data": "no_reviews",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_3aGDFN"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true,
+        "custom_class": "pro-review-sub"
+      }
+    },
     "purchase": {
       "type": "phasis-electro-purchase",
       "blocks": {
@@ -520,7 +541,7 @@
           "settings": {
             "badge": "STANDARD",
             "name": "1oz — 30 Servings",
-            "desc": "20 drops = 1 serving. Count your drops.",
+            "desc": "20 drops = 0.83 serving. Count your drops.",
             "price": "$25",
             "serving_note": "$0.83/serving vs $1.50 LMNT",
             "product": ""
@@ -532,8 +553,8 @@
             "badge": "BEST VALUE",
             "name": "4oz — 120 Servings",
             "desc": "Graduated 1mL dropper. No counting — just fill to the line.",
-            "price": "$45",
-            "serving_note": "$0.38/serving vs $1.50 LMNT",
+            "price": "$55",
+            "serving_note": "$0.46/serving vs $1.50 LMNT",
             "product": ""
           }
         },
@@ -578,7 +599,7 @@
         "tagline": "Liquid mineral concentrate. No powder. No sugar. No sweeteners. Drop it in anything. 50+ trace minerals per serving.",
         "size_label": "Choose Your Size",
         "price_main": "$25",
-        "price_note": "· $0.50 per serving",
+        "price_note": "· $0.83 per serving",
         "price_sub": "No subscription · Ships in 1-3 business days",
         "cta_text": "ADD TO CART — GET ELECTRO+",
         "cta_url": "",
@@ -591,9 +612,9 @@
         "upsell_product": "max-relief-balm",
         "upsell_btn_text": "ADD",
         "upsell_url": "",
-        "upsell_title_2": "Electro+ Drops",
-        "upsell_desc_2": "Electro+ handles hydration. Replenish minerals · From $25",
-        "upsell_product_2": "electro-drops",
+        "upsell_title_2": "Perform+",
+        "upsell_desc_2": "Perform+ handles hydration. Replenish minerals · From $49",
+        "upsell_product_2": "perform",
         "upsell_btn_text_2": "ADD",
         "use_product": true,
         "product": "electro-drops",
@@ -615,7 +636,7 @@
           "type": "faq_item",
           "settings": {
             "question": "How is this different from LMNT or Liquid IV?",
-            "answer": "Three big differences. First, price — LMNT is about $1.50 per packet. Electro+ is $0.50 per serving on the 4oz — about 75% less. Second, format — LMNT and Liquid IV are powder packets. Electro+ is a liquid dropper — 20 drops into anything in seconds, no mess, adjustable dose. Third, mineral spectrum — LMNT has 4 electrolytes. Electro+ delivers 50+. More minerals, better format, fraction of the cost."
+            "answer": "Three big differences. First, price of LMNT is about $1.50 per packet. Electro+ is $0.46 per serving on the 4oz and about 75% less. Second, format — LMNT and Liquid IV are powder packets. Electro+ is liquid based — 20 drops into anything in seconds, no mess, adjustable dose. Third, mineral spectrum — LMNT has 4 electrolytes. Electro+ delivers 50+. More minerals, better format, fraction of the cost."
           }
         },
         "faq_item_xiK8AT": {
@@ -629,7 +650,7 @@
           "type": "faq_item",
           "settings": {
             "question": "Is the 4oz worth it vs the 1oz?",
-            "answer": "The math is straightforward. The 4oz is $45 for 120 servings — $0.38 per serving. LMNT is roughly $1.50 per packet. For 120 servings of LMNT you would pay $180. If you plan to use it daily, the 4oz is the obvious value. If you have never tried it, start with the 1oz. The 30-day guarantee means you risk nothing."
+            "answer": "The math is straightforward. The 4oz is $55 for 120 servings — $0.46 per serving. LMNT is roughly $1.50 per packet. For 120 servings of LMNT you would pay $180. If you plan to use it daily, the 4oz is the obvious value. If you have never tried it, start with the 1oz. The 30-day guarantee means you risk nothing."
           }
         },
         "faq_item_QwAhjU": {
@@ -678,6 +699,7 @@
     "versus_competitors",
     "science",
     "social_proof",
+    "178220861454b047ed",
     "purchase",
     "faq",
     "final_cta"

@@ -18,9 +18,15 @@
       <div class="policy-header-dynamic">
         <span class="policy-tag">LEGAL</span>
 
-        <div class="policy-title">
-          {{ block.settings.tab_title }}
-        </div>
+        {% if forloop.first %}
+  <h1 class="policy-title">
+    {{ block.settings.tab_title }}
+  </h1>
+{% else %}
+  <div class="policy-title">
+    {{ block.settings.tab_title }}
+  </div>
+{% endif %}
 
         <p class="policy-meta">
           {% comment %} Last updated: January 1, 2026 &middot; {{ shop.name }} {% endcomment %}
@@ -65,8 +71,8 @@
 }
 
 .ptab.active {
-  color: var(--coral);
-  border-bottom-color: var(--coral);
+  color: var(--red);
+  border-bottom-color: var(--red);
 }
 
 .ptab:hover:not(.active) {

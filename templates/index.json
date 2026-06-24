@@ -251,6 +251,27 @@
         "review_label": "8 verified reviews"
       }
     },
+    "apps_TjgL3t": {
+      "type": "apps",
+      "blocks": {
+        "judge_me_reviews_review_widget_homepage_tnwjdk": {
+          "type": "shopify://apps/judge-me-reviews/blocks/review_widget_homepage/61ccd3b1-a9f2-4160-9fe9-4fec8413e5d8",
+          "settings": {
+            "product": "max-relief-balm",
+            "review_data": "no_reviews",
+            "max_width": 1200
+          }
+        }
+      },
+      "block_order": [
+        "judge_me_reviews_review_widget_homepage_tnwjdk"
+      ],
+      "custom_css": [],
+      "settings": {
+        "include_margins": true,
+        "custom_class": "pro-review-sub"
+      }
+    },
     "featured_product_HKzAnR": {
       "type": "featured-product",
       "blocks": {
@@ -588,7 +609,7 @@
         "heading_line1": "Recovery needs",
         "heading_line2": "more than relief.",
         "heading_highlight": "Replenish too.",
-        "description": "Max Relief handles aches and soreness. Electro+ handles what your body loses during injury and training — the minerals and electrolytes your muscles need to actually rebuild.",
+        "description": "Max Relief handles aches and soreness. Electro+ handles what your body loses during injury and training; the minerals and electrolytes your muscles need to actually rebuild.",
         "left_btn_text": "SHOP ELECTRO+",
         "left_btn_link": "shopify://pages/electro-plus",
         "product": "electro-drops",
@@ -704,17 +725,17 @@
       "name": "Perform Coming Soon",
       "settings": {
         "custom_css_class": "cst-perform-sec",
-        "eyebrow": "Coming Soon · Endurance & Strength",
+        "eyebrow": "Endurance & Strength",
         "heading_line1": "Nature's Most",
         "heading_line2": "Powerful Anabolic.",
         "heading_highlight": "Perform+",
         "description": "<p>Built around <strong>β-Ecdysterone</strong> — a clinically studied plant compound proven to increase muscle protein synthesis and endurance output. All the gains. None of the hormonal risk.</p>",
-        "form_label": "Get early access + launch-day pricing",
+        "form_label": "Subscribe & get better pricing",
         "placeholder": "your@email.com",
         "button_text": "NOTIFY ME",
         "show_dot": false,
         "note": "No spam. First access + exclusive pricing for subscribers.",
-        "status_text": "Launching Soon",
+        "status_text": "New Product",
         "product_name": "Perform+",
         "product_sub": "β-Ecdysterone · Muscle & Endurance Formula",
         "launch_label": "EST. LAUNCH",
@@ -748,6 +769,59 @@
         "second_section_id": "",
         "button_style_2": "primary",
         "button_dot_2": true,
+        "margin_top": "s",
+        "margin_bottom": "s",
+        "section_id": ""
+      }
+    },
+    "rich_text_mWgnek": {
+      "type": "rich-text",
+      "blocks": {
+        "guarantee_4YWntj": {
+          "type": "guarantee",
+          "settings": {
+            "text": "30-day guarantee"
+          }
+        },
+        "guarantee_ffrVc7": {
+          "type": "guarantee",
+          "settings": {
+            "text": "Free shipping $75+"
+          }
+        },
+        "guarantee_PdP6mJ": {
+          "type": "guarantee",
+          "settings": {
+            "text": "No subscription"
+          }
+        }
+      },
+      "block_order": [
+        "guarantee_4YWntj",
+        "guarantee_ffrVc7",
+        "guarantee_PdP6mJ"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "custom_css_class": "cst-evolv-sec",
+        "section_layout": "column",
+        "subheading": "Built for People Who Refuse to Stay the Same",
+        "heading": "Made to Evolve.",
+        "heading_2": "",
+        "section_heading_tag": "h2",
+        "heading_size": "h2",
+        "dot": false,
+        "text": "<p>One system. Max Relief, Electro+, and Perform+ — built on real science, tested every batch, priced fairly.</p>",
+        "button_label": "SHOP ALL PRODUCTS",
+        "button_link": "shopify://pages/phasis-shop",
+        "first_section_id": "purchase",
+        "button_style": "primary",
+        "button_dot": true,
+        "button_label_2": "🧬 Start Your PHASIS Scan",
+        "button_link_2": "shopify://pages/quiz",
+        "second_section_id": "purchase",
+        "button_style_2": "primary",
+        "button_dot_2": false,
         "margin_top": "s",
         "margin_bottom": "s",
         "section_id": ""
@@ -831,59 +905,6 @@
         "section_button_style": "primary",
         "margin_top": "s",
         "margin_bottom": "s"
-      }
-    },
-    "rich_text_mWgnek": {
-      "type": "rich-text",
-      "blocks": {
-        "guarantee_4YWntj": {
-          "type": "guarantee",
-          "settings": {
-            "text": "30-day guarantee"
-          }
-        },
-        "guarantee_ffrVc7": {
-          "type": "guarantee",
-          "settings": {
-            "text": "Free shipping $75+"
-          }
-        },
-        "guarantee_PdP6mJ": {
-          "type": "guarantee",
-          "settings": {
-            "text": "No subscription"
-          }
-        }
-      },
-      "block_order": [
-        "guarantee_4YWntj",
-        "guarantee_ffrVc7",
-        "guarantee_PdP6mJ"
-      ],
-      "name": "t:sections.rich-text.presets.name",
-      "settings": {
-        "custom_css_class": "cst-evolv-sec",
-        "section_layout": "column",
-        "subheading": "Built for People Who Refuse to Stay the Same",
-        "heading": "Made to Evolve.",
-        "heading_2": "",
-        "section_heading_tag": "h2",
-        "heading_size": "h2",
-        "dot": false,
-        "text": "<p>One system. Max Relief, Electro+, and Perform+ — built on real science, tested every batch, priced fairly.</p>",
-        "button_label": "SHOP ALL PRODUCTS",
-        "button_link": "shopify://pages/phasis-shop",
-        "first_section_id": "purchase",
-        "button_style": "primary",
-        "button_dot": true,
-        "button_label_2": "🧬 Take the 3-min Scan",
-        "button_link_2": "shopify://pages/quiz",
-        "second_section_id": "purchase",
-        "button_style_2": "primary",
-        "button_dot_2": false,
-        "margin_top": "s",
-        "margin_bottom": "s",
-        "section_id": ""
       }
     },
     "rich_text_nhehhp": {
@@ -1396,6 +1417,7 @@
       ],
       "name": "t:sections.newsletter.name",
       "settings": {
+        "custom_css_class": "",
         "color_scheme": "background-1",
         "v_align": "row",
         "heading": "Rep the Movement",
@@ -1529,7 +1551,8 @@
             "show_drop_shadow": false,
             "transition_speed": 5,
             "header_text": "",
-            "show_average_rating": false
+            "show_average_rating": false,
+            "rating_display": "default"
           }
         }
       },
@@ -1545,35 +1568,6 @@
         "include_margins": true,
         "custom_class": ""
       }
-    },
-    "176945993353a0cdea": {
-      "type": "apps",
-      "blocks": {
-        "goodapi_sprout_impact_banner_xe7qyY": {
-          "type": "shopify://apps/goodapi-sprout/blocks/impact-banner/7db5ee24-2195-4099-b98e-1547c600e4aa",
-          "settings": {
-            "include_padding": false,
-            "hide_tree_count": false,
-            "hide_plastics_count": false,
-            "hide_donations": false,
-            "donation_label": "<p>In Donations</p>",
-            "redirect_uri": "",
-            "padding": 0,
-            "fit_content_height": false,
-            "show_learn_more": false,
-            "learn_more_text": "Learn More",
-            "learn_more_url": ""
-          }
-        }
-      },
-      "block_order": [
-        "goodapi_sprout_impact_banner_xe7qyY"
-      ],
-      "disabled": true,
-      "settings": {
-        "include_margins": false,
-        "custom_class": ""
-      }
     }
   },
   "order": [
@@ -1581,6 +1575,7 @@
     "hero_max_relief_p8QaVp",
     "trust_bar_iyArea",
     "proof_strip_kLjbNB",
+    "apps_TjgL3t",
     "featured_product_HKzAnR",
     "how_it_works_8nrYjk",
     "ingredient_section_HUbFMJ",
@@ -1600,7 +1595,6 @@
     "newsletter_ENtVTU",
     "product_slider_ie8eQT",
     "testimonials_jVD3KB",
-    "1764762338914e48b3",
-    "176945993353a0cdea"
+    "1764762338914e48b3"
   ]
 }
